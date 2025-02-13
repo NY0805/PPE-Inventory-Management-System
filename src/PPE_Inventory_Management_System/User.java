@@ -9,7 +9,5 @@ package PPE_Inventory_Management_System;
  * @author user
  */
 public class User {
-    public static void main (String[] args) {
-        
-    }
+    
 }
