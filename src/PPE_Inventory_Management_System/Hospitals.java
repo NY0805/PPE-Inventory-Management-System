@@ -9,5 +9,5 @@ package PPE_Inventory_Management_System;
  * @author user
  */
 public class Hospitals {
-    // attributes here
+    // attributes here hihihi
 }
