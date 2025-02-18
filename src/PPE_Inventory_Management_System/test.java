@@ -22,15 +22,13 @@ public class test {
         ArrayList<String> Names = new ArrayList<>();
         ArrayList<String> Ages = new ArrayList<>();
         
-        for(int i=0; i<4; i++){
-            System.out.println("enter name: ");
+        System.out.println("enter name: ");
             String name = input.nextLine();
             Names.add(name);
             System.out.println("enter age: ");
             int age = input.nextInt();
             input.nextLine();
             Ages.add(String.valueOf(age));
-        }
         
         String[] headers = {"Name", "Age"};
         String[][] data = new String[Names.size()][headers.length];
