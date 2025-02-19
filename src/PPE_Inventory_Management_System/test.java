@@ -17,7 +17,8 @@ import java.util.Scanner;
  */
 public class test {
     public static void main (String[] args) {
-        FileHandling file1 = new FileHandling();
+        
+        FileHandling file1 = new FileHandling();                
         Scanner input = new Scanner(System.in);
         ArrayList<String> Names = new ArrayList<>();
         ArrayList<String> Ages = new ArrayList<>();

@@ -42,12 +42,15 @@ public class FileHandling {
     
     
     // READ FILE
-    public static void readDataFromFile(String filename) throws IOException {
+    public void ReadDataFromFile(String filename) throws IOException {
         BufferedReader readFile = new BufferedReader(new FileReader(filename));
-        String line = readFile.readLine();
-        while (line != null) {
+//        String line = readFile.readLine();
+        String line;
+        
+        while ((line=readFile.readLine()) != null) {
             System.out.println(line);
         }
+        readFile.close();
     }
     
     
