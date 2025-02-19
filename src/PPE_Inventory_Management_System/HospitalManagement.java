@@ -4,13 +4,20 @@
  */
 package PPE_Inventory_Management_System;
 
-//password: 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
-//pull > edit > commit > pull > push
+import javax.swing.*;
 
 /**
  *
  * @author user
  */
-public class User {
+public class HospitalManagement extends JPanel {
+    
+    public HospitalManagement(){
+        
+    }
+    
+    public static void main (String[] args) {
+        
+    }
     
 }

@@ -4,22 +4,15 @@
  */
 package PPE_Inventory_Management_System;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
+//import java.awt.BorderLayout;
+//import java.awt.Color;
+//import java.awt.Dimension;
+//import java.awt.FlowLayout;
+//import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  *
@@ -37,11 +30,12 @@ public class signUpPage extends JFrame implements ActionListener {
     public signUpPage() {
         // set up the frame
         setTitle("PPE Inventory Register");
-        setSize(800, 600);
+        setBounds(350, 110, 800, 600);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // set up the wrapper
+        // set up the Panel
         JPanel signUpContainer = new JPanel();
         signUpContainer.setPreferredSize(new Dimension(400, 600));
         signUpContainer.setBackground(new Color(0xFFFFFF));
@@ -115,7 +109,7 @@ public class signUpPage extends JFrame implements ActionListener {
         JRadioButton staff = new JRadioButton("Staff");
         admin.setFocusable(false);
         staff.setFocusable(false);
-
+        
         ButtonGroup userTypeGroup = new ButtonGroup();
         userTypeGroup.add(admin);
         userTypeGroup.add(staff);
