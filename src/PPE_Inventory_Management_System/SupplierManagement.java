@@ -30,16 +30,16 @@ public class SupplierManagement extends JPanel {
         return SupplierTF;
     }
     
-    private void ArrangeInRow(String label, JTextField FormTF, Font LabelFont){
-        JPanel FormPanel = new JPanel();
-        FormPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 4));
-        JLabel FormLabel = new JLabel(label);
-        
-        FormLabel.setFont(LabelFont);
-        FormPanel.add(FormLabel);
-        FormPanel.add(FormTF);
-        add(FormPanel);
-    }
+//    private void ArrangeInRow(String label, JTextField FormTF, Font LabelFont){
+//        JPanel FormPanel = new JPanel();
+//        FormPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 4));
+//        JLabel FormLabel = new JLabel(label);
+//        
+//        FormLabel.setFont(LabelFont);
+//        FormPanel.add(FormLabel);
+//        FormPanel.add(FormTF);
+//        add(FormPanel);
+//    }
     
     public SupplierManagement() {
         Font labelFont = new Font("Arial", Font.PLAIN, 18);
@@ -52,14 +52,14 @@ public class SupplierManagement extends JPanel {
         Font Sup_TF_Font = new Font("Serif", Font.PLAIN, 18);
         Dimension Sup_TF_Size = new Dimension(600, 30);
         
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(5, 5, 5, 5);
+//        setLayout(new GridBagLayout());
+//        GridBagConstraints gbc = new GridBagConstraints();
+//        gbc.fill = GridBagConstraints.HORIZONTAL;
+//        gbc.insets = new Insets(5, 5, 5, 5);
         
-        gbc.gridx = 0; gbc.gridy = 0;
-        add(ArrangeInRow("Supplier Code:", SupplierCode, labelFont), gbc);
-        gbc.gridy++;
+//        gbc.gridx = 0; gbc.gridy = 0;
+//        add(ArrangeInRow("Supplier Code:", SupplierCode, labelFont), gbc);
+//        gbc.gridy++;
         
         
         SupplierCode = TextFieldDesign(Sup_TF_Font, Sup_TF_Size);
@@ -70,12 +70,29 @@ public class SupplierManagement extends JPanel {
         PPESupplies = TextFieldDesign(Sup_TF_Font, Sup_TF_Size);
         
         
-        ArrangeInRow("Supplier Name:", SupplierName, labelFont);
-        ArrangeInRow("Contact Number:", SupplierContact, labelFont);
-        ArrangeInRow("Email:", SupplierEmail, labelFont);
-        ArrangeInRow("Address:", SupplierAddress, labelFont);
-        ArrangeInRow("PPE Supplies:", PPESupplies, labelFont);
-        
+//        ArrangeInRow("Supplier Name:", SupplierName, labelFont);
+//        ArrangeInRow("Contact Number:", SupplierContact, labelFont);
+//        ArrangeInRow("Email:", SupplierEmail, labelFont);
+//        ArrangeInRow("Address:", SupplierAddress, labelFont);
+//        ArrangeInRow("PPE Supplies:", PPESupplies, labelFont);
+
+        add(new JLabel("Supplier Code:"));        
+        add(SupplierCode);
+
+        add(new JLabel("Supplier Name:"));
+        add(SupplierName);
+
+        add(new JLabel("Contact Number:"));
+        add(SupplierContact);
+
+        add(new JLabel("Email:"));
+        add(SupplierEmail);
+
+        add(new JLabel("Address:"));
+        add(SupplierAddress);
+
+        add(new JLabel("PPE Supplies:"));
+        add(PPESupplies);
 
 
         AddSupplier = new JButton("Add Supplier");
