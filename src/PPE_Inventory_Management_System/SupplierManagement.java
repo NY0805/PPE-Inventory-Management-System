@@ -71,12 +71,6 @@ public class SupplierManagement extends JPanel {
         add(ViewSupplier);
 
     }
-    
-    public static void main (String[] args) {
-        Main supplier_1 = new Main();
-//        supplier_1.SupplierManagement = new SupplierManagement();
-        
-    }
-    
+  
 }
 
