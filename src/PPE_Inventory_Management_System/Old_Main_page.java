@@ -14,9 +14,9 @@ import javax.swing.*;
  *
  * @author user
  */
-public class Main extends JFrame{
+public class Old_Main_page extends JFrame{
     
-    public Main() {
+    public Old_Main_page() {
         
         Font TopNavFont = new Font("Arial", Font.BOLD, 14);
         UIManager.put("TabbedPane.font", TopNavFont);
@@ -73,7 +73,7 @@ public class Main extends JFrame{
     }
     
     public static void main (String[] args) {
-        new Main();
+        new Old_Main_page();
     }
 
 }
