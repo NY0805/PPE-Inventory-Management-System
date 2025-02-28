@@ -27,7 +27,7 @@ public class FileHandling {
         }
         File file = new File(filename);
         try(FileWriter writeFile = new FileWriter(filename, true)) {
-            // insert the headers if the file is empty
+//            // insert the headers if the file is empty
             if (file.length() == 0) {
                 writeFile.write(String.join("\t", headers) + "\n");
             }
@@ -37,6 +37,9 @@ public class FileHandling {
             }
             System.out.println("Data saved to " + filename); 
         }
+    
+        
+        
         
     }
     

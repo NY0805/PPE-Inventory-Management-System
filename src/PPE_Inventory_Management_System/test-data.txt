@@ -1,5 +1,0 @@
-Name	Age
-example	12
-hihi	67
-erd	33
-noway	45
