@@ -5,6 +5,9 @@
 package PPE_Inventory_Management_System;
 
 import java.awt.CardLayout;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -1014,9 +1017,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField10ActionPerformed
 
     private void btnAddSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierSaveActionPerformed
-        StaffMain.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, tfAddSupplierAddress, 
-                                 checkFaceShield, checkGloves, checkGown, checkHeadCover, 
-                                 checkMask, checkShoeCovers); // not finished
+        try {
+            SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, tfAddSupplierAddress,
+                    checkFaceShield, checkGloves, checkGown, checkHeadCover,
+                    checkMask, checkShoeCovers);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddSupplierSaveActionPerformed
 
     /**

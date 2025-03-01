@@ -4,7 +4,6 @@
  */
 package PPE_Inventory_Management_System;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,11 +37,11 @@ public class test {
             data[i][1] = Ages.get(i);
         }
         
-        try {
-            file1.WriteDataToFile("test-data.txt", headers, data);
-        } catch (IOException e) {
-            System.out.println("Error writing file: " + e.getMessage());
-        }
+//        try {
+//            file1.WriteDataToFile("test-data.txt", headers, data);
+//        } catch (IOException e) {
+//            System.out.println("Error writing file: " + e.getMessage());
+//        }
             
     }
     

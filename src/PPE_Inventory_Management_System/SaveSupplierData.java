@@ -7,19 +7,22 @@ package PPE_Inventory_Management_System;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
  *
  * @author user
  */
-public class StaffMain {
+public class SaveSupplierData {
     public static void saveSupplier(JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextField tfAddSupplierAddress, 
                                     JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 
-                                    JCheckBox checkMask, JCheckBox checkShoeCovers) {
-        String supplier_name, supplier_contact, supplier_email, supplier_address;
+                                    JCheckBox checkMask, JCheckBox checkShoeCovers) throws IOException {
+        
+        String supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address;
         ArrayList<String> selectedPPE = new ArrayList<>();   
-
+        
+        supplier_id = ID_Generator.generate_id("supplier");
         supplier_name = tfAddSupplierName.getText();
         supplier_contact = tfAddSupplierContact.getText();
         supplier_email = tfAddSupplierEmail.getText();
@@ -44,21 +47,25 @@ public class StaffMain {
             selectedPPE.add("Shoe Covers");
         }
         String supplies_PPE = String.join(", ", selectedPPE);
-        String[] headers = {"Supplier Name", "Supplier Contact", "Supplier email", "Supplier Address", "PPE Supplies"};
-        String[][] data = new String[1][headers.length];
+        String[] headers = {"Supplier ID", "Supplier Name", "Supplier Contact", "Supplier email", "Supplier Address", "PPE Supplies"};
+        String[] data = {supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address, supplies_PPE};
+ 
         
-        data[0][0] = supplier_name;
-        data[0][1] = supplier_contact;
-        data[0][2] = supplier_email;
-        data[0][3] = supplier_address;
-        data[0][4] = supplies_PPE;
+        FileHandling supplierFile = new FileHandling();
+        supplierFile.WriteDataToFile("suppliers.txt", headers, data);
+        JOptionPane.showMessageDialog(null, "Supplier saved successfully!");
         
-        try {
-            FileHandling supplierFile = new FileHandling();
-            supplierFile.WriteDataToFile("suppliers.txt", headers, data);
-        } catch (IOException e) {
-            System.out.println("Error writing file: " + e.getMessage());
-        }
+        tfAddSupplierName.setText("");
+        tfAddSupplierContact.setText("");
+        tfAddSupplierEmail.setText("");
+        tfAddSupplierAddress.setText("");
+
+        checkFaceShield.setSelected(false);
+        checkGloves.setSelected(false);
+        checkGown.setSelected(false);
+        checkHeadCover.setSelected(false);
+        checkMask.setSelected(false);
+        checkShoeCovers.setSelected(false);
     }
     
     
