@@ -52,20 +52,28 @@ public class SaveSupplierData {
  
         
         FileHandling supplierFile = new FileHandling();
-        supplierFile.WriteDataToFile("suppliers.txt", headers, data);
-        JOptionPane.showMessageDialog(null, "Supplier saved successfully!");
-        
-        tfAddSupplierName.setText("");
-        tfAddSupplierContact.setText("");
-        tfAddSupplierEmail.setText("");
-        tfAddSupplierAddress.setText("");
+        if (!supplier_id.isEmpty() && !supplier_name.isEmpty() && !supplier_contact.isEmpty() && !supplier_email.isEmpty() && !supplier_address.isEmpty() && !supplies_PPE.isEmpty()){
+            supplierFile.WriteDataToFile("suppliers.txt", headers, data);
+            JOptionPane.showMessageDialog(null, "Supplier saved successfully!");
+            
+            tfAddSupplierName.setText("");
+            tfAddSupplierContact.setText("");
+            tfAddSupplierEmail.setText("");
+            tfAddSupplierAddress.setText("");
 
-        checkFaceShield.setSelected(false);
-        checkGloves.setSelected(false);
-        checkGown.setSelected(false);
-        checkHeadCover.setSelected(false);
-        checkMask.setSelected(false);
-        checkShoeCovers.setSelected(false);
+            checkFaceShield.setSelected(false);
+            checkGloves.setSelected(false);
+            checkGown.setSelected(false);
+            checkHeadCover.setSelected(false);
+            checkMask.setSelected(false);
+            checkShoeCovers.setSelected(false);
+            
+                        
+        } else{
+            JOptionPane.showMessageDialog(null, "Please fill out all fields !");
+        }
+        
+        
     }
     
     

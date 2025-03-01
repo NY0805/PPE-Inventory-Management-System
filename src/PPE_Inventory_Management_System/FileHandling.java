@@ -25,15 +25,10 @@ public class FileHandling {
             System.out.println("No data to write!");
             return;
         }
-//        File file = new File(filename);
+
         BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, true));
-//        if (file.length() == 0) {
-//            writeFile.write(String.join("\t\t", headers) + "\n");
-//        }
-        
         for (int i = 0; i < headers.length; i++) {
-                writeFile.write(headers[i] + ": " + data[i] + "\n");
-            
+                writeFile.write(headers[i] + ": " + data[i] + "\n");            
         }
         writeFile.write("--------------------------------------------------\n");
         
@@ -41,8 +36,7 @@ public class FileHandling {
         writeFile.close();
 
     }
-    
-    
+        
     // READ FILE
     public void ReadDataFromFile(String filename) throws IOException {
         BufferedReader readFile = new BufferedReader(new FileReader(filename));

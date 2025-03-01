@@ -101,7 +101,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbAddSupplierEmail = new javax.swing.JLabel();
         tfAddSupplierName = new javax.swing.JTextField();
         tfAddSupplierContact = new javax.swing.JTextField();
-        btnAddSupplierCancel = new javax.swing.JButton();
+        btnAddSupplierReset = new javax.swing.JButton();
         btnAddSupplierSave = new javax.swing.JButton();
         tfAddSupplierEmail = new javax.swing.JTextField();
         lbAddSupplierAddress = new javax.swing.JLabel();
@@ -705,8 +705,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbAddSupplierEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbAddSupplierEmail.setText("Email:");
 
-        btnAddSupplierCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddSupplierCancel.setText("Cancel");
+        btnAddSupplierReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddSupplierReset.setText("Reset");
+        btnAddSupplierReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSupplierResetActionPerformed(evt);
+            }
+        });
 
         btnAddSupplierSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAddSupplierSave.setText("Save");
@@ -746,7 +751,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btnAddSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
-                        .addComponent(btnAddSupplierCancel))
+                        .addComponent(btnAddSupplierReset))
                     .addGroup(pAddSupplierLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -807,7 +812,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(checkShoeCovers))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddSupplierCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
@@ -1020,11 +1025,25 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         try {
             SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, tfAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
-                    checkMask, checkShoeCovers);
+                    checkMask, checkShoeCovers);   
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddSupplierSaveActionPerformed
+
+    private void btnAddSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierResetActionPerformed
+        tfAddSupplierName.setText("");
+        tfAddSupplierContact.setText("");
+        tfAddSupplierEmail.setText("");
+        tfAddSupplierAddress.setText("");
+
+        checkFaceShield.setSelected(false);
+        checkGloves.setSelected(false);
+        checkGown.setSelected(false);
+        checkHeadCover.setSelected(false);
+        checkMask.setSelected(false);
+        checkShoeCovers.setSelected(false);
+    }//GEN-LAST:event_btnAddSupplierResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1062,7 +1081,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddSupplierCancel;
+    private javax.swing.JButton btnAddSupplierReset;
     private javax.swing.JButton btnAddSupplierSave;
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnHospital;
