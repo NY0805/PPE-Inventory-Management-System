@@ -5,6 +5,7 @@
 package PPE_Inventory_Management_System;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,17 +27,28 @@ public class FileHandling {
             return;
         }
         File file = new File(filename);
-        try(FileWriter writeFile = new FileWriter(filename, true)) {
-//            // insert the headers if the file is empty
-            if (file.length() == 0) {
-                writeFile.write(String.join("\t", headers) + "\n");
-            }
-            // insert data
-            for(String[] row: data){
-                writeFile.write(String.join("\t", row) + "\n");
-            }
-            System.out.println("Data saved to " + filename); 
+        BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, true));
+        if (file.length() == 0) {
+            writeFile.write(String.join("\t", headers) + "\n");
         }
+        
+        for(String[] row: data){
+            writeFile.write(String.join("\t", row) + "\n");
+        }
+        System.out.println("Data saved to " + filename);
+        writeFile.close();
+        
+//        try(FileWriter writeFile = new FileWriter(filename, true)) {
+////            // insert the headers if the file is empty
+//            if (file.length() == 0) {
+//                writeFile.write(String.join("\t", headers) + "\n");
+//            }
+//            // insert data
+//            for(String[] row: data){
+//                writeFile.write(String.join("\t", row) + "\n");
+//            }
+//            System.out.println("Data saved to " + filename); 
+//        }
     
         
         
