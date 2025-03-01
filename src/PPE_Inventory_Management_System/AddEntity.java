@@ -9,11 +9,9 @@ package PPE_Inventory_Management_System;
  * @author User
  */
 public abstract class AddEntity {
-    
-    // need protected?
-    
-    String id;
-    String name;
+        
+    protected String id;
+    protected String name;
         
     public AddEntity(String id, String name) {
         this.id = id;
@@ -21,7 +19,7 @@ public abstract class AddEntity {
     }
     
     // assume the data will and must be save into file after call add method
-    public abstract boolean saveToFile();
-    public abstract void displayOptionPane();
+    public abstract boolean validate();
+    public abstract void saveToFile();
     public abstract void returnToDefault();
 }

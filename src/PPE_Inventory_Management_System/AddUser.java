@@ -22,9 +22,18 @@ public class AddUser extends AddEntity {
     private JTextField tfName;
     private JPasswordField tfPassword;
     private ButtonGroup buttonGroup;
+    private ValidateEntity validator = new ValidateEntity();
+
+    public AddUser(String id, String name, JTextField tfName, 
+            JPasswordField tfPassword, ButtonGroup buttonGroup) {
+        super("", "");
+        this.tfName = new JTextField();
+        this.tfPassword = new JPasswordField();
+        this.buttonGroup = new ButtonGroup();
+    }
 
     public AddUser(String id, String name, String password, String userType,
-                   JTextField tfName, JPasswordField tfPassword, ButtonGroup buttonGroup) {
+            JTextField tfName, JPasswordField tfPassword, ButtonGroup buttonGroup) {
         super(id, name);
         this.password = password;
         this.userType = userType;
@@ -34,32 +43,32 @@ public class AddUser extends AddEntity {
     }
 
     @Override
-    public boolean saveToFile() {
-        FileHandling userFile = new FileHandling();
-        String filename = "user.txt";
-        String[] headers = {"User ID", "Name", "Password", "User Type"};
-        String[] data = {id, name, password, userType};
-
-        try {
-            userFile.WriteDataToFile("user.txt", headers, data);
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
+    public boolean validate() {
+        return validator.validateName(tfName.getText())
+                && validator.validatePassword(password)
+                && validator.validateUserType(userType);
     }
 
     @Override
-    public void displayOptionPane() {
-        boolean success = saveToFile();
+    public void saveToFile() {
+        if (validate()) {
+            FileHandling userFile = new FileHandling();
+            String filename = "user.txt";
+            String[] headers = {"User ID", "Name", "Password", "User Type"};
+            String[] data = {id, name, password, userType};
 
-        if (success) {
-            JOptionPane.showMessageDialog(null, "User saved successfully!");
-            returnToDefault();
+            try {
+                userFile.WriteDataToFile("user.txt", headers, data);
+                JOptionPane.showMessageDialog(null, "User saved successfully!");
+                returnToDefault();
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Fail to add user...!");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Fail to add user...!");
+            JOptionPane.showMessageDialog(null, "Validate error");
         }
     }
-    
+
     @Override
     public void returnToDefault() {
         tfName.setText("");

@@ -11,30 +11,17 @@ import javax.swing.JLabel;
  * @author User
  */
 
-public abstract class ValidateEntity {
+public class ValidateEntity {
     
-    String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$";
+    private String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$";
 
     public boolean validateName(String name) {
-        return name != null && !name.trim().isEmpty();
+        return name != null && !name.trim().isEmpty() && name.matches("^[a-zA-Z ]+$");
     }
 
     public boolean validateId(String id) {
         return id != null && !id.trim().isEmpty();
     }
-//    
-//    public boolean validatePasswordWhileKeyup(String password, boolean length, 
-//            boolean upper, boolean lower, boolean number, boolean specialChar) {
-//        if (password.matches(".*[A-Z].*")) {
-//            return upper = true;
-//        } else if (password.matches(".*[a-z].*")) {
-//            return lower = true;
-//        } else if (password.matches(".*\\d.*")) {
-//            return number = true;
-//        } else if (password.matches(".*[@#$%^&+=!].*")) {
-//            return specialChar = true;
-//        }
-//    }
 
     public boolean validatePassword(String password) {
         return password != null && password.matches(regex);
