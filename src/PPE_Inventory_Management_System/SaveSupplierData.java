@@ -8,14 +8,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
 public class SaveSupplierData {
-    public static void saveSupplier(JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextField tfAddSupplierAddress, 
+    public static void saveSupplier(JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextArea taAddSupplierAddress, 
                                     JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 
                                     JCheckBox checkMask, JCheckBox checkShoeCovers) throws IOException {
         
@@ -26,7 +28,7 @@ public class SaveSupplierData {
         supplier_name = tfAddSupplierName.getText();
         supplier_contact = tfAddSupplierContact.getText();
         supplier_email = tfAddSupplierEmail.getText();
-        supplier_address = tfAddSupplierAddress.getText();
+        supplier_address = taAddSupplierAddress.getText();
 
         if (checkFaceShield.isSelected()) {
             selectedPPE.add("Face Shield");
@@ -59,7 +61,7 @@ public class SaveSupplierData {
             tfAddSupplierName.setText("");
             tfAddSupplierContact.setText("");
             tfAddSupplierEmail.setText("");
-            tfAddSupplierAddress.setText("");
+            taAddSupplierAddress.setText("");
 
             checkFaceShield.setSelected(false);
             checkGloves.setSelected(false);
@@ -68,7 +70,15 @@ public class SaveSupplierData {
             checkMask.setSelected(false);
             checkShoeCovers.setSelected(false);
             
-                        
+            ArrayList<String[]> users = supplierFile.ReadDataFromFile("suppliers.txt");
+        
+            DefaultTableModel model = supplierList.getModel();
+            model.setRowCount(0); // Clear table before inserting new data
+
+            for (String[] user : users) {
+                model.addRow(user); // Add each row to JTable
+            }
+        
         } else{
             JOptionPane.showMessageDialog(null, "Please fill out all fields !");
         }

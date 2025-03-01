@@ -91,11 +91,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pSupplierManagement = new javax.swing.JPanel();
         tfSearch1 = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        supplierList = new javax.swing.JTable();
+        jTable = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        supplierList = new javax.swing.JTable();
         tpUserProfileEditor1 = new javax.swing.JTabbedPane();
         pAddSupplier = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        taAddSupplierAddress = new javax.swing.JTextArea();
         lbAddSupplierName = new javax.swing.JLabel();
         lbAddSupplierContact = new javax.swing.JLabel();
         lbAddSupplierEmail = new javax.swing.JLabel();
@@ -105,7 +107,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         btnAddSupplierSave = new javax.swing.JButton();
         tfAddSupplierEmail = new javax.swing.JTextField();
         lbAddSupplierAddress = new javax.swing.JLabel();
-        tfAddSupplierAddress = new javax.swing.JTextField();
         lbAddSupplierPPE = new javax.swing.JLabel();
         checkFaceShield = new javax.swing.JCheckBox();
         checkHeadCover = new javax.swing.JCheckBox();
@@ -114,14 +115,27 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         checkMask = new javax.swing.JCheckBox();
         checkShoeCovers = new javax.swing.JCheckBox();
         pEditUser1 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lbEditSupplierID = new javax.swing.JLabel();
+        lbEditSupplierName = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        tfUserId1 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        tfEditSupplierName = new javax.swing.JTextField();
+        tfEditSupplierContact = new javax.swing.JTextField();
+        lbEditSupplierAddress = new javax.swing.JLabel();
+        tfEditSupplierEmail = new javax.swing.JTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        lbEditSupplierPPE = new javax.swing.JLabel();
+        checkFaceShield1 = new javax.swing.JCheckBox();
+        checkGloves1 = new javax.swing.JCheckBox();
+        checkMask1 = new javax.swing.JCheckBox();
+        checkShoeCovers1 = new javax.swing.JCheckBox();
+        checkGown1 = new javax.swing.JCheckBox();
+        checkHeadCover1 = new javax.swing.JCheckBox();
+        comboEditSupplierID = new javax.swing.JComboBox<>();
+        btnEditSupplierSave1 = new javax.swing.JButton();
+        btnEditSupplierReset = new javax.swing.JButton();
+        btnEditSupplierDelete = new javax.swing.JButton();
         pHospitalManagement = new javax.swing.JPanel();
         pReport = new javax.swing.JPanel();
 
@@ -663,7 +677,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         tfSearch1.setText("Search");
 
-        supplierList.setModel(new javax.swing.table.DefaultTableModel(
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"S001", "Tom", "012-3456789", "tom@gmail.com", "18, abcde 14000, New York", "Head Cover"},
                 {"S002", "Jerry", "012-3456789", "jerry@gmail.com", "23, defg, 47180 USA", "Face Shield, Mask"},
@@ -681,20 +695,31 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(supplierList);
+        jScrollPane4.setViewportView(jTable);
+        if (jTable.getColumnModel().getColumnCount() > 0) {
+            jTable.getColumnModel().getColumn(0).setHeaderValue("Supplier ID");
+            jTable.getColumnModel().getColumn(1).setHeaderValue("Supplier Name");
+            jTable.getColumnModel().getColumn(2).setHeaderValue("Contact");
+            jTable.getColumnModel().getColumn(3).setHeaderValue("Email");
+            jTable.getColumnModel().getColumn(4).setHeaderValue("Address");
+            jTable.getColumnModel().getColumn(5).setHeaderValue("PPE supplies");
+        }
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        supplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Supplier ID", "Supplier Name", "Contact", "Email", "Address", "PPE Supplies"
             }
         ));
-        jScrollPane5.setViewportView(jTable4);
+        jScrollPane5.setViewportView(supplierList);
+
+        taAddSupplierAddress.setColumns(20);
+        taAddSupplierAddress.setLineWrap(true);
+        taAddSupplierAddress.setRows(5);
+        taAddSupplierAddress.setWrapStyleWord(true);
+        jScrollPane6.setViewportView(taAddSupplierAddress);
 
         lbAddSupplierName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbAddSupplierName.setText("Name:");
@@ -753,20 +778,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addComponent(btnAddSupplierReset))
                     .addGroup(pAddSupplierLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbAddSupplierName)
-                            .addComponent(lbAddSupplierContact)
-                            .addComponent(lbAddSupplierEmail)
-                            .addComponent(lbAddSupplierAddress)
-                            .addComponent(lbAddSupplierPPE))
-                        .addGap(23, 23, 23)
+                        .addGap(20, 20, 20)
                         .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfAddSupplierName, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                            .addComponent(tfAddSupplierContact, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                            .addComponent(tfAddSupplierEmail)
-                            .addComponent(tfAddSupplierAddress)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAddSupplierLayout.createSequentialGroup()
+                            .addGroup(pAddSupplierLayout.createSequentialGroup()
+                                .addComponent(lbAddSupplierPPE)
+                                .addGap(23, 23, 23)
                                 .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(checkFaceShield)
                                     .addComponent(checkGloves)
@@ -775,8 +791,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(checkShoeCovers)
                                     .addComponent(checkGown)
-                                    .addComponent(checkHeadCover))))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                                    .addComponent(checkHeadCover)))
+                            .addGroup(pAddSupplierLayout.createSequentialGroup()
+                                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbAddSupplierName)
+                                    .addComponent(lbAddSupplierContact)
+                                    .addComponent(lbAddSupplierEmail)
+                                    .addComponent(lbAddSupplierAddress))
+                                .addGap(26, 26, 26)
+                                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfAddSupplierName)
+                                    .addComponent(tfAddSupplierContact)
+                                    .addComponent(tfAddSupplierEmail)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         pAddSupplierLayout.setVerticalGroup(
             pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -794,23 +822,26 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(lbAddSupplierEmail)
                     .addComponent(tfAddSupplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbAddSupplierAddress)
-                    .addComponent(tfAddSupplierAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbAddSupplierPPE)
-                    .addComponent(checkFaceShield)
-                    .addComponent(checkHeadCover))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkGloves)
-                    .addComponent(checkGown))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkMask)
-                    .addComponent(checkShoeCovers))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pAddSupplierLayout.createSequentialGroup()
+                        .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbAddSupplierPPE)
+                            .addComponent(checkFaceShield))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkGloves)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkMask))
+                    .addGroup(pAddSupplierLayout.createSequentialGroup()
+                        .addComponent(checkHeadCover)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkGown)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkShoeCovers)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -819,69 +850,162 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         tpUserProfileEditor1.addTab("Add Supplier", pAddSupplier);
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setText("User ID:");
+        lbEditSupplierID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbEditSupplierID.setText("Supplier ID:");
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setText("Name:");
+        lbEditSupplierName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbEditSupplierName.setText("Name:");
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setText("Password:");
+        jLabel20.setText("Contact:");
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setText("User Type:");
+        jLabel21.setText("Email:");
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        tfEditSupplierContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                tfEditSupplierContactActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lbEditSupplierAddress.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbEditSupplierAddress.setText("Address:");
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
+        jTextArea3.setWrapStyleWord(true);
+        jScrollPane7.setViewportView(jTextArea3);
+
+        lbEditSupplierPPE.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbEditSupplierPPE.setText("Supplies:");
+
+        checkFaceShield1.setText("Face Shield");
+
+        checkGloves1.setText("Gloves");
+
+        checkMask1.setText("Mask");
+
+        checkShoeCovers1.setText("Shoe Covers");
+
+        checkGown1.setText("Gown");
+
+        checkHeadCover1.setText("Head Cover");
+
+        comboEditSupplierID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnEditSupplierSave1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditSupplierSave1.setText("Save");
+        btnEditSupplierSave1.setMaximumSize(new java.awt.Dimension(75, 27));
+        btnEditSupplierSave1.setMinimumSize(new java.awt.Dimension(75, 27));
+        btnEditSupplierSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditSupplierSave1ActionPerformed(evt);
+            }
+        });
+
+        btnEditSupplierReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditSupplierReset.setText("Reset");
+        btnEditSupplierReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditSupplierResetActionPerformed(evt);
+            }
+        });
+
+        btnEditSupplierDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditSupplierDelete.setText("Delete");
+        btnEditSupplierDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditSupplierDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pEditUser1Layout = new javax.swing.GroupLayout(pEditUser1);
         pEditUser1.setLayout(pEditUser1Layout);
         pEditUser1Layout.setHorizontalGroup(
             pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pEditUser1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(20, 20, 20)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pEditUser1Layout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEditSupplierSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pEditUser1Layout.createSequentialGroup()
                         .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel18))
-                        .addGap(22, 22, 22)
+                            .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbEditSupplierName)
+                                .addComponent(jLabel20)
+                                .addComponent(lbEditSupplierID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbEditSupplierAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbEditSupplierPPE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfUserId1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(tfEditSupplierName)
+                            .addComponent(tfEditSupplierContact, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(tfEditSupplierEmail)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(comboEditSupplierID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pEditUser1Layout.createSequentialGroup()
+                                .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkFaceShield1)
+                                    .addComponent(checkGloves1)
+                                    .addComponent(checkMask1))
+                                .addGap(18, 18, 18)
+                                .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkShoeCovers1)
+                                    .addComponent(checkGown1)
+                                    .addComponent(checkHeadCover1)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEditUser1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(btnEditSupplierReset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEditSupplierDelete)))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         pEditUser1Layout.setVerticalGroup(
             pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pEditUser1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(17, 17, 17)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfUserId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addGap(18, 18, 18)
+                    .addComponent(lbEditSupplierID)
+                    .addComponent(comboEditSupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addGap(18, 18, 18)
+                    .addComponent(tfEditSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEditSupplierName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEditSupplierContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
-                .addContainerGap(183, Short.MAX_VALUE))
+                    .addComponent(jLabel21)
+                    .addComponent(tfEditSupplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbEditSupplierAddress)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbEditSupplierPPE)
+                    .addGroup(pEditUser1Layout.createSequentialGroup()
+                        .addComponent(checkFaceShield1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkGloves1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkMask1))
+                    .addGroup(pEditUser1Layout.createSequentialGroup()
+                        .addComponent(checkHeadCover1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkGown1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkShoeCovers1)))
+                .addGap(18, 18, 18)
+                .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditSupplierSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEditSupplierDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         tpUserProfileEditor1.addTab("Edit Supplier", pEditUser1);
@@ -899,8 +1023,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                             .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 18, Short.MAX_VALUE))
+                        .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         pSupplierManagementLayout.setVerticalGroup(
             pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1017,13 +1141,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         titleLabel.setText("Report");
     }//GEN-LAST:event_btnReportActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void tfEditSupplierContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEditSupplierContactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_tfEditSupplierContactActionPerformed
 
     private void btnAddSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierSaveActionPerformed
         try {
-            SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, tfAddSupplierAddress,
+            SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
                     checkMask, checkShoeCovers);   
         } catch (IOException ex) {
@@ -1035,7 +1159,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         tfAddSupplierName.setText("");
         tfAddSupplierContact.setText("");
         tfAddSupplierEmail.setText("");
-        tfAddSupplierAddress.setText("");
+        taAddSupplierAddress.setText("");
 
         checkFaceShield.setSelected(false);
         checkGloves.setSelected(false);
@@ -1044,6 +1168,18 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         checkMask.setSelected(false);
         checkShoeCovers.setSelected(false);
     }//GEN-LAST:event_btnAddSupplierResetActionPerformed
+
+    private void btnEditSupplierSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierSave1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditSupplierSave1ActionPerformed
+
+    private void btnEditSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditSupplierResetActionPerformed
+
+    private void btnEditSupplierDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditSupplierDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1084,6 +1220,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnAddSupplierReset;
     private javax.swing.JButton btnAddSupplierSave;
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnEditSupplierDelete;
+    private javax.swing.JButton btnEditSupplierReset;
+    private javax.swing.JButton btnEditSupplierSave1;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
@@ -1092,23 +1231,27 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnUser;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox checkFaceShield;
+    private javax.swing.JCheckBox checkFaceShield1;
     private javax.swing.JCheckBox checkGloves;
+    private javax.swing.JCheckBox checkGloves1;
     private javax.swing.JCheckBox checkGown;
+    private javax.swing.JCheckBox checkGown1;
     private javax.swing.JCheckBox checkHeadCover;
+    private javax.swing.JCheckBox checkHeadCover1;
     private javax.swing.JCheckBox checkMask;
+    private javax.swing.JCheckBox checkMask1;
     private javax.swing.JCheckBox checkShoeCovers;
+    private javax.swing.JCheckBox checkShoeCovers1;
+    private javax.swing.JComboBox<String> comboEditSupplierID;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
@@ -1126,22 +1269,27 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTable jTable;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbAddSupplierAddress;
     private javax.swing.JLabel lbAddSupplierContact;
     private javax.swing.JLabel lbAddSupplierEmail;
     private javax.swing.JLabel lbAddSupplierName;
     private javax.swing.JLabel lbAddSupplierPPE;
+    private javax.swing.JLabel lbEditSupplierAddress;
+    private javax.swing.JLabel lbEditSupplierID;
+    private javax.swing.JLabel lbEditSupplierName;
+    private javax.swing.JLabel lbEditSupplierPPE;
     private javax.swing.JLabel lbRole;
     private javax.swing.JLabel lbUsername;
     private javax.swing.JPanel pAddSupplier;
@@ -1163,14 +1311,16 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel pTopBar;
     private javax.swing.JPanel pUserManagement;
     private javax.swing.JTable supplierList;
-    private javax.swing.JTextField tfAddSupplierAddress;
+    private javax.swing.JTextArea taAddSupplierAddress;
     private javax.swing.JTextField tfAddSupplierContact;
     private javax.swing.JTextField tfAddSupplierEmail;
     private javax.swing.JTextField tfAddSupplierName;
+    private javax.swing.JTextField tfEditSupplierContact;
+    private javax.swing.JTextField tfEditSupplierEmail;
+    private javax.swing.JTextField tfEditSupplierName;
     private javax.swing.JTextField tfSearch;
     private javax.swing.JTextField tfSearch1;
     private javax.swing.JTextField tfUserId;
-    private javax.swing.JTextField tfUserId1;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTabbedPane tpUserProfileEditor;
     private javax.swing.JTabbedPane tpUserProfileEditor1;
