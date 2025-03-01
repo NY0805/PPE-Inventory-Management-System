@@ -5,9 +5,11 @@
 package PPE_Inventory_Management_System;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonModel;
 
 /**
  *
@@ -62,17 +64,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pUserManagement = new javax.swing.JPanel();
         tpUserProfileEditor = new javax.swing.JTabbedPane();
         pAddUser = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        tfAddName = new javax.swing.JTextField();
+        rbAddAdmin = new javax.swing.JRadioButton();
+        rbAddStaff = new javax.swing.JRadioButton();
+        btnAddCancel = new javax.swing.JButton();
+        btnAddSave = new javax.swing.JButton();
+        lbLength = new javax.swing.JLabel();
+        lbUpper = new javax.swing.JLabel();
+        lbLower = new javax.swing.JLabel();
+        lbNumber = new javax.swing.JLabel();
+        lbSpecialChar = new javax.swing.JLabel();
+        tfAddPassword = new javax.swing.JPasswordField();
         pEditUser = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -159,7 +164,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
         pLogoLayout.setVerticalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 65, Short.MAX_VALUE)
+            .addGap(0, 66, Short.MAX_VALUE)
         );
 
         btnDashboard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -256,7 +261,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pTopBar.setBackground(new java.awt.Color(255, 255, 255));
 
         titleLabel.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        titleLabel.setText("Dashboard");
+        titleLabel.setText("User Management");
         titleLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -438,17 +443,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         pUserManagement.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("User ID:");
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Name:");
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setText("Password:");
@@ -456,73 +452,117 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("User Type:");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Admin");
+        buttonGroup1.add(rbAddAdmin);
+        rbAddAdmin.setText("Admin");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Staff");
+        buttonGroup1.add(rbAddStaff);
+        rbAddStaff.setText("Staff");
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton9.setText("Cancel");
+        btnAddCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddCancel.setText("Cancel");
 
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton10.setText("Save");
-        jButton10.setMaximumSize(new java.awt.Dimension(75, 27));
-        jButton10.setMinimumSize(new java.awt.Dimension(75, 27));
+        btnAddSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddSave.setText("Save");
+        btnAddSave.setMaximumSize(new java.awt.Dimension(75, 27));
+        btnAddSave.setMinimumSize(new java.awt.Dimension(75, 27));
+        btnAddSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSaveActionPerformed(evt);
+            }
+        });
+
+        lbLength.setForeground(new java.awt.Color(255, 0, 51));
+        lbLength.setText("At least 8 characters");
+
+        lbUpper.setForeground(new java.awt.Color(255, 0, 51));
+        lbUpper.setText("At least 1 uppercase");
+
+        lbLower.setForeground(new java.awt.Color(255, 0, 51));
+        lbLower.setText("At least 1 lowercase");
+
+        lbNumber.setForeground(new java.awt.Color(255, 0, 51));
+        lbNumber.setText("At least 1 number");
+
+        lbSpecialChar.setForeground(new java.awt.Color(255, 0, 51));
+        lbSpecialChar.setText("At least 1 special character");
+
+        tfAddPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfAddPasswordKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout pAddUserLayout = new javax.swing.GroupLayout(pAddUser);
         pAddUser.setLayout(pAddUserLayout);
         pAddUserLayout.setHorizontalGroup(
             pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAddUserLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addGap(23, 23, 23)
                 .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pAddUserLayout.createSequentialGroup()
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton9))
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(25, 25, 25)
                         .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                .addComponent(jTextField5)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pAddUserLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbAddStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rbAddAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pAddUserLayout.createSequentialGroup()
+                                .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel12))
+                                .addGap(23, 23, 23)
+                                .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pAddUserLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lbNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbLower, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbUpper, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbLength, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbSpecialChar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tfAddName)
+                                        .addComponent(tfAddPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))))
+                    .addGroup(pAddUserLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(btnAddSave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(btnAddCancel)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         pAddUserLayout.setVerticalGroup(
             pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAddUserLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfAddName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(tfAddPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbLength)
+                .addGap(2, 2, 2)
+                .addComponent(lbUpper)
+                .addGap(2, 2, 2)
+                .addComponent(lbLower)
+                .addGap(2, 2, 2)
+                .addComponent(lbNumber)
+                .addGap(2, 2, 2)
+                .addComponent(lbSpecialChar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jRadioButton1))
+                    .addComponent(rbAddAdmin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(rbAddStaff)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                    .addComponent(btnAddCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         tpUserProfileEditor.addTab("Add User", pAddUser);
@@ -998,9 +1038,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEditSupplierSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEditSupplierDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnEditSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnEditSupplierDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -1105,10 +1144,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
     private void titleLabelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_titleLabelInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_titleLabelInputMethodTextChanged
@@ -1145,7 +1180,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         try {
             SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
-                    checkMask, checkShoeCovers);   
+                    checkMask, checkShoeCovers);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1176,6 +1211,38 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnEditSupplierDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditSupplierDeleteActionPerformed
+
+    private void btnAddSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSaveActionPerformed
+        String userId = ID_Generator.generate_id("staff");
+        String name = tfAddName.getText();
+        String password = new String(tfAddPassword.getPassword());
+
+        rbAddAdmin.setActionCommand("Admin");
+        rbAddStaff.setActionCommand("Staff");
+
+        ButtonModel selectedButton = buttonGroup1.getSelection();
+        String userType = (selectedButton != null) ? selectedButton.getActionCommand() : "No Selection";
+
+        AddUser newUser = new AddUser(userId, name, password, userType, tfAddName, tfAddPassword, buttonGroup1);
+        newUser.displayOptionPane();
+    }//GEN-LAST:event_btnAddSaveActionPerformed
+
+    private void tfAddPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddPasswordKeyReleased
+        String password = new String(tfAddPassword.getPassword());
+
+        boolean hasUpper = password.matches(".*[A-Z].*");
+        boolean hasLower = password.matches(".*[a-z].*");
+        boolean hasNumber = password.matches(".*\\d.*");
+        boolean hasSpecial = password.matches(".*[@#$%^&+=!].*");
+        boolean hasLength = password.length() >= 8;
+
+        // Change label colors based on conditions
+        lbLength.setForeground(hasLength ? new Color(0x046307) : Color.RED);
+        lbUpper.setForeground(hasUpper ? new Color(0x046307) : Color.RED);
+        lbLower.setForeground(hasLower ? new Color(0x046307) : Color.RED);
+        lbNumber.setForeground(hasNumber ? new Color(0x046307) : Color.RED);
+        lbSpecialChar.setForeground(hasSpecial ? new Color(0x046307) : Color.RED);
+    }//GEN-LAST:event_tfAddPasswordKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1213,6 +1280,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddCancel;
+    private javax.swing.JButton btnAddSave;
     private javax.swing.JButton btnAddSupplierReset;
     private javax.swing.JButton btnAddSupplierSave;
     private javax.swing.JButton btnDashboard;
@@ -1240,9 +1309,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkShoeCovers1;
     private javax.swing.JComboBox<String> comboEditSupplierID;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1253,13 +1320,10 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1274,9 +1338,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lbAddSupplierAddress;
     private javax.swing.JLabel lbAddSupplierContact;
     private javax.swing.JLabel lbAddSupplierEmail;
@@ -1286,7 +1347,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbEditSupplierID;
     private javax.swing.JLabel lbEditSupplierName;
     private javax.swing.JLabel lbEditSupplierPPE;
+    private javax.swing.JLabel lbLength;
+    private javax.swing.JLabel lbLower;
+    private javax.swing.JLabel lbNumber;
     private javax.swing.JLabel lbRole;
+    private javax.swing.JLabel lbSpecialChar;
+    private javax.swing.JLabel lbUpper;
     private javax.swing.JLabel lbUsername;
     private javax.swing.JPanel pAddSupplier;
     private javax.swing.JPanel pAddUser;
@@ -1306,8 +1372,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel pSupplierManagement;
     private javax.swing.JPanel pTopBar;
     private javax.swing.JPanel pUserManagement;
+    private javax.swing.JRadioButton rbAddAdmin;
+    private javax.swing.JRadioButton rbAddStaff;
     private javax.swing.JTable supplierList;
     private javax.swing.JTextArea taAddSupplierAddress;
+    private javax.swing.JTextField tfAddName;
+    private javax.swing.JPasswordField tfAddPassword;
     private javax.swing.JTextField tfAddSupplierContact;
     private javax.swing.JTextField tfAddSupplierEmail;
     private javax.swing.JTextField tfAddSupplierName;
