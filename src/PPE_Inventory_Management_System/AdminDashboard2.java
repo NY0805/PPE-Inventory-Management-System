@@ -1016,7 +1016,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnAddSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierSaveActionPerformed
         StaffMain.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, tfAddSupplierAddress, 
                                  checkFaceShield, checkGloves, checkGown, checkHeadCover, 
-                                 checkMask, checkShoeCovers);
+                                 checkMask, checkShoeCovers); // not finished
     }//GEN-LAST:event_btnAddSupplierSaveActionPerformed
 
     /**
