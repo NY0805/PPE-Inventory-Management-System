@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -96,8 +97,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pInventoryManagement = new javax.swing.JPanel();
         pSupplierManagement = new javax.swing.JPanel();
         tfSearch1 = new javax.swing.JTextField();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         supplierList = new javax.swing.JTable();
         tpUserProfileEditor1 = new javax.swing.JTabbedPane();
@@ -142,6 +141,25 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         btnEditSupplierSave1 = new javax.swing.JButton();
         btnEditSupplierReset = new javax.swing.JButton();
         btnEditSupplierDelete = new javax.swing.JButton();
+        onTimeBar1 = new javax.swing.JLabel();
+        returnBar1 = new javax.swing.JLabel();
+        onTimeBar2 = new javax.swing.JLabel();
+        returnBar2 = new javax.swing.JLabel();
+        onTimeBar3 = new javax.swing.JLabel();
+        returnBar3 = new javax.swing.JLabel();
+        onTimeBar4 = new javax.swing.JLabel();
+        returnBar4 = new javax.swing.JLabel();
+        onTimeTag = new javax.swing.JLabel();
+        returnTag = new javax.swing.JLabel();
+        lbOnTime = new javax.swing.JLabel();
+        lbReturn = new javax.swing.JLabel();
+        lbSupplier1 = new javax.swing.JLabel();
+        lbSupplier2 = new javax.swing.JLabel();
+        lbSupplier3 = new javax.swing.JLabel();
+        lbSupplier4 = new javax.swing.JLabel();
+        btnFilter = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        chartTitle = new javax.swing.JLabel();
         pHospitalManagement = new javax.swing.JPanel();
         pReport = new javax.swing.JPanel();
 
@@ -402,7 +420,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pRecentRecords.setLayout(pRecentRecordsLayout);
         pRecentRecordsLayout.setHorizontalGroup(
             pRecentRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 986, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pRecentRecordsLayout.setVerticalGroup(
             pRecentRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,7 +449,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -579,7 +597,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(rbAddAdmin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbAddStaff)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(pAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -650,7 +668,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         tpUserProfileEditor.addTab("Edit User", pEditUser);
@@ -689,16 +707,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUserManagementLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addGroup(pUserManagementLayout.createSequentialGroup()
                         .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         pUserManagementLayout.setVerticalGroup(
             pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,11 +738,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pInventoryManagement.setLayout(pInventoryManagementLayout);
         pInventoryManagementLayout.setHorizontalGroup(
             pInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 986, Short.MAX_VALUE)
+            .addGap(0, 984, Short.MAX_VALUE)
         );
         pInventoryManagementLayout.setVerticalGroup(
             pInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 674, Short.MAX_VALUE)
         );
 
         pMain.add(pInventoryManagement, "pInventroyManagement");
@@ -734,43 +751,26 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         tfSearch1.setText("Search");
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"S001", "Tom", "012-3456789", "tom@gmail.com", "18, abcde 14000, New York", "Head Cover"},
-                {"S002", "Jerry", "012-3456789", "jerry@gmail.com", "23, defg, 47180 USA", "Face Shield, Mask"},
-                {"S003", "Jane", "012-3456789", "jane@gmail.com", "105, Taman Equine, 24678 Damansara", "Gown, Shoe Covers"}
-            },
-            new String [] {
-                "Supplier ID", "Supplier Name", "Contact", "Email", "Address", "PPE supplies"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(jTable);
-        if (jTable.getColumnModel().getColumnCount() > 0) {
-            jTable.getColumnModel().getColumn(0).setHeaderValue("Supplier ID");
-            jTable.getColumnModel().getColumn(1).setHeaderValue("Supplier Name");
-            jTable.getColumnModel().getColumn(2).setHeaderValue("Contact");
-            jTable.getColumnModel().getColumn(3).setHeaderValue("Email");
-            jTable.getColumnModel().getColumn(4).setHeaderValue("Address");
-            jTable.getColumnModel().getColumn(5).setHeaderValue("PPE supplies");
-        }
-
         supplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"S001", "Tom", "012-3456789", "tom@gmail.com", "18, abcde, 14000 New York", "Head Cover"},
+                {"S002", "Jerry", "012-3456789", "jerry@gmail.com", "23, defg, 47180 USA", "Face Shield, Mask"},
+                {"S003", "Peter", "012-3456789", "peter@gmail.com", "13, thgfdv, 14000 BM", "Gloves"},
+                {"S004", "Jane", "012-3456789", "jane@gmail.com", "105, Taman Equine, 23467 Damansara", "Gown, Shoe Covers"}
             },
             new String [] {
                 "Supplier ID", "Supplier Name", "Contact", "Email", "Address", "PPE Supplies"
             }
         ));
+        supplierList.setShowGrid(true);
+        supplierList.setShowVerticalLines(true);
         jScrollPane5.setViewportView(supplierList);
+
+        tpUserProfileEditor1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tpUserProfileEditor1StateChanged(evt);
+            }
+        });
 
         taAddSupplierAddress.setColumns(20);
         taAddSupplierAddress.setLineWrap(true);
@@ -898,7 +898,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(checkGown)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(checkShoeCovers)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(pAddSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -949,7 +949,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         checkHeadCover1.setText("Head Cover");
 
-        comboEditSupplierID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboEditSupplierID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEditSupplierIDActionPerformed(evt);
+            }
+        });
 
         btnEditSupplierSave1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEditSupplierSave1.setText("Save");
@@ -1012,7 +1016,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                     .addComponent(checkGown1)
                                     .addComponent(checkHeadCover1)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEditUser1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
+                                .addGap(20, 20, 20)
                                 .addComponent(btnEditSupplierReset)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnEditSupplierDelete)))))
@@ -1061,10 +1065,71 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(btnEditSupplierSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditSupplierDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         tpUserProfileEditor1.addTab("Edit Supplier", pEditUser1);
+
+        onTimeBar1.setBackground(new java.awt.Color(255, 51, 102));
+        onTimeBar1.setOpaque(true);
+
+        returnBar1.setBackground(new java.awt.Color(102, 255, 51));
+        returnBar1.setOpaque(true);
+
+        onTimeBar2.setBackground(new java.awt.Color(255, 51, 51));
+        onTimeBar2.setOpaque(true);
+
+        returnBar2.setBackground(new java.awt.Color(51, 255, 51));
+        returnBar2.setOpaque(true);
+
+        onTimeBar3.setBackground(new java.awt.Color(255, 51, 51));
+        onTimeBar3.setOpaque(true);
+
+        returnBar3.setBackground(new java.awt.Color(51, 255, 51));
+        returnBar3.setOpaque(true);
+
+        onTimeBar4.setBackground(new java.awt.Color(255, 51, 51));
+        onTimeBar4.setOpaque(true);
+
+        returnBar4.setBackground(new java.awt.Color(51, 255, 51));
+        returnBar4.setOpaque(true);
+
+        onTimeTag.setBackground(new java.awt.Color(255, 51, 51));
+        onTimeTag.setOpaque(true);
+
+        returnTag.setBackground(new java.awt.Color(51, 255, 51));
+        returnTag.setOpaque(true);
+
+        lbOnTime.setText("On time rate (%)");
+
+        lbReturn.setText("Return rate (%)");
+
+        lbSupplier1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbSupplier1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSupplier1.setText("Supplier1");
+        lbSupplier1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbSupplier2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbSupplier2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSupplier2.setText("Supplier2");
+        lbSupplier2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbSupplier3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbSupplier3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSupplier3.setText("Supplier3");
+        lbSupplier3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbSupplier4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbSupplier4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSupplier4.setText("Supplier4");
+        lbSupplier4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnFilter.setText("Filter");
+
+        btnReset.setText("Reset");
+
+        chartTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        chartTitle.setText("Supplier Performance");
 
         javax.swing.GroupLayout pSupplierManagementLayout = new javax.swing.GroupLayout(pSupplierManagement);
         pSupplierManagement.setLayout(pSupplierManagementLayout);
@@ -1072,29 +1137,114 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSupplierManagementLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5)
+                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                        .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 19, Short.MAX_VALUE))
+                            .addComponent(jScrollPane5)
+                            .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                .addComponent(onTimeBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(returnBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(51, 51, 51)
+                                                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                        .addComponent(lbSupplier2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(lbSupplier3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(49, 49, 49)
+                                                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addComponent(lbSupplier4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                                .addComponent(onTimeBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(returnBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                        .addComponent(onTimeBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                                .addComponent(returnBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(58, 58, 58)
+                                                                .addComponent(onTimeBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(returnBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE))
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSupplierManagementLayout.createSequentialGroup()
+                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                                        .addComponent(onTimeTag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addGap(18, 18, 18)
+                                                                        .addComponent(lbOnTime, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                                                        .addComponent(returnTag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addGap(18, 18, 18)
+                                                                        .addComponent(lbReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                            .addComponent(lbSupplier1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(chartTitle)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                                .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))))
         );
         pSupplierManagementLayout.setVerticalGroup(
             pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSupplierManagementLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
-                        .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                        .addComponent(chartTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(onTimeBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(onTimeBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(returnBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(onTimeBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(onTimeTag, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbOnTime))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(returnTag, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbReturn))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(returnBar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(onTimeBar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(returnBar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(returnBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbSupplier1)
+                            .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbSupplier3)
+                                .addComponent(lbSupplier4))
+                            .addComponent(lbSupplier2))
+                        .addGap(40, 40, 40))
+                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                        .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFilter)
+                    .addComponent(btnReset))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pMain.add(pSupplierManagement, "pSupplierManagement");
@@ -1103,11 +1253,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pHospitalManagement.setLayout(pHospitalManagementLayout);
         pHospitalManagementLayout.setHorizontalGroup(
             pHospitalManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 986, Short.MAX_VALUE)
+            .addGap(0, 984, Short.MAX_VALUE)
         );
         pHospitalManagementLayout.setVerticalGroup(
             pHospitalManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 674, Short.MAX_VALUE)
         );
 
         pMain.add(pHospitalManagement, "pHospitalManagement");
@@ -1116,11 +1266,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pReport.setLayout(pReportLayout);
         pReportLayout.setHorizontalGroup(
             pReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 986, Short.MAX_VALUE)
+            .addGap(0, 984, Short.MAX_VALUE)
         );
         pReportLayout.setVerticalGroup(
             pReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 674, Short.MAX_VALUE)
         );
 
         pMain.add(pReport, "pReport");
@@ -1201,7 +1351,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         try {
             SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
-                    checkMask, checkShoeCovers);
+                    checkMask, checkShoeCovers, supplierList);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1283,6 +1433,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         buttonGroup1.clearSelection();
     }//GEN-LAST:event_btnAddCancelActionPerformed
 
+    private void comboEditSupplierIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEditSupplierIDActionPerformed
+
+    }//GEN-LAST:event_comboEditSupplierIDActionPerformed
+
+    private void tpUserProfileEditor1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpUserProfileEditor1StateChanged
+        DefaultTableModel model = (DefaultTableModel) supplierList.getModel();
+        comboEditSupplierID.removeAllItems();
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String supplierID = model.getValueAt(i, 0).toString();
+            comboEditSupplierID.addItem(supplierID);
+        }
+    }//GEN-LAST:event_tpUserProfileEditor1StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1314,7 +1477,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AdminDashboard2().setVisible(true);
-            }
+                
+            }           
         });
     }
 
@@ -1327,13 +1491,16 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnEditSupplierDelete;
     private javax.swing.JButton btnEditSupplierReset;
     private javax.swing.JButton btnEditSupplierSave1;
+    private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReport;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSupplier;
     private javax.swing.JButton btnUser;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel chartTitle;
     private javax.swing.JCheckBox checkFaceShield;
     private javax.swing.JCheckBox checkFaceShield1;
     private javax.swing.JCheckBox checkGloves;
@@ -1366,11 +1533,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
@@ -1389,11 +1554,22 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbLength;
     private javax.swing.JLabel lbLower;
     private javax.swing.JLabel lbNumber;
+    private javax.swing.JLabel lbOnTime;
+    private javax.swing.JLabel lbReturn;
     private javax.swing.JLabel lbRole;
     private javax.swing.JLabel lbSpecialChar;
+    private javax.swing.JLabel lbSupplier1;
+    private javax.swing.JLabel lbSupplier2;
+    private javax.swing.JLabel lbSupplier3;
+    private javax.swing.JLabel lbSupplier4;
     private javax.swing.JLabel lbUpper;
     private javax.swing.JLabel lbUsername;
     private javax.swing.JLabel lbWordsOnly;
+    private javax.swing.JLabel onTimeBar1;
+    private javax.swing.JLabel onTimeBar2;
+    private javax.swing.JLabel onTimeBar3;
+    private javax.swing.JLabel onTimeBar4;
+    private javax.swing.JLabel onTimeTag;
     private javax.swing.JPanel pAddSupplier;
     private javax.swing.JPanel pAddUser;
     private javax.swing.JPanel pAdminDashboard;
@@ -1414,6 +1590,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel pUserManagement;
     private javax.swing.JRadioButton rbAddAdmin;
     private javax.swing.JRadioButton rbAddStaff;
+    private javax.swing.JLabel returnBar1;
+    private javax.swing.JLabel returnBar2;
+    private javax.swing.JLabel returnBar3;
+    private javax.swing.JLabel returnBar4;
+    private javax.swing.JLabel returnTag;
     private javax.swing.JTable supplierList;
     private javax.swing.JTextArea taAddSupplierAddress;
     private javax.swing.JTextField tfAddName;

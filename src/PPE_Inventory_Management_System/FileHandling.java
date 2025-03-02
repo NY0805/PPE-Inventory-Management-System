@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 //password: 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
 //pull > edit > commit > pull > push
@@ -38,15 +39,33 @@ public class FileHandling {
     }
         
     // READ FILE
-    public void ReadDataFromFile(String filename) throws IOException {
-        BufferedReader readFile = new BufferedReader(new FileReader(filename));
-//        String line = readFile.readLine();
-        String line;
+    public static ArrayList<String[]> ReadDataFromFile(String filename) throws IOException {
+        ArrayList<String[]> dataList = new ArrayList();
+        ArrayList<String> record = new ArrayList<>();
         
-        while ((line=readFile.readLine()) != null) {
-            System.out.println(line);
+        BufferedReader readFile = new BufferedReader(new FileReader(filename));
+        String line = readFile.readLine();
+        
+        while (line != null) {
+            if (line.contains("----")) { // End of a record, add to list
+                if (!record.isEmpty()) {
+                    dataList.add(record.toArray(new String[0]));
+                    record.clear();
+                }
+            } else {
+                String[] parts = line.split(": ", 2);
+                if (parts.length == 2) {
+                    record.add(parts[1].trim()); // Store only values
+                }
+            }
+        }
+        if (!record.isEmpty()) { // Add last record if exists
+            dataList.add(record.toArray(new String[0]));
         }
         readFile.close();
+        return dataList;
+        
+        
     }
     
     
