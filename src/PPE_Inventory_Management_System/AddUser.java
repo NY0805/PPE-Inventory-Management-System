@@ -6,9 +6,12 @@ package PPE_Inventory_Management_System;
 
 import java.io.IOException;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,20 +29,20 @@ public class AddUser extends AddEntity {
     private ButtonGroup buttonGroup;
     private ValidateEntity validator = new ValidateEntity();
 
-//    public AddUser(String id, String name, JTextField tfName, JTextField tfContact,
-//            JPasswordField tfPassword, ButtonGroup buttonGroup) {
-//        super("", "");
-//        this.tfName = new JTextField();
-//        this.tfPassword = new JPasswordField();
-//        this.tfContact = new JTextField();
-//        this.buttonGroup = new ButtonGroup();
-//    }
-    public AddUser(String id, String name, String password, String userType, String contact,
+    public AddUser() {
+        super("", "");
+        this.password = "";
+        this.contact = "";
+        this.userType = "";
+    }
+
+    public AddUser(String id, String name,
             JTextField tfName, JPasswordField tfPassword, JTextField tfContact, ButtonGroup buttonGroup) {
         super(id, name);
-        this.password = password;
-        this.contact = contact;
-        this.userType = userType;
+        this.password = new String(tfPassword.getPassword());
+        this.contact = tfContact.getText();
+        ButtonModel selectedButton = buttonGroup.getSelection();
+        this.userType = (selectedButton != null) ? selectedButton.getActionCommand() : "No Selection";
         this.tfName = tfName;
         this.tfPassword = tfPassword;
         this.tfContact = tfContact;
@@ -55,7 +58,7 @@ public class AddUser extends AddEntity {
     }
 
     @Override
-    public void saveToFile() {
+    public void saveToFile(JTable table) {
         if (validate()) {
             FileHandling userFile = new FileHandling();
             String filename = "user.txt";
@@ -66,6 +69,8 @@ public class AddUser extends AddEntity {
                 userFile.WriteDataToFile("user.txt", headers, data);
                 JOptionPane.showMessageDialog(null, "User saved successfully!");
                 returnToDefault();
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.addRow(new Object[]{id, name, password, contact, userType});
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Fail to add user...!");
             }

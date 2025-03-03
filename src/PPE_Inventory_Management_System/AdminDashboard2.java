@@ -23,11 +23,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminDashboard2
+     *
      * @throws java.io.IOException
      */
     public AdminDashboard2() throws IOException {
         initComponents();
-        
+
     }
 
     /**
@@ -47,6 +48,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbLower1 = new javax.swing.JLabel();
         lbNumber1 = new javax.swing.JLabel();
         lbSpecialChar1 = new javax.swing.JLabel();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         pSideBar = new javax.swing.JPanel();
         pLogo = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
@@ -94,22 +96,22 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pEditUser = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        tfAddName1 = new javax.swing.JTextField();
+        cbEditUserId = new javax.swing.JComboBox<>();
+        tfEditName = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        tfAddPassword1 = new javax.swing.JPasswordField();
-        btnAddCancel1 = new javax.swing.JButton();
-        btnAddSave1 = new javax.swing.JButton();
-        btnAddSave2 = new javax.swing.JButton();
-        rbAddAdmin1 = new javax.swing.JRadioButton();
-        rbAddStaff1 = new javax.swing.JRadioButton();
+        tfEditPassword = new javax.swing.JPasswordField();
+        btnEditCancel = new javax.swing.JButton();
+        btnEditSave = new javax.swing.JButton();
+        btnEditReset = new javax.swing.JButton();
+        rbEditAdmin = new javax.swing.JRadioButton();
+        rbEditStaff = new javax.swing.JRadioButton();
         lbLength2 = new javax.swing.JLabel();
         lbUpper2 = new javax.swing.JLabel();
         lbLower2 = new javax.swing.JLabel();
         lbNumber2 = new javax.swing.JLabel();
         lbSpecialChar2 = new javax.swing.JLabel();
-        tfAddName2 = new javax.swing.JTextField();
+        tfEditContactNo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -221,7 +223,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pLogo.setLayout(pLogoLayout);
         pLogoLayout.setHorizontalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
         pLogoLayout.setVerticalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,7 +493,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -673,19 +675,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("User ID:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbEditUserId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbEditUserId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbEditUserIdActionPerformed(evt);
             }
         });
 
-        tfAddName1.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfEditName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                tfAddName1KeyReleased(evt);
+                tfEditNameKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                tfAddName1KeyTyped(evt);
+                tfEditNameKeyTyped(evt);
             }
         });
 
@@ -695,45 +697,45 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("Password:");
 
-        tfAddPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfEditPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                tfAddPassword1KeyReleased(evt);
+                tfEditPasswordKeyReleased(evt);
             }
         });
 
-        btnAddCancel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddCancel1.setText("Cancel");
-        btnAddCancel1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditCancel.setText("Cancel");
+        btnEditCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddCancel1ActionPerformed(evt);
+                btnEditCancelActionPerformed(evt);
             }
         });
 
-        btnAddSave1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddSave1.setText("Save");
-        btnAddSave1.setMaximumSize(new java.awt.Dimension(75, 27));
-        btnAddSave1.setMinimumSize(new java.awt.Dimension(75, 27));
-        btnAddSave1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditSave.setText("Save");
+        btnEditSave.setMaximumSize(new java.awt.Dimension(75, 27));
+        btnEditSave.setMinimumSize(new java.awt.Dimension(75, 27));
+        btnEditSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSave1ActionPerformed(evt);
+                btnEditSaveActionPerformed(evt);
             }
         });
 
-        btnAddSave2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddSave2.setText("Reset");
-        btnAddSave2.setMaximumSize(new java.awt.Dimension(75, 27));
-        btnAddSave2.setMinimumSize(new java.awt.Dimension(75, 27));
-        btnAddSave2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditReset.setText("Reset");
+        btnEditReset.setMaximumSize(new java.awt.Dimension(75, 27));
+        btnEditReset.setMinimumSize(new java.awt.Dimension(75, 27));
+        btnEditReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSave2ActionPerformed(evt);
+                btnEditResetActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rbAddAdmin1);
-        rbAddAdmin1.setText("Admin");
+        buttonGroup2.add(rbEditAdmin);
+        rbEditAdmin.setText("Admin");
 
-        buttonGroup1.add(rbAddStaff1);
-        rbAddStaff1.setText("Staff");
+        buttonGroup2.add(rbEditStaff);
+        rbEditStaff.setText("Staff");
 
         lbLength2.setForeground(new java.awt.Color(255, 0, 51));
         lbLength2.setText("At least 8 characters");
@@ -750,12 +752,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSpecialChar2.setForeground(new java.awt.Color(255, 0, 51));
         lbSpecialChar2.setText("At least 1 special character");
 
-        tfAddName2.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfEditContactNo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                tfAddName2KeyReleased(evt);
+                tfEditContactNoKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                tfAddName2KeyTyped(evt);
+                tfEditContactNoKeyTyped(evt);
             }
         });
 
@@ -768,11 +770,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pEditUserLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(btnAddSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditSave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAddSave2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditReset, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAddCancel1)
+                .addComponent(btnEditCancel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEditUserLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
@@ -794,18 +796,16 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                     .addComponent(lbLength2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lbSpecialChar2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(tfAddName1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfAddPassword1)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pEditUserLayout.createSequentialGroup()
-                                .addComponent(tfAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12))))
+                                .addComponent(tfEditName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tfEditPassword)
+                                .addComponent(cbEditUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfEditContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel11)
                     .addGroup(pEditUserLayout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbAddStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbAddAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(rbEditStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbEditAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(17, 17, 17))
         );
         pEditUserLayout.setVerticalGroup(
@@ -814,14 +814,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbEditUserId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pEditUserLayout.createSequentialGroup()
-                        .addComponent(tfAddName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfEditName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfAddPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)))
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
@@ -836,20 +836,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addComponent(lbSpecialChar2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEditContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addGroup(pEditUserLayout.createSequentialGroup()
-                        .addComponent(rbAddAdmin1)
+                        .addComponent(rbEditAdmin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbAddStaff1)))
+                        .addComponent(rbEditStaff)))
                 .addGap(26, 26, 26)
                 .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddSave2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEditCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -931,7 +931,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
         pInventoryManagementLayout.setVerticalGroup(
             pInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         pMain.add(pInventoryManagement, "pInventroyManagement");
@@ -1452,7 +1452,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
         pHospitalManagementLayout.setVerticalGroup(
             pHospitalManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         pMain.add(pHospitalManagement, "pHospitalManagement");
@@ -1465,7 +1465,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
         pReportLayout.setVerticalGroup(
             pReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         pMain.add(pReport, "pReport");
@@ -1569,7 +1569,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnEditSupplierSaveActionPerformed
 
     private void btnEditSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierResetActionPerformed
@@ -1610,20 +1610,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnAddSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSaveActionPerformed
         String userId = ID_Generator.generate_id("staff");
         String name = tfAddName.getText();
-        String password = new String(tfAddPassword.getPassword());
-        String contact = tfAddContactNo.getText();
 
         rbAddAdmin.setActionCommand("Admin");
         rbAddStaff.setActionCommand("Staff");
 
-        ButtonModel selectedButton = buttonGroup1.getSelection();
-        String userType = (selectedButton != null) ? selectedButton.getActionCommand() : "No Selection";
-
-        AddUser newUser = new AddUser(userId, name, password, userType, contact, tfAddName, tfAddPassword, tfAddContactNo, buttonGroup1);
-        newUser.saveToFile();
-
-        DefaultTableModel model = (DefaultTableModel) tableUserList.getModel();
-        model.addRow(new Object[]{userId, name, password, contact, userType});
+        AddUser newUser = new AddUser(userId, name, tfAddName, tfAddPassword, tfAddContactNo, buttonGroup1);
+        newUser.saveToFile(tableUserList);
     }//GEN-LAST:event_btnAddSaveActionPerformed
 
     private void tfAddPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddPasswordKeyReleased
@@ -1676,33 +1668,62 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         tfSearchSupplier.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void tfAddName1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddName1KeyReleased
+    private void tfEditNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEditNameKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfAddName1KeyReleased
+    }//GEN-LAST:event_tfEditNameKeyReleased
 
-    private void tfAddName1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddName1KeyTyped
+    private void tfEditNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEditNameKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfAddName1KeyTyped
+    }//GEN-LAST:event_tfEditNameKeyTyped
 
-    private void tfAddPassword1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddPassword1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfAddPassword1KeyReleased
+    private void tfEditPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEditPasswordKeyReleased
+        String password = new String(tfEditPassword.getPassword());
 
-    private void btnAddCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCancel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddCancel1ActionPerformed
+        boolean hasUpper = password.matches(".*[A-Z].*");
+        boolean hasLower = password.matches(".*[a-z].*");
+        boolean hasNumber = password.matches(".*\\d.*");
+        boolean hasSpecial = password.matches(".*[@#$%^&+=!].*");
+        boolean hasLength = password.length() >= 8;
 
-    private void btnAddSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSave1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddSave1ActionPerformed
+        // Change label colors based on conditions
+        lbLength2.setForeground(hasLength ? new Color(0x046307) : Color.RED);
+        lbUpper2.setForeground(hasUpper ? new Color(0x046307) : Color.RED);
+        lbLower2.setForeground(hasLower ? new Color(0x046307) : Color.RED);
+        lbNumber2.setForeground(hasNumber ? new Color(0x046307) : Color.RED);
+        lbSpecialChar2.setForeground(hasSpecial ? new Color(0x046307) : Color.RED);
+    }//GEN-LAST:event_tfEditPasswordKeyReleased
 
-    private void btnAddSave2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSave2ActionPerformed
+    private void btnEditCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddSave2ActionPerformed
+    }//GEN-LAST:event_btnEditCancelActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void btnEditSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSaveActionPerformed
+        String selectedID = cbEditUserId.getSelectedItem().toString();
+        String name = tfEditName.getText();
+        String password = new String(tfEditPassword.getPassword());
+        String contact = tfEditContactNo.getText();
+        
+        rbEditAdmin.setActionCommand("Admin");
+        rbEditStaff.setActionCommand("Staff");
+        ButtonModel selectedButton = buttonGroup2.getSelection();
+        String userType = (selectedButton != null) ? selectedButton.getActionCommand() : "No Selection";
+
+        EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
+                    tfEditPassword, tfEditContactNo, buttonGroup2, rbEditAdmin, rbEditStaff);
+        editUser.saveEditData(selectedID, name, password, contact, userType);
+     }//GEN-LAST:event_btnEditSaveActionPerformed
+
+    private void btnEditResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditResetActionPerformed
+        tfEditName.setText("");
+        tfEditPassword.setText("");
+        tfEditContactNo.setText("");
+        rbEditAdmin.setSelected(false);
+        rbEditStaff.setSelected(false);
+    }//GEN-LAST:event_btnEditResetActionPerformed
+
+    private void cbEditUserIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEditUserIdActionPerformed
+
+    }//GEN-LAST:event_cbEditUserIdActionPerformed
 
     private void comboEditSupplierIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEditSupplierIDActionPerformed
         // TODO add your handling code here:
@@ -1718,6 +1739,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         LoadData loadData = new LoadData();
         try {
             loadData.loadDataToTable("suppliers.txt", supplierList);
+            loadData.loadDataToTable("user.txt", tableUserList);
+            EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
+                    tfEditPassword, tfEditContactNo, buttonGroup2, rbEditAdmin, rbEditStaff);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1735,13 +1759,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfAddContactNoKeyTyped
 
-    private void tfAddName2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddName2KeyReleased
+    private void tfEditContactNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEditContactNoKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfAddName2KeyReleased
+    }//GEN-LAST:event_tfEditContactNoKeyReleased
 
-    private void tfAddName2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddName2KeyTyped
+    private void tfEditContactNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEditContactNoKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfAddName2KeyTyped
+    }//GEN-LAST:event_tfEditContactNoKeyTyped
 
     private void rbAddAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAddAdminActionPerformed
         // TODO add your handling code here:
@@ -1782,20 +1806,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-            }           
+
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCancel;
-    private javax.swing.JButton btnAddCancel1;
     private javax.swing.JButton btnAddSave;
-    private javax.swing.JButton btnAddSave1;
-    private javax.swing.JButton btnAddSave2;
     private javax.swing.JButton btnAddSupplierReset;
     private javax.swing.JButton btnAddSupplierSave;
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnEditCancel;
+    private javax.swing.JButton btnEditReset;
+    private javax.swing.JButton btnEditSave;
     private javax.swing.JButton btnEditSupplierDelete;
     private javax.swing.JButton btnEditSupplierReset;
     private javax.swing.JButton btnEditSupplierSave;
@@ -1808,6 +1832,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnSupplier;
     private javax.swing.JButton btnUser;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JComboBox<String> cbEditUserId;
     private javax.swing.JLabel chartTitle;
     private javax.swing.JCheckBox checkFaceShield;
     private javax.swing.JCheckBox checkFaceShield1;
@@ -1824,7 +1850,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboEditSupplierID;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1904,9 +1929,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel pTopBar;
     private javax.swing.JPanel pUserManagement;
     private javax.swing.JRadioButton rbAddAdmin;
-    private javax.swing.JRadioButton rbAddAdmin1;
     private javax.swing.JRadioButton rbAddStaff;
-    private javax.swing.JRadioButton rbAddStaff1;
+    private javax.swing.JRadioButton rbEditAdmin;
+    private javax.swing.JRadioButton rbEditStaff;
     private javax.swing.JLabel returnBar1;
     private javax.swing.JLabel returnBar2;
     private javax.swing.JLabel returnBar3;
@@ -1918,13 +1943,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTable tableUserList;
     private javax.swing.JTextField tfAddContactNo;
     private javax.swing.JTextField tfAddName;
-    private javax.swing.JTextField tfAddName1;
-    private javax.swing.JTextField tfAddName2;
     private javax.swing.JPasswordField tfAddPassword;
-    private javax.swing.JPasswordField tfAddPassword1;
     private javax.swing.JTextField tfAddSupplierContact;
     private javax.swing.JTextField tfAddSupplierEmail;
     private javax.swing.JTextField tfAddSupplierName;
+    private javax.swing.JTextField tfEditContactNo;
+    private javax.swing.JTextField tfEditName;
+    private javax.swing.JPasswordField tfEditPassword;
     private javax.swing.JTextField tfEditSupplierContact;
     private javax.swing.JTextField tfEditSupplierEmail;
     private javax.swing.JTextField tfEditSupplierName;

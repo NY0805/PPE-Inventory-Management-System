@@ -4,6 +4,8 @@
  */
 package PPE_Inventory_Management_System;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author User
@@ -20,6 +22,6 @@ public abstract class AddEntity {
     
     // assume the data will and must be save into file after call add method
     public abstract boolean validate();
-    public abstract void saveToFile();
+    public abstract void saveToFile(JTable table);
     public abstract void returnToDefault();
 }

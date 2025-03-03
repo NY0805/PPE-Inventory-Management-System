@@ -59,6 +59,8 @@
         <Property name="text" type="java.lang.String" value="At least 1 special character"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -176,7 +178,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="190" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -364,7 +366,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pDashboard2" min="-2" max="-2" attributes="0"/>
                           <Component id="pDashboard1" min="-2" max="-2" attributes="0"/>
@@ -873,11 +875,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="btnAddSave1" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="btnEditSave" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnAddSave2" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="btnEditReset" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnAddCancel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEditCancel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -903,22 +905,19 @@
                                               </Group>
                                           </Group>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="tfAddName1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tfAddPassword1" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="jComboBox1" min="-2" pref="185" max="-2" attributes="0"/>
+                                              <Component id="tfEditName" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tfEditPassword" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="cbEditUserId" min="-2" pref="185" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="tfAddName2" min="-2" pref="179" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="tfEditContactNo" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="rbAddStaff1" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Component id="rbAddAdmin1" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <Component id="rbEditStaff" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <Component id="rbEditAdmin" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -932,15 +931,15 @@
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbEditUserId" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="tfAddName1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfEditName" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="tfAddPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tfEditPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -958,23 +957,23 @@
                               <Component id="lbSpecialChar2" min="-2" pref="16" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfAddName2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfEditContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="rbAddAdmin1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbEditAdmin" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="rbAddStaff1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbEditStaff" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAddCancel1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="btnAddSave1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="btnAddSave2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnEditCancel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnEditSave" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnEditReset" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
@@ -998,7 +997,7 @@
                         <Property name="text" type="java.lang.String" value="User ID:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="cbEditUserId">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1010,16 +1009,16 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbEditUserIdActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfAddName1">
+                    <Component class="javax.swing.JTextField" name="tfEditName">
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAddName1KeyReleased"/>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAddName1KeyTyped"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEditNameKeyReleased"/>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEditNameKeyTyped"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel14">
@@ -1038,12 +1037,12 @@
                         <Property name="text" type="java.lang.String" value="Password:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="tfAddPassword1">
+                    <Component class="javax.swing.JPasswordField" name="tfEditPassword">
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAddPassword1KeyReleased"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEditPasswordKeyReleased"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnAddCancel1">
+                    <Component class="javax.swing.JButton" name="btnEditCancel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1051,10 +1050,10 @@
                         <Property name="text" type="java.lang.String" value="Cancel"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddCancel1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditCancelActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnAddSave1">
+                    <Component class="javax.swing.JButton" name="btnEditSave">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1068,10 +1067,10 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddSave1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditSaveActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnAddSave2">
+                    <Component class="javax.swing.JButton" name="btnEditReset">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="1"/>
@@ -1085,21 +1084,21 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddSave2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditResetActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="rbAddAdmin1">
+                    <Component class="javax.swing.JRadioButton" name="rbEditAdmin">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="buttonGroup1"/>
+                          <ComponentRef name="buttonGroup2"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Admin"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="rbAddStaff1">
+                    <Component class="javax.swing.JRadioButton" name="rbEditStaff">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="buttonGroup1"/>
+                          <ComponentRef name="buttonGroup2"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Staff"/>
                       </Properties>
@@ -1144,10 +1143,10 @@
                         <Property name="text" type="java.lang.String" value="At least 1 special character"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfAddName2">
+                    <Component class="javax.swing.JTextField" name="tfEditContactNo">
                       <Events>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAddName2KeyReleased"/>
-                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAddName2KeyTyped"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEditContactNoKeyReleased"/>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfEditContactNoKeyTyped"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
@@ -1265,7 +1264,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="674" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="676" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -2191,7 +2190,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="674" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="676" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -2211,7 +2210,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="674" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="676" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
