@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.ButtonModel;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -1105,7 +1107,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         lbSupplier1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSupplier1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbSupplier1.setText("Supplier1");
+        lbSupplier1.setText("supplier1");
         lbSupplier1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbSupplier2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1126,6 +1128,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         btnFilter.setText("Filter");
 
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         chartTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         chartTitle.setText("Supplier Performance");
@@ -1348,7 +1355,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
     private void btnAddSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierSaveActionPerformed
         try {
-            SaveSupplierData.saveSupplier(tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
+            SaveSupplierData.saveSupplier(false, "", tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
                     checkMask, checkShoeCovers, supplierList);
         } catch (IOException ex) {
@@ -1371,7 +1378,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddSupplierResetActionPerformed
 
     private void btnEditSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierSaveActionPerformed
-        // TODO add your handling code here:
+        String selectedID = comboEditSupplierID.getSelectedItem().toString();
+        try {
+            SaveSupplierData.saveSupplier(true, selectedID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, checkFaceShield1, checkGloves1, checkGown1, checkHeadCover1, checkMask1, checkShoeCovers1, supplierList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        comboEditSupplierID.setSelectedIndex(0);
     }//GEN-LAST:event_btnEditSupplierSaveActionPerformed
 
     private void btnEditSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierResetActionPerformed
@@ -1467,6 +1480,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void tfSearchSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchSupplierActionPerformed
         SearchFunction.search(tfSearchSupplier, supplierList);
     }//GEN-LAST:event_tfSearchSupplierActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        
+        TableRowSorter<DefaultTableModel> reset = (TableRowSorter<DefaultTableModel>) supplierList.getRowSorter();
+        if (reset != null) {
+            reset.setRowFilter(null);
+        }        
+        tfSearchSupplier.setText("");        
+    }//GEN-LAST:event_btnResetActionPerformed
 
     /**
      * @param args the command line arguments
