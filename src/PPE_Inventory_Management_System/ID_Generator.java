@@ -4,30 +4,30 @@
  */
 package PPE_Inventory_Management_System;
 
+import java.util.Random;
+
 /**
  *
  * @author user
  */
 public class ID_Generator {
-    private static int supplier_id = 0;
-    private static int hospital_id = 0;
-    private static int staff_id = 0;
+    private static final Random random_num = new Random();
     
     public static String generate_id(String target) {
+        int randomID = 1000 + random_num.nextInt(9000);
+        
         switch (target) {
             case "supplier": {
-                supplier_id++;
-                return String.format("SP%03d", supplier_id);
+                return String.format("SP%d", randomID);
             }
             case "hospital": {
-                hospital_id++;
-                return String.format("HP%03d", hospital_id);
+                return String.format("HP%d", randomID);
             }
             case "staff": {
-                staff_id++;
-                return String.format("ST%03d", staff_id);
+                return String.format("ST%d", randomID);
             }
-            default: {return "invalid ID";}
+            default:
+                return "Invalid ID";
         }
     }
 }

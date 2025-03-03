@@ -179,7 +179,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSupplier2 = new javax.swing.JLabel();
         lbSupplier3 = new javax.swing.JLabel();
         lbSupplier4 = new javax.swing.JLabel();
-        btnFilter = new javax.swing.JButton();
+        btnSort = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         chartTitle = new javax.swing.JLabel();
         pHospitalManagement = new javax.swing.JPanel();
@@ -797,9 +797,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addComponent(tfAddName1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(tfAddPassword1)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pEditUserLayout.createSequentialGroup()
-                                .addComponent(tfAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12))))
+                            .addComponent(tfAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel11)
                     .addGroup(pEditUserLayout.createSequentialGroup()
                         .addGap(109, 109, 109)
@@ -1314,7 +1312,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSupplier4.setText("Supplier4");
         lbSupplier4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btnFilter.setText("Filter");
+        btnSort.setText("Sort");
 
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -1336,7 +1334,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addComponent(tfSearchSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSort, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -1404,7 +1402,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSort, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addComponent(chartTitle)
@@ -1799,12 +1797,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnEditSupplierDelete;
     private javax.swing.JButton btnEditSupplierReset;
     private javax.swing.JButton btnEditSupplierSave;
-    private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReport;
     private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSort;
     private javax.swing.JButton btnSupplier;
     private javax.swing.JButton btnUser;
     private javax.swing.ButtonGroup buttonGroup1;

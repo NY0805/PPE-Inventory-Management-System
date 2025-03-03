@@ -21,7 +21,6 @@ public class SaveSupplierData {
         
         String supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address;
         ArrayList<String> selectedPPE = new ArrayList<>();   
-        String selection = dropdownMenu.getSelectedItem().toString();
         
         supplier_id = isEdit ? currentSupplierId : ID_Generator.generate_id("supplier");
         supplier_name = tfAddSupplierName.getText();
@@ -56,13 +55,12 @@ public class SaveSupplierData {
         
         if (supplier_name.isEmpty() || supplier_contact.isEmpty() || supplier_email.isEmpty() || 
             supplier_address.isEmpty() || supplies_PPE.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);            
             return;
         }
         
         if (!validate.validateName(supplier_name) || !validate.validateContact(supplier_contact) || !validate.validateEmail(supplier_email)) {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
-            dropdownMenu.setSelectedItem(selection);
             return;
         }
 
@@ -76,7 +74,23 @@ public class SaveSupplierData {
                 }
             }
         }else{
-            supplierData.add(data);
+            if (supplierData.size() > 3) {
+                JOptionPane.showMessageDialog(null, "You reach the maximum limit of suppliers! If you want to add another supplier, please remove one first.", "Warning", JOptionPane.WARNING_MESSAGE);
+                tfAddSupplierName.setText("");
+                tfAddSupplierContact.setText("");
+                tfAddSupplierEmail.setText("");
+                taAddSupplierAddress.setText("");
+
+                checkFaceShield.setSelected(false);
+                checkGloves.setSelected(false);
+                checkGown.setSelected(false);
+                checkHeadCover.setSelected(false);
+                checkMask.setSelected(false);
+                checkShoeCovers.setSelected(false);
+                return;
+            }else{
+                supplierData.add(data);
+            }
         }
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("suppliers.txt"));
