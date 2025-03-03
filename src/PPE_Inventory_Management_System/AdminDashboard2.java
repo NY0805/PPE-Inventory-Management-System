@@ -1892,22 +1892,22 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         lbSupplier5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSupplier5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbSupplier5.setText("supplier1");
+        lbSupplier5.setText("hospital1");
         lbSupplier5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbSupplier6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSupplier6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbSupplier6.setText("Supplier2");
+        lbSupplier6.setText("hospital2");
         lbSupplier6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbSupplier7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSupplier7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbSupplier7.setText("Supplier3");
+        lbSupplier7.setText("hospital3");
         lbSupplier7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbSupplier8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSupplier8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbSupplier8.setText("Supplier4");
+        lbSupplier8.setText("hospital4");
         lbSupplier8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btnSortHospital.setText("Sort");
