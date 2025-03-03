@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JCheckBox;
 
 /**
  *
@@ -96,7 +96,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         tfSearch = new javax.swing.JTextField();
         pInventoryManagement = new javax.swing.JPanel();
         pSupplierManagement = new javax.swing.JPanel();
-        tfSearch1 = new javax.swing.JTextField();
+        tfSearchSupplier = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         supplierList = new javax.swing.JTable();
         tpUserProfileEditor1 = new javax.swing.JTabbedPane();
@@ -129,7 +129,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbEditSupplierAddress = new javax.swing.JLabel();
         tfEditSupplierEmail = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        taEditSupplierAddress = new javax.swing.JTextArea();
         lbEditSupplierPPE = new javax.swing.JLabel();
         checkFaceShield1 = new javax.swing.JCheckBox();
         checkGloves1 = new javax.swing.JCheckBox();
@@ -138,7 +138,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         checkGown1 = new javax.swing.JCheckBox();
         checkHeadCover1 = new javax.swing.JCheckBox();
         comboEditSupplierID = new javax.swing.JComboBox<>();
-        btnEditSupplierSave1 = new javax.swing.JButton();
+        btnEditSupplierSave = new javax.swing.JButton();
         btnEditSupplierReset = new javax.swing.JButton();
         btnEditSupplierDelete = new javax.swing.JButton();
         onTimeBar1 = new javax.swing.JLabel();
@@ -749,7 +749,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         pSupplierManagement.setBackground(new java.awt.Color(255, 255, 255));
 
-        tfSearch1.setText("Search");
+        tfSearchSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSearchSupplierActionPerformed(evt);
+            }
+        });
 
         supplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -762,8 +766,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 "Supplier ID", "Supplier Name", "Contact", "Email", "Address", "PPE Supplies"
             }
         ));
+        supplierList.setRowHeight(25);
         supplierList.setShowGrid(true);
-        supplierList.setShowVerticalLines(true);
         jScrollPane5.setViewportView(supplierList);
 
         tpUserProfileEditor1.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -928,11 +932,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbEditSupplierAddress.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbEditSupplierAddress.setText("Address:");
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(5);
-        jTextArea3.setWrapStyleWord(true);
-        jScrollPane7.setViewportView(jTextArea3);
+        taEditSupplierAddress.setColumns(20);
+        taEditSupplierAddress.setLineWrap(true);
+        taEditSupplierAddress.setRows(5);
+        taEditSupplierAddress.setWrapStyleWord(true);
+        jScrollPane7.setViewportView(taEditSupplierAddress);
 
         lbEditSupplierPPE.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbEditSupplierPPE.setText("Supplies:");
@@ -949,19 +953,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         checkHeadCover1.setText("Head Cover");
 
-        comboEditSupplierID.addActionListener(new java.awt.event.ActionListener() {
+        btnEditSupplierSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditSupplierSave.setText("Save");
+        btnEditSupplierSave.setMaximumSize(new java.awt.Dimension(75, 27));
+        btnEditSupplierSave.setMinimumSize(new java.awt.Dimension(75, 27));
+        btnEditSupplierSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEditSupplierIDActionPerformed(evt);
-            }
-        });
-
-        btnEditSupplierSave1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEditSupplierSave1.setText("Save");
-        btnEditSupplierSave1.setMaximumSize(new java.awt.Dimension(75, 27));
-        btnEditSupplierSave1.setMinimumSize(new java.awt.Dimension(75, 27));
-        btnEditSupplierSave1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditSupplierSave1ActionPerformed(evt);
+                btnEditSupplierSaveActionPerformed(evt);
             }
         });
 
@@ -988,7 +986,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             .addGroup(pEditUser1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditSupplierSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pEditUser1Layout.createSequentialGroup()
                         .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1062,7 +1060,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(checkShoeCovers1)))
                 .addGap(18, 18, 18)
                 .addGroup(pEditUser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditSupplierSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditSupplierDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -1139,7 +1137,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
-                        .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfSearchSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
                         .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -1239,7 +1237,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(tpUserProfileEditor1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSearchSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFilter)
                     .addComponent(btnReset))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1371,12 +1369,21 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         checkShoeCovers.setSelected(false);
     }//GEN-LAST:event_btnAddSupplierResetActionPerformed
 
-    private void btnEditSupplierSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierSave1ActionPerformed
+    private void btnEditSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditSupplierSave1ActionPerformed
+    }//GEN-LAST:event_btnEditSupplierSaveActionPerformed
 
     private void btnEditSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierResetActionPerformed
-        // TODO add your handling code here:
+        tfEditSupplierContact.setText("");
+        tfEditSupplierEmail.setText("");
+        taEditSupplierAddress.setText("");
+
+        checkFaceShield1.setSelected(false);
+        checkGloves1.setSelected(false);
+        checkGown1.setSelected(false);
+        checkHeadCover1.setSelected(false);
+        checkMask1.setSelected(false);
+        checkShoeCovers1.setSelected(false);
     }//GEN-LAST:event_btnEditSupplierResetActionPerformed
 
     private void btnEditSupplierDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierDeleteActionPerformed
@@ -1433,18 +1440,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         buttonGroup1.clearSelection();
     }//GEN-LAST:event_btnAddCancelActionPerformed
 
-    private void comboEditSupplierIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEditSupplierIDActionPerformed
-
-    }//GEN-LAST:event_comboEditSupplierIDActionPerformed
-
     private void tpUserProfileEditor1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpUserProfileEditor1StateChanged
-        DefaultTableModel model = (DefaultTableModel) supplierList.getModel();
-        comboEditSupplierID.removeAllItems();
-        for (int i = 0; i < model.getRowCount(); i++) {
-            String supplierID = model.getValueAt(i, 0).toString();
-            comboEditSupplierID.addItem(supplierID);
-        }
+        JCheckBox[] checkboxItems = {checkFaceShield1, checkGloves1, checkGown1, checkHeadCover1, checkShoeCovers1, checkMask1};
+        EditSelectedSupplier.EditSupplier(supplierList, comboEditSupplierID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, checkboxItems);
     }//GEN-LAST:event_tpUserProfileEditor1StateChanged
+
+    private void tfSearchSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchSupplierActionPerformed
+        SearchFunction.search(tfSearchSupplier, supplierList);
+    }//GEN-LAST:event_tfSearchSupplierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1490,7 +1493,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnEditSupplierDelete;
     private javax.swing.JButton btnEditSupplierReset;
-    private javax.swing.JButton btnEditSupplierSave1;
+    private javax.swing.JButton btnEditSupplierSave;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnInventory;
@@ -1539,7 +1542,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbAddSupplierAddress;
@@ -1597,6 +1599,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel returnTag;
     private javax.swing.JTable supplierList;
     private javax.swing.JTextArea taAddSupplierAddress;
+    private javax.swing.JTextArea taEditSupplierAddress;
     private javax.swing.JTextField tfAddName;
     private javax.swing.JPasswordField tfAddPassword;
     private javax.swing.JTextField tfAddSupplierContact;
@@ -1606,7 +1609,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTextField tfEditSupplierEmail;
     private javax.swing.JTextField tfEditSupplierName;
     private javax.swing.JTextField tfSearch;
-    private javax.swing.JTextField tfSearch1;
+    private javax.swing.JTextField tfSearchSupplier;
     private javax.swing.JTextField tfUserId;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTabbedPane tpUserProfileEditor;
