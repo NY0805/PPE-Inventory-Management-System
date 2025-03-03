@@ -50,6 +50,7 @@ public class SaveSupplierData {
  
         ValidateEntity validate = new ValidateEntity();
         FileHandling supplierFile = new FileHandling();
+        
         if (!supplier_id.isEmpty() && !supplier_name.isEmpty() && !supplier_contact.isEmpty() && !supplier_email.isEmpty() && !supplier_address.isEmpty() && !supplies_PPE.isEmpty()){
             if (validate.validateName(supplier_name) && validate.validateContact(supplier_contact) && validate.validateEmail(supplier_email)) {
                 supplierFile.WriteDataToFile("suppliers.txt", headers, data);

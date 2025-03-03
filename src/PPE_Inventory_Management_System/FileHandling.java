@@ -44,9 +44,9 @@ public class FileHandling {
         ArrayList<String> record = new ArrayList<>();
         
         BufferedReader readFile = new BufferedReader(new FileReader(filename));
-        String line = readFile.readLine();
+        String line;
         
-        while (line != null) {
+        while ((line = readFile.readLine()) != null) {
             if (line.contains("----")) { // End of a record, add to list
                 if (!record.isEmpty()) {
                     dataList.add(record.toArray(new String[0]));

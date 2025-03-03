@@ -23,7 +23,6 @@ public class SearchFunction {
         if (result.isEmpty()) {
             displayResult.setRowFilter(null);
         } else {
-//            displayResult.setRowFilter(RowFilter.regexFilter("(?i)" + result));
             displayResult.setRowFilter(RowFilter.regexFilter("(?i)" + Pattern.quote(result)));
         }
     }
