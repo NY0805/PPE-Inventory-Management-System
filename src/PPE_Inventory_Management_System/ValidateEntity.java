@@ -10,13 +10,12 @@ import javax.swing.JLabel;
  *
  * @author User
  */
-
 public class ValidateEntity {
-    
+
     private String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$";
 
     public boolean validateName(String name) {
-        return name != null && !name.trim().isEmpty() && name.matches("^[a-zA-Z ]+$");
+        return name != null && !name.trim().isEmpty();
     }
 
     public boolean validateId(String id) {
@@ -28,15 +27,16 @@ public class ValidateEntity {
     }
 
     public boolean validateUserType(String userType) {
-        return userType != null && (userType.equals("Admin") || userType.equals("User"));
+        return userType != null && (userType.equals("Admin") || userType.equals("Staff"));
     }
-    
+
     public boolean validateEmail(String email) {
-         return email != null && (email.contains("@") && email.contains(".com"));
+        return email != null && (email.contains("@") && email.contains(".com"));
     }
-    
+
     public boolean validateContact(String contact) {
-         return contact != null && contact.matches("\\d+") && contact.length() == 10;
+        contact = contact.trim();
+        return contact != null && contact.matches("\\d+") && contact.length() == 10;
     }
 
 }

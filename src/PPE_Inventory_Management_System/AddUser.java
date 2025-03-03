@@ -17,28 +17,32 @@ import javax.swing.JTextField;
 public class AddUser extends AddEntity {
 
     private String password;
+    private String contact;
     private String userType;
 
     private JTextField tfName;
     private JPasswordField tfPassword;
+    private JTextField tfContact;
     private ButtonGroup buttonGroup;
     private ValidateEntity validator = new ValidateEntity();
 
-    public AddUser(String id, String name, JTextField tfName, 
-            JPasswordField tfPassword, ButtonGroup buttonGroup) {
-        super("", "");
-        this.tfName = new JTextField();
-        this.tfPassword = new JPasswordField();
-        this.buttonGroup = new ButtonGroup();
-    }
-
-    public AddUser(String id, String name, String password, String userType,
-            JTextField tfName, JPasswordField tfPassword, ButtonGroup buttonGroup) {
+//    public AddUser(String id, String name, JTextField tfName, JTextField tfContact,
+//            JPasswordField tfPassword, ButtonGroup buttonGroup) {
+//        super("", "");
+//        this.tfName = new JTextField();
+//        this.tfPassword = new JPasswordField();
+//        this.tfContact = new JTextField();
+//        this.buttonGroup = new ButtonGroup();
+//    }
+    public AddUser(String id, String name, String password, String userType, String contact,
+            JTextField tfName, JPasswordField tfPassword, JTextField tfContact, ButtonGroup buttonGroup) {
         super(id, name);
         this.password = password;
+        this.contact = contact;
         this.userType = userType;
         this.tfName = tfName;
         this.tfPassword = tfPassword;
+        this.tfContact = tfContact;
         this.buttonGroup = buttonGroup;
     }
 
@@ -46,6 +50,7 @@ public class AddUser extends AddEntity {
     public boolean validate() {
         return validator.validateName(tfName.getText())
                 && validator.validatePassword(password)
+                && validator.validateContact(contact)
                 && validator.validateUserType(userType);
     }
 
@@ -54,8 +59,8 @@ public class AddUser extends AddEntity {
         if (validate()) {
             FileHandling userFile = new FileHandling();
             String filename = "user.txt";
-            String[] headers = {"User ID", "Name", "Password", "User Type"};
-            String[] data = {id, name, password, userType};
+            String[] headers = {"User ID", "Name", "Password", "Contact", "User Type"};
+            String[] data = {id, name, password, contact, userType};
 
             try {
                 userFile.WriteDataToFile("user.txt", headers, data);
@@ -73,6 +78,7 @@ public class AddUser extends AddEntity {
     public void returnToDefault() {
         tfName.setText("");
         tfPassword.setText("");
+        tfContact.setText("");
         buttonGroup.clearSelection();
     }
 }
