@@ -26,15 +26,15 @@ public class FileHandling {
             System.out.println("No data to write!");
             return;
         }
-
-        BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, true));
-        for (int i = 0; i < headers.length; i++) {
+                
+        try (BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, true))) {
+            for (int i = 0; i < headers.length; i++) {
                 writeFile.write(headers[i] + ": " + data[i] + "\n");            
+            }
+            writeFile.write("--------------------------------------------------\n");
+            
+            System.out.println("Data saved to " + filename);
         }
-        writeFile.write("--------------------------------------------------\n");
-        
-        System.out.println("Data saved to " + filename);
-        writeFile.close();
 
     }
         
