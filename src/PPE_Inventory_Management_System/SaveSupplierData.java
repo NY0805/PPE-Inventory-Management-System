@@ -17,10 +17,11 @@ import javax.swing.table.DefaultTableModel;
 public class SaveSupplierData {
     public static void saveSupplier(boolean isEdit, String currentSupplierId, JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextArea taAddSupplierAddress, 
                                     JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 
-                                    JCheckBox checkMask, JCheckBox checkShoeCovers, JTable supplierList) throws IOException {
+                                    JCheckBox checkMask, JCheckBox checkShoeCovers, JTable supplierList, JComboBox<String> dropdownMenu) throws IOException {
         
         String supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address;
         ArrayList<String> selectedPPE = new ArrayList<>();   
+        String selection = dropdownMenu.getSelectedItem().toString();
         
         supplier_id = isEdit ? currentSupplierId : ID_Generator.generate_id("supplier");
         supplier_name = tfAddSupplierName.getText();
@@ -59,9 +60,9 @@ public class SaveSupplierData {
             return;
         }
         
-        if (!validate.validateName(supplier_name) && !validate.validateContact(supplier_contact) && !validate.validateEmail(supplier_email)) {
-//        if (false) {
+        if (!validate.validateName(supplier_name) || !validate.validateContact(supplier_contact) || !validate.validateEmail(supplier_email)) {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
+            dropdownMenu.setSelectedItem(selection);
             return;
         }
 
@@ -86,7 +87,8 @@ public class SaveSupplierData {
         }
 
         JOptionPane.showMessageDialog(null, isEdit ? "Supplier updated successfully!" : "Supplier added successfully!");
-
+        dropdownMenu.setSelectedIndex(0);
+        
         tfAddSupplierName.setText("");
         tfAddSupplierContact.setText("");
         tfAddSupplierEmail.setText("");
@@ -98,8 +100,6 @@ public class SaveSupplierData {
         checkHeadCover.setSelected(false);
         checkMask.setSelected(false);
         checkShoeCovers.setSelected(false);
-
-//                    ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
 
         DefaultTableModel model = new DefaultTableModel();
         supplierList.setModel(model);

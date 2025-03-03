@@ -4,8 +4,6 @@
  */
 package PPE_Inventory_Management_System;
 
-import javax.swing.JLabel;
-
 /**
  *
  * @author User
@@ -35,8 +33,8 @@ public class ValidateEntity {
     }
 
     public boolean validateContact(String contact) {
-        contact = contact.trim();
-        return contact != null && contact.matches("\\d+") && contact.length() == 10;
+//         return contact != null && contact.matches("\\d+") && contact.length() == 10;
+        return contact != null && contact.matches("\\d{3}-\\d{7}") && contact.length() == 11;
     }
 
 }

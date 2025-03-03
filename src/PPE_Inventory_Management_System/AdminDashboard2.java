@@ -23,9 +23,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminDashboard2
+     * @throws java.io.IOException
      */
-    public AdminDashboard2() {
+    public AdminDashboard2() throws IOException {
         initComponents();
+        
     }
 
     /**
@@ -944,10 +946,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         supplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"S001", "Tom", "012-3456789", "tom@gmail.com", "18, abcde, 14000 New York", "Head Cover"},
-                {"S002", "Jerry", "012-3456789", "jerry@gmail.com", "23, defg, 47180 USA", "Face Shield, Mask"},
-                {"S003", "Peter", "012-3456789", "peter@gmail.com", "13, thgfdv, 14000 BM", "Gloves"},
-                {"S004", "Jane", "012-3456789", "jane@gmail.com", "105, Taman Equine, 23467 Damansara", "Gown, Shoe Covers"}
+
             },
             new String [] {
                 "Supplier ID", "Supplier Name", "Contact", "Email", "Address", "PPE Supplies"
@@ -1543,7 +1542,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         try {
             SaveSupplierData.saveSupplier(false, "", tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
-                    checkMask, checkShoeCovers, supplierList);
+                    checkMask, checkShoeCovers, supplierList, comboEditSupplierID);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1566,11 +1565,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnEditSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierSaveActionPerformed
         String selectedID = comboEditSupplierID.getSelectedItem().toString();
         try {
-            SaveSupplierData.saveSupplier(true, selectedID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, checkFaceShield1, checkGloves1, checkGown1, checkHeadCover1, checkMask1, checkShoeCovers1, supplierList);
+            SaveSupplierData.saveSupplier(true, selectedID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, checkFaceShield1, checkGloves1, checkGown1, checkHeadCover1, checkMask1, checkShoeCovers1, supplierList, comboEditSupplierID);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        comboEditSupplierID.setSelectedIndex(0);
+        
     }//GEN-LAST:event_btnEditSupplierSaveActionPerformed
 
     private void btnEditSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierResetActionPerformed
@@ -1714,8 +1713,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSearchActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        LoadDataToTable loadData = new LoadDataToTable();
-        loadData.loadData("user.txt", tableUserList);
+//        LoadDataToTable loadData = new LoadDataToTable();
+//        loadData.loadData("user.txt", tableUserList);
+        LoadData loadData = new LoadData();
+        try {
+            loadData.loadDataToTable("suppliers.txt", supplierList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void tableUserListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tableUserListComponentShown
@@ -1772,9 +1777,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminDashboard2().setVisible(true);
-
-            }
+                try {
+                    new AdminDashboard2().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }           
         });
     }
 

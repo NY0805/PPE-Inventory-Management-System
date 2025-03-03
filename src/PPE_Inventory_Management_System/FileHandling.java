@@ -63,12 +63,6 @@ public class FileHandling {
             dataList.add(record.toArray(new String[0]));
         }
         readFile.close();
-        return dataList;
-        
-        
-    }
-    
-    
-    // make the data arranged neatly like table. It is private to prevent other class misuse it
-    
+        return dataList;        
+    }      
 }
