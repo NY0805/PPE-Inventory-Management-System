@@ -6,9 +6,10 @@ package PPE_Inventory_Management_System;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -24,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EditUser extends EditEntity {
 
-    private ValidateEntity validator = new ValidateEntity();
+//    private ValidateEntity validator = new ValidateEntity();
 
     public EditUser(JTable table, JComboBox<String> combobox, JTextField name,
             JPasswordField password, JTextField contact, ButtonGroup buttonGroup,
@@ -62,53 +63,5 @@ public class EditUser extends EditEntity {
                 }
             }
         });
-    }
-
-    public void saveEditData(String id, String name, String password, String contact, String userType) {
-
-        if (validator.validateName(name)
-                && validator.validatePassword(password)
-                && validator.validateContact(contact)
-                && validator.validateUserType(userType)) {
-
-            FileHandling userFile = new FileHandling();
-            String filename = "user.txt";
-            String[] headers = {"User ID", "Name", "Password", "Contact", "User Type"};
-            String[] data = {id, name, password, contact, userType};
-
-            try {
-                List<String[]> userList = userFile.ReadDataFromFile(filename);
-                List<String[]> updatedData = new ArrayList<>();
-
-                for (String[] user : userList) {
-                    if (!user[0].equals(id)) {
-                        updatedData.add(user);
-                    }
-                }
-
-                updatedData.add(new String[]{id, name, password, contact, userType});
-
-                for (String[] user : updatedData) {
-                    userFile.WriteDataToFile(filename, headers, user);
-                }
-
-                JOptionPane.showMessageDialog(null, "User edited successfully!");
-
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                for (int i = 0; i < model.getRowCount(); i++) {
-                    if (model.getValueAt(i, 0).toString().equals(id)) {
-                        model.removeRow(i);
-                        break;
-                    }
-                }
-                model.addRow(new Object[]{id, name, password, contact, userType});
-
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Fail to edit user...!");
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Validation error");
-        }
     }
 }

@@ -4,7 +4,11 @@
  */
 package PPE_Inventory_Management_System;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
@@ -58,21 +62,46 @@ public class AddUser extends AddEntity {
     }
 
     @Override
-    public void saveToFile(JTable table) {
+    public void saveToFile(boolean isEdit, JTable table) throws IOException {
         if (validate()) {
             FileHandling userFile = new FileHandling();
             String filename = "user.txt";
             String[] headers = {"User ID", "Name", "Password", "Contact", "User Type"};
             String[] data = {id, name, password, contact, userType};
 
-            try {
-                userFile.WriteDataToFile("user.txt", headers, data);
-                JOptionPane.showMessageDialog(null, "User saved successfully!");
-                returnToDefault();
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                model.addRow(new Object[]{id, name, password, contact, userType});
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Fail to add user...!");
+            ArrayList<String[]> userData = userFile.ReadDataFromFile("user.txt");
+            System.out.println("read data");
+            if (isEdit) {
+                for (int i = 0; i < userData.size(); i++) {
+                    if (userData.get(i)[0].equals(id)) {
+                        userData.set(i, data);
+                        break;
+                    }
+                }
+            } else {
+                userData.add(data);
+            }
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt"));
+            writer.close();
+            for (String[] user : userData) {
+                userFile.WriteDataToFile("user.txt", headers, user);
+            }
+            System.out.println("write data");
+
+            JOptionPane.showMessageDialog(null, isEdit ? "User updated successfully!" : "User added successfully!");
+            returnToDefault();
+            DefaultTableModel model = new DefaultTableModel();
+            table.setModel(model);
+            model.setColumnIdentifiers(headers);
+            model.setRowCount(0);
+            for (String[] rowData : userData) {
+                if (rowData.length == 5) {
+                    System.out.println(Arrays.toString(rowData));
+                    model.addRow(rowData);
+                } else {
+                    System.err.println("skipping record: " + Arrays.toString(rowData));
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Validate error");

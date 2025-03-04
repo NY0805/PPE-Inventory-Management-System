@@ -2139,8 +2139,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         rbAddAdmin.setActionCommand("Admin");
         rbAddStaff.setActionCommand("Staff");
 
+        try {
         AddUser newUser = new AddUser(userId, name, tfAddName, tfAddPassword, tfAddContactNo, buttonGroup1);
-        newUser.saveToFile(tableUserList);
+        newUser.saveToFile(false, tableUserList);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Fail to save data: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnAddSaveActionPerformed
 
     private void tfAddPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAddPasswordKeyReleased
@@ -2223,19 +2228,23 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditCancelActionPerformed
 
     private void btnEditSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSaveActionPerformed
-        String selectedID = cbEditUserId.getSelectedItem().toString();
+           String selectedID = cbEditUserId.getSelectedItem().toString();
         String name = tfEditName.getText();
         String password = new String(tfEditPassword.getPassword());
         String contact = tfEditContactNo.getText();
-        
+
         rbEditAdmin.setActionCommand("Admin");
         rbEditStaff.setActionCommand("Staff");
         ButtonModel selectedButton = buttonGroup2.getSelection();
         String userType = (selectedButton != null) ? selectedButton.getActionCommand() : "No Selection";
 
-        EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
-                    tfEditPassword, tfEditContactNo, buttonGroup2, rbEditAdmin, rbEditStaff);
-        editUser.saveEditData(selectedID, name, password, contact, userType);
+        try {
+            AddUser editUser = new AddUser(selectedID, name, tfEditName, tfEditPassword, tfEditContactNo, buttonGroup2);
+            editUser.saveToFile(true, tableUserList);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Fail to save data: " + e.getMessage());
+            e.printStackTrace();
+        }
      }//GEN-LAST:event_btnEditSaveActionPerformed
 
     private void btnEditResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditResetActionPerformed
