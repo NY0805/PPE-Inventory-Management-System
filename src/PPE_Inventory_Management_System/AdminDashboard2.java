@@ -2298,8 +2298,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         rbAddStaff.setActionCommand("Staff");
 
         try {
-        AddUser newUser = new AddUser(userId, name, tfAddName, tfAddPassword, tfAddContactNo, buttonGroup1);
-        newUser.saveToFile(false, tableUserList);
+            AddUser newUser = new AddUser(userId, name, tfAddName, tfAddPassword, tfAddContactNo, buttonGroup1);
+            newUser.saveToFile(false, tableUserList);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Fail to save data: " + e.getMessage());
             e.printStackTrace();
@@ -2429,6 +2429,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             loadData.loadDataToTable("suppliers.txt", supplierList);
             loadData.loadDataToTable("user.txt", tableUserList);
             loadData.loadDataToTable("login.txt", tableUserLog);
+            EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
+                    tfEditPassword, tfEditContactNo, buttonGroup2, rbEditAdmin, rbEditStaff);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
