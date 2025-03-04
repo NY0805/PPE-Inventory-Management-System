@@ -109,15 +109,17 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbLength2 = new javax.swing.JLabel();
         lbUpper2 = new javax.swing.JLabel();
         lbLower2 = new javax.swing.JLabel();
-        lbNumber2 = new javax.swing.JLabel();
         lbSpecialChar2 = new javax.swing.JLabel();
         tfEditContactNo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        lbNumber2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableUserList = new javax.swing.JTable();
-        tfSearch = new javax.swing.JTextField();
+        tfSearchUser = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         pInventoryManagement = new javax.swing.JPanel();
         pSupplierManagement = new javax.swing.JPanel();
         tfSearchSupplier = new javax.swing.JTextField();
@@ -273,7 +275,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSpecialChar1.setText("At least 1 special character");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1212, 749));
+        setPreferredSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -378,14 +380,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnReport, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
             .addGroup(pSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pSideBarLayout.createSequentialGroup()
                     .addGap(111, 111, 111)
                     .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(531, Short.MAX_VALUE)))
+                    .addContainerGap(627, Short.MAX_VALUE)))
         );
 
         pTopBar.setBackground(new java.awt.Color(255, 255, 255));
@@ -560,7 +562,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -741,11 +743,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("User Type:");
-        pEditUser.add(jLabel11);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("User ID:");
-        pEditUser.add(jLabel8);
 
         cbEditUserId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbEditUserId.addActionListener(new java.awt.event.ActionListener() {
@@ -753,7 +753,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 cbEditUserIdActionPerformed(evt);
             }
         });
-        pEditUser.add(cbEditUserId);
 
         tfEditName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -763,22 +762,18 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 tfEditNameKeyTyped(evt);
             }
         });
-        pEditUser.add(tfEditName);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setText("Name:");
-        pEditUser.add(jLabel14);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("Password:");
-        pEditUser.add(jLabel15);
 
         tfEditPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfEditPasswordKeyReleased(evt);
             }
         });
-        pEditUser.add(tfEditPassword);
 
         btnEditCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEditCancel.setText("Cancel");
@@ -787,7 +782,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 btnEditCancelActionPerformed(evt);
             }
         });
-        pEditUser.add(btnEditCancel);
 
         btnEditSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEditSave.setText("Save");
@@ -798,7 +792,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 btnEditSaveActionPerformed(evt);
             }
         });
-        pEditUser.add(btnEditSave);
 
         btnEditReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEditReset.setText("Reset");
@@ -809,35 +802,24 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 btnEditResetActionPerformed(evt);
             }
         });
-        pEditUser.add(btnEditReset);
 
         buttonGroup2.add(rbEditAdmin);
         rbEditAdmin.setText("Admin");
-        pEditUser.add(rbEditAdmin);
 
         buttonGroup2.add(rbEditStaff);
         rbEditStaff.setText("Staff");
-        pEditUser.add(rbEditStaff);
 
         lbLength2.setForeground(new java.awt.Color(255, 0, 51));
         lbLength2.setText("At least 8 characters");
-        pEditUser.add(lbLength2);
 
         lbUpper2.setForeground(new java.awt.Color(255, 0, 51));
         lbUpper2.setText("At least 1 uppercase");
-        pEditUser.add(lbUpper2);
 
         lbLower2.setForeground(new java.awt.Color(255, 0, 51));
         lbLower2.setText("At least 1 lowercase");
-        pEditUser.add(lbLower2);
-
-        lbNumber2.setForeground(new java.awt.Color(255, 0, 51));
-        lbNumber2.setText("At least 1 number");
-        pEditUser.add(lbNumber2);
 
         lbSpecialChar2.setForeground(new java.awt.Color(255, 0, 51));
         lbSpecialChar2.setText("At least 1 special character");
-        pEditUser.add(lbSpecialChar2);
 
         tfEditContactNo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -847,11 +829,108 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 tfEditContactNoKeyTyped(evt);
             }
         });
-        pEditUser.add(tfEditContactNo);
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setText("Contact No:");
-        pEditUser.add(jLabel16);
+
+        lbNumber2.setForeground(new java.awt.Color(255, 0, 51));
+        lbNumber2.setText("At least 1 number");
+
+        javax.swing.GroupLayout pEditUserLayout = new javax.swing.GroupLayout(pEditUser);
+        pEditUser.setLayout(pEditUserLayout);
+        pEditUserLayout.setHorizontalGroup(
+            pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pEditUserLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pEditUserLayout.createSequentialGroup()
+                            .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEditUserLayout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(26, 26, 26))
+                                .addGroup(pEditUserLayout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addGap(36, 36, 36)))
+                            .addGap(19, 19, 19)
+                            .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfEditName)
+                                .addComponent(cbEditUserId, 0, 190, Short.MAX_VALUE)))
+                        .addGroup(pEditUserLayout.createSequentialGroup()
+                            .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel15)
+                                .addComponent(btnEditSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pEditUserLayout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfEditContactNo)
+                                        .addGroup(pEditUserLayout.createSequentialGroup()
+                                            .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(pEditUserLayout.createSequentialGroup()
+                                                    .addGap(6, 6, 6)
+                                                    .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbLower2)
+                                                        .addComponent(lbUpper2)
+                                                        .addComponent(lbNumber2)
+                                                        .addComponent(lbSpecialChar2)
+                                                        .addComponent(lbLength2)))
+                                                .addComponent(tfEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(rbEditAdmin)
+                                                .addComponent(rbEditStaff))
+                                            .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(pEditUserLayout.createSequentialGroup()
+                                    .addGap(17, 17, 17)
+                                    .addComponent(btnEditCancel)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(btnEditReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addComponent(jLabel11))
+                .addGap(0, 16, Short.MAX_VALUE))
+        );
+        pEditUserLayout.setVerticalGroup(
+            pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pEditUserLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(cbEditUserId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(tfEditName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tfEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbLength2)
+                .addGap(0, 0, 0)
+                .addComponent(lbUpper2)
+                .addGap(0, 0, 0)
+                .addComponent(lbLower2)
+                .addGap(0, 0, 0)
+                .addComponent(lbNumber2)
+                .addGap(0, 0, 0)
+                .addComponent(lbSpecialChar2)
+                .addGap(18, 18, 18)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(tfEditContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(rbEditAdmin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rbEditStaff)
+                .addGap(31, 31, 31)
+                .addGroup(pEditUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86))
+        );
 
         tpUserProfileEditor.addTab("Edit User", pEditUser);
 
@@ -883,12 +962,25 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tableUserList);
 
-        tfSearch.setText("Search");
-        tfSearch.addActionListener(new java.awt.event.ActionListener() {
+        tfSearchUser.setText("Search");
+        tfSearchUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSearchActionPerformed(evt);
+                tfSearchUserActionPerformed(evt);
             }
         });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable2);
 
         javax.swing.GroupLayout pUserManagementLayout = new javax.swing.GroupLayout(pUserManagement);
         pUserManagement.setLayout(pUserManagementLayout);
@@ -896,12 +988,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUserManagementLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3096, 3096, 3096)
+                .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pUserManagementLayout.createSequentialGroup()
+                        .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3))
+                .addGap(3054, 3054, 3054)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 2188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -909,17 +1004,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUserManagementLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pUserManagementLayout.createSequentialGroup()
-                        .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pUserManagementLayout.createSequentialGroup()
-                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(244, Short.MAX_VALUE))))
+                        .addComponent(tfSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pUserManagementLayout.createSequentialGroup()
+                                .addGap(202, 202, 202)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pUserManagementLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pMain.add(pUserManagement, "pUserManagement");
@@ -928,11 +1026,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pInventoryManagement.setLayout(pInventoryManagementLayout);
         pInventoryManagementLayout.setHorizontalGroup(
             pInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1004, Short.MAX_VALUE)
         );
         pInventoryManagementLayout.setVerticalGroup(
             pInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 727, Short.MAX_VALUE)
         );
 
         pMain.add(pInventoryManagement, "pInventroyManagement");
@@ -1986,11 +2084,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pReport.setLayout(pReportLayout);
         pReportLayout.setHorizontalGroup(
             pReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1004, Short.MAX_VALUE)
         );
         pReportLayout.setVerticalGroup(
             pReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 727, Short.MAX_VALUE)
         );
 
         pMain.add(pReport, "pReport");
@@ -2003,15 +2101,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addComponent(pSideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, 1012, Short.MAX_VALUE)
-                    .addComponent(pTopBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(pTopBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE))
+                .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
             .addComponent(pSideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -2259,9 +2357,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cbEditUserIdActionPerformed
 
-    private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSearchActionPerformed
+    private void tfSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchUserActionPerformed
+        SearchFunction.search(tfSearchUser, tableUserList);
+    }//GEN-LAST:event_tfSearchUserActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 //        LoadDataToTable loadData = new LoadDataToTable();
@@ -2505,12 +2603,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbAddContactNo;
     private javax.swing.JLabel lbAddSupplierAddress;
@@ -2634,9 +2734,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTextField tfEditSupplierContact;
     private javax.swing.JTextField tfEditSupplierEmail;
     private javax.swing.JTextField tfEditSupplierName;
-    private javax.swing.JTextField tfSearch;
     private javax.swing.JTextField tfSearchHospital;
     private javax.swing.JTextField tfSearchSupplier;
+    private javax.swing.JTextField tfSearchUser;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTabbedPane tpHospitalProfileEditor;
     private javax.swing.JTabbedPane tpSupplierProfileEditor;
