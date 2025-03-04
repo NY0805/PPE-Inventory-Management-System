@@ -119,7 +119,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         tableUserList = new javax.swing.JTable();
         tfSearchUser = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tableUserLog = new javax.swing.JTable();
         pInventoryManagement = new javax.swing.JPanel();
         pSupplierManagement = new javax.swing.JPanel();
         tfSearchSupplier = new javax.swing.JTextField();
@@ -969,18 +969,23 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tableUserLog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "User ID", "Name", "Password", "Contact", "User Type", "Login Time"
             }
         ));
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPane4.setViewportView(tableUserLog);
+        if (tableUserLog.getColumnModel().getColumnCount() > 0) {
+            tableUserLog.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tableUserLog.getColumnModel().getColumn(3).setPreferredWidth(35);
+            tableUserLog.getColumnModel().getColumn(4).setPreferredWidth(10);
+        }
 
         javax.swing.GroupLayout pUserManagementLayout = new javax.swing.GroupLayout(pUserManagement);
         pUserManagement.setLayout(pUserManagementLayout);
@@ -2326,7 +2331,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditCancelActionPerformed
 
     private void btnEditSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSaveActionPerformed
-           String selectedID = cbEditUserId.getSelectedItem().toString();
+        String selectedID = cbEditUserId.getSelectedItem().toString();
         String name = tfEditName.getText();
         String password = new String(tfEditPassword.getPassword());
         String contact = tfEditContactNo.getText();
@@ -2368,6 +2373,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         try {
             loadData.loadDataToTable("suppliers.txt", supplierList);
             loadData.loadDataToTable("user.txt", tableUserList);
+            loadData.loadDataToTable("login.txt", tableUserLog);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2610,7 +2616,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbAddContactNo;
     private javax.swing.JLabel lbAddSupplierAddress;
@@ -2716,6 +2721,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTextArea taEditHospitalAddress;
     private javax.swing.JTextArea taEditSupplierAddress;
     private javax.swing.JTable tableUserList;
+    private javax.swing.JTable tableUserLog;
     private javax.swing.JTextField tfAddContactNo;
     private javax.swing.JTextField tfAddHospitalContact;
     private javax.swing.JTextField tfAddHospitalEmail;
