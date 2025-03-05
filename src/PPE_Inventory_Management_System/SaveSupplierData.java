@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author user
  */
-// can become general for hospital and supplier
 public class SaveSupplierData {
     public static void saveSupplier(boolean isEdit, String currentSupplierId, JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextArea taAddSupplierAddress, 
                                     JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 

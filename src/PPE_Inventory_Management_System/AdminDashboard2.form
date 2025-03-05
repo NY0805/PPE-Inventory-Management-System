@@ -69,7 +69,7 @@
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1200, 800]"/>
+      <Dimension value="[1200, 749]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -98,7 +98,7 @@
               <Component id="pSideBar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pMain" pref="1012" max="32767" attributes="0"/>
+                  <Component id="pMain" pref="995" max="32767" attributes="0"/>
                   <Component id="pTopBar" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -109,7 +109,7 @@
           <Group type="102" attributes="0">
               <Component id="pTopBar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pMain" pref="628" max="32767" attributes="0"/>
+              <Component id="pMain" pref="676" max="32767" attributes="0"/>
           </Group>
           <Component id="pSideBar" max="32767" attributes="0"/>
       </Group>
@@ -369,7 +369,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pDashboard2" min="-2" max="-2" attributes="0"/>
                           <Component id="pDashboard1" min="-2" max="-2" attributes="0"/>
@@ -583,9 +583,9 @@
                           <Component id="tfSearch" alignment="0" min="-2" pref="314" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" alignment="0" min="-2" pref="601" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="tpUserProfileEditor" min="-2" pref="328" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="3096" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="tpUserProfileEditor" min="-2" pref="337" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="3104" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="2188" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -603,10 +603,10 @@
                           <Group type="102" attributes="0">
                               <Component id="tfSearch" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="128" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="152" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="194" max="-2" attributes="0"/>
-                              <EmptySpace pref="244" max="32767" attributes="0"/>
+                              <EmptySpace pref="268" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -684,7 +684,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -880,6 +880,142 @@
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="cbEditUserId" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="tfEditName" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="tfEditPassword" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Component id="lbLower2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="lbNumber2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="55" pref="55" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lbLength2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                              <Component id="lbUpper2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="btnEditReset" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbSpecialChar2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="btnEditSave" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="tfEditContactNo" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btnEditCancel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                                          <Component id="rbEditAdmin" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                          <Component id="rbEditStaff" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="35" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbEditUserId" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfEditName" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                      <Component id="tfEditPassword" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rbEditAdmin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbEditStaff" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbLength2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbUpper2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbNumber2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbLower2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbSpecialChar2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfEditContactNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="107" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnEditSave" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEditReset" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEditCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel11">
                       <Properties>
@@ -1001,6 +1137,7 @@
                           <ComponentRef name="buttonGroup2"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Staff"/>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lbLength2">
@@ -1159,12 +1296,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1012" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="995" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="628" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="676" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1189,22 +1326,26 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="tfSearchSupplier" min="-2" pref="314" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                               <Component id="btnSortSupplier" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="btnResetSupplier" min="-2" pref="92" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jScrollPane5" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="chartTitle" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="onTimeBar1" min="-2" pref="37" max="-2" attributes="0"/>
@@ -1212,7 +1353,7 @@
                                                       <Component id="returnBar1" min="-2" pref="37" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Group type="102" attributes="0">
+                                                          <Group type="102" alignment="1" attributes="0">
                                                               <Component id="lbSupplier2" min="-2" pref="86" max="-2" attributes="0"/>
                                                               <EmptySpace max="32767" attributes="0"/>
                                                               <Component id="lbSupplier3" min="-2" pref="86" max="-2" attributes="0"/>
@@ -1226,11 +1367,11 @@
                                                                   </Group>
                                                               </Group>
                                                           </Group>
-                                                          <Group type="102" attributes="0">
+                                                          <Group type="102" alignment="1" attributes="0">
                                                               <Component id="onTimeBar2" min="-2" pref="37" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Group type="102" attributes="0">
+                                                                  <Group type="102" alignment="0" attributes="0">
                                                                       <Component id="returnBar2" min="-2" pref="37" max="-2" attributes="0"/>
                                                                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                                                       <Component id="onTimeBar3" min="-2" pref="37" max="-2" attributes="0"/>
@@ -1260,16 +1401,12 @@
                                                   <Component id="lbSupplier1" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="chartTitle" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="tpSupplierProfileEditor" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                                      <Component id="tpSupplierProfileEditor" min="-2" pref="331" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1278,60 +1415,53 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="chartTitle" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="onTimeBar3" alignment="1" min="-2" pref="96" max="-2" attributes="0"/>
-                                          <Component id="onTimeBar1" alignment="1" min="-2" pref="269" max="-2" attributes="0"/>
-                                          <Component id="returnBar2" alignment="1" min="-2" pref="212" max="-2" attributes="0"/>
-                                          <Component id="onTimeBar2" alignment="1" min="-2" pref="149" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="onTimeTag" min="-2" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="lbOnTime" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="returnTag" min="-2" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="lbReturn" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="returnBar3" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
-                                                  <Component id="onTimeBar4" alignment="1" min="-2" pref="126" max="-2" attributes="0"/>
-                                                  <Component id="returnBar4" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="returnBar1" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="chartTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="onTimeBar3" alignment="1" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="onTimeBar1" alignment="1" min="-2" pref="269" max="-2" attributes="0"/>
+                                  <Component id="returnBar2" alignment="1" min="-2" pref="212" max="-2" attributes="0"/>
+                                  <Component id="onTimeBar2" alignment="1" min="-2" pref="149" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="onTimeTag" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="lbOnTime" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lbSupplier1" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="lbSupplier3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lbSupplier4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="lbSupplier2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="returnTag" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="lbReturn" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="tpSupplierProfileEditor" min="-2" pref="413" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="returnBar3" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="onTimeBar4" alignment="1" min="-2" pref="126" max="-2" attributes="0"/>
+                                          <Component id="returnBar4" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <Component id="returnBar1" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbSupplier1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="lbSupplier3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbSupplier4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lbSupplier2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="77" max="32767" attributes="0"/>
                               <Component id="tfSearchSupplier" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="tpSupplierProfileEditor" min="-2" pref="413" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnSortSupplier" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="btnResetSupplier" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnSortSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="btnResetSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1473,7 +1603,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1710,7 +1840,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1766,7 +1896,7 @@
                                   <Component id="btnEditSupplierDelete" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="btnEditSupplierReset" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="29" max="32767" attributes="0"/>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2104,17 +2234,21 @@
                               <Component id="tfSearchHospital" min="-2" pref="314" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                               <Component id="btnSortHospital" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="btnResetHospital" min="-2" pref="92" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="chartTitle1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="onTimeBar5" min="-2" pref="37" max="-2" attributes="0"/>
@@ -2170,16 +2304,12 @@
                                                   <Component id="lbSupplier5" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="chartTitle1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="66" max="32767" attributes="0"/>
                                       <Component id="tpHospitalProfileEditor" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -2192,10 +2322,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="tpHospitalProfileEditor" min="-2" pref="413" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnSortHospital" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="btnResetHospital" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
+                              <EmptySpace pref="54" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnSortHospital" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="btnResetHospital" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -3021,12 +3151,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1012" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="995" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="628" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="676" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
