@@ -4,6 +4,7 @@
  */
 package PPE_Inventory_Management_System;
 
+import java.io.IOException;
 import javax.swing.JTable;
 
 /**
@@ -22,6 +23,6 @@ public abstract class AddEntity {
     
     // assume the data will and must be save into file after call add method
     public abstract boolean validate();
-    public abstract void saveToFile(JTable table);
+    public abstract void saveToFile(boolean isEdit, JTable table)throws IOException;
     public abstract void returnToDefault();
 }

@@ -6,6 +6,7 @@ package PPE_Inventory_Management_System;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,7 +27,13 @@ public class FileHandling {
             System.out.println("No data to write!");
             return;
         }
-                
+        
+        File file = new File(filename);
+        if(!file.exists()) {
+            file.createNewFile();
+            System.out.println("created new file: " + filename);
+        }
+        
         try (BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, true))) {
             for (int i = 0; i < headers.length; i++) {
                 writeFile.write(headers[i] + ": " + data[i] + "\n");            
@@ -42,6 +49,13 @@ public class FileHandling {
     public static ArrayList<String[]> ReadDataFromFile(String filename) throws IOException {
         ArrayList<String[]> dataList = new ArrayList();
         ArrayList<String> record = new ArrayList<>();
+        
+        File file = new File(filename);
+        
+        if (!file.exists() || file.length() == 0) {
+            System.out.println("File does not exist or is empty: " + filename);
+            return dataList;
+        }
         
         BufferedReader readFile = new BufferedReader(new FileReader(filename));
         String line;
@@ -62,7 +76,6 @@ public class FileHandling {
         if (!record.isEmpty()) { // Add last record if exists
             dataList.add(record.toArray(new String[0]));
         }
-        readFile.close();
         return dataList;        
     }      
 }
