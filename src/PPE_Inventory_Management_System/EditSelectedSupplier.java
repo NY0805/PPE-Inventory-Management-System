@@ -14,15 +14,18 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class EditSelectedSupplier {
-    public static void EditSupplier (JTable table, JComboBox<String> combobox, JTextField name, JTextField contact, JTextField email, JTextArea address, JCheckBox[] checkBoxItem) {
+    public static void EditSupplier (JTable table, JComboBox<String> combobox, 
+            JTextField name, JTextField contact, JTextField email, 
+            JTextArea address, JCheckBox[] checkBoxItem) {
+     
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         combobox.removeAllItems();
         combobox.addItem("Please select");
             
-//        ActionListener[] listeners = combobox.getActionListeners();
-//        for (ActionListener listener : listeners) {
-//            combobox.removeActionListener(listener);
-//        }
+        ActionListener[] listeners = combobox.getActionListeners();
+        for (ActionListener listener : listeners) {
+            combobox.removeActionListener(listener);
+        }
         
         for (int i = 0; i < model.getRowCount(); i++) {
             String supplierID = model.getValueAt(i, 0).toString();            

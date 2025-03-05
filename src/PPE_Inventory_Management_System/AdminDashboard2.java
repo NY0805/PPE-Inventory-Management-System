@@ -2220,7 +2220,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
     private void btnAddSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierSaveActionPerformed
         try {
-            SaveSupplierData.saveSupplier(false, "", tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
+            SaveData.saveSupplier(false, "", tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
                     checkFaceShield, checkGloves, checkGown, checkHeadCover,
                     checkMask, checkShoeCovers, supplierList, comboEditSupplierID);
         } catch (IOException ex) {
@@ -2245,7 +2245,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnEditSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierSaveActionPerformed
         String selectedID = comboEditSupplierID.getSelectedItem().toString();
         try {
-            SaveSupplierData.saveSupplier(true, selectedID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, checkFaceShield1, checkGloves1, checkGown1, checkHeadCover1, checkMask1, checkShoeCovers1, supplierList, comboEditSupplierID);
+            SaveData.saveSupplier(true, selectedID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, checkFaceShield1, checkGloves1, checkGown1, checkHeadCover1, checkMask1, checkShoeCovers1, supplierList, comboEditSupplierID);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2423,6 +2423,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         LoadData loadData = new LoadData();
         try {
             loadData.loadDataToTable("suppliers.txt", supplierList);
+            loadData.loadDataToTable("hospitals.txt", hospitalList);
             loadData.loadDataToTable("user.txt", tableUserList);
             loadData.loadDataToTable("login.txt", tableUserLog);
             EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
