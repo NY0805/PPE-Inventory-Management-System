@@ -28,7 +28,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
      */
     public AdminDashboard2() throws IOException {
         initComponents();
-
+        
     }
 
     /**
@@ -132,7 +132,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbReceivedItemSave = new javax.swing.JButton();
         lbReceivedItemReset = new javax.swing.JButton();
         lbReceivedTime = new javax.swing.JLabel();
-        tfReceivedItemDate = new javax.swing.JTextField();
         tfReceivedItemTime = new javax.swing.JTextField();
         comboReceivedItemCode = new javax.swing.JComboBox<>();
         comboReceivedSupplierCode = new javax.swing.JComboBox<>();
@@ -309,7 +308,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSpecialChar1.setText("At least 1 special character");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 749));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -596,7 +594,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1066,15 +1064,23 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         itemList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Item Code", "Item Name", "Supplier Code", "Hospital Code", "Quantity", "Received Date", "Received Time", "Distributed Date", "Distributed Time"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane11.setViewportView(itemList);
 
         tfSearchItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1110,6 +1116,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         comboReceivedSupplierCode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        spinnerReceivedQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spinnerReceivedQuantityStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout pReceivedItemLayout = new javax.swing.GroupLayout(pReceivedItem);
         pReceivedItem.setLayout(pReceivedItemLayout);
         pReceivedItemLayout.setHorizontalGroup(
@@ -1127,7 +1139,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pReceivedItemLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfReceivedItemTime, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                                        .addComponent(tfReceivedItemTime, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
                                     .addGroup(pReceivedItemLayout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(comboReceivedItemCode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1140,14 +1152,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addComponent(spinnerReceivedQuantity))
                             .addGroup(pReceivedItemLayout.createSequentialGroup()
                                 .addComponent(lbReceivedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfReceivedItemDate, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(pReceivedItemLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbReceivedItemReset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addComponent(lbReceivedItemSave, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(41, 41, 41))
         );
         pReceivedItemLayout.setVerticalGroup(
             pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1165,10 +1176,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(lbReceivedQuantity)
                     .addComponent(spinnerReceivedQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbReceivedDate)
-                    .addComponent(tfReceivedItemDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addComponent(lbReceivedDate)
+                .addGap(30, 30, 30)
                 .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbReceivedTime)
                     .addComponent(tfReceivedItemTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1206,6 +1215,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         comboDistributedItemCode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         comboDistributedHospitalCode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        spinnerDistributedQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spinnerDistributedQuantityStateChanged(evt);
+            }
+        });
 
         lbCurrentQuantity.setForeground(new java.awt.Color(255, 0, 0));
         lbCurrentQuantity.setText("Current quantity in stock:");
@@ -1255,11 +1270,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addGroup(pDistributedItemLayout.createSequentialGroup()
                         .addComponent(lbDistributedItemCode)
                         .addGap(26, 26, 26)
-                        .addComponent(lbDistributedHospitalCode)
-                        .addGap(78, 78, 78)
-                        .addComponent(lbDistributedDate)
-                        .addGap(30, 30, 30)
-                        .addComponent(lbDistributedTime))
+                        .addComponent(lbDistributedHospitalCode))
                     .addGroup(pDistributedItemLayout.createSequentialGroup()
                         .addComponent(comboDistributedItemCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24)
@@ -1269,13 +1280,17 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                             .addComponent(spinnerDistributedQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbDistributedQuantity))
                         .addGap(1, 1, 1)
-                        .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCurrentQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbQuantityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbCurrentQuantity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbQuantityNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfDistributedItemDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfDistributedItemDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDistributedDate))
                         .addGap(28, 28, 28)
-                        .addComponent(tfDistributedItemTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfDistributedItemTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDistributedTime))))
                 .addGap(25, 25, 25)
                 .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDistributedItemReset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2382,7 +2397,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
         pReportLayout.setVerticalGroup(
             pReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 676, Short.MAX_VALUE)
+            .addGap(0, 727, Short.MAX_VALUE)
         );
 
         pMain.add(pReport, "pReport");
@@ -2403,7 +2418,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, 676, Short.MAX_VALUE))
+                .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE))
             .addComponent(pSideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -2784,8 +2799,22 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetHospitalActionPerformed
 
     private void tfSearchItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchItemActionPerformed
-        // TODO add your handling code here:
+        SearchFunction.search(tfSearchItem, itemList);
     }//GEN-LAST:event_tfSearchItemActionPerformed
+
+    private void spinnerReceivedQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerReceivedQuantityStateChanged
+        int value = (int)spinnerReceivedQuantity.getValue();
+        if (value< 0) {
+            spinnerReceivedQuantity.setValue(0);
+        }
+    }//GEN-LAST:event_spinnerReceivedQuantityStateChanged
+
+    private void spinnerDistributedQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerDistributedQuantityStateChanged
+        int value = (int)spinnerDistributedQuantity.getValue();
+        if (value< 0) {
+            spinnerDistributedQuantity.setValue(0);
+        }
+    }//GEN-LAST:event_spinnerDistributedQuantityStateChanged
 
     /**
      * @param args the command line arguments
@@ -3066,7 +3095,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTextField tfEditSupplierContact;
     private javax.swing.JTextField tfEditSupplierEmail;
     private javax.swing.JTextField tfEditSupplierName;
-    private javax.swing.JTextField tfReceivedItemDate;
     private javax.swing.JTextField tfReceivedItemTime;
     private javax.swing.JTextField tfSearchHospital;
     private javax.swing.JTextField tfSearchItem;
