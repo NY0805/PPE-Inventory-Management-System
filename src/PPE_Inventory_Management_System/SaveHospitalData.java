@@ -59,7 +59,6 @@ public class SaveHospitalData {
  
         ValidateEntity validate = new ValidateEntity();
         FileHandling hospitalFile = new FileHandling();
-//        hospitalFile.WriteDataToFile("hospitals.txt", headers, data);
         
         if (hospital_name.isEmpty() || hospital_contact.isEmpty() || hospital_email.isEmpty() || 
             hospital_address.isEmpty() || supplies_PPE.isEmpty()) {
@@ -82,23 +81,7 @@ public class SaveHospitalData {
                 }
             }
         }else{
-            if (hospitalData.size() > 3) {
-                JOptionPane.showMessageDialog(null, "You have reach the maximum limit of suppliers! If you want to add another hospital, please remove one first.", "Warning", JOptionPane.WARNING_MESSAGE);
-                tfAddHospitalName.setText("");
-                tfAddHospitalContact.setText("");
-                tfAddHospitalEmail.setText("");
-                taAddHospitalAddress.setText("");
-
-                checkFaceShield.setSelected(false);
-                checkGloves.setSelected(false);
-                checkGown.setSelected(false);
-                checkHeadCover.setSelected(false);
-                checkMask.setSelected(false);
-                checkShoeCovers.setSelected(false);
-                return;
-            }else{
-                hospitalData.add(data);
-            }
+            hospitalData.add(data);
         }
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("hospitals.txt"));

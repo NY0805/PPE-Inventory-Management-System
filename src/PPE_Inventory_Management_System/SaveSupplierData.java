@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author user
  */
-public class SaveData {
+public class SaveSupplierData {
     public static void saveSupplier(boolean isEdit, String currentSupplierId, JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextArea taAddSupplierAddress, 
                                     JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 
                                     JCheckBox checkMask, JCheckBox checkShoeCovers, JTable supplierList, JComboBox<String> dropdownMenu) throws IOException {
@@ -74,23 +74,7 @@ public class SaveData {
                 }
             }
         }else{
-            if (supplierData.size() > 3) {
-                JOptionPane.showMessageDialog(null, "You reach the maximum limit of suppliers! If you want to add another supplier, please remove one first.", "Warning", JOptionPane.WARNING_MESSAGE);
-                tfAddSupplierName.setText("");
-                tfAddSupplierContact.setText("");
-                tfAddSupplierEmail.setText("");
-                taAddSupplierAddress.setText("");
-
-                checkFaceShield.setSelected(false);
-                checkGloves.setSelected(false);
-                checkGown.setSelected(false);
-                checkHeadCover.setSelected(false);
-                checkMask.setSelected(false);
-                checkShoeCovers.setSelected(false);
-                return;
-            }else{
-                supplierData.add(data);
-            }
+            supplierData.add(data);
         }
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("suppliers.txt"));

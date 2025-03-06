@@ -6,13 +6,8 @@ package PPE_Inventory_Management_System;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
@@ -24,8 +19,6 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class EditUser extends EditEntity {
-
-//    private ValidateEntity validator = new ValidateEntity();
 
     public EditUser(JTable table, JComboBox<String> combobox, JTextField name,
             JPasswordField password, JTextField contact, ButtonGroup buttonGroup,
