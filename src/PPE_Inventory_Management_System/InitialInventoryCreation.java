@@ -4,6 +4,12 @@
  */
 package PPE_Inventory_Management_System;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -37,25 +43,25 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfAddSupplierName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tfAddSupplierContact = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField4 = new javax.swing.JTextField();
+        taAddSupplierAddress = new javax.swing.JTextArea();
+        tfAddSupplierEmail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        checkFaceShield = new javax.swing.JCheckBox();
+        checkGloves = new javax.swing.JCheckBox();
+        checkMask = new javax.swing.JCheckBox();
+        checkHeadCover = new javax.swing.JCheckBox();
+        checkGown = new javax.swing.JCheckBox();
+        checkShoeCovers = new javax.swing.JCheckBox();
+        btnAddSupplierSave = new javax.swing.JButton();
+        btnAddSupplierReset = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        supplierList = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -68,7 +74,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboEditSupplierID = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jSpinner1 = new javax.swing.JSpinner();
@@ -79,7 +85,11 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 800));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -138,12 +148,8 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Supplier Name:");
 
-        jTextField1.setText("jTextField1");
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Supplier Contact:");
-
-        jTextField2.setText("jTextField2");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Email:");
@@ -151,30 +157,33 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Address:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jTextField4.setText("jTextField4");
+        taAddSupplierAddress.setColumns(20);
+        taAddSupplierAddress.setRows(5);
+        jScrollPane1.setViewportView(taAddSupplierAddress);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Supplies:");
 
-        jCheckBox1.setText("Face Shield");
+        checkFaceShield.setText("Face Shield");
 
-        jCheckBox2.setText("Gloves");
+        checkGloves.setText("Gloves");
 
-        jCheckBox3.setText("Mask");
+        checkMask.setText("Mask");
 
-        jCheckBox4.setText("Head Cover");
+        checkHeadCover.setText("Head Cover");
 
-        jCheckBox5.setText("Gown");
+        checkGown.setText("Gown");
 
-        jCheckBox6.setText("Shoe Covers");
+        checkShoeCovers.setText("Shoe Covers");
 
-        jButton1.setText("Save");
+        btnAddSupplierSave.setText("Save");
+        btnAddSupplierSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSupplierSaveActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Reset");
+        btnAddSupplierReset.setText("Reset");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -190,11 +199,11 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(34, 34, 34)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfAddSupplierContact, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfAddSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
@@ -203,29 +212,29 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfAddSupplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                            .addComponent(jCheckBox1)
+                                            .addComponent(checkFaceShield)
                                             .addGap(34, 34, 34))
                                         .addGroup(jPanel4Layout.createSequentialGroup()
-                                            .addComponent(jCheckBox2)
+                                            .addComponent(checkGloves)
                                             .addGap(59, 59, 59)))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jCheckBox3)
+                                        .addComponent(checkMask)
                                         .addGap(67, 67, 67)))
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox6)
-                                    .addComponent(jCheckBox5)
-                                    .addComponent(jCheckBox4))))
+                                    .addComponent(checkShoeCovers)
+                                    .addComponent(checkGown)
+                                    .addComponent(checkHeadCover))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnAddSupplierSave)
                         .addGap(27, 27, 27)
-                        .addComponent(jButton2)
+                        .addComponent(btnAddSupplierReset)
                         .addGap(33, 33, 33))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -234,16 +243,16 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAddSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfAddSupplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAddSupplierContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox4))
+                    .addComponent(checkFaceShield)
+                    .addComponent(checkHeadCover))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -254,31 +263,31 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox5))
+                            .addComponent(checkGloves)
+                            .addComponent(checkGown))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox6))
+                            .addComponent(checkMask)
+                            .addComponent(checkShoeCovers))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAddSupplierSave, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddSupplierReset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19))))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        supplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Supplier ID", "Supplier Name", "Contact", "Email", "Address", "PPE Supplies"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(supplierList);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setText("Supplier List");
@@ -310,7 +319,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
 
         jButton4.setText("Reset");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboEditSupplierID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setText("Initial Quantity:");
@@ -340,7 +349,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboEditSupplierID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(124, 124, 124)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -373,7 +382,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboEditSupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -469,7 +478,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -486,6 +495,43 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddSupplierSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierSaveActionPerformed
+        LoadData loadData = new LoadData();
+        FileHandling supplierFile = new FileHandling();
+        boolean supplierLimit = false;
+
+        try {
+            ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
+            supplierLimit = supplierData.size() >= 4;
+            System.out.println(supplierLimit);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (!supplierLimit) {
+            try {
+                SaveData.saveSupplier(false, "", tfAddSupplierName, tfAddSupplierContact, tfAddSupplierEmail, taAddSupplierAddress,
+                        checkFaceShield, checkGloves, checkGown, checkHeadCover,
+                        checkMask, checkShoeCovers, supplierList, comboEditSupplierID);
+                loadData.loadDataToTable("suppliers.txt", supplierList);
+            } catch (IOException ex) {
+                Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            btnAddSupplierSave.enableInputMethods(false);
+            JOptionPane.showMessageDialog(null, "You can only create a maximum of 4 suppliers!", "Error supplier creation", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAddSupplierSaveActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        LoadData loadData = new LoadData();
+        try {
+            loadData.loadDataToTable("suppliers.txt", supplierList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -523,18 +569,18 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAddSupplierReset;
+    private javax.swing.JButton btnAddSupplierSave;
+    private javax.swing.JCheckBox checkFaceShield;
+    private javax.swing.JCheckBox checkGloves;
+    private javax.swing.JCheckBox checkGown;
+    private javax.swing.JCheckBox checkHeadCover;
+    private javax.swing.JCheckBox checkMask;
+    private javax.swing.JCheckBox checkShoeCovers;
+    private javax.swing.JComboBox<String> comboEditSupplierID;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -565,14 +611,14 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTable supplierList;
+    private javax.swing.JTextArea taAddSupplierAddress;
+    private javax.swing.JTextField tfAddSupplierContact;
+    private javax.swing.JTextField tfAddSupplierEmail;
+    private javax.swing.JTextField tfAddSupplierName;
     // End of variables declaration//GEN-END:variables
 }
