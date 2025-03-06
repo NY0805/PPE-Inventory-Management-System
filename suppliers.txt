@@ -1,2 +1,28 @@
-
-
+Supplier ID: SP5981
+Supplier Name: lum
+Supplier Contact: 012-3456789
+Supplier email: dd@hh.com
+Supplier Address: dd
+PPE Supplies: Face Shield, Gloves
+--------------------------------------------------
+Supplier ID: SP6599
+Supplier Name: hh
+Supplier Contact: 012-3456789
+Supplier email: gg@gg.com
+Supplier Address: gg
+PPE Supplies: Head Cover
+--------------------------------------------------
+Supplier ID: SP7879
+Supplier Name: gggggg
+Supplier Contact: 012-3456789
+Supplier email: f@gg.com
+Supplier Address: ff
+PPE Supplies: Gown
+--------------------------------------------------
+Supplier ID: SP3565
+Supplier Name: hihi
+Supplier Contact: 012-3456789
+Supplier email: ff@gg.com
+Supplier Address: ff
+PPE Supplies: Mask
+--------------------------------------------------
