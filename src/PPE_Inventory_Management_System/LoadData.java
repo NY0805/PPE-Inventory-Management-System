@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class LoadData extends FileHandling {
-    //what is the problem
+    
     public void loadDataToTable(String filename, JTable table) throws IOException {
 
         ArrayList<String[]> data = ReadDataFromFile(filename);
