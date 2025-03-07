@@ -27,7 +27,7 @@ public class ValidateEntity {
             for (int i = 0; i < data.size(); i++) {
                 if (data.get(i)[0].equals(id)) {
                     JOptionPane.showMessageDialog(null, "Duplicate item code!", "Validation Error", JOptionPane.ERROR_MESSAGE);
-                    return false;
+                    return false;jjjjj
                 }
             }
 
