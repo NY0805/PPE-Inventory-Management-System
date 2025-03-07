@@ -119,15 +119,17 @@ public class ReceivePPE {
                 unitPrice = Double.parseDouble(model.getValueAt(i, 4).toString());                
             }  
         }
+//        double income = unitPrice * selectedQuantity;
         double income = unitPrice * selectedQuantity;
+        String formattedIncome = String.format("%.2f", income);
         
         transactionModel.addRow(new Object[] {
             transactionID, selectedItemID, itemName, supplierCodeValue,
-            selectedQuantity, receivedDateValue, receivedTimeValue, income
+            selectedQuantity, receivedDateValue, receivedTimeValue, formattedIncome
         });
         
         String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Received Date", "Received Time", "Income"};
-        String [] transactionData = {transactionID, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), receivedDateValue, receivedTimeValue, String.valueOf(income)};
+        String [] transactionData = {transactionID, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), receivedDateValue, receivedTimeValue, formattedIncome};
         
         receiveTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         

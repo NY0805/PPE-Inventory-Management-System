@@ -2816,7 +2816,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             loadData.loadDataToTable("hospitals.txt", hospitalList);
             loadData.loadDataToTable("user.txt", tableUserList);
             loadData.loadDataToTable("login.txt", tableUserLog);
-//            loadData.loadDataToTable("transactions.txt", itemList);
+            loadData.loadDataToTable("transactions.txt", TransactionReceivedList);
             loadData.loadDataToTable("ppe.txt", PPEList);
             EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
                     tfEditPassword, tfEditContactNo, buttonGroup2, rbEditAdmin, rbEditStaff);
