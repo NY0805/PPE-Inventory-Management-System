@@ -1188,9 +1188,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(lbReceivedQuantity)
                     .addComponent(spinnerReceivedQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbReceivedDate)
-                    .addComponent(lbReceivedDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbReceivedDateInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbReceivedDate))
                 .addGap(77, 77, 77)
                 .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbReceivedItemReset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2725,6 +2725,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             loadData.loadDataToTable("hospitals.txt", hospitalList);
             loadData.loadDataToTable("user.txt", tableUserList);
             loadData.loadDataToTable("login.txt", tableUserLog);
+            loadData.loadDataToTable("transactions.txt", itemList);
+            loadData.loadDataToTable("ppe.txt", PPEList);
             EditUser editUser = new EditUser(tableUserList, cbEditUserId, tfEditName,
                     tfEditPassword, tfEditContactNo, buttonGroup2, rbEditAdmin, rbEditStaff);
         } catch (IOException ex) {
