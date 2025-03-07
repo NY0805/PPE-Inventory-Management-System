@@ -137,6 +137,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         spinnerReceivedQuantity = new javax.swing.JSpinner();
         lbReceivedDateInput = new javax.swing.JLabel();
         lbReceivedSupplierCodeInput = new javax.swing.JLabel();
+        lbReceivedTime = new javax.swing.JLabel();
+        lbReceivedTimeInput = new javax.swing.JLabel();
         pDistributedItem = new javax.swing.JPanel();
         lbDistributedItemCode = new javax.swing.JLabel();
         lbDistributedHospitalCode = new javax.swing.JLabel();
@@ -290,6 +292,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         chartTitle1 = new javax.swing.JLabel();
         pReport = new javax.swing.JPanel();
         pTransaction = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        lbTransactionReceive = new javax.swing.JLabel();
+        lbTransactionDistribute = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        TransactionReceivedList = new javax.swing.JTable();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        TransactionDistributedList = new javax.swing.JTable();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -1107,7 +1116,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbReceivedQuantity.setText("Quantity:");
 
         lbReceivedDate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbReceivedDate.setText("Received date:");
+        lbReceivedDate.setText("Received Date:");
 
         lbReceivedItemSave.setText("Save");
         lbReceivedItemSave.addActionListener(new java.awt.event.ActionListener() {
@@ -1117,6 +1126,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         });
 
         lbReceivedItemReset.setText("Reset");
+        lbReceivedItemReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lbReceivedItemResetActionPerformed(evt);
+            }
+        });
 
         comboReceivedItemCode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1126,10 +1140,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
+        lbReceivedTime.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbReceivedTime.setText("Received Time:");
+
         javax.swing.GroupLayout pReceivedItemLayout = new javax.swing.GroupLayout(pReceivedItem);
         pReceivedItem.setLayout(pReceivedItemLayout);
         pReceivedItemLayout.setHorizontalGroup(
             pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pReceivedItemLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbReceivedItemReset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbReceivedItemSave, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
             .addGroup(pReceivedItemLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1149,16 +1172,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spinnerReceivedQuantity))
                     .addGroup(pReceivedItemLayout.createSequentialGroup()
-                        .addComponent(lbReceivedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbReceivedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbReceivedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbReceivedDateInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbReceivedTimeInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbReceivedDateInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(152, 152, 152))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pReceivedItemLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbReceivedItemReset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbReceivedItemSave, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
         );
         pReceivedItemLayout.setVerticalGroup(
             pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1179,7 +1200,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbReceivedDateInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbReceivedDate))
-                .addGap(68, 68, 68)
+                .addGap(30, 30, 30)
+                .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbReceivedTimeInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbReceivedTime))
+                .addGap(18, 18, 18)
                 .addGroup(pReceivedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbReceivedItemSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbReceivedItemReset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1241,25 +1266,22 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbDistributedItemCode, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbDistributedHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbDistributedQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pDistributedItemLayout.createSequentialGroup()
+                            .addComponent(lbDistributedQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDistributedItemLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbDistributedDate)))
-                .addGap(19, 19, 19)
+                        .addComponent(lbDistributedDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pDistributedItemLayout.createSequentialGroup()
-                        .addComponent(tfDistributedItemDate)
-                        .addGap(121, 121, 121))
-                    .addGroup(pDistributedItemLayout.createSequentialGroup()
-                        .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pDistributedItemLayout.createSequentialGroup()
-                                .addComponent(lbCurrentQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbQuantityNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
-                            .addComponent(comboDistributedItemCode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboDistributedHospitalCode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(spinnerDistributedQuantity, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(134, 134, 134))))
+                        .addComponent(lbCurrentQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbQuantityNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
+                    .addComponent(comboDistributedItemCode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboDistributedHospitalCode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spinnerDistributedQuantity, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfDistributedItemDate))
+                .addGap(134, 134, 134))
         );
         pDistributedItemLayout.setVerticalGroup(
             pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1286,9 +1308,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbCurrentQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDistributedDate)
-                    .addComponent(tfDistributedItemDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDistributedItemDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDistributedDate))
                 .addGap(62, 62, 62)
                 .addGroup(pDistributedItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDistributedItemSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1323,7 +1345,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Item Code", "Item Name", "Supplier Code", "Quantity", "Unit Price(RM)"
+                "Item Code", "Item Name", "Supplier ID", "Quantity (boxes)", "Unit Price(RM)"
             }
         ) {
             Class[] types = new Class [] {
@@ -2438,6 +2460,83 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
 
         pMain.add(pReport, "pReport");
+
+        pTransaction.setBackground(new java.awt.Color(255, 255, 255));
+        pTransaction.setHorizontalScrollBar(null);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        lbTransactionReceive.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbTransactionReceive.setText("PPE Received From Suppliers");
+
+        lbTransactionDistribute.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbTransactionDistribute.setText("PPE Distributed To Hospitals");
+
+        TransactionReceivedList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Transaction ID", "Item Code", "Item Name", "Supplier ID", "Quantity (boxes)", "Received Date", "Received Time", "Income(RM)"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane11.setViewportView(TransactionReceivedList);
+
+        TransactionDistributedList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Transaction ID", "Item Code", "Item Name", "Hospital ID", "Quantity (boxes)", "Distributed Date", "Distributed Time"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane13.setViewportView(TransactionDistributedList);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTransactionDistribute, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTransactionReceive, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(215, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lbTransactionReceive)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addComponent(lbTransactionDistribute)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107))
+        );
+
+        pTransaction.setViewportView(jPanel3);
+
         pMain.add(pTransaction, "pTransaction");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2727,7 +2826,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
         
         ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, PPEList);
-        ReceivePPE.ReceiveDate(lbReceivedDateInput);
+        ReceivePPE.ReceiveDateTime(lbReceivedDateInput, lbReceivedTimeInput);
 
 
     }//GEN-LAST:event_formWindowOpened
@@ -2874,16 +2973,23 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnTransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionActionPerformed
         CardLayout cardLayout = (CardLayout) pMain.getLayout();
         cardLayout.show(pMain, "pTransaction");
-        titleLabel.setText("Transaction");
+        titleLabel.setText("Transaction History");
     }//GEN-LAST:event_btnTransactionActionPerformed
 
     private void lbReceivedItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemSaveActionPerformed
         try {
-            ReceivePPE.updatePPE(comboReceivedItemCode, spinnerReceivedQuantity, PPEList);
+            ReceivePPE.updatePPE(comboReceivedItemCode, spinnerReceivedQuantity,
+                    PPEList, TransactionReceivedList, lbReceivedSupplierCodeInput,
+                    lbReceivedDateInput, lbReceivedTimeInput);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lbReceivedItemSaveActionPerformed
+
+    private void lbReceivedItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemResetActionPerformed
+        comboReceivedItemCode.setSelectedIndex(0);
+        spinnerReceivedQuantity.setValue(0);
+    }//GEN-LAST:event_lbReceivedItemResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2927,6 +3033,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable PPEList;
+    private javax.swing.JTable TransactionDistributedList;
+    private javax.swing.JTable TransactionReceivedList;
     private javax.swing.JButton btnAddCancel;
     private javax.swing.JButton btnAddHospitalReset;
     private javax.swing.JButton btnAddHospitalSave;
@@ -3009,9 +3117,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3074,6 +3185,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbReceivedQuantity;
     private javax.swing.JLabel lbReceivedSupplierCode;
     private javax.swing.JLabel lbReceivedSupplierCodeInput;
+    private javax.swing.JLabel lbReceivedTime;
+    private javax.swing.JLabel lbReceivedTimeInput;
     private javax.swing.JLabel lbReturn;
     private javax.swing.JLabel lbReturn1;
     private javax.swing.JLabel lbRole;
@@ -3088,6 +3201,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbSupplier6;
     private javax.swing.JLabel lbSupplier7;
     private javax.swing.JLabel lbSupplier8;
+    private javax.swing.JLabel lbTransactionDistribute;
+    private javax.swing.JLabel lbTransactionReceive;
     private javax.swing.JLabel lbUpper;
     private javax.swing.JLabel lbUpper1;
     private javax.swing.JLabel lbUpper2;

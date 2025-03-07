@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -37,24 +38,27 @@ public class ReceivePPE {
 //        ReceiveDate(lbReceiveDateInput);
 
         combobox.addActionListener((ActionEvent e) -> {
-            int selectedRow = combobox.getSelectedIndex() - 1;
+            int selectedRow = combobox.getSelectedIndex() - 1; // make it same with the biginning of index (start from 0)
             if (selectedRow >= 0) {
-                label.setText(model.getValueAt(selectedRow, 2).toString()); // Get correct Supplier Code
+                label.setText(model.getValueAt(selectedRow, 2).toString());
             } else {
-                label.setText(""); // Reset label if "Please select" is chosen
+                label.setText("");
             }
         });
     }
     
-    public static void ReceiveDate(JLabel lbDate) {
+    public static void ReceiveDateTime(JLabel lbDate, JLabel lbTime) {
         String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         lbDate.setText(currentDate);
                 
 //        dateChooser.setDate(new Date());
         
+        String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        lbTime.setText(currentTime);
+        
     }
     
-    public static void updatePPE(JComboBox<String> itemID, JSpinner quantity, JTable table) throws IOException{
+    public static void updatePPE(JComboBox<String> itemID, JSpinner quantity, JTable table, JTable transactionTable, JLabel supplierCode, JLabel receivedDate, JLabel receivedTime) throws IOException{
         
         FileHandling updatePPEFile = new FileHandling();
 
@@ -65,8 +69,7 @@ public class ReceivePPE {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        
+                
         // read data from file to retrieve item quantity
         ArrayList<String[]> ppeData = updatePPEFile.ReadDataFromFile("ppe.txt");
         
@@ -80,7 +83,7 @@ public class ReceivePPE {
                     
         // rewrite updated content into ppe.txt
         new FileWriter("ppe.txt", false).close();
-        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity", "Unit Price"};
+        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity(boxes)", "Unit Price"};
 
         for (String[] data: ppeData) {
             updatePPEFile.WriteDataToFile("ppe.txt", headers, data);
@@ -96,50 +99,42 @@ public class ReceivePPE {
             }
         }        
         JOptionPane.showMessageDialog(null, "PPE restock successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+               
+//      ==============================================================================================================
+        
+        // record transaction into txt and table
+        FileHandling receiveTransactionFile = new FileHandling();
+        DefaultTableModel transactionModel = (DefaultTableModel)transactionTable.getModel();
+        
+        String transactionID = ID_Generator.generate_id("transaction");
+        String supplierCodeValue = supplierCode.getText();
+        String receivedDateValue = receivedDate.getText();
+        String receivedTimeValue = receivedTime.getText();
+        String itemName = "";
+        double unitPrice = 0;
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String tableItemID = model.getValueAt(i, 0).toString();
+            if (tableItemID.equals(selectedItemID)) {
+                itemName = model.getValueAt(i, 1).toString();
+                unitPrice = Double.parseDouble(model.getValueAt(i, 4).toString());                
+            }  
+        }
+        double income = unitPrice * selectedQuantity;
+        
+        transactionModel.addRow(new Object[] {
+            transactionID, selectedItemID, itemName, supplierCodeValue,
+            selectedQuantity, receivedDateValue, receivedTimeValue, income
+        });
+        
+        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Received Date", "Received Time", "Income"};
+        String [] transactionData = {transactionID, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), receivedDateValue, receivedTimeValue, String.valueOf(income)};
+        
+        receiveTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         
         // clear all input after saving
         itemID.setSelectedIndex(0);
         quantity.setValue(0);
-        
     }
-    
-//    public static void SaveReceivedPPE(JComboBox<String> itemID, JComboBox<String> supplierID, JSpinner quantity, JLabel totalcost, JLabel receivedDate, JTable PPEtable) throws IOException {
-//        String selectedItemID = (String)itemID.getSelectedItem();
-//        String selectedSUpplierID = (String)supplierID.getSelectedItem();
-//        int selectedQuantity = (int)quantity.getValue();
-//        String selectedDate = receivedDate.getText();
-//        String totalCostValue = totalcost.getText();
-//        
-//        if (selectedItemID.isEmpty() || selectedSUpplierID.isEmpty() || selectedQuantity == 0 || selectedDate.isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);            
-////            return;
-//        }
-//        
-//        ArrayList<String[]> updatePPEData = updatePPEFile.ReadDataFromFile("ppe.txt");
-//        String[] headers = {"Item ID", "Supplier ID", "Quantity Received", "Received Date", "Total Cost"};
-//        String[] data = {selectedItemID, selectedSUpplierID, String.valueOf(selectedQuantity), selectedDate, totalCostValue};
-//        receivePPEData.add(data);
-//        
-//        for (String[] PPE: updatePPEData) {
-//            updatePPEFile.WriteDataToFile("transactions.txt", headers, PPE);
-//
-//        }
-//        JOptionPane.showMessageDialog(null, "Received PPE has been recorded successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-//        
-//        DefaultTableModel model = new DefaultTableModel();
-//        table.setModel(model);
-//        model.setColumnIdentifiers(headers);
-//        model.setRowCount(0);
-//        for (String[] rowData: receivePPEData) {
-//            if (rowData.length == 5) {
-//                System.out.println(Arrays.toString(rowData));
-//                model.addRow(rowData);
-//            }else {
-//                System.err.println("skipping record: " + Arrays.toString(rowData));
-//            }            
-//        }
-//    }
-
 }
     
 

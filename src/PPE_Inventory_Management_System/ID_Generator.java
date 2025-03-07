@@ -29,6 +29,9 @@ public class ID_Generator {
             case "ppe": {
                 return String.format("PPE%d", randomID);
             }
+            case "transaction": {
+                return String.format("TR%d", randomID);
+            }
             default:
                 return "Invalid ID";
         }
