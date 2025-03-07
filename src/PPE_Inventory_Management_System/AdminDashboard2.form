@@ -106,7 +106,7 @@
           <Group type="102" attributes="0">
               <Component id="pTopBar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pMain" pref="727" max="32767" attributes="0"/>
+              <Component id="pMain" pref="698" max="32767" attributes="0"/>
           </Group>
           <Component id="pSideBar" alignment="0" max="32767" attributes="0"/>
       </Group>
@@ -380,7 +380,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="134" max="32767" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pDashboard2" min="-2" max="-2" attributes="0"/>
                           <Component id="pDashboard1" min="-2" max="-2" attributes="0"/>
@@ -637,7 +637,7 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="tpUserProfileEditor" min="-2" pref="455" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" pref="256" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1389,6 +1389,9 @@
               <ComponentRef name="null"/>
             </Property>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+          </AccessibilityProperties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="pInventoryManagement"/>
@@ -1410,21 +1413,26 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="tfSearchPPE" min="-2" pref="314" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="btnSortPPE" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="btnResetPPE" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnPrintPPE" min="-2" pref="92" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="pReceivedItem" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="pDistributedItem" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="jScrollPane12" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="tfSearchPPE" min="-2" pref="314" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnSortPPE" min="-2" pref="89" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="pReceivedItem" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="btnResetPPE" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnPrintPPE" min="-2" pref="92" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="pDistributedItem" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace pref="239" max="32767" attributes="0"/>
                       </Group>
@@ -1489,9 +1497,9 @@
                                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                               <Component id="comboReceivedItemCode" pref="158" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="comboReceivedSupplierCode" max="32767" attributes="0"/>
+                                              <Component id="lbReceivedSupplierCodeInput" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1528,9 +1536,9 @@
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lbReceivedSupplierCode" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboReceivedSupplierCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbReceivedSupplierCodeInput" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lbReceivedQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="spinnerReceivedQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1587,6 +1595,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Save"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbReceivedItemSaveActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="lbReceivedItemReset">
                       <Properties>
@@ -1608,34 +1619,14 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="comboReceivedSupplierCode">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
                     <Component class="javax.swing.JSpinner" name="spinnerReceivedQuantity">
                       <Events>
                         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinnerReceivedQuantityStateChanged"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lbReceivedDateInput">
-                      <Properties>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                            <LineBorder/>
-                          </Border>
-                        </Property>
-                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lbReceivedSupplierCodeInput">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1746,8 +1737,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lbDistributedItemReset" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="lbDistributedItemSave" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="lbDistributedItemReset" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
@@ -1893,47 +1884,12 @@
                     <Component class="javax.swing.JTable" name="PPEList">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="6">
-                            <Column editable="true" title="Item Code" type="java.lang.String">
-                              <Data value="PPE0123"/>
-                              <Data value="PPE1829"/>
-                              <Data value="PPE1792"/>
-                              <Data value="PPE4020"/>
-                              <Data value="PPE3790"/>
-                              <Data value="PPE1380"/>
-                            </Column>
-                            <Column editable="true" title="Item Name" type="java.lang.String">
-                              <Data value="Mask"/>
-                              <Data value="Face Shield"/>
-                              <Data value="Gown"/>
-                              <Data value="Gloves"/>
-                              <Data value="Shoe Covers"/>
-                              <Data value="Head Cover"/>
-                            </Column>
-                            <Column editable="true" title="Supplier Code" type="java.lang.String">
-                              <Data value="SP5981"/>
-                              <Data value="SP6599"/>
-                              <Data value="SP5981"/>
-                              <Data value="SP3565"/>
-                              <Data value="SP7879"/>
-                              <Data value="SP6599"/>
-                            </Column>
-                            <Column editable="true" title="Quantity" type="java.lang.Integer">
-                              <Data value="4"/>
-                              <Data value="7"/>
-                              <Data value="5"/>
-                              <Data value="10"/>
-                              <Data value="6"/>
-                              <Data value="10"/>
-                            </Column>
-                            <Column editable="true" title="Unit Price" type="java.lang.Double">
-                              <Data value="2.0"/>
-                              <Data value="4.0"/>
-                              <Data value="10.0"/>
-                              <Data value="2.0"/>
-                              <Data value="20.0"/>
-                              <Data value="2.0"/>
-                            </Column>
+                          <Table columnCount="5" rowCount="0">
+                            <Column editable="true" title="Item Code" type="java.lang.String"/>
+                            <Column editable="true" title="Item Name" type="java.lang.String"/>
+                            <Column editable="true" title="Supplier Code" type="java.lang.String"/>
+                            <Column editable="true" title="Quantity" type="java.lang.String"/>
+                            <Column editable="true" title="Unit Price(RM)" type="java.lang.String"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2123,7 +2079,7 @@
                                   </Group>
                                   <Component id="lbSupplier2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="128" max="32767" attributes="0"/>
+                              <EmptySpace pref="99" max="32767" attributes="0"/>
                               <Component id="tfSearchSupplier" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -2992,7 +2948,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="tpHospitalProfileEditor" min="-2" pref="413" max="-2" attributes="0"/>
-                              <EmptySpace pref="105" max="32767" attributes="0"/>
+                              <EmptySpace pref="76" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnSortHospital" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="btnResetHospital" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
@@ -3831,7 +3787,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="727" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="698" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
