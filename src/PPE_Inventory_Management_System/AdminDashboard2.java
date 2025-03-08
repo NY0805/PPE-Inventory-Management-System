@@ -7,6 +7,8 @@ package PPE_Inventory_Management_System;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
@@ -23,13 +25,28 @@ import javax.swing.table.TableRowSorter;
  */
 public class AdminDashboard2 extends javax.swing.JFrame {
 
+    private String userId;
+    private String userName;
+    private String userPassword;
+    private String userContact;
+    private String userType;
+
     /**
      * Creates new form AdminDashboard2
      *
      * @throws java.io.IOException
      */
-    public AdminDashboard2() throws IOException {
+    public AdminDashboard2(String id, String name, String password, String contact, String userType) throws IOException {
         initComponents();
+
+        this.userId = id;
+        this.userName = name;
+        this.userPassword = password;
+        this.userContact = contact;
+        this.userType = userType;
+
+        lbUsername.setText(name);
+        lbRole.setText("(" + userType + ")");
 
     }
 
@@ -324,6 +341,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSpecialChar1.setText("At least 1 special character");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PPE Inventory Management");
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 749));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -396,6 +414,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         });
 
         btnLogout.setText("Log Out");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         btnTransaction.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnTransaction.setText("Transaction");
@@ -452,7 +475,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pTopBar.setBackground(new java.awt.Color(255, 255, 255));
 
         titleLabel.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        titleLabel.setText("User Management");
+        titleLabel.setText("Dashboard");
         titleLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -604,29 +627,29 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pAdminDashboardLayout.setHorizontalGroup(
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(51, 51, 51)
                 .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(55, 55, 55)
                 .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(53, 53, 53)
                 .addComponent(pDashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAdminDashboardLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
             .addComponent(pRecentRecords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pAdminDashboardLayout.setVerticalGroup(
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(pRecentRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2908,13 +2931,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
 //      =====================================================================================================
         // receive PPE - item code dropdown list
-        ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, PPEList);
-        ReceivePPE.ReceiveDateTime(lbReceivedDateInput, lbReceivedTimeInput);
-        // distribute PPE - item code dropdown list
-        DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, PPEList);
-        // distribute PPE - hospital code dropdown list
-        DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
-        DistributePPE.DistributeDateTime(tfDistributedItemDate, tfDistributedItemTime);
+//        ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, PPEList);
+//        ReceivePPE.ReceiveDateTime(lbReceivedDateInput, lbReceivedTimeInput);
+//        // distribute PPE - item code dropdown list
+//        DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, PPEList);
+//        // distribute PPE - hospital code dropdown list
+//        DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
+//        DistributePPE.DistributeDateTime(tfDistributedItemDate, tfDistributedItemTime);
 
 
     }//GEN-LAST:event_formWindowOpened
@@ -3065,13 +3088,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTransactionActionPerformed
 
     private void lbReceivedItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemSaveActionPerformed
-        try {
-            ReceivePPE.updatePPE(comboReceivedItemCode, spinnerReceivedQuantity,
-                    PPEList, TransactionReceivedList, lbReceivedSupplierCodeInput,
-                    lbReceivedDateInput, lbReceivedTimeInput);
-        } catch (IOException ex) {
-            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            ReceivePPE.updatePPE(comboReceivedItemCode, spinnerReceivedQuantity,
+//                    PPEList, TransactionReceivedList, lbReceivedSupplierCodeInput,
+//                    lbReceivedDateInput, lbReceivedTimeInput);
+//        } catch (IOException ex) {
+//            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_lbReceivedItemSaveActionPerformed
 
     private void lbReceivedItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemResetActionPerformed
@@ -3080,13 +3103,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_lbReceivedItemResetActionPerformed
 
     private void lbDistributedItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbDistributedItemSaveActionPerformed
-        try {
-            DistributePPE.updatePPE(comboDistributedItemCode, comboDistributedHospitalCode,
-                    spinnerDistributedQuantity, PPEList, TransactionDistributedList,
-                    tfDistributedItemDate, tfDistributedItemTime);
-        } catch (IOException ex) {
-            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            DistributePPE.updatePPE(comboDistributedItemCode, comboDistributedHospitalCode,
+//                    spinnerDistributedQuantity, PPEList, TransactionDistributedList,
+//                    tfDistributedItemDate, tfDistributedItemTime);
+//        } catch (IOException ex) {
+//            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_lbDistributedItemSaveActionPerformed
 
     private void lbDistributedItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbDistributedItemResetActionPerformed
@@ -3123,10 +3146,34 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String logoutTime = ("Log Out : " + LocalDateTime.now().format(format));
+
+        try {
+            FileHandling userFile = new FileHandling();
+            String[] headers = {"User ID", "Name", "Password", "Contact", "User Type", "Login Time"};
+            String[] data = {userId, userName, userPassword, userContact, userType, logoutTime};
+
+            userFile.WriteDataToFile("login.txt", headers, data);
+            this.dispose();
+            LogIn login = new LogIn();
+            login.setVisible(true);
+        } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error saving log out time. ", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        String loggedInUserName = "ChefLum";
+        String loggedInUserType = "(Admin)";
+        String loggedInUserContact = "012-3456789";
+        String loggedInUserPassword = "Abc1@3456";
+        String loggedInUserId = "ST0001";
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -3154,7 +3201,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new AdminDashboard2().setVisible(true);
+                    new AdminDashboard2(loggedInUserName, loggedInUserType,
+                            loggedInUserContact, loggedInUserPassword, loggedInUserId).setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
                 }

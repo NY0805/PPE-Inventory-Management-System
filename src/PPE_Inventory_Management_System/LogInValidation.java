@@ -15,6 +15,9 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class LogInValidation {
+//    private String userId;
+//    private String name;
+//    private String userType;
 
     public void Validate(String id, String password, LogIn loginFrame) {
         try {
@@ -35,7 +38,7 @@ public class LogInValidation {
                     saveLoginDetails(id, storedName, password, storedContact, storedUserType);
                     
                     loginFrame.dispose();
-                    AdminDashboard2 dashboard = new AdminDashboard2();
+                    AdminDashboard2 dashboard = new AdminDashboard2(id, storedName, password, storedContact, storedUserType);
                     dashboard.setVisible(true);
                     break;
                 }
@@ -61,4 +64,5 @@ public class LogInValidation {
 
         userFile.WriteDataToFile("login.txt", headers, data);
     }
+
 }
