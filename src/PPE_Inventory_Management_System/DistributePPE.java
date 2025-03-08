@@ -57,10 +57,13 @@ public class DistributePPE {
         
     }
     
-    public static void updatePPE(JComboBox<String> itemID, JComboBox<String> hospitalID, JSpinner quantity, JTable table, JTable transactionTable, JTextField distributedDate, JTextField distributedTime) throws IOException{
+    public static void updatePPE(JComboBox<String> itemID, JComboBox<String> hospitalID,
+            JSpinner quantity, JTable table, JTable transactionTable, JTextField distributedDate,
+            JTextField distributedTime) throws IOException {
         
         FileHandling updatePPEFile = new FileHandling();
-
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        
         String selectedItemID = (String)itemID.getSelectedItem();
         String selectedHospitalID = (String)hospitalID.getSelectedItem();
         int selectedQuantity = (int)quantity.getValue();
@@ -68,6 +71,13 @@ public class DistributePPE {
         if (selectedItemID.equals("Please select") || selectedHospitalID.equals("Please select") || selectedQuantity == 0) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
+        }
+        // check for the entered quantity not exceed current stock
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if (selectedQuantity > Integer.parseInt(model.getValueAt(i, 3).toString())) {
+                JOptionPane.showMessageDialog(null, "Not enough stock, please select again.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
                 
         // read data from file to retrieve item quantity
@@ -88,8 +98,7 @@ public class DistributePPE {
         for (String[] data: ppeData) {
             updatePPEFile.WriteDataToFile("ppe.txt", headers, data);
         }
-        // update ppelist table
-        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        // update ppelist table        
         for (int i = 0; i < model.getRowCount(); i++) {
             String tableItemID = model.getValueAt(i, 0).toString();
             if (tableItemID.equals(selectedItemID)) {

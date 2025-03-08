@@ -2748,7 +2748,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSearchSupplierActionPerformed
 
     private void btnResetSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetSupplierActionPerformed
-
         TableRowSorter<DefaultTableModel> reset = (TableRowSorter<DefaultTableModel>) supplierList.getRowSorter();
         if (reset != null) {
             reset.setRowFilter(null);
@@ -2975,15 +2974,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_spinnerDistributedQuantityStateChanged
 
     private void tfSearchPPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchPPEActionPerformed
-        // TODO add your handling code here:
+        SearchFunction.search(tfSearchPPE, PPEList);
     }//GEN-LAST:event_tfSearchPPEActionPerformed
 
     private void btnResetPPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPPEActionPerformed
-        // TODO add your handling code here:
+        TableRowSorter<DefaultTableModel> reset = (TableRowSorter<DefaultTableModel>) PPEList.getRowSorter();
+        if (reset != null) {
+            reset.setRowFilter(null);
+        }
+        tfSearchPPE.setText("");
     }//GEN-LAST:event_btnResetPPEActionPerformed
 
     private void btnPrintPPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintPPEActionPerformed
-        // TODO add your handling code here:
+        Print_PDF.Print_PDF(PPEList, "PPE_List.pdf");
     }//GEN-LAST:event_btnPrintPPEActionPerformed
 
     private void btnTransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionActionPerformed
