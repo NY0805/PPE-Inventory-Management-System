@@ -34,8 +34,9 @@ public class ReceivePPE {
         for (int i = 0; i < rowcount; i++) {
             String itemCode = model.getValueAt(i, 0).toString();
             combobox.addItem(itemCode);
-        }        
-//        ReceiveDate(lbReceiveDateInput);
+        }
+        
+        
 
         combobox.addActionListener((ActionEvent e) -> {
             int selectedRow = combobox.getSelectedIndex() - 1; // make it same with the biginning of index (start from 0)
