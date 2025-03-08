@@ -5,7 +5,6 @@
 package PPE_Inventory_Management_System;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -227,7 +226,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Item Code", "Name", "Supplier Code", "Quantity", "Price(RM)"
+                "Item Code", "Name", "Supplier Code", "Quantity", "Price per Box (RM)"
             }
         ));
         jScrollPane4.setViewportView(tablePPE);

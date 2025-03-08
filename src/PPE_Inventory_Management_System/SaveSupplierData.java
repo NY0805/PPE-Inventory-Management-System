@@ -51,7 +51,7 @@ public class SaveSupplierData {
         String[] data = {supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address, supplies_PPE};
  
         ValidateEntity validate = new ValidateEntity();
-        FileHandling supplierFile = new FileHandling();
+        FileHandling ppeFile = new FileHandling();
         
         if (supplier_name.isEmpty() || supplier_contact.isEmpty() || supplier_email.isEmpty() || 
             supplier_address.isEmpty() || supplies_PPE.isEmpty()) {
@@ -63,9 +63,54 @@ public class SaveSupplierData {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-
-         
+        
+        ArrayList<String[]> ppeData = ppeFile.ReadDataFromFile("ppe.txt");
+        
+        for (String[] ppe: ppeData) {
+            if (selectedPPE.contains(ppe[1]) && !ppe[2].equals("NULL")) {
+//                JOptionPane.showMessageDialog(null, ppe[1] + " has been supplied by another supplier!", "Error", JOptionPane.ERROR_MESSAGE);
+//                return;
+                
+                if (ppe[1].equals("FaceShield")) {
+                    checkFaceShield.setEnabled(false);
+                }
+                if (ppe[1].equals("Gloves")) {
+                    checkGloves.setEnabled(false);
+                }
+                if (ppe[1].equals("Gown")) {
+                    checkGown.setEnabled(false);
+                }
+                if (ppe[1].equals("Head Cover")) {
+                    checkHeadCover.setEnabled(false);
+                }
+                if (ppe[1].equals("Mask")) {
+                    checkMask.setEnabled(false);
+                }
+                if (ppe[1].equals("Shoe Covers")) {
+                    checkFaceShield.setEnabled(false);
+                }
+                
+            }
+        }
+        
+        for (String[] ppe: ppeData) {
+            if (selectedPPE.contains(ppe[1]) && ppe[2].equals("NULL")) {
+                ppe[2] = supplier_id;
+            }
+        }
+        
+        BufferedWriter ppeWriter = new BufferedWriter(new FileWriter("ppe.txt"));
+        ppeWriter.close();
+        String[] ppeHeaders = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
+        for (String[]ppe: ppeData) {
+            ppeFile.WriteDataToFile("ppe.txt", ppeHeaders, ppe);
+        }
+        
+//      =====================================================================================
+        
+        FileHandling supplierFile = new FileHandling();
         ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
+        // update
         if (isEdit) {
             for (int i = 0; i < supplierData.size(); i++) {
                 if (supplierData.get(i)[0].equals(currentSupplierId)) {
@@ -74,6 +119,7 @@ public class SaveSupplierData {
                 }
             }
         }else{
+            // add
             supplierData.add(data);
         }
 
@@ -85,8 +131,8 @@ public class SaveSupplierData {
         }
 
         JOptionPane.showMessageDialog(null, isEdit ? "Supplier updated successfully!" : "Supplier added successfully!");
-        dropdownMenu.setSelectedIndex(0);
         
+        dropdownMenu.setSelectedIndex(0);        
         tfAddSupplierName.setText("");
         tfAddSupplierContact.setText("");
         tfAddSupplierEmail.setText("");
@@ -105,7 +151,6 @@ public class SaveSupplierData {
         model.setRowCount(0);
         for (String[] rowData: supplierData) {
             if (rowData.length == 6) {
-                System.out.println(Arrays.toString(rowData));
                 model.addRow(rowData);
             }else {
                 System.err.println("skipping record: " + Arrays.toString(rowData));
