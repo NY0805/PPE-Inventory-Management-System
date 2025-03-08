@@ -32,7 +32,7 @@ public class DeleteHospitalData {
         
         for (String[] hospital: hospitals) {
             if (!hospital[0].equals(hospital_id)) {
-                updatedHospitals.add(hospital);
+//                updatedHospitals.add(hospital);
             }else{
                 found = true;
             }

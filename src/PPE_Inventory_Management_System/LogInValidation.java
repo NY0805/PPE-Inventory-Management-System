@@ -53,7 +53,7 @@ public class LogInValidation {
 
     public void saveLoginDetails(String id, String name, String password, String contact, String userType) throws IOException {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String loginTime = LocalDateTime.now().format(format);
+        String loginTime = ("Log In : " + LocalDateTime.now().format(format));
 
         FileHandling userFile = new FileHandling();
         String[] headers = {"User ID", "Name", "Password", "Contact", "User Type", "Login Time"};
