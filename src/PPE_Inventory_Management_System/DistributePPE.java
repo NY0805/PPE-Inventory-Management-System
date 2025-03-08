@@ -4,19 +4,18 @@
  */
 package PPE_Inventory_Management_System;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -45,30 +44,27 @@ public class DistributePPE {
             }
         });
     }
-    
-    public static void DistributeDateTime(JTextField lbDate, JTextField lbTime) {
-        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        lbDate.setText(currentDate);
-                
-//        dateChooser.setDate(new Date());
         
-        String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        lbTime.setText(currentTime);
-        
-    }
-    
     public static void updatePPE(JComboBox<String> itemID, JComboBox<String> hospitalID,
-            JSpinner quantity, JTable table, JTable transactionTable, JTextField distributedDate,
-            JTextField distributedTime) throws IOException {
+            JSpinner quantity, JTable table, JTable transactionTable, JDateChooser distributedDate,
+            JSpinner distributedTime) throws IOException {
         
+        if (distributedDate.getDate() == null) {
+            distributedDate.setDate(new Date());
+        }
         FileHandling updatePPEFile = new FileHandling();
         DefaultTableModel model = (DefaultTableModel)table.getModel();
         
         String selectedItemID = (String)itemID.getSelectedItem();
         String selectedHospitalID = (String)hospitalID.getSelectedItem();
         int selectedQuantity = (int)quantity.getValue();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String selectedDate = dateFormat.format(distributedDate.getDate());
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String selectedTime = timeFormat.format(distributedTime.getValue());
         
-        if (selectedItemID.equals("Please select") || selectedHospitalID.equals("Please select") || selectedQuantity == 0) {
+        if (selectedItemID.equals("Please select") || selectedHospitalID.equals("Please select") || 
+                selectedQuantity == 0 || selectedDate.isEmpty() || selectedTime.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -93,7 +89,7 @@ public class DistributePPE {
                     
         // rewrite updated content into ppe.txt
         new FileWriter("ppe.txt", false).close();
-        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity(boxes)", "Unit Price"};
+        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity(boxes)", "Unit Price(RM)"};
 
         for (String[] data: ppeData) {
             updatePPEFile.WriteDataToFile("ppe.txt", headers, data);
@@ -116,8 +112,6 @@ public class DistributePPE {
         DefaultTableModel transactionModel = (DefaultTableModel)transactionTable.getModel();
         
         String transactionID = ID_Generator.generate_id("transaction");
-        String distributedDateValue = distributedDate.getText();
-        String distributedTimeValue = distributedTime.getText();
         String itemName = "";
         double unitPrice = 0;
         
@@ -135,11 +129,16 @@ public class DistributePPE {
         
         transactionModel.addRow(new Object[] {
             transactionID, selectedItemID, itemName, selectedHospitalID,
-            selectedQuantity, distributedDateValue, distributedTimeValue, formattedIncome
+            selectedQuantity, selectedDate, selectedTime, formattedIncome
         });
         
-        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name", "Hospital ID", "Quantity(boxes)", "Distributed Date", "Distributed Time", "Income", "Transaction Type"};
-        String [] transactionData = {transactionID, selectedItemID, itemName, selectedHospitalID, String.valueOf(selectedQuantity), distributedDateValue, distributedTimeValue, formattedIncome, transactionType};
+        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name",
+            "Hospital ID", "Quantity(boxes)", "Distributed Date", "Distributed Time",
+            "Income", "Transaction Type"};
+        
+        String [] transactionData = {transactionID, selectedItemID, itemName,
+            selectedHospitalID, String.valueOf(selectedQuantity), selectedDate,
+            selectedTime, formattedIncome, transactionType};
         
         distributeTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         

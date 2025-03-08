@@ -4,13 +4,13 @@
  */
 package PPE_Inventory_Management_System;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -34,8 +34,7 @@ public class ReceivePPE {
         for (int i = 0; i < rowcount; i++) {
             String itemCode = model.getValueAt(i, 0).toString();
             combobox.addItem(itemCode);
-        }
-        
+        }     
         
 
         combobox.addActionListener((ActionEvent e) -> {
@@ -47,28 +46,24 @@ public class ReceivePPE {
             }
         });
     }
-    
-    public static void ReceiveDateTime(JLabel lbDate, JLabel lbTime) {
-        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        lbDate.setText(currentDate);
-                
-//        dateChooser.setDate(new Date());
         
-        String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        lbTime.setText(currentTime);
+    public static void updatePPE(JComboBox<String> itemID, JSpinner quantity,
+            JDateChooser receivedDate, JSpinner receivedTime, JTable table,
+            JTable transactionTable, JLabel supplierCode) throws IOException {
         
-    }
-    
-    public static void updatePPE(JComboBox<String> itemID, JSpinner quantity, JTable table,
-            JTable transactionTable, JLabel supplierCode, JLabel receivedDate,
-            JLabel receivedTime) throws IOException {
-        
+        if (receivedDate.getDate() == null) {
+            receivedDate.setDate(new Date());
+        }
         FileHandling updatePPEFile = new FileHandling();
 
         String selectedItemID = (String)itemID.getSelectedItem();
         int selectedQuantity = (int)quantity.getValue();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String selectedDate = dateFormat.format(receivedDate.getDate());
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String selectedTime = timeFormat.format(receivedTime.getValue());
         
-        if (selectedItemID.equals("Please select") || selectedQuantity == 0) {
+        if (selectedItemID.equals("Please select") || selectedQuantity == 0 || selectedDate.isEmpty() || selectedTime.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -86,7 +81,7 @@ public class ReceivePPE {
                     
         // rewrite updated content into ppe.txt
         new FileWriter("ppe.txt", false).close();
-        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity(boxes)", "Unit Price"};
+        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity(boxes)", "Unit Price(RM)"};
 
         for (String[] data: ppeData) {
             updatePPEFile.WriteDataToFile("ppe.txt", headers, data);
@@ -111,8 +106,6 @@ public class ReceivePPE {
         
         String transactionID = ID_Generator.generate_id("transaction");
         String supplierCodeValue = supplierCode.getText();
-        String receivedDateValue = receivedDate.getText();
-        String receivedTimeValue = receivedTime.getText();
         String itemName = "";
         double unitPrice = 0;
         
@@ -121,21 +114,20 @@ public class ReceivePPE {
             if (tableItemID.equals(selectedItemID)) {
                 itemName = model.getValueAt(i, 1).toString();
                 unitPrice = Double.parseDouble(model.getValueAt(i, 4).toString());
-                String formattedUnitPrice = String.format("%2f", unitPrice);
             }  
         }
-//        double expenses = unitPrice * selectedQuantity;
+        
         double expenses = unitPrice * selectedQuantity;
         String formattedExpenses = String.format("%.2f", expenses);
         String transactionType = "Receive";
         
         transactionModel.addRow(new Object[] {
             transactionID, selectedItemID, itemName, supplierCodeValue,
-            selectedQuantity, receivedDateValue, receivedTimeValue, formattedExpenses
+            selectedQuantity, selectedDate, selectedTime, formattedExpenses
         });
         
-        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Received Date", "Received Time", "Expenses", "Transaction Type"};
-        String [] transactionData = {transactionID, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), receivedDateValue, receivedTimeValue, formattedExpenses, transactionType};
+        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Received Date", "Received Time", "Expenses(RM)", "Transaction Type"};
+        String [] transactionData = {transactionID, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), selectedDate, selectedTime, formattedExpenses, transactionType};
         
         receiveTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         
