@@ -1,0 +1,80 @@
+Transaction ID: TR1380
+Item Code: PPE1792
+Item Name: Gown
+Supplier ID: SP5981
+Quantity(boxes): 3
+Received Date: 2025-03-07
+Received Time: 19:34:03
+Expenses: 30.00
+Transaction Type: Receive
+--------------------------------------------------
+Transaction ID: TR4826
+Item Code: PPE3790
+Item Name: Shoe Covers
+Supplier ID: SP7879
+Quantity(boxes): 1
+Received Date: 2025-03-07
+Received Time: 19:55:36
+Expenses: 20.00
+Transaction Type: Receive
+--------------------------------------------------
+Transaction ID: TR1021
+Item Code: PPE3790
+Item Name: Shoe Covers
+Supplier ID: SP7879
+Quantity(boxes): 2
+Received Date: 2025-03-07
+Received Time: 19:58:09
+Expenses: 40.00
+Transaction Type: Receive
+--------------------------------------------------
+Transaction ID: TR1751
+Item Code: PPE1380
+Item Name: Head Cover
+Hospital ID: HP8950
+Quantity(boxes): 4
+Distributed Date: 2025-03-08
+Distributed Time: 05:04:19
+Income: 8.00
+Transaction Type: Distribute
+--------------------------------------------------
+Transaction ID: TR4428
+Item Code: PPE1829
+Item Name: Face Shield
+Hospital ID: HP4138
+Quantity(boxes): 5
+Distributed Date: 2025-03-08
+Distributed Time: 05:57:39
+Income: 20.00
+Transaction Type: Distribute
+--------------------------------------------------
+Transaction ID: TR6365
+Item Code: PPE1829
+Item Name: Face Shield
+Supplier ID: SP6599
+Quantity(boxes): 10
+Received Date: 2025-03-08
+Received Time: 06:23:11
+Expenses: 40.00
+Transaction Type: Receive
+--------------------------------------------------
+Transaction ID: TR5187
+Item Code: PPE1829
+Item Name: Face Shield
+Hospital ID: HP8950
+Quantity(boxes): 3
+Distributed Date: 2025-03-08
+Distributed Time: 06:23:11
+Income: 12.00
+Transaction Type: Distribute
+--------------------------------------------------
+Transaction ID: TR5188
+Item Code: PPE1792
+Item Name: Gown
+Hospital ID: HP8950
+Quantity(boxes): 1
+Distributed Date: 2025-03-08
+Distributed Time: 07:31:22
+Income: 10.00
+Transaction Type: Distribute
+--------------------------------------------------

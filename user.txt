@@ -1,18 +1,24 @@
-User ID: ST001
-Name: lum
-Password: As#444444
+User ID: ST1368
+Name: cheflum
+Password: ASgf%%45d
 Contact: 012-3456789
 User Type: Admin
 --------------------------------------------------
-User ID: ST002
-Name: cheflum
-Password: Gg5%fhsga
-Contact: 012-3456789
+User ID: ST8291
+Name: lum
+Password: hjdhS88&
+Contact: 012-8888888
 User Type: Staff
 --------------------------------------------------
-User ID: ST003
-Name: hanxun
-Password: Xunhjjj^77
+User ID: ST6915
+Name: haha
+Password: Ghsdg&67
+Contact: 012-3456789
+User Type: Admin
+--------------------------------------------------
+User ID: ST2402
+Name: nihao
+Password: AGfdh^775
 Contact: 012-3456789
 User Type: Admin
 --------------------------------------------------

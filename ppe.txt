@@ -1,0 +1,36 @@
+Item ID: PPE0123
+Item Name: Mask
+Supplier ID: SP5981
+Quantity(boxes): 7
+Unit Price: 2.00
+--------------------------------------------------
+Item ID: PPE1829
+Item Name: Face Shield
+Supplier ID: SP6599
+Quantity(boxes): 12
+Unit Price: 4.00
+--------------------------------------------------
+Item ID: PPE1792
+Item Name: Gown
+Supplier ID: SP5981
+Quantity(boxes): 7
+Unit Price: 10.00
+--------------------------------------------------
+Item ID: PPE4020
+Item Name: Gloves
+Supplier ID: SP3565
+Quantity(boxes): 10
+Unit Price: 2.00
+--------------------------------------------------
+Item ID: PPE3790
+Item Name: Shoe Covers
+Supplier ID: SP7879
+Quantity(boxes): 9
+Unit Price: 20.00
+--------------------------------------------------
+Item ID: PPE1380
+Item Name: Head Cover
+Supplier ID: SP6599
+Quantity(boxes): 10
+Unit Price: 2.00
+--------------------------------------------------

@@ -1,28 +1,21 @@
 Supplier ID: SP5981
-Supplier Name: lum
-Supplier Contact: 012-3456789
-Supplier email: dd@hh.com
-Supplier Address: dd
+Supplier Name: Bob
+Supplier Contact: 012-3693629
+Supplier Email: bob@gmail.com
+Supplier Address: 123, Taman Perindustrian Bukit Jalil, 57600 Kuala Lumpur
 PPE Supplies: Face Shield, Gloves
 --------------------------------------------------
-Supplier ID: SP6599
-Supplier Name: hh
-Supplier Contact: 012-3456789
-Supplier email: gg@gg.com
-Supplier Address: gg
-PPE Supplies: Head Cover
---------------------------------------------------
 Supplier ID: SP7879
-Supplier Name: gggggg
-Supplier Contact: 012-3456789
-Supplier email: f@gg.com
-Supplier Address: ff
+Supplier Name: John
+Supplier Contact: 015-6780382
+Supplier Email: john@gmail.com
+Supplier Address: 45, Jalan Berapit, Taman Berapit, 14000 Selangor
 PPE Supplies: Gown
 --------------------------------------------------
 Supplier ID: SP3565
-Supplier Name: hihi
-Supplier Contact: 012-3456789
-Supplier email: ff@gg.com
-Supplier Address: ff
+Supplier Name: Priccila
+Supplier Contact: 012-4792048
+Supplier Email: priccila@gmail.com
+Supplier Address: 56, Jalan Caunaught, Taman Caunaught 78927 Damansara
 PPE Supplies: Mask
 --------------------------------------------------
