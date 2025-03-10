@@ -8,7 +8,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -22,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class DeleteHospitalData {
     public void DeleteHospital (String filename, String hospital_id, JComboBox<String> combobox, 
                            JTextField name, JTextField contact, JTextField email, 
-                           JTextArea address, JCheckBox[] checkBoxItems, JTable table) throws IOException {
+                           JTextArea address, JTable table) throws IOException {
         
         FileHandling hospitalFile = new FileHandling();
         ArrayList<String[]> hospitals = hospitalFile.ReadDataFromFile(filename);
@@ -32,7 +31,7 @@ public class DeleteHospitalData {
         
         for (String[] hospital: hospitals) {
             if (!hospital[0].equals(hospital_id)) {
-//                updatedHospitals.add(hospital);
+                updatedHospitals.add(hospital);
             }else{
                 found = true;
             }
@@ -43,12 +42,8 @@ public class DeleteHospitalData {
             contact.setText("");
             email.setText("");
             address.setText("");
-
-            for (JCheckBox checkBox : checkBoxItems) {
-                checkBox.setSelected(false);
-            }
             
-            String[] headers = {"Hospital ID", "Hospital Name", "Hospital Contact", "Hospital Email", "Hospital Address", "PPE Supplies"};
+            String[] headers = {"Hospital ID", "Hospital Name", "Hospital Contact", "Hospital Email", "Hospital Address"};
             BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, false));
             
             for (String[] hospital : updatedHospitals) {

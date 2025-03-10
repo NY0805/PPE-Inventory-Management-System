@@ -1542,6 +1542,9 @@
             <Property name="horizontalScrollBar" type="javax.swing.JScrollBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="null"/>
             </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[0, 0]"/>
+            </Property>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -1566,27 +1569,26 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane12" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="tfSearchPPE" alignment="0" min="-2" pref="314" max="-2" attributes="0"/>
-                                      <Component id="pReceivedItem" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="comboSortPPE" min="-2" pref="99" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnFilter" min="-2" pref="107" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnResetPPE" min="-2" pref="92" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnPrintPPE" min="-2" pref="92" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="pDistributedItem" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="tfSearchPPE" min="-2" pref="314" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="comboSortPPE" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnFilter" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnResetPPE" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnPrintPPE" min="-2" pref="92" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="lbInventoryList" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                              <Component id="jScrollPane12" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="pReceivedItem" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="pDistributedItem" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="tpInventoryEditor" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="242" max="32767" attributes="0"/>
                       </Group>
@@ -1600,17 +1602,21 @@
                               <Component id="pDistributedItem" pref="366" max="32767" attributes="0"/>
                               <Component id="pReceivedItem" min="-2" pref="366" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="tpInventoryEditor" min="-2" pref="263" max="-2" attributes="0"/>
+                          <EmptySpace pref="57" max="32767" attributes="0"/>
+                          <Component id="lbInventoryList" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tfSearchPPE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="btnResetPPE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="btnPrintPPE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="btnFilter" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="comboSortPPE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="tfSearchPPE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jScrollPane12" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace pref="131" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane12" min="-2" pref="207" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2054,6 +2060,11 @@
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane12">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[0, 0]"/>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2131,6 +2142,379 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Container class="javax.swing.JTabbedPane" name="tpInventoryEditor">
+                  <Events>
+                    <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tpInventoryEditorStateChanged"/>
+                  </Events>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="pAddInventory">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                          <JTabbedPaneConstraints tabName="Add New Inventory">
+                            <Property name="tabTitle" type="java.lang.String" value="Add New Inventory"/>
+                          </JTabbedPaneConstraints>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbNewInventoryItemName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbNewInventoryItemCode" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="lbNewInventorySupplierCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="tfNewInventoryItemCode" min="-2" pref="238" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tfNewInventorySupplierCode" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tfNewInventoryItemName" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lbNewInventoryUnitPrice" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                          <Component id="spinnerNewInventoryUnitPrice" min="-2" pref="202" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lbNewInventoryQuantity" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="btnNewInventorySave" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btnNewInventoryReset" min="-2" pref="70" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="tfNewInventoryQuantity" min="-2" pref="202" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbNewInventoryItemCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfNewInventoryItemCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbNewInventoryUnitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="spinnerNewInventoryUnitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbNewInventoryItemName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfNewInventoryItemName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbNewInventoryQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfNewInventoryQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbNewInventorySupplierCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfNewInventorySupplierCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnNewInventoryReset" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="btnNewInventorySave" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="lbNewInventoryItemCode">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Item Code:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfNewInventoryItemCode">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbNewInventoryItemName">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Item Name:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfNewInventoryItemName">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbNewInventorySupplierCode">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Supplier Code:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfNewInventorySupplierCode">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="12" style="2"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="NULL"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbNewInventoryUnitPrice">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Unit Price (RM):"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JSpinner" name="spinnerNewInventoryUnitPrice">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbNewInventoryQuantity">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Quantity:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfNewInventoryQuantity">
+                          <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
+                            <Property name="text" type="java.lang.String" value="0"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnNewInventorySave">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Save"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewInventorySaveActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnNewInventoryReset">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Reset"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="pEditInventory">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                          <JTabbedPaneConstraints tabName="Edit Inventory">
+                            <Property name="tabTitle" type="java.lang.String" value="Edit Inventory"/>
+                          </JTabbedPaneConstraints>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbEditInventoryItemName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbEditInventoryItemCode" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="lbEditInventorySupplierCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tfEditInventorySupplierCode" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfEditInventoryItemName" alignment="0" pref="238" max="32767" attributes="0"/>
+                                      <Component id="comboEditInventoryItemCode" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lbEditInventoryUnitPrice" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                          <Component id="spinnerEditInventoryUnitPrice" min="-2" pref="202" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lbEditInventoryQuantity" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnEditInventorySave" min="-2" pref="70" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                                  <Component id="tfEditInventoryQuantity" min="-2" pref="202" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="btnEditInventoryReset" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btnEditInventoryDelete" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbEditInventoryItemCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbEditInventoryUnitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="spinnerEditInventoryUnitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboEditInventoryItemCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbEditInventoryItemName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfEditInventoryItemName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbEditInventoryQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfEditInventoryQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbEditInventorySupplierCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfEditInventorySupplierCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnEditInventoryReset" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="btnEditInventorySave" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="btnEditInventoryDelete" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="lbEditInventoryItemCode">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Item Code:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbEditInventoryItemName">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Item Name:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfEditInventoryItemName">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbEditInventorySupplierCode">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Supplier Code:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfEditInventorySupplierCode">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="12" style="2"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbEditInventoryUnitPrice">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Unit Price (RM):"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JSpinner" name="spinnerEditInventoryUnitPrice">
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="tfEditInventoryQuantity">
+                          <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lbEditInventoryQuantity">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Quantity:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnEditInventorySave">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Save"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditInventorySaveActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnEditInventoryReset">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Reset"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnEditInventoryDelete">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Delete"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="comboEditInventoryItemCode">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="0"/>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="lbInventoryList">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Inventory List"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2287,7 +2671,7 @@
                                   </Group>
                                   <Component id="lbSupplier2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="91" max="32767" attributes="0"/>
+                              <EmptySpace pref="93" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="tfSearchSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="btnSortSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
@@ -3216,22 +3600,16 @@
                 <Component class="javax.swing.JTable" name="hospitalList">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="0">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="Hospital ID" type="java.lang.String"/>
                         <Column editable="true" title="Hospital Name" type="java.lang.String"/>
                         <Column editable="true" title="Contact" type="java.lang.String"/>
                         <Column editable="true" title="Email" type="java.lang.String"/>
                         <Column editable="true" title="Address" type="java.lang.String"/>
-                        <Column editable="true" title="PPE Supplies Needed" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -3302,40 +3680,18 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lbAddSupplierName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbAddSupplierContact1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbAddSupplierEmail1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbAddSupplierAddress1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lbAddSupplierPPE1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lbAddSupplierPPE2" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="checkFaceShield2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkGloves2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkMask2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="checkShoeCovers2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkGown2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkHeadCover2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lbAddSupplierName1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lbAddSupplierContact1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lbAddSupplierEmail1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lbAddSupplierAddress1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="tfAddHospitalName" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="tfAddHospitalContact" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="tfAddHospitalEmail" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jScrollPane9" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="tfAddHospitalName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="tfAddHospitalContact" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="tfAddHospitalEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane9" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -3366,30 +3722,7 @@
                                   <Component id="lbAddSupplierAddress1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane9" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lbAddSupplierPPE1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="checkFaceShield2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="checkGloves2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbAddSupplierPPE2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="checkMask2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="checkHeadCover2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="checkGown2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="checkShoeCovers2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="47" max="32767" attributes="0"/>
+                              <EmptySpace pref="132" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnAddHospitalReset" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="btnAddHospitalSave" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -3483,52 +3816,6 @@
                         <Property name="text" type="java.lang.String" value="Address:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lbAddSupplierPPE1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Supplies:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkFaceShield2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Face Shield"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkHeadCover2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Head Cover"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkGloves2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Gloves"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkGown2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Gown"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkMask2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mask"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkShoeCovers2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Shoe Covers"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lbAddSupplierPPE2">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="needed"/>
-                      </Properties>
-                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="pEditHospital">
@@ -3548,16 +3835,12 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnEditHospitalSave" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lbEditHospitalEmail" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lbEditHospitalName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lbEditHospitalContact" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lbEditHospitalID" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lbEditHospitalAddress" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="lbEditHospitalPPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbEditHospitalPPE1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lbEditHospitalEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbEditHospitalName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbEditHospitalContact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbEditHospitalID" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbEditHospitalAddress" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -3566,19 +3849,6 @@
                                           <Component id="tfEditHospitalEmail" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jScrollPane10" alignment="0" pref="0" max="32767" attributes="0"/>
                                           <Component id="comboEditHospitalID" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="checkFaceShield3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkGloves3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkMask3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="checkShoeCovers3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkGown3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="checkHeadCover3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               <Component id="btnEditHospitalReset" min="-2" max="-2" attributes="0"/>
@@ -3620,34 +3890,13 @@
                                   <Component id="lbEditHospitalAddress" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane10" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbEditHospitalPPE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="checkFaceShield3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="checkGloves3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbEditHospitalPPE1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="checkMask3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="checkHeadCover3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="checkGown3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="checkShoeCovers3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnEditHospitalSave" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="btnEditHospitalDelete" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="btnEditHospitalReset" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace pref="29" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3716,44 +3965,6 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JLabel" name="lbEditHospitalPPE">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Supplies:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkFaceShield3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Face Shield"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkGloves3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Gloves"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkMask3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mask"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkShoeCovers3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Shoe Covers"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkGown3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Gown"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="checkHeadCover3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Head Cover"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JComboBox" name="comboEditHospitalID">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -3802,14 +4013,6 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditHospitalDeleteActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lbEditHospitalPPE1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="14" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="needed"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>

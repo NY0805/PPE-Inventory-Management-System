@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -22,12 +21,12 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class SaveHospitalData {
-    public static void saveHospital(boolean isEdit, String currentHospitalId, JTextField tfAddHospitalName, JTextField tfAddHospitalContact, JTextField tfAddHospitalEmail, JTextArea taAddHospitalAddress, 
-                                    JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 
-                                    JCheckBox checkMask, JCheckBox checkShoeCovers, JTable hospitalList, JComboBox<String> dropdownMenu) throws IOException {
+    public static void saveHospital(boolean isEdit, String currentHospitalId, JTextField tfAddHospitalName,
+            JTextField tfAddHospitalContact, JTextField tfAddHospitalEmail,
+            JTextArea taAddHospitalAddress, JTable hospitalList, JComboBox<String> dropdownMenu) throws IOException {
         
         String hospital_id, hospital_name, hospital_contact, hospital_email, hospital_address;
-        ArrayList<String> selectedPPE = new ArrayList<>();  
+//        ArrayList<String> selectedPPE = new ArrayList<>();  
         
         hospital_id = isEdit ? currentHospitalId : ID_Generator.generate_id("hospital");
         hospital_name = tfAddHospitalName.getText();
@@ -35,33 +34,14 @@ public class SaveHospitalData {
         hospital_email = tfAddHospitalEmail.getText();
         hospital_address = taAddHospitalAddress.getText();
 
-        if (checkFaceShield.isSelected()) {
-            selectedPPE.add("Face Shield");
-        }
-        if (checkGloves.isSelected()) {
-            selectedPPE.add("Gloves");
-        }
-        if (checkGown.isSelected()) {
-            selectedPPE.add("Gown");
-        }
-        if (checkHeadCover.isSelected()) {
-            selectedPPE.add("Head Cover");
-        }
-        if (checkMask.isSelected()) {
-            selectedPPE.add("Mask");
-        }
-        if (checkShoeCovers.isSelected()) {
-            selectedPPE.add("Shoe Covers");
-        }
-        String supplies_PPE = String.join(", ", selectedPPE);
-        String[] headers = {"Supplier ID", "Supplier Name", "Supplier Contact", "Supplier email", "Supplier Address", "PPE Supplies"};
-        String[] data = {hospital_id, hospital_name, hospital_contact, hospital_email, hospital_address, supplies_PPE};
+        String[] headers = {"Hospital ID", "Hospital Name", "Hospital Contact", "Hospital email", "Hospital Address"};
+        String[] data = {hospital_id, hospital_name, hospital_contact, hospital_email, hospital_address};
  
         ValidateEntity validate = new ValidateEntity();
         FileHandling hospitalFile = new FileHandling();
         
         if (hospital_name.isEmpty() || hospital_contact.isEmpty() || hospital_email.isEmpty() || 
-            hospital_address.isEmpty() || supplies_PPE.isEmpty()) {
+            hospital_address.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);            
             return;
         }
@@ -99,19 +79,12 @@ public class SaveHospitalData {
         tfAddHospitalEmail.setText("");
         taAddHospitalAddress.setText("");
 
-        checkFaceShield.setSelected(false);
-        checkGloves.setSelected(false);
-        checkGown.setSelected(false);
-        checkHeadCover.setSelected(false);
-        checkMask.setSelected(false);
-        checkShoeCovers.setSelected(false);
-
         DefaultTableModel model = new DefaultTableModel();
         hospitalList.setModel(model);
         model.setColumnIdentifiers(headers);
         model.setRowCount(0);
         for (String[] rowData: hospitalData) {
-            if (rowData.length == 6) {
+            if (rowData.length == 5) {
                 System.out.println(Arrays.toString(rowData));
                 model.addRow(rowData);
             }else {
