@@ -26,7 +26,6 @@ public class SaveHospitalData {
             JTextArea taAddHospitalAddress, JTable hospitalList, JComboBox<String> dropdownMenu) throws IOException {
         
         String hospital_id, hospital_name, hospital_contact, hospital_email, hospital_address;
-//        ArrayList<String> selectedPPE = new ArrayList<>();  
         
         hospital_id = isEdit ? currentHospitalId : ID_Generator.generate_id("hospital");
         hospital_name = tfAddHospitalName.getText();
@@ -66,8 +65,8 @@ public class SaveHospitalData {
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("hospitals.txt"));
         writer.close();
-        for (String[] supplier: hospitalData) {
-            hospitalFile.WriteDataToFile("hospitals.txt", headers, supplier);
+        for (String[] hospital: hospitalData) {
+            hospitalFile.WriteDataToFile("hospitals.txt", headers, hospital);
 
         }
 

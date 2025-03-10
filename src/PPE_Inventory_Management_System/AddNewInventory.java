@@ -4,13 +4,16 @@
  */
 package PPE_Inventory_Management_System;
 
+import java.awt.Container;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -19,10 +22,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author User
+ * @author user
  */
-public class AddInventory extends AddEntity {
-
+public class AddNewInventory extends AddEntity{
     private String supplierCode;
     private String price;
     private String quantity;
@@ -34,7 +36,7 @@ public class AddInventory extends AddEntity {
     private JSpinner spinnerPrice;
     private ValidateEntity validator = new ValidateEntity();
 
-    public AddInventory(String id, String name, JTextField tfPPECode, JTextField tfPPEName, 
+    public AddNewInventory(String id, String name, JTextField tfPPECode, JTextField tfPPEName, 
             JTextField tfPPESupplierCode, JTextField tfPPEQuantity, JSpinner spinnerPrice) {
 
         super(id, name);
@@ -60,9 +62,9 @@ public class AddInventory extends AddEntity {
 
     @Override
     public void saveToFile(boolean isEdit, JTable table) throws IOException {
-        if (validate()) {
+//        if (validate()) {
             FileHandling ppeFile = new FileHandling();
-            String[] headers = {"Item Code", "Name", "Supplier Code", "Quantity", "Unit Price per box(RM)"};
+            String[] headers = {"Item Code", "Name", "Supplier Code", "Quantity", "Price per box(RM)"};
             String[] data = {id, name, supplierCode, quantity, price};
 
             ArrayList<String[]> ppeData = ppeFile.ReadDataFromFile("ppe.txt");
@@ -99,17 +101,29 @@ public class AddInventory extends AddEntity {
                     System.err.println("skipping record: " + Arrays.toString(rowData));
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Validate error");
-        }
+            
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Validate error");
+//        }
+ 
     }
 
     @Override
     public void returnToDefault() {
         tfPPECode.setText("");
         tfPPEName.setText("");
-//        tfPPEQuantity.setText("");
         spinnerPrice.setModel(new SpinnerNumberModel(1, 1, 100, 1));
     }
-
+    
+    public void addCheckbox(JPanel panel, JTextField name) {
+        JCheckBox newCheckBox = new JCheckBox(name.getText());
+        newCheckBox.setText(name.getText());
+        panel.add(newCheckBox);
+        panel.revalidate();
+        panel.repaint();
+        Container parent = panel.getParent();
+        parent.revalidate();
+        parent.repaint();
+        System.out.println("checkbox added");
+    }
 }

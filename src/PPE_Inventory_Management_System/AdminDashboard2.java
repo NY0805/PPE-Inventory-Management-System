@@ -1563,6 +1563,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         btnNewInventoryReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNewInventoryReset.setText("Reset");
+        btnNewInventoryReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewInventoryResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pAddInventoryLayout = new javax.swing.GroupLayout(pAddInventory);
         pAddInventory.setLayout(pAddInventoryLayout);
@@ -1637,12 +1642,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbEditInventorySupplierCode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbEditInventorySupplierCode.setText("Supplier Code:");
 
-        tfEditInventorySupplierCode.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-
         lbEditInventoryUnitPrice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbEditInventoryUnitPrice.setText("Unit Price (RM):");
-
-        tfEditInventoryQuantity.setEditable(false);
 
         lbEditInventoryQuantity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbEditInventoryQuantity.setText("Quantity:");
@@ -3369,8 +3370,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         String name = tfNewInventoryItemName.getText();
 
         try {
-            AddInventory newPPE = new AddInventory(id, name, tfNewInventoryItemCode, tfNewInventoryItemName, tfNewInventorySupplierCode, tfNewInventoryQuantity, spinnerNewInventoryUnitPrice);
-            newPPE.saveToFile(false, PPEList);
+            AddNewInventory newInventory = new AddNewInventory(id, name, tfNewInventoryItemCode, tfNewInventoryItemName, tfNewInventorySupplierCode, tfNewInventoryQuantity, spinnerNewInventoryUnitPrice);
+            newInventory.saveToFile(false, PPEList);
+            newInventory.addCheckbox(pAddSupplier, tfNewInventoryItemName);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Fail to save data: " + e.getMessage());
             e.printStackTrace();
@@ -3378,13 +3380,24 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNewInventorySaveActionPerformed
 
     private void btnEditInventorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditInventorySaveActionPerformed
-        // TODO add your handling code here:
+        try {
+            EditSelectedInventory.saveEditInventory(true, comboEditInventoryItemCode, tfEditInventoryItemName,
+                    tfEditInventorySupplierCode, tfEditInventoryQuantity, spinnerEditInventoryUnitPrice, PPEList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEditInventorySaveActionPerformed
 
     private void tpInventoryEditorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpInventoryEditorStateChanged
-        EditSelectedInventory editInventory = new EditSelectedInventory(PPEList, comboEditInventoryItemCode, 
+        EditSelectedInventory.EditSelectedInventory(PPEList, comboEditInventoryItemCode, 
                 tfEditInventoryItemName, tfEditInventorySupplierCode, tfEditInventoryQuantity, spinnerEditInventoryUnitPrice);
     }//GEN-LAST:event_tpInventoryEditorStateChanged
+
+    private void btnNewInventoryResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventoryResetActionPerformed
+        tfNewInventoryItemCode.setText("");
+        tfNewInventoryItemName.setText("");
+        spinnerNewInventoryUnitPrice.setValue(0.00);
+    }//GEN-LAST:event_btnNewInventoryResetActionPerformed
 
     /**
      * @param args the command line arguments

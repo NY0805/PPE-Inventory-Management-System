@@ -81,7 +81,7 @@ public class ReceivePPE {
                     
         // rewrite updated content into ppe.txt
         new FileWriter("ppe.txt", false).close();
-        String[] headers = {"Item ID", "Item Name", "Supplier ID", "Quantity(boxes)", "Unit Price(RM)"};
+        String[] headers = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
 
         for (String[] data: ppeData) {
             updatePPEFile.WriteDataToFile("ppe.txt", headers, data);
