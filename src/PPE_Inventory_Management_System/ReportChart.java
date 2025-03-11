@@ -1,0 +1,104 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package PPE_Inventory_Management_System;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Paint;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.StandardBarPainter;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+/**
+ *
+ * @author User
+ */
+public class ReportChart {
+
+    public DefaultCategoryDataset readCurrentStockData() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        try (BufferedReader br = new BufferedReader(new FileReader("ppe.txt"))) {
+            String line;
+            String itemName = "";
+            int quantity = 0;
+
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("Item Name:")) {
+                    itemName = line.split(":")[1].trim() + "\n";
+                } else if (line.startsWith("Quantity(boxes):")) {
+                    quantity = Integer.parseInt(line.split(":")[1].trim());
+                    dataset.addValue(quantity, "Stock Level", itemName);
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return dataset;
+    }
+
+    public void createCurrentStockBarChart(DefaultCategoryDataset dataset,
+            JPanel pCurrentStockLevel) {
+        JFreeChart barChart = ChartFactory.createBarChart("Current Inventory Stock Levels",
+                "PPE Name", "Quantity (boxes)", dataset, PlotOrientation.VERTICAL,
+                true, true, false);
+
+        CategoryPlot plot = barChart.getCategoryPlot();
+        BarRenderer renderer = new CustomBarRenderer(dataset);
+        renderer.setDefaultItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+        renderer.setDefaultItemLabelsVisible(true);
+        plot.setBackgroundPaint(Color.WHITE);
+        plot.setOutlineVisible(false);
+        plot.setDomainGridlinePaint(Color.GRAY);
+        plot.setRangeGridlinePaint(Color.GRAY);
+        plot.setRenderer(renderer);
+        renderer.setBarPainter(new StandardBarPainter());
+
+        ChartPanel chartPanel = new ChartPanel(barChart);
+        pCurrentStockLevel.removeAll();
+        pCurrentStockLevel.add(chartPanel, BorderLayout.CENTER);
+        pCurrentStockLevel.validate();
+        pCurrentStockLevel.repaint();
+    }
+
+    class CustomBarRenderer extends BarRenderer {
+
+        private DefaultCategoryDataset dataset;
+
+        public CustomBarRenderer(DefaultCategoryDataset dataset) {
+            this.dataset = dataset;
+        }
+
+        @Override
+        public Paint getItemPaint(int row, int column) {
+            Number value = dataset.getValue(row, column);
+            int quantity = value.intValue();
+
+            if (quantity <= 25) {
+                return Color.red;
+            } else if (quantity <= 50) {
+                return Color.orange;
+            } else if (quantity <= 100) {
+                return Color.yellow;
+            } else {
+                return Color.green;
+            }
+        }
+
+        public void showLineChart() {
+
+        }
+    }
+}

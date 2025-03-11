@@ -22,7 +22,7 @@ public class Notification {
         model.setRowCount(0);
 
         for (String[] row : data) {
-            if (row.length == columnCount) {
+            if (Integer.parseInt(row[3]) <= 25) {
                 model.addRow(row);
             }
         }
