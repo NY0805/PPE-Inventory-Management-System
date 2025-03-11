@@ -15,14 +15,14 @@ import java.io.FileOutputStream;
 import javax.swing.*;
 
 public class Print_PDF {
-    public static void Print_PDF(JTable table, String filepath) {
+    public static void Print_PDF(String titlename, JTable table, String filepath) {
         Document document = new Document();
         try {
             PdfWriter.getInstance(document, new FileOutputStream(filepath));
             document.open();
 
             // Title
-            document.add(new Paragraph("PPE Inventory Report", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, Font.BOLD)));
+            document.add(new Paragraph(titlename, FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, Font.BOLD)));
             document.add(new Paragraph(" "));
             
             // Table

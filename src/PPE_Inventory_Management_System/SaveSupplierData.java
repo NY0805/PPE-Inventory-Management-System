@@ -68,27 +68,27 @@ public class SaveSupplierData {
         
         for (String[] ppe: ppeData) {
             if (selectedPPE.contains(ppe[1]) && !ppe[2].equals("NULL")) {
-//                JOptionPane.showMessageDialog(null, ppe[1] + " has been supplied by another supplier!", "Error", JOptionPane.ERROR_MESSAGE);
-//                return;
+                JOptionPane.showMessageDialog(null, ppe[1] + " has been supplied by another supplier!", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
                 
-                if (ppe[1].equals("FaceShield")) {
-                    checkFaceShield.setEnabled(false);
-                }
-                if (ppe[1].equals("Gloves")) {
-                    checkGloves.setEnabled(false);
-                }
-                if (ppe[1].equals("Gown")) {
-                    checkGown.setEnabled(false);
-                }
-                if (ppe[1].equals("Head Cover")) {
-                    checkHeadCover.setEnabled(false);
-                }
-                if (ppe[1].equals("Mask")) {
-                    checkMask.setEnabled(false);
-                }
-                if (ppe[1].equals("Shoe Covers")) {
-                    checkFaceShield.setEnabled(false);
-                }
+//                if (ppe[1].equals("FaceShield")) {
+//                    checkFaceShield.setEnabled(false);
+//                }
+//                if (ppe[1].equals("Gloves")) {
+//                    checkGloves.setEnabled(false);
+//                }
+//                if (ppe[1].equals("Gown")) {
+//                    checkGown.setEnabled(false);
+//                }
+//                if (ppe[1].equals("Head Cover")) {
+//                    checkHeadCover.setEnabled(false);
+//                }
+//                if (ppe[1].equals("Mask")) {
+//                    checkMask.setEnabled(false);
+//                }
+//                if (ppe[1].equals("Shoe Covers")) {
+//                    checkFaceShield.setEnabled(false);
+//                }
                 
             }
         }

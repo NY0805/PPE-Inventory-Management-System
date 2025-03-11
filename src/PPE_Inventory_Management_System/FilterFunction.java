@@ -21,16 +21,14 @@ public class FilterFunction {
         for (JMenuItem item : menuItems) {
             item.addActionListener(e -> {
                 JMenuItem menuItem = (JMenuItem) e.getSource();
-                filter.setText(menuItem.getText()); // Set button text to selected filter
+                filter.setText(menuItem.getText());
                 
-                // Ensure the table has a sorter
                 TableRowSorter<DefaultTableModel> sorter = (TableRowSorter<DefaultTableModel>) table.getRowSorter();
                 if (sorter == null) {
                     sorter = new TableRowSorter<>((DefaultTableModel) table.getModel());
                     table.setRowSorter(sorter);
                 }
 
-                // Apply the filter
                 filterRow(sorter, menuItem.getText());
             });
         } 
