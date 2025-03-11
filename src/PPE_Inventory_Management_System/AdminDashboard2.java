@@ -3515,6 +3515,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void lbReceivedItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemResetActionPerformed
         comboReceivedItemCode.setSelectedIndex(0);
         spinnerReceivedQuantity.setValue(0);
+        dateChooserReceivedDate.setDate(null);
     }//GEN-LAST:event_lbReceivedItemResetActionPerformed
 
     private void lbDistributedItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbDistributedItemSaveActionPerformed
@@ -3531,6 +3532,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         comboDistributedItemCode.setSelectedIndex(0);
         comboDistributedHospitalCode.setSelectedIndex(0);
         spinnerDistributedQuantity.setValue(0);
+        dateChooserDistributedDate.setDate(null);
     }//GEN-LAST:event_lbDistributedItemResetActionPerformed
 
     private void tfEditNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEditNameActionPerformed
