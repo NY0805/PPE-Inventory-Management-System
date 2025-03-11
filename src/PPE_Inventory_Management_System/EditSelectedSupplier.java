@@ -5,7 +5,6 @@
 package PPE_Inventory_Management_System;
 
 import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 public class EditSelectedSupplier {
     public static void EditSupplier (JTable table, JComboBox<String> combobox, 
             JTextField name, JTextField contact, JTextField email, 
-            JTextArea address, JCheckBox[] checkBoxItem) {
+            JTextArea address, JTextField ppeSupplies) {
      
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         combobox.removeAllItems();
@@ -42,17 +41,13 @@ public class EditSelectedSupplier {
                             name.setText(model.getValueAt(i, 1).toString());
                             contact.setText(model.getValueAt(i, 2).toString());
                             email.setText(model.getValueAt(i, 3).toString());
-                            address.setText(model.getValueAt(i, 4).toString());
+                            address.setText(model.getValueAt(i, 4).toString());                            
+                            ppeSupplies.setText(model.getValueAt(i, 5).toString());
                             
-                            String items = model.getValueAt(i, 5).toString();
-                            
-                            String[] itemList = items.split(",\\s*");
-                            List<String> itemNames = Arrays.asList(itemList);
+//                            String[] itemList = items.split(",\\s*");
+//                            List<String> itemNames = Arrays.asList(itemList);
                                                        
-                            for (JCheckBox checkbox : checkBoxItem) {
-                                checkbox.setSelected(itemNames.contains(checkbox.getText()));
-                            }
-                            return;
+                            
                         }
                     }
                 } else{
@@ -60,9 +55,7 @@ public class EditSelectedSupplier {
                     contact.setText("");
                     email.setText("");
                     address.setText("");
-                    for (JCheckBox checkbox : checkBoxItem) {
-                        checkbox.setSelected(false);
-                    }
+                    ppeSupplies.setText("");
                 }
             }
         });

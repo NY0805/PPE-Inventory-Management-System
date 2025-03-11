@@ -15,46 +15,40 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class SaveSupplierData {
-    public static void saveSupplier(boolean isEdit, String currentSupplierId, JTextField tfAddSupplierName, JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextArea taAddSupplierAddress, 
-                                    JCheckBox checkFaceShield, JCheckBox checkGloves, JCheckBox checkGown, JCheckBox checkHeadCover, 
-                                    JCheckBox checkMask, JCheckBox checkShoeCovers, JTable supplierList, JComboBox<String> dropdownMenu) throws IOException {
+    public static void saveSupplier(boolean isEdit, String currentSupplierId, JTextField tfAddSupplierName, 
+            JTextField tfAddSupplierContact, JTextField tfAddSupplierEmail, JTextArea taAddSupplierAddress, 
+            JTextField tfppeSupplies, JTable supplierList, JComboBox<String> dropdownMenu) throws IOException {
         
-        String supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address;
-        ArrayList<String> selectedPPE = new ArrayList<>();   
+        String supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address, supplier_ppe;
         
         supplier_id = isEdit ? currentSupplierId : ID_Generator.generate_id("supplier");
         supplier_name = tfAddSupplierName.getText();
         supplier_contact = tfAddSupplierContact.getText();
         supplier_email = tfAddSupplierEmail.getText();
         supplier_address = taAddSupplierAddress.getText();
+//        supplier_ppe = tfppeSupplies.getText();
 
-        if (checkFaceShield.isSelected()) {
-            selectedPPE.add("Face Shield");
+        FileHandling supplierFile = new FileHandling();
+        ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
+
+        if (isEdit) {
+            for (String[] supplier: supplierData) {
+                if (supplier[0].equals(currentSupplierId)) {
+                    supplier_ppe = supplier[5];
+                    break;
+                }
+            }
+        }else{
+            supplier_ppe = "NULL";
         }
-        if (checkGloves.isSelected()) {
-            selectedPPE.add("Gloves");
-        }
-        if (checkGown.isSelected()) {
-            selectedPPE.add("Gown");
-        }
-        if (checkHeadCover.isSelected()) {
-            selectedPPE.add("Head Cover");
-        }
-        if (checkMask.isSelected()) {
-            selectedPPE.add("Mask");
-        }
-        if (checkShoeCovers.isSelected()) {
-            selectedPPE.add("Shoe Covers");
-        }
-        String supplies_PPE = String.join(", ", selectedPPE);
+        
         String[] headers = {"Supplier ID", "Supplier Name", "Supplier Contact", "Supplier email", "Supplier Address", "PPE Supplies"};
-        String[] data = {supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address, supplies_PPE};
+        String[] data = {supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address, "NULL"};
  
         ValidateEntity validate = new ValidateEntity();
-        FileHandling ppeFile = new FileHandling();
         
         if (supplier_name.isEmpty() || supplier_contact.isEmpty() || supplier_email.isEmpty() || 
-            supplier_address.isEmpty() || supplies_PPE.isEmpty()) {
+            supplier_address.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);            
             return;
         }
@@ -63,53 +57,7 @@ public class SaveSupplierData {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        ArrayList<String[]> ppeData = ppeFile.ReadDataFromFile("ppe.txt");
-        
-        for (String[] ppe: ppeData) {
-            if (selectedPPE.contains(ppe[1]) && !ppe[2].equals("NULL")) {
-                JOptionPane.showMessageDialog(null, ppe[1] + " has been supplied by another supplier!", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
                 
-//                if (ppe[1].equals("FaceShield")) {
-//                    checkFaceShield.setEnabled(false);
-//                }
-//                if (ppe[1].equals("Gloves")) {
-//                    checkGloves.setEnabled(false);
-//                }
-//                if (ppe[1].equals("Gown")) {
-//                    checkGown.setEnabled(false);
-//                }
-//                if (ppe[1].equals("Head Cover")) {
-//                    checkHeadCover.setEnabled(false);
-//                }
-//                if (ppe[1].equals("Mask")) {
-//                    checkMask.setEnabled(false);
-//                }
-//                if (ppe[1].equals("Shoe Covers")) {
-//                    checkFaceShield.setEnabled(false);
-//                }
-                
-            }
-        }
-        
-        for (String[] ppe: ppeData) {
-            if (selectedPPE.contains(ppe[1]) && ppe[2].equals("NULL")) {
-                ppe[2] = supplier_id;
-            }
-        }
-        
-        BufferedWriter ppeWriter = new BufferedWriter(new FileWriter("ppe.txt"));
-        ppeWriter.close();
-        String[] ppeHeaders = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
-        for (String[]ppe: ppeData) {
-            ppeFile.WriteDataToFile("ppe.txt", ppeHeaders, ppe);
-        }
-        
-//      =====================================================================================
-        
-        FileHandling supplierFile = new FileHandling();
-        ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
         // update
         if (isEdit) {
             for (int i = 0; i < supplierData.size(); i++) {
@@ -137,13 +85,9 @@ public class SaveSupplierData {
         tfAddSupplierContact.setText("");
         tfAddSupplierEmail.setText("");
         taAddSupplierAddress.setText("");
+        tfppeSupplies.setText("");
+        
 
-        checkFaceShield.setSelected(false);
-        checkGloves.setSelected(false);
-        checkGown.setSelected(false);
-        checkHeadCover.setSelected(false);
-        checkMask.setSelected(false);
-        checkShoeCovers.setSelected(false);
 
         DefaultTableModel model = new DefaultTableModel();
         supplierList.setModel(model);

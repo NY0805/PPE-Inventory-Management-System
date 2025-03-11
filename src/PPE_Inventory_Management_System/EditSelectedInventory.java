@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class EditSelectedInventory {
     
     public static void EditSelectedInventory(JTable table, JComboBox<String> comboItemCode, JTextField itemName,
-            JTextField supplierCode, JTextField quantity, JSpinner unitPrice) {
+            JComboBox<String> supplierCode, JTextField quantity, JSpinner unitPrice) {
 
 
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -39,7 +39,7 @@ public class EditSelectedInventory {
                     for (int i = 0; i < model.getRowCount(); i++) {
                         if (model.getValueAt(i, 0).toString().equals(selected_id)) {
                             itemName.setText(model.getValueAt(i, 1).toString());
-                            supplierCode.setText(model.getValueAt(i, 2).toString());                            
+//                            supplierCode.setText(model.getValueAt(i, 2).toString());                            
                             quantity.setText(model.getValueAt(i, 3).toString());
                             
                             unitPrice.setValue(Double.valueOf(model.getValueAt(i, 4).toString()));
@@ -50,7 +50,7 @@ public class EditSelectedInventory {
                     }
                 } else {
                     itemName.setText("");
-                    supplierCode.setText("");
+//                    supplierCode.setText("");
                     quantity.setText("");
                     unitPrice.setValue(0.00);
                 }

@@ -8,7 +8,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -22,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class DeleteSupplierData {
     public void DeleteSupplier (String filename, String supplier_id, JComboBox<String> combobox, 
                            JTextField name, JTextField contact, JTextField email, 
-                           JTextArea address, JCheckBox[] checkBoxItems, JTable table) throws IOException {
+                           JTextArea address, JTextField ppe, JTable table) throws IOException {
         
         FileHandling supplierFile = new FileHandling();
         ArrayList<String[]> suppliers = supplierFile.ReadDataFromFile(filename);
@@ -43,11 +42,8 @@ public class DeleteSupplierData {
             contact.setText("");
             email.setText("");
             address.setText("");
+            ppe.setText("");
 
-            for (JCheckBox checkBox : checkBoxItems) {
-                checkBox.setSelected(false);
-            }
-            
             String[] headers = {"Supplier ID", "Supplier Name", "Supplier Contact", "Supplier Email", "Supplier Address", "PPE Supplies"};
             BufferedWriter writeFile = new BufferedWriter(new FileWriter(filename, false));
             
@@ -63,7 +59,7 @@ public class DeleteSupplierData {
             for (int i = 0; i < model.getRowCount(); i++) {
                 if (model.getValueAt(i, 0).toString().equals(supplier_id)) {
                     model.removeRow(i);
-                    break;  // Exit loop once found
+                    break;
                 }
             }
             
