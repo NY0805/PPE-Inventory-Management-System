@@ -14,10 +14,10 @@ import java.util.logging.Logger;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -47,7 +47,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         lbUsername.setText(name);
         lbRole.setText("(" + userType + ")");
-
+        
     }
 
     /**
@@ -326,7 +326,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         btnFilterPPEDistributed = new javax.swing.JButton();
         btnResetPPEDistributed = new javax.swing.JButton();
         btnPrintPPEDistributed = new javax.swing.JButton();
-        jScrollPane14 = new javax.swing.JScrollPane();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -1593,9 +1592,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pAddInventoryLayout.setVerticalGroup(
             pAddInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAddInventoryLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addComponent(lbAlert)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(pAddInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNewInventoryItemCode)
                     .addComponent(tfNewInventoryItemCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1648,9 +1647,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         btnEditInventoryReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEditInventoryReset.setText("Reset");
+        btnEditInventoryReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditInventoryResetActionPerformed(evt);
+            }
+        });
 
         btnEditInventoryDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEditInventoryDelete.setText("Delete");
+        btnEditInventoryDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditInventoryDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pEditInventoryLayout = new javax.swing.GroupLayout(pEditInventory);
         pEditInventory.setLayout(pEditInventoryLayout);
@@ -2412,6 +2421,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         pMain.add(pHospitalManagement, "pHospitalManagement");
 
+        pReport.setHorizontalScrollBar(null);
+
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         pCurrentStockLevel.setLayout(new java.awt.BorderLayout());
@@ -2435,7 +2446,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         pReport.setViewportView(jPanel6);
 
-        pMain.add(pReport, "card9");
+        pMain.add(pReport, "pReport");
 
         pTransaction.setBackground(new java.awt.Color(255, 255, 255));
         pTransaction.setHorizontalScrollBar(null);
@@ -2587,7 +2598,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                     .addComponent(lbReceivedEndDate)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(dateChooserReceivedTo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(comboSortPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(51, 51, 51)
@@ -2609,14 +2620,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbDistributedStartDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(dateChooserDistributedFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(lbDistributedEndDate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dateChooserDistributedTo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(dateChooserDistributedFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(lbDistributedEndDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dateChooserDistributedTo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(248, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -2639,18 +2647,16 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                             .addComponent(lbReceivedEndDate)
                             .addComponent(dateChooserReceivedTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboSortPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrintPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnResetPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFilterPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(lbTransactionDistribute))
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(lbTransactionDistribute)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2719,6 +2725,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) pMain.getLayout();
         cardLayout.show(pMain, "pInventoryManagement");
         titleLabel.setText("Inventory Management");
+        SaveNewInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
     }//GEN-LAST:event_btnInventoryActionPerformed
 
     private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
@@ -2911,7 +2918,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSearchUserActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
         LoadData loadData = new LoadData();
         try {
             loadData.loadDataToTable("suppliers.txt", supplierList);
@@ -2925,14 +2931,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
 //      =====================================================================================================
-//         receive PPE - item code dropdown list
+        // receive PPE - item code dropdown list
         ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
         // distribute PPE - item code dropdown list
         DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);
         // distribute PPE - hospital code dropdown list
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
-
-
+        ((JSpinner.DefaultEditor) spinnerReceivedTime.getEditor()).getTextField().setText("00:00:00");
     }//GEN-LAST:event_formWindowOpened
 
     private void tableUserListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tableUserListComponentShown
@@ -3084,6 +3089,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         comboReceivedItemCode.setSelectedIndex(0);
         spinnerReceivedQuantity.setValue(0);
         dateChooserReceivedDate.setDate(null);
+        ((JSpinner.DefaultEditor) spinnerReceivedTime.getEditor()).getTextField().setText("00:00:00");
+
     }//GEN-LAST:event_lbReceivedItemResetActionPerformed
 
     private void lbDistributedItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbDistributedItemSaveActionPerformed
@@ -3159,33 +3166,18 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         popupFilter.show(btnFilter, 0, btnFilter.getHeight());
     }//GEN-LAST:event_btnFilterActionPerformed
 
-    private void btnNewInventorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventorySaveActionPerformed
-//        try {
-//            SaveNewInventory.SaveNewInventory(false, tfNewInventoryItemCode, null, tfNewInventoryItemName,
-//                    comboNewInventorySupplierCode, tfNewInventoryQuantity, spinnerNewInventoryUnitPrice, InventoryList);
-//        } catch (IOException ex) {
-//            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }//GEN-LAST:event_btnNewInventorySaveActionPerformed
-
-    private void btnEditInventorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditInventorySaveActionPerformed
-//        try {
-//            SaveNewInventory.SaveNewInventory(true, null, comboEditInventoryItemCode, tfNewInventoryItemName,
-//                    comboEditInventorySupplierCode, tfNewInventoryQuantity, spinnerNewInventoryUnitPrice, InventoryList);
-//        } catch (IOException ex) {
-//            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }//GEN-LAST:event_btnEditInventorySaveActionPerformed
-
     private void tpInventoryEditorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpInventoryEditorStateChanged
-        EditSelectedInventory.EditSelectedInventory(InventoryList, comboEditInventoryItemCode,
-                tfEditInventoryItemName, comboEditInventorySupplierCode, tfEditInventoryQuantity, spinnerEditInventoryUnitPrice);
+        EditSelectedInventory.EditSelectedInventory(InventoryList, supplierList, comboEditInventoryItemCode,
+                tfEditInventoryItemName, comboEditInventorySupplierCode, tfEditInventoryQuantity, spinnerEditInventoryUnitPrice);        
+        
     }//GEN-LAST:event_tpInventoryEditorStateChanged
 
     private void btnNewInventoryResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventoryResetActionPerformed
         tfNewInventoryItemCode.setText("");
         tfNewInventoryItemName.setText("");
-        spinnerNewInventoryUnitPrice.setValue(0.00);
+        tfNewInventoryQuantity.setText("");
+        spinnerNewInventoryUnitPrice.setValue(0);
+        comboNewInventorySupplierCode.setSelectedIndex(0);
     }//GEN-LAST:event_btnNewInventoryResetActionPerformed
 
     private void comboSortSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSortSupplierActionPerformed
@@ -3257,7 +3249,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintPPEDistributedActionPerformed
 
     private void tpSupplierProfileEditorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpSupplierProfileEditorStateChanged
-        EditSelectedSupplier.EditSupplier(supplierList, comboEditSupplierID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, tfEditSupplierPPE);
+        EditSelectedSupplier.EditSupplier(supplierList, comboEditSupplierID, 
+                tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, tfEditSupplierPPE);       
+        
     }//GEN-LAST:event_tpSupplierProfileEditorStateChanged
 
     private void btnEditSupplierDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierDeleteActionPerformed
@@ -3268,7 +3262,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             return;
         }
 
-        // Confirm deletion
         int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Supplier " + selected_id + "?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             DeleteSupplierData deleteHandler = new DeleteSupplierData();
@@ -3324,6 +3317,43 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         cardLayout.show(pMain, "pHospitalManagement");
         titleLabel.setText("Hospital Management");
     }//GEN-LAST:event_pDashboard2MouseClicked
+
+    private void btnNewInventorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventorySaveActionPerformed
+        
+        try {
+            SaveNewInventory.SaveNewInventory(tfNewInventoryItemCode, tfNewInventoryItemName,
+                    comboNewInventorySupplierCode, tfNewInventoryQuantity, spinnerNewInventoryUnitPrice, InventoryList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNewInventorySaveActionPerformed
+
+    private void btnEditInventorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditInventorySaveActionPerformed
+        try {
+            SaveEditInventory.saveEditInventory(comboEditInventoryItemCode, tfEditInventoryItemName,
+                    comboEditInventorySupplierCode, tfEditInventoryQuantity, spinnerEditInventoryUnitPrice, InventoryList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditInventorySaveActionPerformed
+
+    private void btnEditInventoryResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditInventoryResetActionPerformed
+        comboEditInventoryItemCode.setSelectedIndex(0);
+        tfEditInventoryItemName.setText(""); 
+        comboEditInventorySupplierCode.setSelectedIndex(0);
+        tfEditInventoryQuantity.setText("");
+        spinnerEditInventoryUnitPrice.setValue(0);
+    }//GEN-LAST:event_btnEditInventoryResetActionPerformed
+
+    private void btnEditInventoryDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditInventoryDeleteActionPerformed
+        try {
+            DeleteSelectedInventory.deleteSelectedInventory("ppe.txt", comboEditInventoryItemCode,
+                    tfEditInventoryItemName, comboEditInventorySupplierCode, tfEditInventoryQuantity,
+                    spinnerEditInventoryUnitPrice, InventoryList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditInventoryDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3474,7 +3504,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

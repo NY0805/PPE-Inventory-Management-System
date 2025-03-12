@@ -44,8 +44,6 @@ public class EditSelectedSupplier {
                             address.setText(model.getValueAt(i, 4).toString());                            
                             ppeSupplies.setText(model.getValueAt(i, 5).toString());
                             
-//                            String[] itemList = items.split(",\\s*");
-//                            List<String> itemNames = Arrays.asList(itemList);
                                                        
                             
                         }

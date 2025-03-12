@@ -10,7 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -38,7 +37,7 @@ public class ReceivePPE {
         
 
         combobox.addActionListener((ActionEvent e) -> {
-            int selectedRow = combobox.getSelectedIndex() - 1; // make it same with the biginning of index (start from 0)
+            int selectedRow = combobox.getSelectedIndex() - 1;
             if (selectedRow >= 0) {
                 label.setText(model.getValueAt(selectedRow, 2).toString());
             } else {
@@ -51,20 +50,26 @@ public class ReceivePPE {
             JDateChooser receivedDate, JSpinner receivedTime, JTable table,
             JTable transactionTable, JLabel supplierCode) throws IOException {
         
-        if (receivedDate.getDate() == null) {
-            receivedDate.setDate(new Date());
-        }
         FileHandling updatePPEFile = new FileHandling();
 
         String selectedItemID = (String)itemID.getSelectedItem();
         int selectedQuantity = (int)quantity.getValue();
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String selectedDate = dateFormat.format(receivedDate.getDate());
+        String selectedDate = (receivedDate.getDate() != null) ? dateFormat.format(receivedDate.getDate()) : "";
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         String selectedTime = timeFormat.format(receivedTime.getValue());
         
-        if (selectedItemID.equals("Please select") || selectedQuantity == 0 || selectedDate.isEmpty() || selectedTime.isEmpty()) {
+        if (selectedItemID.equals("Please select") || selectedQuantity == 0 || 
+                selectedDate.isEmpty() || selectedTime.equals("00:00:00")) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (supplierCode.getText().equals("NULL")) {
+            JOptionPane.showMessageDialog(null, "Item " + selectedItemID + 
+                    " doesn't have supplier. Please add a supplier for " + selectedItemID + "!", 
+                    "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
                 
@@ -131,9 +136,10 @@ public class ReceivePPE {
         
         receiveTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         
-        // clear all input after saving
         itemID.setSelectedIndex(0);
         quantity.setValue(0);
+        receivedDate.setDate(null);
+        ((JSpinner.DefaultEditor) receivedTime.getEditor()).getTextField().setText("00:00:00");
     }
 }
     

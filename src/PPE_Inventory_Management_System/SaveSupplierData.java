@@ -26,7 +26,6 @@ public class SaveSupplierData {
         supplier_contact = tfAddSupplierContact.getText();
         supplier_email = tfAddSupplierEmail.getText();
         supplier_address = taAddSupplierAddress.getText();
-//        supplier_ppe = tfppeSupplies.getText();
 
         FileHandling supplierFile = new FileHandling();
         ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
@@ -42,7 +41,7 @@ public class SaveSupplierData {
             supplier_ppe = "NULL";
         }
         
-        String[] headers = {"Supplier ID", "Supplier Name", "Supplier Contact", "Supplier email", "Supplier Address", "PPE Supplies"};
+        String[] headers = {"Supplier ID", "Supplier Name", "Supplier Contact", "Supplier Email", "Supplier Address", "PPE Supplies"};
         String[] data = {supplier_id, supplier_name, supplier_contact, supplier_email, supplier_address, "NULL"};
  
         ValidateEntity validate = new ValidateEntity();
@@ -85,7 +84,9 @@ public class SaveSupplierData {
         tfAddSupplierContact.setText("");
         tfAddSupplierEmail.setText("");
         taAddSupplierAddress.setText("");
-        tfppeSupplies.setText("");
+        if (isEdit) {
+            tfppeSupplies.setText("");
+        } else {}
         
 
 

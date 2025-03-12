@@ -66,7 +66,7 @@ public class DeleteSupplierData {
             combobox.removeAllItems();
             combobox.addItem("Please select");
             for (String[] supplier : updatedSuppliers) {
-                combobox.addItem(supplier[0]); // Add supplier ID
+                combobox.addItem(supplier[0]);
             }       
 
         } else {
