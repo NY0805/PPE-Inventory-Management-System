@@ -30,7 +30,7 @@ public class LoadData extends FileHandling {
         }
     }
     
-    public void loadTransactionToTable(String filename, JTable table, String transactionType) throws IOException {
+    public void loadDataToTable(String filename, JTable table, String transactionType) throws IOException {
         ArrayList<String[]> data = ReadDataFromFile(filename);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         int columnCount = model.getColumnCount();

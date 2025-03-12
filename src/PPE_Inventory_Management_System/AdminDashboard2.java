@@ -18,7 +18,6 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -3000,8 +2999,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             loadData.loadDataToTable("hospitals.txt", hospitalList);
             loadData.loadDataToTable("user.txt", tableUserList);
             loadData.loadDataToTable("login.txt", tableUserLog);
-            loadData.loadTransactionToTable("transactions.txt", TransactionReceivedList, "Receive");
-            loadData.loadTransactionToTable("transactions.txt", TransactionDistributedList, "Distribute");
+            loadData.loadDataToTable("transactions.txt", TransactionReceivedList, "Receive");
+            loadData.loadDataToTable("transactions.txt", TransactionDistributedList, "Distribute");
             loadData.loadDataToTable("ppe.txt", InventoryList);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
