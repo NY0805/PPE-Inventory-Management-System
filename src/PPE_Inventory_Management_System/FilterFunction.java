@@ -134,12 +134,127 @@ public class FilterFunction {
                 };
                 break;
             }
+            
+    //      ===================================================================================================
+            
+            case "Below 25": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            int Qty = Integer.parseInt(entry.getStringValue(6));
+                            return Qty < 25;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "25 - 100": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            int Qty = Integer.parseInt(entry.getStringValue(6));
+                            return Qty >= 25 && Qty <= 100;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "101 - 200": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            int Qty = Integer.parseInt(entry.getStringValue(6));
+                            return Qty >= 101 && Qty <= 200;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "Above 200": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            int Qty = Integer.parseInt(entry.getStringValue(6));
+                            return Qty > 200;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "Below RM 100": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            double transaction = Double.parseDouble(entry.getStringValue(7));
+                            return transaction < 100;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "RM 100 - 200": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            double transaction = Double.parseDouble(entry.getStringValue(7));
+                            return transaction >= 100 && transaction <= 200;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "RM 201 - 300": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            double transaction = Double.parseDouble(entry.getStringValue(7));
+                            return transaction >= 201 && transaction <= 300;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
+            case "Above RM 300": {
+                filter = new RowFilter<DefaultTableModel, Object>() {
+                    @Override
+                    public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                        try {
+                            double transaction = Double.parseDouble(entry.getStringValue(7));
+                            return transaction > 300;
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                    }
+                };
+                break;
+            }
             default: {
                 sorter.setRowFilter(null);
                 return;
             }
         }
-        System.out.println("Applying filter: " + filterOption);
+        
         sorter.setRowFilter(filter);
     }
 }

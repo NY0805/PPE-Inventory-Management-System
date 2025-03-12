@@ -17,13 +17,14 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class EditSelectedHospital {
-    public static void EditHospital (JTable table, JComboBox<String> combobox, JTextField name, JTextField contact, JTextField email, JTextArea address) {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
+    public static void EditHospital (JTable hosTable, JComboBox<String> combobox, 
+            JTextField name, JTextField contact, JTextField email, JTextArea address) {
+        DefaultTableModel hosModel = (DefaultTableModel) hosTable.getModel();
         combobox.removeAllItems();
         combobox.addItem("Please select");
         
-        for (int i = 0; i < model.getRowCount(); i++) {
-            String hospitalID = model.getValueAt(i, 0).toString();            
+        for (int i = 0; i < hosModel.getRowCount(); i++) {
+            String hospitalID = hosModel.getValueAt(i, 0).toString();            
             combobox.addItem(hospitalID);
         }
         combobox.addActionListener(new ActionListener() {            
@@ -32,12 +33,12 @@ public class EditSelectedHospital {
                 String selected_id = (String) combobox.getSelectedItem();
                 
                 if (selected_id != null && !selected_id.equals("Please select")) {
-                    for (int i = 0; i < model.getRowCount(); i++) {
-                        if (model.getValueAt(i, 0).toString().equals(selected_id)) {
-                            name.setText(model.getValueAt(i, 1).toString());
-                            contact.setText(model.getValueAt(i, 2).toString());
-                            email.setText(model.getValueAt(i, 3).toString());
-                            address.setText(model.getValueAt(i, 4).toString());
+                    for (int i = 0; i < hosModel.getRowCount(); i++) {
+                        if (hosModel.getValueAt(i, 0).toString().equals(selected_id)) {
+                            name.setText(hosModel.getValueAt(i, 1).toString());
+                            contact.setText(hosModel.getValueAt(i, 2).toString());
+                            email.setText(hosModel.getValueAt(i, 3).toString());
+                            address.setText(hosModel.getValueAt(i, 4).toString());
                             
                         }
                     }

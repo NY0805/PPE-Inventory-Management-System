@@ -65,7 +65,7 @@ public class DeleteHospitalData {
             combobox.removeAllItems();
             combobox.addItem("Please select");
             for (String[] hospital : updatedHospitals) {
-                combobox.addItem(hospital[0]); // Add supplier ID
+                combobox.addItem(hospital[0]);
             }       
 
         } else {

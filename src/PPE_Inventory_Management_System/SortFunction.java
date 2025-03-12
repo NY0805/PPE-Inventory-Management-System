@@ -32,7 +32,7 @@ public class SortFunction {
             defaultData.add(row);
         }
     }
-    // function to restore original data
+    
     public static void restoreDefaultData(JTable table) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
@@ -41,7 +41,7 @@ public class SortFunction {
             model.addRow(row);
         }
     }
-    // sort data by ascending and descending
+    
     public static void sort(JComboBox<String> comboboxSort, JTable table) {
         String order = comboboxSort.getSelectedItem().toString();
         DefaultTableModel model = (DefaultTableModel)table.getModel();
@@ -61,7 +61,7 @@ public class SortFunction {
             }
             tableData.add(row);
         }
-        // index 0 means use item code to sort
+        
         tableData.sort((a, b) -> {
             String data1 = (a[0] != null) ? a[0] : "";
             String data2 = (b[0] != null) ? b[0] : "";

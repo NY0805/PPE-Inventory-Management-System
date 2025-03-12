@@ -13,21 +13,21 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class EditSelectedSupplier {
-    public static void EditSupplier (JTable table, JComboBox<String> combobox, 
+    public static void EditSupplier (JTable supTable, JComboBox<String> combobox, 
             JTextField name, JTextField contact, JTextField email, 
             JTextArea address, JTextField ppeSupplies) {
      
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        DefaultTableModel supModel = (DefaultTableModel) supTable.getModel();
         combobox.removeAllItems();
         combobox.addItem("Please select");
             
-        ActionListener[] listeners = combobox.getActionListeners();
-        for (ActionListener listener : listeners) {
-            combobox.removeActionListener(listener);
-        }
+//        ActionListener[] listeners = combobox.getActionListeners();
+//        for (ActionListener listener : listeners) {
+//            combobox.removeActionListener(listener);
+//        }
         
-        for (int i = 0; i < model.getRowCount(); i++) {
-            String supplierID = model.getValueAt(i, 0).toString();            
+        for (int i = 0; i < supModel.getRowCount(); i++) {
+            String supplierID = supModel.getValueAt(i, 0).toString();            
             combobox.addItem(supplierID);
         }
         combobox.addActionListener(new ActionListener() {            
@@ -36,13 +36,13 @@ public class EditSelectedSupplier {
                 String selected_id = (String) combobox.getSelectedItem();
                 
                 if (selected_id != null && !selected_id.equals("Please select")) {
-                    for (int i = 0; i < model.getRowCount(); i++) {
-                        if (model.getValueAt(i, 0).toString().equals(selected_id)) {
-                            name.setText(model.getValueAt(i, 1).toString());
-                            contact.setText(model.getValueAt(i, 2).toString());
-                            email.setText(model.getValueAt(i, 3).toString());
-                            address.setText(model.getValueAt(i, 4).toString());                            
-                            ppeSupplies.setText(model.getValueAt(i, 5).toString());
+                    for (int i = 0; i < supModel.getRowCount(); i++) {
+                        if (supModel.getValueAt(i, 0).toString().equals(selected_id)) {
+                            name.setText(supModel.getValueAt(i, 1).toString());
+                            contact.setText(supModel.getValueAt(i, 2).toString());
+                            email.setText(supModel.getValueAt(i, 3).toString());
+                            address.setText(supModel.getValueAt(i, 4).toString());                            
+                            ppeSupplies.setText(supModel.getValueAt(i, 5).toString());
                             
                                                        
                             

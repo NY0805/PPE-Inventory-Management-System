@@ -74,7 +74,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbNumber1 = new javax.swing.JLabel();
         lbSpecialChar1 = new javax.swing.JLabel();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        popupFilter = new javax.swing.JPopupMenu();
+        inventoryFilter = new javax.swing.JPopupMenu();
         menuQuantity = new javax.swing.JMenu();
         below25 = new javax.swing.JMenuItem();
         above25 = new javax.swing.JMenuItem();
@@ -84,6 +84,17 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         RM11to15 = new javax.swing.JMenuItem();
         RM16to20 = new javax.swing.JMenuItem();
         above20 = new javax.swing.JMenuItem();
+        transactionPPEFilter = new javax.swing.JPopupMenu();
+        transactionQuantity = new javax.swing.JMenu();
+        qtyBelow25 = new javax.swing.JMenuItem();
+        qty25to100 = new javax.swing.JMenuItem();
+        qty101to200 = new javax.swing.JMenuItem();
+        qtyAbove200 = new javax.swing.JMenuItem();
+        receivedExpenses = new javax.swing.JMenu();
+        transactionBelow100 = new javax.swing.JMenuItem();
+        transaction100to200 = new javax.swing.JMenuItem();
+        transaction201to300 = new javax.swing.JMenuItem();
+        transactionAbove300 = new javax.swing.JMenuItem();
         pSideBar = new javax.swing.JPanel();
         pLogo = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
@@ -197,7 +208,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         btnPrintPPE = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
         InventoryList = new javax.swing.JTable();
-        btnFilter = new javax.swing.JButton();
+        btnInventoryFilter = new javax.swing.JButton();
         comboSortPPE = new javax.swing.JComboBox<>();
         tpInventoryEditor = new javax.swing.JTabbedPane();
         pAddInventory = new javax.swing.JPanel();
@@ -267,6 +278,21 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbSupplierList = new javax.swing.JLabel();
         comboSortSupplier = new javax.swing.JComboBox<>();
         btnPrintSupplier = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lbTotal = new javax.swing.JLabel();
+        lbSupplier = new javax.swing.JLabel();
+        lbTotalSupplier = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lbMost1 = new javax.swing.JLabel();
+        lbMost2 = new javax.swing.JLabel();
+        lbActiveSupplier = new javax.swing.JLabel();
+        lbInactiveSupplier = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lbMost = new javax.swing.JLabel();
+        lbFrequent = new javax.swing.JLabel();
+        lbSupplier1 = new javax.swing.JLabel();
+        lbMostFrequentSupplier = new javax.swing.JLabel();
+        lbMostFrequentItem = new javax.swing.JLabel();
         pHospitalManagement = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         hospitalList = new javax.swing.JTable();
@@ -390,7 +416,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         outOfStock.setText("Out Of Stock");
         menuQuantity.add(outOfStock);
 
-        popupFilter.add(menuQuantity);
+        inventoryFilter.add(menuQuantity);
 
         menuUnitPrice.setText("Unit Price");
 
@@ -406,7 +432,39 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         above20.setText("Above RM 20");
         menuUnitPrice.add(above20);
 
-        popupFilter.add(menuUnitPrice);
+        inventoryFilter.add(menuUnitPrice);
+
+        transactionQuantity.setText("Quantity");
+
+        qtyBelow25.setText("Below 25");
+        transactionQuantity.add(qtyBelow25);
+
+        qty25to100.setText("25 - 100");
+        transactionQuantity.add(qty25to100);
+
+        qty101to200.setText("101 - 200");
+        transactionQuantity.add(qty101to200);
+
+        qtyAbove200.setText("Above 200");
+        transactionQuantity.add(qtyAbove200);
+
+        transactionPPEFilter.add(transactionQuantity);
+
+        receivedExpenses.setText("Expenses");
+
+        transactionBelow100.setText("Below RM 100");
+        receivedExpenses.add(transactionBelow100);
+
+        transaction100to200.setText("RM 100 - 200");
+        receivedExpenses.add(transaction100to200);
+
+        transaction201to300.setText("RM 201 - 300");
+        receivedExpenses.add(transaction201to300);
+
+        transactionAbove300.setText("Above RM 300");
+        receivedExpenses.add(transactionAbove300);
+
+        transactionPPEFilter.add(receivedExpenses);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PPE Inventory Management");
@@ -738,7 +796,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addComponent(pDashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         pAdminDashboardLayout.setVerticalGroup(
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1344,6 +1402,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         spinnerReceivedTime.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.SECOND));
         spinnerReceivedTime.setEditor(new javax.swing.JSpinner.DateEditor(spinnerReceivedTime, "HH:mm:ss"));
 
+        dateChooserReceivedDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dateChooserReceivedDatePropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout pReceivedItemLayout = new javax.swing.GroupLayout(pReceivedItem);
         pReceivedItem.setLayout(pReceivedItemLayout);
         pReceivedItemLayout.setHorizontalGroup(
@@ -1451,6 +1515,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         lbDistributedTime.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbDistributedTime.setText("Distributed Time:");
+
+        dateChooserDistributedDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dateChooserDistributedDatePropertyChange(evt);
+            }
+        });
 
         spinnerDistributedTime.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.SECOND));
         spinnerDistributedTime.setEditor(new javax.swing.JSpinner.DateEditor(spinnerDistributedTime, "HH:mm:ss"));
@@ -1564,10 +1634,10 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         });
         jScrollPane12.setViewportView(InventoryList);
 
-        btnFilter.setText("Filtered by");
-        btnFilter.addActionListener(new java.awt.event.ActionListener() {
+        btnInventoryFilter.setText("Filtered by");
+        btnInventoryFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFilterActionPerformed(evt);
+                btnInventoryFilterActionPerformed(evt);
             }
         });
 
@@ -1810,7 +1880,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(comboSortPPE, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInventoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnResetPPE, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1839,7 +1909,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnResetPPE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrintPPE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInventoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboSortPPE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfSearchPPE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -2134,6 +2204,142 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(182, 259));
+
+        lbTotal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbTotal.setText("Total");
+
+        lbSupplier.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbSupplier.setText("Supplier");
+
+        lbTotalSupplier.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lbTotalSupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbTotalSupplier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(lbSupplier))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(lbTotal)))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(lbTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lbTotalSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel4.setPreferredSize(new java.awt.Dimension(182, 259));
+
+        lbMost1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lbMost1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMost1.setText("Active Supplier");
+
+        lbMost2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lbMost2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMost2.setText("Inactive Supplier");
+
+        lbActiveSupplier.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        lbActiveSupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lbInactiveSupplier.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        lbInactiveSupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbMost1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbMost2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(lbActiveSupplier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbInactiveSupplier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(lbMost1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbActiveSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(lbMost2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbInactiveSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel5.setPreferredSize(new java.awt.Dimension(182, 0));
+
+        lbMost.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbMost.setText("Most");
+
+        lbFrequent.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbFrequent.setText("Frequent");
+
+        lbSupplier1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbSupplier1.setText("Supplier");
+
+        lbMostFrequentSupplier.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        lbMostFrequentSupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lbMostFrequentItem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMostFrequentItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbMostFrequentSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbMostFrequentItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(lbSupplier1))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(lbFrequent, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(lbMost)))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(lbMost, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbFrequent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbSupplier1)
+                .addGap(27, 27, 27)
+                .addComponent(lbMostFrequentSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbMostFrequentItem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pSupplierManagementLayout = new javax.swing.GroupLayout(pSupplierManagement);
         pSupplierManagement.setLayout(pSupplierManagementLayout);
         pSupplierManagementLayout.setHorizontalGroup(
@@ -2147,12 +2353,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(comboSortSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnResetSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPrintSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane5)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSupplierManagementLayout.createSequentialGroup()
-                        .addComponent(lbSupplierList, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbSupplierList, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
@@ -2161,13 +2374,19 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             .addGroup(pSupplierManagementLayout.createSequentialGroup()
                 .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbSupplierList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
+                    .addGroup(pSupplierManagementLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                            .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbSupplierList)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfSearchSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnResetSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2447,7 +2666,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pHospitalManagementLayout.createSequentialGroup()
                 .addGroup(pHospitalManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pHospitalManagementLayout.createSequentialGroup()
-                        .addContainerGap(11, Short.MAX_VALUE)
+                        .addContainerGap(12, Short.MAX_VALUE)
                         .addGroup(pHospitalManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbSupplierList1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pHospitalManagementLayout.createSequentialGroup()
@@ -2823,6 +3042,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         lbReceivedEndDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbReceivedEndDate.setText("To:");
 
+        dateChooserReceivedTo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dateChooserReceivedToPropertyChange(evt);
+            }
+        });
+
         tfSearchPPEDistributed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSearchPPEDistributedActionPerformed(evt);
@@ -2834,6 +3059,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         lbDistributedEndDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDistributedEndDate.setText("To:");
+
+        dateChooserDistributedTo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dateChooserDistributedToPropertyChange(evt);
+            }
+        });
 
         comboSortPPEDistributed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sorted by", "Ascending", "Descending" }));
         comboSortPPEDistributed.addActionListener(new java.awt.event.ActionListener() {
@@ -2935,6 +3166,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                             .addComponent(lbReceivedEndDate)
                             .addComponent(dateChooserReceivedTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboSortPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrintPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2942,7 +3174,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(btnFilterPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(36, 36, 36)
                 .addComponent(lbTransactionDistribute)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -2976,7 +3208,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addComponent(pSideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
+                    .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE)
                     .addComponent(pTopBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -3256,17 +3488,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             loadData.loadDataToTable("transactions.txt", TransactionReceivedList, "Receive");
             loadData.loadDataToTable("transactions.txt", TransactionDistributedList, "Distribute");
             loadData.loadDataToTable("ppe.txt", InventoryList);
+            SupplierDisplay.totalSupplier(lbTotalSupplier, "suppliers.txt");
+            SupplierDisplay.mostFrequentSupplier(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt");
+            SupplierDisplay.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
 //      =====================================================================================================
-        // receive PPE - item code dropdown list
         ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
-        // distribute PPE - item code dropdown list
         DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);
-        // distribute PPE - hospital code dropdown list
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
         ((JSpinner.DefaultEditor) spinnerReceivedTime.getEditor()).getTextField().setText("00:00:00");
+        ((JSpinner.DefaultEditor) spinnerDistributedTime.getEditor()).getTextField().setText("00:00:00");
+        
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void tableUserListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tableUserListComponentShown
@@ -3490,10 +3725,10 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         SortFunction.sort(comboSortPPE, InventoryList);
     }//GEN-LAST:event_comboSortPPEActionPerformed
 
-    private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        FilterFunction.filterBtnChange(btnFilter, InventoryList, below25, above25, outOfStock, RM5to10, RM11to15, RM16to20, above20);
-        popupFilter.show(btnFilter, 0, btnFilter.getHeight());
-    }//GEN-LAST:event_btnFilterActionPerformed
+    private void btnInventoryFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryFilterActionPerformed
+        FilterFunction.filterBtnChange(btnInventoryFilter, InventoryList, below25, above25, outOfStock, RM5to10, RM11to15, RM16to20, above20);
+        inventoryFilter.show(btnInventoryFilter, 0, btnInventoryFilter.getHeight());
+    }//GEN-LAST:event_btnInventoryFilterActionPerformed
 
     private void tpInventoryEditorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpInventoryEditorStateChanged
         EditSelectedInventory.EditSelectedInventory(InventoryList, supplierList, comboEditInventoryItemCode,
@@ -3526,7 +3761,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintHospitalActionPerformed
 
     private void tfSearchPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchPPEReceivedActionPerformed
-        // TODO add your handling code here:
+        SearchFunction.search(tfSearchPPEReceived, TransactionReceivedList);
     }//GEN-LAST:event_tfSearchPPEReceivedActionPerformed
 
     private void comboSortPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSortPPEReceivedActionPerformed
@@ -3534,7 +3769,10 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSortPPEReceivedActionPerformed
 
     private void btnFilterPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterPPEReceivedActionPerformed
-        // TODO add your handling code here:
+        FilterFunction.filterBtnChange(btnFilterPPEReceived, TransactionReceivedList, 
+                qtyBelow25, qty25to100, qty101to200, qtyAbove200, 
+                transactionBelow100, transaction100to200, transaction201to300, transactionAbove300);
+        transactionPPEFilter.show(btnFilterPPEReceived, 0, btnFilterPPEReceived.getHeight());
     }//GEN-LAST:event_btnFilterPPEReceivedActionPerformed
 
     private void btnResetPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPPEReceivedActionPerformed
@@ -3544,7 +3782,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
         tfSearchPPEReceived.setText("");
         comboSortPPEReceived.setSelectedItem("Sorted by");
-        SortFunction.sort(comboSortPPEReceived, TransactionReceivedList);
+        SortFunction.sort(comboSortPPEReceived, TransactionReceivedList);        
+        dateChooserReceivedFrom.setDate(null);
+        dateChooserReceivedTo.setDate(null);
     }//GEN-LAST:event_btnResetPPEReceivedActionPerformed
 
     private void btnPrintPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintPPEReceivedActionPerformed
@@ -3552,7 +3792,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintPPEReceivedActionPerformed
 
     private void tfSearchPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchPPEDistributedActionPerformed
-        // TODO add your handling code here:
+        SearchFunction.search(tfSearchPPEDistributed, TransactionDistributedList);
     }//GEN-LAST:event_tfSearchPPEDistributedActionPerformed
 
     private void comboSortPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSortPPEDistributedActionPerformed
@@ -3560,7 +3800,10 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSortPPEDistributedActionPerformed
 
     private void btnFilterPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterPPEDistributedActionPerformed
-        // TODO add your handling code here:
+        FilterFunction.filterBtnChange(btnFilterPPEDistributed, TransactionDistributedList, 
+                qtyBelow25, qty25to100, qty101to200, qtyAbove200, 
+                transactionBelow100, transaction100to200, transaction201to300, transactionAbove300);
+        transactionPPEFilter.show(btnFilterPPEDistributed, 0, btnFilterPPEDistributed.getHeight());
     }//GEN-LAST:event_btnFilterPPEDistributedActionPerformed
 
     private void btnResetPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPPEDistributedActionPerformed
@@ -3571,6 +3814,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         tfSearchPPEDistributed.setText("");
         comboSortPPEDistributed.setSelectedItem("Sorted by");
         SortFunction.sort(comboSortPPEDistributed, TransactionDistributedList);
+        dateChooserDistributedFrom.setDate(null);
+        dateChooserDistributedTo.setDate(null);
     }//GEN-LAST:event_btnResetPPEDistributedActionPerformed
 
     private void btnPrintPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintPPEDistributedActionPerformed
@@ -3745,6 +3990,48 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void dateChooserDistributedDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserDistributedDatePropertyChange
+        Date selectedDate = dateChooserDistributedDate.getDate();
+        if (selectedDate != null && selectedDate.after(new Date())) {
+            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+            dateChooserDistributedDate.setDate(null);
+        }
+    }//GEN-LAST:event_dateChooserDistributedDatePropertyChange
+
+    private void dateChooserReceivedDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserReceivedDatePropertyChange
+        Date selectedDate = dateChooserReceivedDate.getDate();
+        if (selectedDate != null && selectedDate.after(new Date())) {
+            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+            dateChooserReceivedDate.setDate(null);
+        }
+    }//GEN-LAST:event_dateChooserReceivedDatePropertyChange
+
+    private void dateChooserReceivedToPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserReceivedToPropertyChange
+        Date selectedDate = dateChooserReceivedTo.getDate();
+        if (selectedDate != null && selectedDate.after(new Date())) {
+            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+            dateChooserReceivedTo.setDate(null);
+        }
+        try {
+            TimeFrameSorter.timeFrame(dateChooserReceivedFrom, dateChooserReceivedTo, TransactionReceivedList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dateChooserReceivedToPropertyChange
+
+    private void dateChooserDistributedToPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserDistributedToPropertyChange
+        Date selectedDate = dateChooserDistributedTo.getDate();
+        if (selectedDate != null && selectedDate.after(new Date())) {
+            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+            dateChooserDistributedTo.setDate(null);
+        }
+        try {
+            TimeFrameSorter.timeFrame(dateChooserDistributedFrom, dateChooserDistributedTo, TransactionDistributedList);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dateChooserDistributedToPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -3820,13 +4107,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnEditUserDelete;
     private javax.swing.JButton btnEditUserReset;
     private javax.swing.JButton btnEditUserSave;
-    private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnFilterPPEDistributed;
     private javax.swing.JButton btnFilterPPEReceived;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnHospitalChart;
     private javax.swing.JButton btnHospitalChart2;
     private javax.swing.JButton btnInventory;
+    private javax.swing.JButton btnInventoryFilter;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnNewInventoryReset;
     private javax.swing.JButton btnNewInventorySave;
@@ -3877,6 +4164,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dcSupplierFrom;
     private com.toedter.calendar.JDateChooser dcSupplierTo;
     private javax.swing.JTable hospitalList;
+    private javax.swing.JPopupMenu inventoryFilter;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -3911,7 +4199,10 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane10;
@@ -3928,6 +4219,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbActiveSupplier;
     private javax.swing.JLabel lbAddContactNo;
     private javax.swing.JLabel lbAddSupplierAddress;
     private javax.swing.JLabel lbAddSupplierAddress1;
@@ -3964,6 +4256,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbEditSupplierID;
     private javax.swing.JLabel lbEditSupplierName;
     private javax.swing.JLabel lbEditSupplierPPE;
+    private javax.swing.JLabel lbFrequent;
+    private javax.swing.JLabel lbInactiveSupplier;
     private javax.swing.JLabel lbInventoryList;
     private javax.swing.JLabel lbLength;
     private javax.swing.JLabel lbLength1;
@@ -3971,6 +4265,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbLower;
     private javax.swing.JLabel lbLower1;
     private javax.swing.JLabel lbLower2;
+    private javax.swing.JLabel lbMost;
+    private javax.swing.JLabel lbMost1;
+    private javax.swing.JLabel lbMost2;
+    private javax.swing.JLabel lbMostFrequentItem;
+    private javax.swing.JLabel lbMostFrequentSupplier;
     private javax.swing.JLabel lbNewInventoryItemCode;
     private javax.swing.JLabel lbNewInventoryItemName;
     private javax.swing.JLabel lbNewInventoryQuantity;
@@ -3994,8 +4293,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbSpecialChar;
     private javax.swing.JLabel lbSpecialChar1;
     private javax.swing.JLabel lbSpecialChar2;
+    private javax.swing.JLabel lbSupplier;
+    private javax.swing.JLabel lbSupplier1;
     private javax.swing.JLabel lbSupplierList;
     private javax.swing.JLabel lbSupplierList1;
+    private javax.swing.JLabel lbTotal;
+    private javax.swing.JLabel lbTotalSupplier;
     private javax.swing.JLabel lbTransactionDistribute;
     private javax.swing.JLabel lbTransactionReceive;
     private javax.swing.JLabel lbUpper;
@@ -4033,11 +4336,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel pTopBar;
     private javax.swing.JScrollPane pTransaction;
     private javax.swing.JPanel pUserManagement;
-    private javax.swing.JPopupMenu popupFilter;
+    private javax.swing.JMenuItem qty101to200;
+    private javax.swing.JMenuItem qty25to100;
+    private javax.swing.JMenuItem qtyAbove200;
+    private javax.swing.JMenuItem qtyBelow25;
     private javax.swing.JRadioButton rbAddAdmin;
     private javax.swing.JRadioButton rbAddStaff;
     private javax.swing.JRadioButton rbEditAdmin;
     private javax.swing.JRadioButton rbEditStaff;
+    private javax.swing.JMenu receivedExpenses;
     private javax.swing.JSpinner spinnerDistributedQuantity;
     private javax.swing.JSpinner spinnerDistributedTime;
     private javax.swing.JSpinner spinnerEditInventoryUnitPrice;
@@ -4086,5 +4393,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tpInventoryEditor;
     private javax.swing.JTabbedPane tpSupplierProfileEditor;
     private javax.swing.JTabbedPane tpUserProfileEditor;
+    private javax.swing.JMenuItem transaction100to200;
+    private javax.swing.JMenuItem transaction201to300;
+    private javax.swing.JMenuItem transactionAbove300;
+    private javax.swing.JMenuItem transactionBelow100;
+    private javax.swing.JPopupMenu transactionPPEFilter;
+    private javax.swing.JMenu transactionQuantity;
     // End of variables declaration//GEN-END:variables
 }

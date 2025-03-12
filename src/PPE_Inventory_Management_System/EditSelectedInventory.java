@@ -24,6 +24,7 @@ public class EditSelectedInventory {
         DefaultTableModel inventoryModel = (DefaultTableModel) inventoryTable.getModel();
         comboItemCode.removeAllItems();
         comboItemCode.addItem("Please Select");
+        inventoryModel.setRowCount(0);
         for (int i = 0; i < inventoryModel.getRowCount(); i++) {
             String itemID = inventoryModel.getValueAt(i, 0).toString();            
             comboItemCode.addItem(itemID);

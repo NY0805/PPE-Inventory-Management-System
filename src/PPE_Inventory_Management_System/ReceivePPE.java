@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -50,6 +51,7 @@ public class ReceivePPE {
             JDateChooser receivedDate, JSpinner receivedTime, JTable table,
             JTable transactionTable, JLabel supplierCode) throws IOException {
         
+        
         FileHandling updatePPEFile = new FileHandling();
 
         String selectedItemID = (String)itemID.getSelectedItem();
@@ -58,14 +60,14 @@ public class ReceivePPE {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String selectedDate = (receivedDate.getDate() != null) ? dateFormat.format(receivedDate.getDate()) : "";
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        String selectedTime = timeFormat.format(receivedTime.getValue());
-        
+        String selectedTime = timeFormat.format((Date) receivedTime.getValue());
+    
         if (selectedItemID.equals("Please select") || selectedQuantity == 0 || 
-                selectedDate.isEmpty() || selectedTime.equals("00:00:00")) {
+                selectedDate.isEmpty() || selectedTime.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+               
         if (supplierCode.getText().equals("NULL")) {
             JOptionPane.showMessageDialog(null, "Item " + selectedItemID + 
                     " doesn't have supplier. Please add a supplier for " + selectedItemID + "!", 
@@ -73,7 +75,7 @@ public class ReceivePPE {
             return;
         }
                 
-        // read data from file to retrieve item quantity
+   
         ArrayList<String[]> ppeData = updatePPEFile.ReadDataFromFile("ppe.txt");
         
         for (String[] data: ppeData) {
@@ -84,14 +86,14 @@ public class ReceivePPE {
             }
         }
                     
-        // rewrite updated content into ppe.txt
+  
         new FileWriter("ppe.txt", false).close();
         String[] headers = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
 
         for (String[] data: ppeData) {
             updatePPEFile.WriteDataToFile("ppe.txt", headers, data);
         }
-        // update ppelist table
+        
         DefaultTableModel model = (DefaultTableModel)table.getModel();
         for (int i = 0; i < model.getRowCount(); i++) {
             String tableItemID = model.getValueAt(i, 0).toString();
@@ -101,11 +103,11 @@ public class ReceivePPE {
                 break;
             }
         }        
+        System.out.println(selectedTime);
         JOptionPane.showMessageDialog(null, "PPE has been restocked successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                
 //      ==============================================================================================================
         
-        // record transaction into txt and table
         FileHandling receiveTransactionFile = new FileHandling();
         DefaultTableModel transactionModel = (DefaultTableModel)transactionTable.getModel();
         
@@ -127,8 +129,8 @@ public class ReceivePPE {
         String transactionType = "Receive";
         
         transactionModel.addRow(new Object[] {
-            transactionID, selectedItemID, itemName, supplierCodeValue,
-            selectedQuantity, selectedDate, selectedTime, formattedExpenses
+            transactionID, selectedDate, selectedTime, selectedItemID, itemName, 
+            supplierCodeValue, selectedQuantity, formattedExpenses
         });
         
         String[] transactionHeaders = {"Transaction Type", "Transaction ID", "Received Date", "Received Time", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Expenses(RM)"};
