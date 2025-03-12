@@ -12,7 +12,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -22,6 +21,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
@@ -107,7 +107,7 @@ public class ReportChart {
         }
     }
 
-    public DefaultPieDataset readSupplierPPEData(String fromDate, String toDate) {
+    public DefaultPieDataset readPPEData(String fromDate, String toDate, boolean SupplierOrHospital) {
         DefaultPieDataset dataset = new DefaultPieDataset();
 
         LocalDate today = LocalDate.now();
@@ -122,8 +122,9 @@ public class ReportChart {
         if (toDate == null || toDate.isEmpty()) {
             toDate = today.format(DateTimeFormatter.ISO_DATE);
         }
-
-        try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
+        
+        if (SupplierOrHospital) {
+            try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
             String line;
             String supplierId = "";
             String itemName = "";
@@ -136,18 +137,11 @@ public class ReportChart {
 
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-                System.out.println("Supplier: " + supplierId + ", Item: " + itemName + ", Quantity: " + quantity);
-                System.out.println(supplierItems);
-                System.out.println(supplierQuantity);
-                
-                
+
                 if (line.startsWith("Transaction Type:")) {
                     isReceive = line.split(":")[1].trim().equalsIgnoreCase("Receive");
-                    System.out.println(isReceive);
-
                 } else if (line.startsWith("Received Date:")) {
                     receivedDate = line.split(":")[1].trim();
-                    System.out.println(receivedDate);
                 } else if (line.startsWith("Supplier ID:")) {
                     supplierId = line.split(":")[1].trim();
                 } else if (line.startsWith("Item Name:")) {
@@ -170,20 +164,72 @@ public class ReportChart {
 
                 dataset.setValue(title, totalQuantity);
             }
-            for (Object key : dataset.getKeys()) {
-                System.out.println(key + "->" + dataset.getValue((Comparable) key));
-            }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return dataset;
+        } else {
+            try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
+            String line;
+            String hospitalId = "";
+            String itemName = "";
+            String distributedDate = "";
+            int quantity = 0;
+            boolean isDistributed = false;
+
+            Map<String, Set<String>> distributeItems = new HashMap<>();
+            Map<String, Integer> distrubuteQuantity = new HashMap<>();
+
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+
+                if (line.startsWith("Transaction Type:")) {
+                    isDistributed = line.split(":")[1].trim().equalsIgnoreCase("Distribute");
+                } else if (line.startsWith("Distributed Date:")) {
+                    distributedDate = line.split(":")[1].trim();
+                } else if (line.startsWith("Hospital ID:")) {
+                    hospitalId = line.split(":")[1].trim();
+                } else if (line.startsWith("Item Name:")) {
+                    itemName = line.split(":")[1].trim();
+                } else if (line.startsWith("Quantity(boxes):")) {
+                    quantity = Integer.parseInt(line.split(":")[1].trim());
+
+                    if (isDistributed && distributedDate.compareTo(fromDate) >= 0 && distributedDate.compareTo(toDate) <= 0) {
+                        distributeItems.putIfAbsent(hospitalId, new HashSet<>());
+                        distributeItems.get(hospitalId).add(itemName);
+                        distrubuteQuantity.put(hospitalId, distrubuteQuantity.getOrDefault(hospitalId, 0) + quantity);
+                    }
+                }
+            }
+
+            for (String id : distributeItems.keySet()) {
+                String itemList = String.join(", ", distributeItems.get(id));
+                int totalQuantity = distrubuteQuantity.getOrDefault(id, 0);
+                String title = id + "(" + itemList + ")";
+
+                dataset.setValue(title, totalQuantity);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return dataset;
+        }
+
+        
     }
 
-    public void showSupplierPieChart(DefaultPieDataset dataset, JPanel pSupplierPieChart) {
-
-        JFreeChart pieChart = ChartFactory.createPieChart("Supplier PPE Receive",
+    public void showPieChart(DefaultPieDataset dataset, JPanel pPieChart, boolean SupplierOrHospital) {
+        String title = ""; 
+        
+        if (SupplierOrHospital) {
+            title = "Supplier PPE Received";
+        } else {
+            title = "Hospital PPE Distributed";
+        }
+        
+        JFreeChart pieChart = ChartFactory.createPieChart(title,
                 dataset,
                 true,
                 true,
@@ -191,11 +237,13 @@ public class ReportChart {
 
         PiePlot plot = (PiePlot) pieChart.getPlot();
         plot.setBackgroundPaint(Color.WHITE);
+        plot.setLegendLabelGenerator(new StandardPieSectionLabelGenerator("{0}: {1} boxes"));
 
         ChartPanel chartPanel = new ChartPanel(pieChart);
-        pSupplierPieChart.removeAll();
-        pSupplierPieChart.add(chartPanel, BorderLayout.CENTER);
-        pSupplierPieChart.validate();
+        pPieChart.removeAll();
+        pPieChart.add(chartPanel, BorderLayout.CENTER);
+        pPieChart.validate();
     }
+    
 
 }

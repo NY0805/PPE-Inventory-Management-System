@@ -37,8 +37,8 @@ public class LoadData extends FileHandling {
         model.setRowCount(0);
 
         for (String[] row : data) {
-            if (row.length == columnCount + 1 && row[row.length - 1].equals(transactionType)) {
-                model.addRow(Arrays.copyOf(row, row.length - 1));
+            if (row.length == columnCount + 1 && row[0].equals(transactionType)) {
+                model.addRow(Arrays.copyOfRange(row, 1, row.length));
             }
         }
     }

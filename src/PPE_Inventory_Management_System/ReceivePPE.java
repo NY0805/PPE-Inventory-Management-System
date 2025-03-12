@@ -131,8 +131,8 @@ public class ReceivePPE {
             selectedQuantity, selectedDate, selectedTime, formattedExpenses
         });
         
-        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Received Date", "Received Time", "Expenses(RM)", "Transaction Type"};
-        String [] transactionData = {transactionID, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), selectedDate, selectedTime, formattedExpenses, transactionType};
+        String[] transactionHeaders = {"Transaction Type", "Transaction ID", "Received Date", "Received Time", "Item Code", "Item Name", "Supplier ID", "Quantity(boxes)", "Expenses(RM)"};
+        String [] transactionData = {transactionType, transactionID, selectedDate, selectedTime, selectedItemID, itemName, supplierCodeValue, String.valueOf(selectedQuantity), formattedExpenses};
         
         receiveTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         

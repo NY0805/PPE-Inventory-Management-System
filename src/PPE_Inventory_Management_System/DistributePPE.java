@@ -132,13 +132,13 @@ public class DistributePPE {
             selectedQuantity, selectedDate, selectedTime, formattedIncome
         });
         
-        String[] transactionHeaders = {"Transaction ID", "Item Code", "Item Name",
-            "Hospital ID", "Quantity(boxes)", "Distributed Date", "Distributed Time",
-            "Income", "Transaction Type"};
+        String[] transactionHeaders = {"Transaction Type", "Transaction ID",
+            "Distributed Date", "Distributed Time", "Item Code", "Item Name",
+            "Hospital ID", "Quantity(boxes)", "Income"};
         
-        String [] transactionData = {transactionID, selectedItemID, itemName,
-            selectedHospitalID, String.valueOf(selectedQuantity), selectedDate,
-            selectedTime, formattedIncome, transactionType};
+        String [] transactionData = {transactionType, transactionID,
+            selectedDate, selectedTime, selectedItemID, itemName,selectedHospitalID, 
+            String.valueOf(selectedQuantity), formattedIncome};
         
         distributeTransactionFile.WriteDataToFile("transactions.txt", transactionHeaders, transactionData);
         
