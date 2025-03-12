@@ -20,6 +20,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -36,7 +37,7 @@ public class ReportChart {
 
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("Item Name:")) {
-                    itemName = line.split(":")[1].trim() + "\n";
+                    itemName = line.split(":")[1].trim();
                 } else if (line.startsWith("Quantity(boxes):")) {
                     quantity = Integer.parseInt(line.split(":")[1].trim());
                     dataset.addValue(quantity, "Stock Level", itemName);
@@ -96,9 +97,52 @@ public class ReportChart {
                 return Color.green;
             }
         }
-
-        public void showLineChart() {
-
-        }
     }
+
+    public DefaultPieDataset readSupplierPPEData(String fromDate, String toDate) {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("transaction.txt"))) {
+            String line;
+            String supplierId = "";
+            String itemName = "";
+            String receivedDate = "";
+            int quantity = 0;
+            boolean isReceive = false;
+
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+
+                if (line.startsWith("Transaction Type:")) {
+                    isReceive = line.split(":")[1].trim().equalsIgnoreCase("Receive");
+                } else if (line.startsWith("Received Date:")) {
+                    receivedDate = line.split(":")[1].trim();
+                } else if (line.startsWith("Supplier ID:")) {
+                    supplierId = line.split(":")[1].trim();
+                } else if (line.startsWith("Item Name:")) {
+                    itemName = line.split(":")[1].trim();
+                } else if (line.startsWith("Quantity(boxes):")) {
+                    quantity = Integer.parseInt(line.split(":")[1].trim());
+
+                    if (isReceive && receivedDate.compareTo(fromDate) >= 0 && receivedDate.compareTo(toDate) <= 0) {
+                        String item = supplierId + " (" + itemName + ")";
+
+                        Number totalQuantity = dataset.getValue(item);
+                        int newQuantity = (totalQuantity == null) ? quantity : totalQuantity.intValue() + quantity;
+                        dataset.setValue(item, newQuantity);
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return dataset;
+    }
+
+    public void showSupplierPieChart() {
+
+    }
+
 }
