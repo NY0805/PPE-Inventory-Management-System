@@ -2690,7 +2690,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Transaction ID", "Item Code", "Item Name", "Hospital ID", "Quantity (boxes)", "Distributed Date", "Distributed Time", "Income(RM)"
+                "Transaction ID", "Distributed Date", "Distributed Time", "Item Code", "Item Name", "Hospital ID", "Quantity (boxes)", "Income(RM)"
             }
         ) {
             Class[] types = new Class [] {
