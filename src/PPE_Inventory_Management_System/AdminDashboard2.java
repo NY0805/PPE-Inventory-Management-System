@@ -2725,7 +2725,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) pMain.getLayout();
         cardLayout.show(pMain, "pInventoryManagement");
         titleLabel.setText("Inventory Management");
-        SaveNewInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
+        SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
     }//GEN-LAST:event_btnInventoryActionPerformed
 
     private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
@@ -3321,7 +3321,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private void btnNewInventorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventorySaveActionPerformed
         
         try {
-            SaveNewInventory.SaveNewInventory(tfNewInventoryItemCode, tfNewInventoryItemName,
+            SaveInventory.SaveNewInventory(tfNewInventoryItemCode, tfNewInventoryItemName,
                     comboNewInventorySupplierCode, tfNewInventoryQuantity, spinnerNewInventoryUnitPrice, InventoryList);
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
