@@ -10,12 +10,20 @@ import java.awt.Paint;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
@@ -102,7 +110,20 @@ public class ReportChart {
     public DefaultPieDataset readSupplierPPEData(String fromDate, String toDate) {
         DefaultPieDataset dataset = new DefaultPieDataset();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("transaction.txt"))) {
+        LocalDate today = LocalDate.now();
+        LocalDate firstDay = today.withDayOfMonth(1);
+        System.out.println(today);
+        System.out.println(firstDay);
+
+        if (fromDate == null || fromDate.isEmpty()) {
+            fromDate = firstDay.format(DateTimeFormatter.ISO_DATE);
+        }
+
+        if (toDate == null || toDate.isEmpty()) {
+            toDate = today.format(DateTimeFormatter.ISO_DATE);
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
             String line;
             String supplierId = "";
             String itemName = "";
@@ -110,13 +131,23 @@ public class ReportChart {
             int quantity = 0;
             boolean isReceive = false;
 
+            Map<String, Set<String>> supplierItems = new HashMap<>();
+            Map<String, Integer> supplierQuantity = new HashMap<>();
+
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-
+                System.out.println("Supplier: " + supplierId + ", Item: " + itemName + ", Quantity: " + quantity);
+                System.out.println(supplierItems);
+                System.out.println(supplierQuantity);
+                
+                
                 if (line.startsWith("Transaction Type:")) {
                     isReceive = line.split(":")[1].trim().equalsIgnoreCase("Receive");
+                    System.out.println(isReceive);
+
                 } else if (line.startsWith("Received Date:")) {
                     receivedDate = line.split(":")[1].trim();
+                    System.out.println(receivedDate);
                 } else if (line.startsWith("Supplier ID:")) {
                     supplierId = line.split(":")[1].trim();
                 } else if (line.startsWith("Item Name:")) {
@@ -125,13 +156,22 @@ public class ReportChart {
                     quantity = Integer.parseInt(line.split(":")[1].trim());
 
                     if (isReceive && receivedDate.compareTo(fromDate) >= 0 && receivedDate.compareTo(toDate) <= 0) {
-                        String item = supplierId + " (" + itemName + ")";
-
-                        Number totalQuantity = dataset.getValue(item);
-                        int newQuantity = (totalQuantity == null) ? quantity : totalQuantity.intValue() + quantity;
-                        dataset.setValue(item, newQuantity);
+                        supplierItems.putIfAbsent(supplierId, new HashSet<>());
+                        supplierItems.get(supplierId).add(itemName);
+                        supplierQuantity.put(supplierId, supplierQuantity.getOrDefault(supplierId, 0) + quantity);
                     }
                 }
+            }
+
+            for (String id : supplierItems.keySet()) {
+                String itemList = String.join(", ", supplierItems.get(id));
+                int totalQuantity = supplierQuantity.getOrDefault(id, 0);
+                String title = id + "(" + itemList + ")";
+
+                dataset.setValue(title, totalQuantity);
+            }
+            for (Object key : dataset.getKeys()) {
+                System.out.println(key + "->" + dataset.getValue((Comparable) key));
             }
 
         } catch (IOException e) {
@@ -141,8 +181,21 @@ public class ReportChart {
         return dataset;
     }
 
-    public void showSupplierPieChart() {
+    public void showSupplierPieChart(DefaultPieDataset dataset, JPanel pSupplierPieChart) {
 
+        JFreeChart pieChart = ChartFactory.createPieChart("Supplier PPE Receive",
+                dataset,
+                true,
+                true,
+                false);
+
+        PiePlot plot = (PiePlot) pieChart.getPlot();
+        plot.setBackgroundPaint(Color.WHITE);
+
+        ChartPanel chartPanel = new ChartPanel(pieChart);
+        pSupplierPieChart.removeAll();
+        pSupplierPieChart.add(chartPanel, BorderLayout.CENTER);
+        pSupplierPieChart.validate();
     }
 
 }
