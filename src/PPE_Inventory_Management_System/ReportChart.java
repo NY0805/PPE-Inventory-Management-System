@@ -10,25 +10,35 @@ import java.awt.Paint;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.time.Day;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
 
 /**
  *
@@ -122,113 +132,111 @@ public class ReportChart {
         if (toDate == null || toDate.isEmpty()) {
             toDate = today.format(DateTimeFormatter.ISO_DATE);
         }
-        
+
         if (SupplierOrHospital) {
             try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
-            String line;
-            String supplierId = "";
-            String itemName = "";
-            String receivedDate = "";
-            int quantity = 0;
-            boolean isReceive = false;
+                String line;
+                String supplierId = "";
+                String itemName = "";
+                String receivedDate = "";
+                int quantity = 0;
+                boolean isReceive = false;
 
-            Map<String, Set<String>> supplierItems = new HashMap<>();
-            Map<String, Integer> supplierQuantity = new HashMap<>();
+                Map<String, Set<String>> supplierItems = new HashMap<>();
+                Map<String, Integer> supplierQuantity = new HashMap<>();
 
-            while ((line = br.readLine()) != null) {
-                line = line.trim();
+                while ((line = br.readLine()) != null) {
+                    line = line.trim();
 
-                if (line.startsWith("Transaction Type:")) {
-                    isReceive = line.split(":")[1].trim().equalsIgnoreCase("Receive");
-                } else if (line.startsWith("Received Date:")) {
-                    receivedDate = line.split(":")[1].trim();
-                } else if (line.startsWith("Supplier ID:")) {
-                    supplierId = line.split(":")[1].trim();
-                } else if (line.startsWith("Item Name:")) {
-                    itemName = line.split(":")[1].trim();
-                } else if (line.startsWith("Quantity(boxes):")) {
-                    quantity = Integer.parseInt(line.split(":")[1].trim());
+                    if (line.startsWith("Transaction Type:")) {
+                        isReceive = line.split(":")[1].trim().equalsIgnoreCase("Receive");
+                    } else if (line.startsWith("Received Date:")) {
+                        receivedDate = line.split(":")[1].trim();
+                    } else if (line.startsWith("Supplier ID:")) {
+                        supplierId = line.split(":")[1].trim();
+                    } else if (line.startsWith("Item Name:")) {
+                        itemName = line.split(":")[1].trim();
+                    } else if (line.startsWith("Quantity(boxes):")) {
+                        quantity = Integer.parseInt(line.split(":")[1].trim());
 
-                    if (isReceive && receivedDate.compareTo(fromDate) >= 0 && receivedDate.compareTo(toDate) <= 0) {
-                        supplierItems.putIfAbsent(supplierId, new HashSet<>());
-                        supplierItems.get(supplierId).add(itemName);
-                        supplierQuantity.put(supplierId, supplierQuantity.getOrDefault(supplierId, 0) + quantity);
+                        if (isReceive && receivedDate.compareTo(fromDate) >= 0 && receivedDate.compareTo(toDate) <= 0) {
+                            supplierItems.putIfAbsent(supplierId, new HashSet<>());
+                            supplierItems.get(supplierId).add(itemName);
+                            supplierQuantity.put(supplierId, supplierQuantity.getOrDefault(supplierId, 0) + quantity);
+                        }
                     }
                 }
+
+                for (String id : supplierItems.keySet()) {
+                    String itemList = String.join(", ", supplierItems.get(id));
+                    int totalQuantity = supplierQuantity.getOrDefault(id, 0);
+                    String title = id + "(" + itemList + ")";
+
+                    dataset.setValue(title, totalQuantity);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-            for (String id : supplierItems.keySet()) {
-                String itemList = String.join(", ", supplierItems.get(id));
-                int totalQuantity = supplierQuantity.getOrDefault(id, 0);
-                String title = id + "(" + itemList + ")";
-
-                dataset.setValue(title, totalQuantity);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return dataset;
+            return dataset;
         } else {
             try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
-            String line;
-            String hospitalId = "";
-            String itemName = "";
-            String distributedDate = "";
-            int quantity = 0;
-            boolean isDistributed = false;
+                String line;
+                String hospitalId = "";
+                String itemName = "";
+                String distributedDate = "";
+                int quantity = 0;
+                boolean isDistributed = false;
 
-            Map<String, Set<String>> distributeItems = new HashMap<>();
-            Map<String, Integer> distrubuteQuantity = new HashMap<>();
+                Map<String, Set<String>> distributeItems = new HashMap<>();
+                Map<String, Integer> distrubuteQuantity = new HashMap<>();
 
-            while ((line = br.readLine()) != null) {
-                line = line.trim();
+                while ((line = br.readLine()) != null) {
+                    line = line.trim();
 
-                if (line.startsWith("Transaction Type:")) {
-                    isDistributed = line.split(":")[1].trim().equalsIgnoreCase("Distribute");
-                } else if (line.startsWith("Distributed Date:")) {
-                    distributedDate = line.split(":")[1].trim();
-                } else if (line.startsWith("Hospital ID:")) {
-                    hospitalId = line.split(":")[1].trim();
-                } else if (line.startsWith("Item Name:")) {
-                    itemName = line.split(":")[1].trim();
-                } else if (line.startsWith("Quantity(boxes):")) {
-                    quantity = Integer.parseInt(line.split(":")[1].trim());
+                    if (line.startsWith("Transaction Type:")) {
+                        isDistributed = line.split(":")[1].trim().equalsIgnoreCase("Distribute");
+                    } else if (line.startsWith("Distributed Date:")) {
+                        distributedDate = line.split(":")[1].trim();
+                    } else if (line.startsWith("Hospital ID:")) {
+                        hospitalId = line.split(":")[1].trim();
+                    } else if (line.startsWith("Item Name:")) {
+                        itemName = line.split(":")[1].trim();
+                    } else if (line.startsWith("Quantity(boxes):")) {
+                        quantity = Integer.parseInt(line.split(":")[1].trim());
 
-                    if (isDistributed && distributedDate.compareTo(fromDate) >= 0 && distributedDate.compareTo(toDate) <= 0) {
-                        distributeItems.putIfAbsent(hospitalId, new HashSet<>());
-                        distributeItems.get(hospitalId).add(itemName);
-                        distrubuteQuantity.put(hospitalId, distrubuteQuantity.getOrDefault(hospitalId, 0) + quantity);
+                        if (isDistributed && distributedDate.compareTo(fromDate) >= 0 && distributedDate.compareTo(toDate) <= 0) {
+                            distributeItems.putIfAbsent(hospitalId, new HashSet<>());
+                            distributeItems.get(hospitalId).add(itemName);
+                            distrubuteQuantity.put(hospitalId, distrubuteQuantity.getOrDefault(hospitalId, 0) + quantity);
+                        }
                     }
                 }
+
+                for (String id : distributeItems.keySet()) {
+                    String itemList = String.join(", ", distributeItems.get(id));
+                    int totalQuantity = distrubuteQuantity.getOrDefault(id, 0);
+                    String title = id + "(" + itemList + ")";
+
+                    dataset.setValue(title, totalQuantity);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-            for (String id : distributeItems.keySet()) {
-                String itemList = String.join(", ", distributeItems.get(id));
-                int totalQuantity = distrubuteQuantity.getOrDefault(id, 0);
-                String title = id + "(" + itemList + ")";
-
-                dataset.setValue(title, totalQuantity);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+            return dataset;
         }
-
-        return dataset;
-        }
-
-        
     }
 
     public void showPieChart(DefaultPieDataset dataset, JPanel pPieChart, boolean SupplierOrHospital) {
-        String title = ""; 
-        
+        String title = "";
+
         if (SupplierOrHospital) {
             title = "Supplier PPE Received";
         } else {
             title = "Hospital PPE Distributed";
         }
-        
+
         JFreeChart pieChart = ChartFactory.createPieChart(title,
                 dataset,
                 true,
@@ -244,6 +252,130 @@ public class ReportChart {
         pPieChart.add(chartPanel, BorderLayout.CENTER);
         pPieChart.validate();
     }
-    
+
+    public String selectCode(JComboBox<String> combobox, JTable table) {
+
+        combobox.removeAllItems();
+        String firstItemCode = "";
+
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int rowcount = model.getRowCount();
+        for (int i = 0; i < rowcount; i++) {
+            String itemCode = model.getValueAt(i, 0).toString();
+            combobox.addItem(itemCode);
+
+            if (i == 0) {
+                firstItemCode = itemCode;
+            }
+        }
+
+        if (!firstItemCode.isEmpty()) {
+            combobox.setSelectedItem(firstItemCode);
+        }
+
+        return firstItemCode;
+    }
+
+    public TimeSeriesCollection PPELineChart(JComboBox<String> itemID, String firstItemCode,
+            String fromDate, String toDate) {
+        TimeSeriesCollection dataset = new TimeSeriesCollection();
+        TimeSeries receiveSeries = new TimeSeries("Receive");
+        TimeSeries distributeSeries = new TimeSeries("Distribute");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        LocalDate today = LocalDate.now();
+        LocalDate firstDay = today.withDayOfMonth(1);
+
+        if (fromDate == null || fromDate.isEmpty()) {
+            fromDate = firstDay.format(DateTimeFormatter.ISO_DATE);
+        }
+
+        if (toDate == null || toDate.isEmpty()) {
+            toDate = today.format(DateTimeFormatter.ISO_DATE);
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
+            String line;
+            String PPECode = "";
+            String itemName = "";
+            String receivedDate = "";
+            String transactionType = "";
+            int quantity = 0;
+
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+
+                if (line.startsWith("Transaction Type:")) {
+                    transactionType = line.split(":")[1].trim();
+                } else if (line.startsWith("Received Date:")) {
+                    receivedDate = line.split(":")[1].trim();
+                } else if (line.startsWith("Item Code:")) {
+                    PPECode = line.split(":")[1].trim();
+                } else if (line.startsWith("Quantity(boxes):")) {
+                    quantity = Integer.parseInt(line.split(":")[1].trim());
+
+                    if ((PPECode.equals(firstItemCode)) && receivedDate.compareTo(fromDate) >= 0 && receivedDate.compareTo(toDate) <= 0) {
+                        Date formattedDate = sdf.parse(receivedDate);
+                        Day date = new Day(formattedDate);
+                        System.out.println("Received Date: " + receivedDate + " -> Parsed Date: " + date);
+
+                        if (transactionType.equals("Receive")) {
+                            receiveSeries.addOrUpdate(date, quantity);
+                        } else if (transactionType.equals("Distribute")) {
+                            distributeSeries.addOrUpdate(date, quantity);
+                        }
+                    }
+                }
+            }
+
+            dataset.addSeries(receiveSeries);
+            dataset.addSeries(distributeSeries);
+            System.out.println("Receive Series Item Count: " + receiveSeries.getItemCount());
+            System.out.println("Distribute Series Item Count: " + distributeSeries.getItemCount());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return dataset;
+    }
+
+    public void showPPELineChart(JComboBox<String> itemID,
+            TimeSeriesCollection dataset, JPanel pPPELineChart) {
+        String selectedPPE = (String) itemID.getSelectedItem();
+        String itemName = "";
+
+        try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
+            String line;
+            boolean found = false;
+
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+                if (line.startsWith("Item Code:")) {
+                    found = line.split(":")[1].trim().equals(selectedPPE);
+                } else if (found && line.startsWith("Item Name:")) {
+                    itemName = line.split(":")[1].trim();
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(selectedPPE);
+        System.out.println(itemName);
+        JFreeChart timeSeriesChart = ChartFactory.createTimeSeriesChart(
+                "Transaction Trend - " + selectedPPE + "(" + itemName + ")",
+                "Date", "Quantity (boxes)", dataset, true, true, false);
+
+        ChartPanel chartPanel = new ChartPanel(timeSeriesChart);
+        XYPlot plot = (XYPlot) timeSeriesChart.getPlot();
+        DateAxis axis = (DateAxis) plot.getDomainAxis();
+        axis.setDateFormatOverride(new SimpleDateFormat("yyyy-MM-dd")); // 只显示天和月份
+
+        pPPELineChart.removeAll();
+        pPPELineChart.add(chartPanel, BorderLayout.CENTER);
+        pPPELineChart.validate();
+        pPPELineChart.repaint();
+    }
 
 }
