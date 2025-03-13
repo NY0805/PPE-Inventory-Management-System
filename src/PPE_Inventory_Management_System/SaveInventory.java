@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class SaveInventory {
+
     public static void supplierCodeDropdown(JComboBox<String> selectedSupplierCode, JTable supplierTable) {
         selectedSupplierCode.removeAllItems();
         selectedSupplierCode.addItem("Please Select");
@@ -30,64 +31,66 @@ public class SaveInventory {
             selectedSupplierCode.addItem(supplierID);
         }
     }
+
     public static void SaveNewInventory(JTextField tfItemCode, JTextField tfItemName,
-            JComboBox<String> selectedSupplierCode, JTextField tfQuantity, JSpinner spinnerPrice, 
+            JComboBox<String> selectedSupplierCode, JTextField tfQuantity, JSpinner spinnerPrice,
             JTable inventoryList) throws IOException {
-        
+
         String itemCode, itemName, supplierCode, quantity, unitPrice;
         itemCode = tfItemCode.getText();
         itemName = tfItemName.getText();
-        supplierCode = (String)selectedSupplierCode.getSelectedItem();
+        supplierCode = (String) selectedSupplierCode.getSelectedItem();
         quantity = tfQuantity.getText();
         Number value = (Number) spinnerPrice.getValue();
         double price = value.doubleValue();
         unitPrice = String.format("%.2f", price);
-        
+
         String[] headers = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
         String[] data = {itemCode, itemName, supplierCode, quantity, unitPrice};
- 
+
         ValidateEntity validate = new ValidateEntity();
         FileHandling ppeFile = new FileHandling();
-        
-        if (itemCode.trim().isEmpty() || itemName.trim().isEmpty() || 
-                supplierCode.equals("Please Select") || 
-            quantity.trim().isEmpty() || unitPrice.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);            
+
+        if (itemCode.trim().isEmpty() || itemName.trim().isEmpty()
+                || supplierCode.equals("Please Select")
+                || quantity.trim().isEmpty() || unitPrice.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        if (!validate.validateID(itemCode, "ppe.txt") || !validate.validateQuantity(quantity) || 
-                !validate.validatePrice(unitPrice)) {
+
+        if (!validate.validateID(itemCode, "ppe.txt") || !validate.validateQuantity(quantity)
+                || !validate.validatePrice(unitPrice)) {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         ArrayList<String[]> ppeData = ppeFile.ReadDataFromFile("ppe.txt");
         ppeData.add(data);
-        
+
         BufferedWriter writer = new BufferedWriter(new FileWriter("ppe.txt"));
         writer.close();
-        for (String[] ppe: ppeData) {
+        for (String[] ppe : ppeData) {
             ppeFile.WriteDataToFile("ppe.txt", headers, ppe);
 
         }
 
         JOptionPane.showMessageDialog(null, "PPE added successfully!");
-        
+
         tfItemCode.setText("");
-        tfItemName.setText(""); 
+        tfItemName.setText("");
         selectedSupplierCode.setSelectedIndex(0);
         tfQuantity.setText("");
         spinnerPrice.setValue(0);
-        
+
         DefaultTableModel model = (DefaultTableModel) inventoryList.getModel();
-        for (String[] rowData: ppeData) {
+        model.setRowCount(0);
+        for (String[] rowData : ppeData) {
             if (rowData.length == 5) {
                 model.addRow(rowData);
-            }else {
+            } else {
                 System.err.println("skipping record: " + Arrays.toString(rowData));
-            }            
-        } 
-    }      
+            }
+        }
+    }
 
 }
