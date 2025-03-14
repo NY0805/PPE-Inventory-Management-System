@@ -96,15 +96,40 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         transaction201to300 = new javax.swing.JMenuItem();
         transactionAbove300 = new javax.swing.JMenuItem();
         pSideBar = new javax.swing.JPanel();
+        pSideBarStaff = new javax.swing.JPanel();
+        pTransactionBtn2 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        pInventory2 = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        pSupplier2 = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        pLogout2 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        pLogo2 = new javax.swing.JPanel();
+        pHospital2 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        pReportBtn2 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        pDashboard4 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        pSideBarAdmin = new javax.swing.JPanel();
         pLogo = new javax.swing.JPanel();
-        btnDashboard = new javax.swing.JButton();
-        btnUser = new javax.swing.JButton();
-        btnInventory = new javax.swing.JButton();
-        btnSupplier = new javax.swing.JButton();
-        btnHospital = new javax.swing.JButton();
-        btnReport = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
-        btnTransaction = new javax.swing.JButton();
+        pDashboard = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        pUser = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        pInventory = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        pSupplier = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        pHospital = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        pReportBtn = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        pTransactionBtn = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        pLogout = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
         pTopBar = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         lbUsername = new javax.swing.JLabel();
@@ -112,8 +137,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pMain = new javax.swing.JPanel();
         pAdminDashboard = new javax.swing.JPanel();
         pDashboard1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        lbPPEReceived = new javax.swing.JLabel();
         pDashboard2 = new javax.swing.JPanel();
-        pDashboard3 = new javax.swing.JPanel();
+        lbPPEDistributed = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         pCurrentStockLevel = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
@@ -124,6 +152,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jPanel19 = new javax.swing.JPanel();
+        lbPPEInStock = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         pUserManagement = new javax.swing.JPanel();
         tpUserProfileEditor = new javax.swing.JTabbedPane();
         pAddUser = new javax.swing.JPanel();
@@ -170,9 +201,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         tableUserLog = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        comboSortUser = new javax.swing.JComboBox<>();
         pInventoryManagement = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         pReceivedItem = new javax.swing.JPanel();
@@ -486,7 +517,303 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
-        pSideBar.setBackground(new java.awt.Color(204, 255, 255));
+        pSideBar.setLayout(new java.awt.CardLayout());
+
+        pSideBarStaff.setBackground(new java.awt.Color(53, 115, 180));
+
+        pTransactionBtn2.setBackground(new java.awt.Color(53, 115, 180));
+        pTransactionBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pTransactionBtn2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pTransactionBtn2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pTransactionBtn2MouseExited(evt);
+            }
+        });
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Transaction");
+
+        javax.swing.GroupLayout pTransactionBtn2Layout = new javax.swing.GroupLayout(pTransactionBtn2);
+        pTransactionBtn2.setLayout(pTransactionBtn2Layout);
+        pTransactionBtn2Layout.setHorizontalGroup(
+            pTransactionBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTransactionBtn2Layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLabel40)
+                .addGap(57, 57, 57))
+        );
+        pTransactionBtn2Layout.setVerticalGroup(
+            pTransactionBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pTransactionBtn2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
+        pInventory2.setBackground(new java.awt.Color(53, 115, 180));
+        pInventory2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pInventory2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pInventory2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pInventory2MouseExited(evt);
+            }
+        });
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Inventory");
+
+        javax.swing.GroupLayout pInventory2Layout = new javax.swing.GroupLayout(pInventory2);
+        pInventory2.setLayout(pInventory2Layout);
+        pInventory2Layout.setHorizontalGroup(
+            pInventory2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pInventory2Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel41)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pInventory2Layout.setVerticalGroup(
+            pInventory2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pInventory2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
+        pSupplier2.setBackground(new java.awt.Color(53, 115, 180));
+        pSupplier2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pSupplier2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pSupplier2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pSupplier2MouseExited(evt);
+            }
+        });
+
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setText("Supplier");
+
+        javax.swing.GroupLayout pSupplier2Layout = new javax.swing.GroupLayout(pSupplier2);
+        pSupplier2.setLayout(pSupplier2Layout);
+        pSupplier2Layout.setHorizontalGroup(
+            pSupplier2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSupplier2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel42)
+                .addGap(68, 68, 68))
+        );
+        pSupplier2Layout.setVerticalGroup(
+            pSupplier2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSupplier2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        pLogout2.setBackground(new java.awt.Color(31, 80, 154));
+        pLogout2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pLogout2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pLogout2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pLogout2MouseExited(evt);
+            }
+        });
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Log Out");
+
+        javax.swing.GroupLayout pLogout2Layout = new javax.swing.GroupLayout(pLogout2);
+        pLogout2.setLayout(pLogout2Layout);
+        pLogout2Layout.setHorizontalGroup(
+            pLogout2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pLogout2Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel43)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pLogout2Layout.setVerticalGroup(
+            pLogout2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pLogout2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pLogo2.setBackground(new java.awt.Color(255, 204, 204));
+
+        javax.swing.GroupLayout pLogo2Layout = new javax.swing.GroupLayout(pLogo2);
+        pLogo2.setLayout(pLogo2Layout);
+        pLogo2Layout.setHorizontalGroup(
+            pLogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pLogo2Layout.setVerticalGroup(
+            pLogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 74, Short.MAX_VALUE)
+        );
+
+        pHospital2.setBackground(new java.awt.Color(53, 115, 180));
+        pHospital2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pHospital2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pHospital2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pHospital2MouseExited(evt);
+            }
+        });
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("Hospital");
+
+        javax.swing.GroupLayout pHospital2Layout = new javax.swing.GroupLayout(pHospital2);
+        pHospital2.setLayout(pHospital2Layout);
+        pHospital2Layout.setHorizontalGroup(
+            pHospital2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pHospital2Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel44)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pHospital2Layout.setVerticalGroup(
+            pHospital2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pHospital2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        pReportBtn2.setBackground(new java.awt.Color(53, 115, 180));
+        pReportBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pReportBtn2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pReportBtn2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pReportBtn2MouseExited(evt);
+            }
+        });
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setText("Report");
+
+        javax.swing.GroupLayout pReportBtn2Layout = new javax.swing.GroupLayout(pReportBtn2);
+        pReportBtn2.setLayout(pReportBtn2Layout);
+        pReportBtn2Layout.setHorizontalGroup(
+            pReportBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pReportBtn2Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel45)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pReportBtn2Layout.setVerticalGroup(
+            pReportBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pReportBtn2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
+        );
+
+        pDashboard4.setBackground(new java.awt.Color(53, 115, 180));
+        pDashboard4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pDashboard4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pDashboard4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pDashboard4MouseExited(evt);
+            }
+        });
+
+        jLabel46.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setText("Dashboard");
+
+        javax.swing.GroupLayout pDashboard4Layout = new javax.swing.GroupLayout(pDashboard4);
+        pDashboard4.setLayout(pDashboard4Layout);
+        pDashboard4Layout.setHorizontalGroup(
+            pDashboard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDashboard4Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel46)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pDashboard4Layout.setVerticalGroup(
+            pDashboard4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDashboard4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+        );
+
+        javax.swing.GroupLayout pSideBarStaffLayout = new javax.swing.GroupLayout(pSideBarStaff);
+        pSideBarStaff.setLayout(pSideBarStaffLayout);
+        pSideBarStaffLayout.setHorizontalGroup(
+            pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pInventory2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pSupplier2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pHospital2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pReportBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pTransactionBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pLogout2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pLogo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pDashboard4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pSideBarStaffLayout.setVerticalGroup(
+            pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSideBarStaffLayout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addComponent(pInventory2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pSupplier2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pHospital2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pReportBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pTransactionBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                .addComponent(pLogout2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+            .addGroup(pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pSideBarStaffLayout.createSequentialGroup()
+                    .addComponent(pLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(49, 49, 49)
+                    .addComponent(pDashboard4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(587, Short.MAX_VALUE)))
+        );
+
+        pSideBar.add(pSideBarStaff, "card3");
+
+        pSideBarAdmin.setBackground(new java.awt.Color(53, 115, 180));
 
         pLogo.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -494,121 +821,326 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pLogo.setLayout(pLogoLayout);
         pLogoLayout.setHorizontalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pLogoLayout.setVerticalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 66, Short.MAX_VALUE)
+            .addGap(0, 68, Short.MAX_VALUE)
         );
 
-        btnDashboard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnDashboard.setText("Dashboard");
-        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDashboardActionPerformed(evt);
+        pDashboard.setBackground(new java.awt.Color(53, 115, 180));
+        pDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pDashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pDashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pDashboardMouseExited(evt);
             }
         });
 
-        btnUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnUser.setText("User");
-        btnUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserActionPerformed(evt);
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Dashboard");
+
+        javax.swing.GroupLayout pDashboardLayout = new javax.swing.GroupLayout(pDashboard);
+        pDashboard.setLayout(pDashboardLayout);
+        pDashboardLayout.setHorizontalGroup(
+            pDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDashboardLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pDashboardLayout.setVerticalGroup(
+            pDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDashboardLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+        );
+
+        pUser.setBackground(new java.awt.Color(53, 115, 180));
+        pUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pUserMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pUserMouseExited(evt);
             }
         });
 
-        btnInventory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnInventory.setText("Inventory");
-        btnInventory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInventoryActionPerformed(evt);
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("User");
+
+        javax.swing.GroupLayout pUserLayout = new javax.swing.GroupLayout(pUser);
+        pUser.setLayout(pUserLayout);
+        pUserLayout.setHorizontalGroup(
+            pUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pUserLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pUserLayout.setVerticalGroup(
+            pUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pUserLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
+        );
+
+        pInventory.setBackground(new java.awt.Color(53, 115, 180));
+        pInventory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pInventoryMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pInventoryMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pInventoryMouseExited(evt);
             }
         });
 
-        btnSupplier.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSupplier.setText("Supplier");
-        btnSupplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSupplierActionPerformed(evt);
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Inventory");
+
+        javax.swing.GroupLayout pInventoryLayout = new javax.swing.GroupLayout(pInventory);
+        pInventory.setLayout(pInventoryLayout);
+        pInventoryLayout.setHorizontalGroup(
+            pInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pInventoryLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pInventoryLayout.setVerticalGroup(
+            pInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pInventoryLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
+        pSupplier.setBackground(new java.awt.Color(53, 115, 180));
+        pSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pSupplierMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pSupplierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pSupplierMouseExited(evt);
             }
         });
 
-        btnHospital.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnHospital.setText("Hospital");
-        btnHospital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHospitalActionPerformed(evt);
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Supplier");
+
+        javax.swing.GroupLayout pSupplierLayout = new javax.swing.GroupLayout(pSupplier);
+        pSupplier.setLayout(pSupplierLayout);
+        pSupplierLayout.setHorizontalGroup(
+            pSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSupplierLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel20)
+                .addGap(68, 68, 68))
+        );
+        pSupplierLayout.setVerticalGroup(
+            pSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSupplierLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        pHospital.setBackground(new java.awt.Color(53, 115, 180));
+        pHospital.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pHospitalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pHospitalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pHospitalMouseExited(evt);
             }
         });
 
-        btnReport.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnReport.setText("Report");
-        btnReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportActionPerformed(evt);
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Hospital");
+
+        javax.swing.GroupLayout pHospitalLayout = new javax.swing.GroupLayout(pHospital);
+        pHospital.setLayout(pHospitalLayout);
+        pHospitalLayout.setHorizontalGroup(
+            pHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pHospitalLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pHospitalLayout.setVerticalGroup(
+            pHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pHospitalLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        pReportBtn.setBackground(new java.awt.Color(53, 115, 180));
+        pReportBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pReportBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pReportBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pReportBtnMouseExited(evt);
             }
         });
 
-        btnLogout.setText("Log Out");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Report");
+
+        javax.swing.GroupLayout pReportBtnLayout = new javax.swing.GroupLayout(pReportBtn);
+        pReportBtn.setLayout(pReportBtnLayout);
+        pReportBtnLayout.setHorizontalGroup(
+            pReportBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pReportBtnLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel30)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pReportBtnLayout.setVerticalGroup(
+            pReportBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pReportBtnLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
+        );
+
+        pTransactionBtn.setBackground(new java.awt.Color(53, 115, 180));
+        pTransactionBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pTransactionBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pTransactionBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pTransactionBtnMouseExited(evt);
             }
         });
 
-        btnTransaction.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnTransaction.setText("Transaction");
-        btnTransaction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransactionActionPerformed(evt);
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Transaction");
+
+        javax.swing.GroupLayout pTransactionBtnLayout = new javax.swing.GroupLayout(pTransactionBtn);
+        pTransactionBtn.setLayout(pTransactionBtnLayout);
+        pTransactionBtnLayout.setHorizontalGroup(
+            pTransactionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTransactionBtnLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLabel31)
+                .addGap(57, 57, 57))
+        );
+        pTransactionBtnLayout.setVerticalGroup(
+            pTransactionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pTransactionBtnLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
+        pLogout.setBackground(new java.awt.Color(31, 80, 154));
+        pLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pLogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pLogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pLogoutMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout pSideBarLayout = new javax.swing.GroupLayout(pSideBar);
-        pSideBar.setLayout(pSideBarLayout);
-        pSideBarLayout.setHorizontalGroup(
-            pSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Log Out");
+
+        javax.swing.GroupLayout pLogoutLayout = new javax.swing.GroupLayout(pLogout);
+        pLogout.setLayout(pLogoutLayout);
+        pLogoutLayout.setHorizontalGroup(
+            pLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pLogoutLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel32)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pLogoutLayout.setVerticalGroup(
+            pLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pLogoutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout pSideBarAdminLayout = new javax.swing.GroupLayout(pSideBarAdmin);
+        pSideBarAdmin.setLayout(pSideBarAdminLayout);
+        pSideBarAdminLayout.setHorizontalGroup(
+            pSideBarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pSideBarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
-            .addComponent(btnTransaction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+            .addComponent(pDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pTransactionBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pSideBarLayout.setVerticalGroup(
-            pSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSideBarLayout.createSequentialGroup()
+        pSideBarAdminLayout.setVerticalGroup(
+            pSideBarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSideBarAdminLayout.createSequentialGroup()
                 .addComponent(pLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
-                .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(pDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pInventory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnReport, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-            .addGroup(pSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSideBarLayout.createSequentialGroup()
-                    .addGap(111, 111, 111)
-                    .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(595, Short.MAX_VALUE)))
+                .addComponent(pReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pTransactionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(pLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
-        pTopBar.setBackground(new java.awt.Color(255, 255, 255));
+        pSideBar.add(pSideBarAdmin, "card3");
+
+        pTopBar.setBackground(new java.awt.Color(229, 248, 255));
 
         titleLabel.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         titleLabel.setText("Dashboard");
@@ -631,7 +1163,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pTopBarLayout.setHorizontalGroup(
             pTopBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pTopBarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(21, 21, 21)
                 .addComponent(titleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbUsername)
@@ -654,48 +1186,66 @@ public class AdminDashboard2 extends javax.swing.JFrame {
 
         pAdminDashboard.setBackground(new java.awt.Color(255, 255, 255));
 
-        pDashboard1.setBackground(new java.awt.Color(204, 204, 255));
+        pDashboard1.setBackground(new java.awt.Color(245, 245, 245));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Total PPE Received Today");
+
+        lbPPEReceived.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lbPPEReceived.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout pDashboard1Layout = new javax.swing.GroupLayout(pDashboard1);
         pDashboard1.setLayout(pDashboard1Layout);
         pDashboard1Layout.setHorizontalGroup(
             pDashboard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 268, Short.MAX_VALUE)
+            .addGroup(pDashboard1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel3)
+                .addContainerGap(31, Short.MAX_VALUE))
+            .addComponent(lbPPEReceived, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pDashboard1Layout.setVerticalGroup(
             pDashboard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 159, Short.MAX_VALUE)
+            .addGroup(pDashboard1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbPPEReceived, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pDashboard2.setBackground(new java.awt.Color(255, 204, 204));
+        pDashboard2.setBackground(new java.awt.Color(245, 245, 245));
+        pDashboard2.setPreferredSize(new java.awt.Dimension(266, 160));
         pDashboard2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pDashboard2MouseClicked(evt);
             }
         });
 
+        lbPPEDistributed.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lbPPEDistributed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Total PPE Distributed Today");
+
         javax.swing.GroupLayout pDashboard2Layout = new javax.swing.GroupLayout(pDashboard2);
         pDashboard2.setLayout(pDashboard2Layout);
         pDashboard2Layout.setHorizontalGroup(
             pDashboard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 268, Short.MAX_VALUE)
+            .addComponent(lbPPEDistributed, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDashboard2Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18))
         );
         pDashboard2Layout.setVerticalGroup(
             pDashboard2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 159, Short.MAX_VALUE)
-        );
-
-        pDashboard3.setBackground(new java.awt.Color(204, 255, 204));
-
-        javax.swing.GroupLayout pDashboard3Layout = new javax.swing.GroupLayout(pDashboard3);
-        pDashboard3.setLayout(pDashboard3Layout);
-        pDashboard3Layout.setHorizontalGroup(
-            pDashboard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
-        );
-        pDashboard3Layout.setVerticalGroup(
-            pDashboard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 159, Short.MAX_VALUE)
+            .addGroup(pDashboard2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbPPEDistributed, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pCurrentStockLevel.setLayout(new java.awt.BorderLayout());
@@ -776,6 +1326,34 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
+        jPanel19.setBackground(new java.awt.Color(245, 245, 245));
+
+        lbPPEInStock.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lbPPEInStock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Total PPE In Stock");
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbPPEInStock, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(56, 56, 56))
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbPPEInStock, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+
         javax.swing.GroupLayout pAdminDashboardLayout = new javax.swing.GroupLayout(pAdminDashboard);
         pAdminDashboard.setLayout(pAdminDashboardLayout);
         pAdminDashboardLayout.setHorizontalGroup(
@@ -783,14 +1361,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(pAdminDashboardLayout.createSequentialGroup()
-                            .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(50, 50, 50)
-                            .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(55, 55, 55)
-                            .addComponent(pDashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pAdminDashboardLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
                             .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -801,22 +1374,28 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addComponent(jLabel27)
                                 .addComponent(jLabel26)
                                 .addComponent(jLabel28)
-                                .addComponent(jLabel29))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAdminDashboardLayout.createSequentialGroup()
-                        .addComponent(pCurrentStockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                                .addComponent(jLabel29)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pAdminDashboardLayout.createSequentialGroup()
+                            .addComponent(pCurrentStockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(47, 47, 47)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pAdminDashboardLayout.createSequentialGroup()
+                        .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         pAdminDashboardLayout.setVerticalGroup(
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pDashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pDashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pDashboard1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pDashboard2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pCurrentStockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pAdminDashboardLayout.createSequentialGroup()
@@ -846,12 +1425,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         pUserManagement.setBackground(new java.awt.Color(255, 255, 255));
         pUserManagement.setPreferredSize(new java.awt.Dimension(1200, 628));
 
+        tpUserProfileEditor.setBackground(new java.awt.Color(245, 245, 245));
         tpUserProfileEditor.setMinimumSize(new java.awt.Dimension(72, 72));
         tpUserProfileEditor.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tpUserProfileEditorStateChanged(evt);
             }
         });
+
+        pAddUser.setBackground(new java.awt.Color(245, 245, 245));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Name:");
@@ -1014,6 +1596,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
 
         tpUserProfileEditor.addTab("Add User", pAddUser);
+
+        pEditUser.setBackground(new java.awt.Color(245, 245, 245));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("User Type:");
@@ -1308,8 +1892,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("User List");
 
-        jButton2.setText("Sort");
-
         jButton3.setText("Reset");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1318,6 +1900,18 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         });
 
         jButton4.setText("Print");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        comboSortUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sorted by", "Ascending", "Descending" }));
+        comboSortUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSortUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pUserManagementLayout = new javax.swing.GroupLayout(pUserManagement);
         pUserManagement.setLayout(pUserManagementLayout);
@@ -1342,13 +1936,13 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pUserManagementLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
+                                .addGap(46, 46, 46)
+                                .addComponent(comboSortUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 27, Short.MAX_VALUE))
         );
         pUserManagementLayout.setVerticalGroup(
             pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1360,17 +1954,17 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tpUserProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tfSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboSortUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pMain.add(pUserManagement, "pUserManagement");
@@ -1682,6 +2276,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
+        pAddInventory.setBackground(new java.awt.Color(245, 245, 245));
+
         lbNewInventoryItemCode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbNewInventoryItemCode.setText("Item Code:");
 
@@ -1785,6 +2381,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
 
         tpInventoryEditor.addTab("Add New Inventory", pAddInventory);
+
+        pEditInventory.setBackground(new java.awt.Color(245, 245, 245));
 
         lbEditInventoryItemCode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbEditInventoryItemCode.setText("Item Code:");
@@ -1931,7 +2529,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(pReceivedItem, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(tpInventoryEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 848, Short.MAX_VALUE)
                 .addComponent(lbInventoryList)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1986,11 +2584,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         supplierList.setShowGrid(true);
         jScrollPane5.setViewportView(supplierList);
 
+        tpSupplierProfileEditor.setBackground(new java.awt.Color(245, 245, 245));
         tpSupplierProfileEditor.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tpSupplierProfileEditorStateChanged(evt);
             }
         });
+
+        pAddSupplier.setBackground(new java.awt.Color(245, 245, 245));
 
         taAddSupplierAddress.setColumns(20);
         taAddSupplierAddress.setLineWrap(true);
@@ -2081,6 +2682,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
 
         tpSupplierProfileEditor.addTab("Add Supplier", pAddSupplier);
+
+        pEditSupplier.setBackground(new java.awt.Color(245, 245, 245));
 
         lbEditSupplierID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbEditSupplierID.setText("Supplier ID:");
@@ -2415,7 +3018,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 932, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         pSupplierManagementLayout.setVerticalGroup(
             pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2424,7 +3027,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2477,11 +3080,14 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             }
         });
 
+        tpHospitalProfileEditor.setBackground(new java.awt.Color(245, 245, 245));
         tpHospitalProfileEditor.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tpHospitalProfileEditorStateChanged(evt);
             }
         });
+
+        pAddHospital.setBackground(new java.awt.Color(245, 245, 245));
 
         taAddHospitalAddress.setColumns(20);
         taAddHospitalAddress.setLineWrap(true);
@@ -2572,6 +3178,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         );
 
         tpHospitalProfileEditor.addTab("Add Hospital", pAddHospital);
+
+        pEditHospital.setBackground(new java.awt.Color(245, 245, 245));
 
         lbEditHospitalID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbEditHospitalID.setText("Hospital ID:");
@@ -2824,7 +3432,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addComponent(btnPrintHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(tpHospitalProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 934, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         pHospitalManagementLayout.setVerticalGroup(
             pHospitalManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2849,7 +3457,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addComponent(tfSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pMain.add(pHospitalManagement, "pHospitalManagement");
@@ -2944,7 +3552,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnHospitalChart2)
                 .addContainerGap(53, Short.MAX_VALUE))
-            .addComponent(pPPELineChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPPELineChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2962,7 +3570,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnPPELineChart)
                         .addComponent(btnHospitalChart2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(pPPELineChart, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2992,7 +3600,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -3023,7 +3631,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -3035,9 +3643,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTabbedPane1)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pSupplierPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3064,12 +3672,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                                 .addComponent(dcHospitalTo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24)
                                 .addComponent(btnHospitalChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel6Layout.createSequentialGroup()
@@ -3089,9 +3697,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pSupplierPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pHospitalPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(jTabbedPane1)
-                .addGap(443, 443, 443))
+                .addGap(39, 39, 39)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(932, Short.MAX_VALUE))
         );
 
         pReport.setViewportView(jPanel6);
@@ -3332,7 +3940,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
                         .addComponent(btnResetPPEDistributed, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(1044, Short.MAX_VALUE))
         );
 
         pTransaction.setViewportView(jPanel3);
@@ -3344,108 +3952,27 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pSideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pSideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
+                    .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE)
                     .addComponent(pTopBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pMain, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
             .addComponent(pSideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pUserManagement");
-        titleLabel.setText("User Management");
-
-    }//GEN-LAST:event_btnUserActionPerformed
-
-    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pAdminDashboard");
-        titleLabel.setText("Dashboard");
-
-        ReportChart barChart = new ReportChart();
-        DefaultCategoryDataset dataset = barChart.readCurrentStockData();
-        barChart.createCurrentStockBarChart(dataset, pCurrentStockLevel);
-    }//GEN-LAST:event_btnDashboardActionPerformed
-
     private void titleLabelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_titleLabelInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_titleLabelInputMethodTextChanged
-
-    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pInventoryManagement");
-        titleLabel.setText("Inventory Management");
-        SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
-    }//GEN-LAST:event_btnInventoryActionPerformed
-
-    private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pSupplierManagement");
-        titleLabel.setText("Supplier Management");
-    }//GEN-LAST:event_btnSupplierActionPerformed
-
-    private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pHospitalManagement");
-        titleLabel.setText("Hospital Management");
-    }//GEN-LAST:event_btnHospitalActionPerformed
-
-    private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pReport");
-        titleLabel.setText("Report");
-
-        Calendar calendar = Calendar.getInstance();
-
-        Date today = calendar.getTime();
-
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        Date firstDay = calendar.getTime();
-
-        dcSupplierFrom.setDate(firstDay);
-        dcSupplierTo.setDate(today);
-        dcHospitalFrom.setDate(firstDay);
-        dcHospitalTo.setDate(today);
-        dcPPEFrom.setDate(firstDay);
-        dcPPETo.setDate(today);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date selectedFormDate = dcSupplierFrom.getDate();
-        Date selectedToDate = dcSupplierTo.getDate();
-
-        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
-        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
-
-        ReportChart pieChart = new ReportChart();
-        DefaultPieDataset supplierDataset = pieChart.readPPEData(fromDate, toDate, true);
-        pieChart.showPieChart(supplierDataset, pSupplierPieChart, true);
-
-        DefaultPieDataset hospitalDataset = pieChart.readPPEData(fromDate, toDate, false);
-        pieChart.showPieChart(hospitalDataset, pHospitalPieChart, false);
-
-        String itemCode = (String) comboPPECode.getSelectedItem();
-        System.out.println("hi");
-        System.out.println(itemCode);
-
-        ReportChart ppeLineChart = new ReportChart();
-        String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
-        TimeSeriesCollection PPELineChartDataset = ppeLineChart.PPELineChart(comboPPECode,
-                itemCode == "Item 1" ? firstItemCode : itemCode, fromDate, toDate);
-        System.out.println(itemCode);
-        ppeLineChart.showPPELineChart(comboPPECode, PPELineChartDataset, pPPELineChart);
-    }//GEN-LAST:event_btnReportActionPerformed
 
     private void btnAddSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSaveActionPerformed
         String userId = ID_Generator.generate_id("staff");
@@ -3633,11 +4160,15 @@ public class AdminDashboard2 extends javax.swing.JFrame {
             loadData.loadDataToTable("transactions.txt", TransactionReceivedList, "Receive");
             loadData.loadDataToTable("transactions.txt", TransactionDistributedList, "Distribute");
             loadData.loadDataToTable("ppe.txt", InventoryList);
-            SupplierDisplay.totalSupplier(lbTotalSupplier, "suppliers.txt");
-            SupplierDisplay.mostFrequentSupplier(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt");
-            SupplierDisplay.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
-            HospitalDisplay.totalHospital(lbTotalHospital, "hospitals.txt");
-            HospitalDisplay.topDistributedHospital(lbTopDistributedHospital, lbTopDistributedItem, "transactions.txt");
+            DataOverview.totalData(lbTotalSupplier, "suppliers.txt", null, false, false);
+            DataOverview.topSupplierOrHospital(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt", "Receive");
+            DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
+            DataOverview.totalData(lbTotalHospital, "hospitals.txt", null, false, false);
+            DataOverview.topSupplierOrHospital(lbTopDistributedHospital, lbTopDistributedItem, "transactions.txt", "Distribute");
+            DataOverview.totalData(lbPPEReceived, "transactions.txt", "Receive", true, false);
+            DataOverview.totalData(lbPPEDistributed, "transactions.txt", "Distribute", true, false);
+            DataOverview.totalData(lbPPEInStock, "ppe.txt", null, false, true);
+
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3647,8 +4178,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
         ((JSpinner.DefaultEditor) spinnerReceivedTime.getEditor()).getTextField().setText("00:00:00");
         ((JSpinner.DefaultEditor) spinnerDistributedTime.getEditor()).getTextField().setText("00:00:00");
-        
-        
+
+
     }//GEN-LAST:event_formWindowOpened
 
     private void tableUserListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tableUserListComponentShown
@@ -3792,12 +4323,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         Print_PDF.Print_PDF("PPE Inventory List", InventoryList, "PPE_List.pdf");
     }//GEN-LAST:event_btnPrintPPEActionPerformed
 
-    private void btnTransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionActionPerformed
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pTransaction");
-        titleLabel.setText("Transaction History");
-    }//GEN-LAST:event_btnTransactionActionPerformed
-
     private void lbReceivedItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemSaveActionPerformed
         try {
             ReceivePPE.updatePPE(comboReceivedItemCode, spinnerReceivedQuantity,
@@ -3861,25 +4386,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String logoutTime = ("Log Out : " + LocalDateTime.now().format(format));
-
-        try {
-            FileHandling userFile = new FileHandling();
-            String[] headers = {"User ID", "Name", "Password", "Contact", "User Type", "Login Time"};
-            String[] data = {userId, userName, userPassword, userContact, userType, logoutTime};
-
-            userFile.WriteDataToFile("login.txt", headers, data);
-            this.dispose();
-            LogIn login = new LogIn();
-            login.setVisible(true);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error saving log out time. ", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
     private void comboSortPPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSortPPEActionPerformed
         SortFunction.sort(comboSortPPE, InventoryList);
     }//GEN-LAST:event_comboSortPPEActionPerformed
@@ -3928,8 +4434,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSortPPEReceivedActionPerformed
 
     private void btnFilterPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterPPEReceivedActionPerformed
-        FilterFunction.filterBtnChange(btnFilterPPEReceived, TransactionReceivedList, 
-                qtyBelow25, qty25to100, qty101to200, qtyAbove200, 
+        FilterFunction.filterBtnChange(btnFilterPPEReceived, TransactionReceivedList,
+                qtyBelow25, qty25to100, qty101to200, qtyAbove200,
                 transactionBelow100, transaction100to200, transaction201to300, transactionAbove300);
         transactionPPEFilter.show(btnFilterPPEReceived, 0, btnFilterPPEReceived.getHeight());
     }//GEN-LAST:event_btnFilterPPEReceivedActionPerformed
@@ -3941,7 +4447,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
         tfSearchPPEReceived.setText("");
         comboSortPPEReceived.setSelectedItem("Sorted by");
-        SortFunction.sort(comboSortPPEReceived, TransactionReceivedList);        
+        SortFunction.sort(comboSortPPEReceived, TransactionReceivedList);
         dateChooserReceivedFrom.setDate(null);
         dateChooserReceivedTo.setDate(null);
         LoadData loadTable = new LoadData();
@@ -3965,8 +4471,8 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSortPPEDistributedActionPerformed
 
     private void btnFilterPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterPPEDistributedActionPerformed
-        FilterFunction.filterBtnChange(btnFilterPPEDistributed, TransactionDistributedList, 
-                qtyBelow25, qty25to100, qty101to200, qtyAbove200, 
+        FilterFunction.filterBtnChange(btnFilterPPEDistributed, TransactionDistributedList,
+                qtyBelow25, qty25to100, qty101to200, qtyAbove200,
                 transactionBelow100, transaction100to200, transaction201to300, transactionAbove300);
         transactionPPEFilter.show(btnFilterPPEDistributed, 0, btnFilterPPEDistributed.getHeight());
     }//GEN-LAST:event_btnFilterPPEDistributedActionPerformed
@@ -4203,6 +4709,343 @@ public class AdminDashboard2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dateChooserDistributedToPropertyChange
 
+    private void comboSortUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSortUserActionPerformed
+        SortFunction.sort(comboSortUser, tableUserList);
+    }//GEN-LAST:event_comboSortUserActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void pTransactionBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtn2MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pTransaction");
+        titleLabel.setText("Transaction History");    }//GEN-LAST:event_pTransactionBtn2MouseClicked
+
+    private void pTransactionBtn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtn2MouseEntered
+        pTransactionBtn2.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pTransactionBtn2MouseEntered
+
+    private void pTransactionBtn2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtn2MouseExited
+        pTransactionBtn2.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pTransactionBtn2MouseExited
+
+    private void pInventory2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventory2MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pInventoryManagement");
+        titleLabel.setText("Inventory Management");
+        SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);        // TODO add your handling code here:
+    }//GEN-LAST:event_pInventory2MouseClicked
+
+    private void pInventory2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventory2MouseEntered
+        pInventory2.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pInventory2MouseEntered
+
+    private void pInventory2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventory2MouseExited
+        pInventory2.setBackground(new Color(0x3674B5));    }//GEN-LAST:event_pInventory2MouseExited
+
+    private void pSupplier2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplier2MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pSupplierManagement");
+        titleLabel.setText("Supplier Management");    }//GEN-LAST:event_pSupplier2MouseClicked
+
+    private void pSupplier2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplier2MouseEntered
+        pSupplier2.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pSupplier2MouseEntered
+
+    private void pSupplier2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplier2MouseExited
+        pSupplier2.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pSupplier2MouseExited
+
+    private void pLogout2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pLogout2MouseClicked
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String logoutTime = ("Log Out : " + LocalDateTime.now().format(format));
+
+        try {
+            FileHandling userFile = new FileHandling();
+            String[] headers = {"User ID", "Name", "Password", "Contact", "User Type", "Login Time"};
+            String[] data = {userId, userName, userPassword, userContact, userType, logoutTime};
+
+            userFile.WriteDataToFile("login.txt", headers, data);
+            this.dispose();
+            LogIn login = new LogIn();
+            login.setVisible(true);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error saving log out time. ", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_pLogout2MouseClicked
+
+    private void pLogout2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pLogout2MouseEntered
+        pLogout2.setBackground(new Color(0x578FCA));    }//GEN-LAST:event_pLogout2MouseEntered
+
+    private void pLogout2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pLogout2MouseExited
+        pLogout2.setBackground(new Color(0x1F509A));    }//GEN-LAST:event_pLogout2MouseExited
+
+    private void pHospital2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospital2MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pHospitalManagement");
+        titleLabel.setText("Hospital Management");    }//GEN-LAST:event_pHospital2MouseClicked
+
+    private void pHospital2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospital2MouseEntered
+        pHospital2.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pHospital2MouseEntered
+
+    private void pHospital2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospital2MouseExited
+        pHospital2.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pHospital2MouseExited
+
+    private void pReportBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn2MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pReport");
+        titleLabel.setText("Report");
+
+        Calendar calendar = Calendar.getInstance();
+
+        Date today = calendar.getTime();
+
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        Date firstDay = calendar.getTime();
+
+        dcSupplierFrom.setDate(firstDay);
+        dcSupplierTo.setDate(today);
+        dcHospitalFrom.setDate(firstDay);
+        dcHospitalTo.setDate(today);
+        dcPPEFrom.setDate(firstDay);
+        dcPPETo.setDate(today);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcSupplierFrom.getDate();
+        Date selectedToDate = dcSupplierTo.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart pieChart = new ReportChart();
+        DefaultPieDataset supplierDataset = pieChart.readPPEData(fromDate, toDate, true);
+        pieChart.showPieChart(supplierDataset, pSupplierPieChart, true);
+
+        DefaultPieDataset hospitalDataset = pieChart.readPPEData(fromDate, toDate, false);
+        pieChart.showPieChart(hospitalDataset, pHospitalPieChart, false);
+
+        String itemCode = (String) comboPPECode.getSelectedItem();
+        System.out.println("hi");
+        System.out.println(itemCode);
+
+        ReportChart ppeLineChart = new ReportChart();
+        String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
+        TimeSeriesCollection PPELineChartDataset = ppeLineChart.PPELineChart(comboPPECode,
+                itemCode == "Item 1" ? firstItemCode : itemCode, fromDate, toDate);
+        System.out.println(itemCode);
+        ppeLineChart.showPPELineChart(comboPPECode, PPELineChartDataset, pPPELineChart);    }//GEN-LAST:event_pReportBtn2MouseClicked
+
+    private void pReportBtn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn2MouseEntered
+        pReportBtn2.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pReportBtn2MouseEntered
+
+    private void pReportBtn2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn2MouseExited
+        pReportBtn2.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pReportBtn2MouseExited
+
+    private void pDashboard4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboard4MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pAdminDashboard");
+        titleLabel.setText("Dashboard");
+
+        try {
+            DataOverview.totalData(lbPPEReceived, "transactions.txt", "Receive", true, false);
+            DataOverview.totalData(lbPPEDistributed, "transactions.txt", "Distribute", true, false);
+            DataOverview.totalData(lbPPEInStock, "ppe.txt", null, false, true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ReportChart barChart = new ReportChart();
+        DefaultCategoryDataset dataset = barChart.readCurrentStockData();
+        barChart.createCurrentStockBarChart(dataset, pCurrentStockLevel);
+    }//GEN-LAST:event_pDashboard4MouseClicked
+
+    private void pDashboard4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboard4MouseEntered
+        pDashboard4.setBackground(new Color(0x578FCA));    }//GEN-LAST:event_pDashboard4MouseEntered
+
+    private void pDashboard4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboard4MouseExited
+        pDashboard4.setBackground(new Color(0x3674B5));    }//GEN-LAST:event_pDashboard4MouseExited
+
+    private void pLogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pLogoutMouseExited
+        pLogout.setBackground(new Color(0x1F509A));
+    }//GEN-LAST:event_pLogoutMouseExited
+
+    private void pLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pLogoutMouseEntered
+        pLogout.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pLogoutMouseEntered
+
+    private void pLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pLogoutMouseClicked
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String logoutTime = ("Log Out : " + LocalDateTime.now().format(format));
+
+        try {
+            FileHandling userFile = new FileHandling();
+            String[] headers = {"User ID", "Name", "Password", "Contact", "User Type", "Login Time"};
+            String[] data = {userId, userName, userPassword, userContact, userType, logoutTime};
+
+            userFile.WriteDataToFile("login.txt", headers, data);
+            this.dispose();
+            LogIn login = new LogIn();
+            login.setVisible(true);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error saving log out time. ", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_pLogoutMouseClicked
+
+    private void pTransactionBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtnMouseExited
+        pTransactionBtn.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pTransactionBtnMouseExited
+
+    private void pTransactionBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtnMouseEntered
+        pTransactionBtn.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pTransactionBtnMouseEntered
+
+    private void pTransactionBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtnMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pTransaction");
+        titleLabel.setText("Transaction History");
+    }//GEN-LAST:event_pTransactionBtnMouseClicked
+
+    private void pReportBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtnMouseExited
+        pReportBtn.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pReportBtnMouseExited
+
+    private void pReportBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtnMouseEntered
+        pReportBtn.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pReportBtnMouseEntered
+
+    private void pReportBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtnMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pReport");
+        titleLabel.setText("Report");
+
+        Calendar calendar = Calendar.getInstance();
+
+        Date today = calendar.getTime();
+
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        Date firstDay = calendar.getTime();
+
+        dcSupplierFrom.setDate(firstDay);
+        dcSupplierTo.setDate(today);
+        dcHospitalFrom.setDate(firstDay);
+        dcHospitalTo.setDate(today);
+        dcPPEFrom.setDate(firstDay);
+        dcPPETo.setDate(today);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcSupplierFrom.getDate();
+        Date selectedToDate = dcSupplierTo.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart pieChart = new ReportChart();
+        DefaultPieDataset supplierDataset = pieChart.readPPEData(fromDate, toDate, true);
+        pieChart.showPieChart(supplierDataset, pSupplierPieChart, true);
+
+        DefaultPieDataset hospitalDataset = pieChart.readPPEData(fromDate, toDate, false);
+        pieChart.showPieChart(hospitalDataset, pHospitalPieChart, false);
+
+        String itemCode = (String) comboPPECode.getSelectedItem();
+        System.out.println("hi");
+        System.out.println(itemCode);
+
+        ReportChart ppeLineChart = new ReportChart();
+        String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
+        TimeSeriesCollection PPELineChartDataset = ppeLineChart.PPELineChart(comboPPECode,
+                itemCode == "Item 1" ? firstItemCode : itemCode, fromDate, toDate);
+        System.out.println(itemCode);
+        ppeLineChart.showPPELineChart(comboPPECode, PPELineChartDataset, pPPELineChart);
+    }//GEN-LAST:event_pReportBtnMouseClicked
+
+    private void pHospitalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospitalMouseExited
+        pHospital.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pHospitalMouseExited
+
+    private void pHospitalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospitalMouseEntered
+        pHospital.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pHospitalMouseEntered
+
+    private void pHospitalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospitalMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pHospitalManagement");
+        titleLabel.setText("Hospital Management");
+    }//GEN-LAST:event_pHospitalMouseClicked
+
+    private void pSupplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplierMouseExited
+        pSupplier.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pSupplierMouseExited
+
+    private void pSupplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplierMouseEntered
+        pSupplier.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pSupplierMouseEntered
+
+    private void pSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplierMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pSupplierManagement");
+        titleLabel.setText("Supplier Management");
+    }//GEN-LAST:event_pSupplierMouseClicked
+
+    private void pInventoryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventoryMouseExited
+        pInventory.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pInventoryMouseExited
+
+    private void pInventoryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventoryMouseEntered
+        pInventory.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pInventoryMouseEntered
+
+    private void pInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventoryMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pInventoryManagement");
+        titleLabel.setText("Inventory Management");
+        SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
+    }//GEN-LAST:event_pInventoryMouseClicked
+
+    private void pUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pUserMouseExited
+        pUser.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pUserMouseExited
+
+    private void pUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pUserMouseEntered
+        pUser.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pUserMouseEntered
+
+    private void pUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pUserMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pUserManagement");
+        titleLabel.setText("User Management");
+    }//GEN-LAST:event_pUserMouseClicked
+
+    private void pDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboardMouseExited
+        pDashboard.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pDashboardMouseExited
+
+    private void pDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboardMouseEntered
+        pDashboard.setBackground(new Color(0x578FCA));
+    }//GEN-LAST:event_pDashboardMouseEntered
+
+    private void pDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboardMouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pAdminDashboard");
+        titleLabel.setText("Dashboard");
+
+        try {
+            DataOverview.totalData(lbPPEReceived, "transactions.txt", "Receive", true, false);
+            DataOverview.totalData(lbPPEDistributed, "transactions.txt", "Distribute", true, false);
+            DataOverview.totalData(lbPPEInStock, "ppe.txt", null, false, true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboard2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ReportChart barChart = new ReportChart();
+        DefaultCategoryDataset dataset = barChart.readCurrentStockData();
+        barChart.createCurrentStockBarChart(dataset, pCurrentStockLevel);
+    }//GEN-LAST:event_pDashboardMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -4265,7 +5108,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnAddSave;
     private javax.swing.JButton btnAddSupplierReset;
     private javax.swing.JButton btnAddSupplierSave;
-    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnEditHospitalDelete;
     private javax.swing.JButton btnEditHospitalReset;
     private javax.swing.JButton btnEditHospitalSave;
@@ -4280,12 +5122,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnEditUserSave;
     private javax.swing.JButton btnFilterPPEDistributed;
     private javax.swing.JButton btnFilterPPEReceived;
-    private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnHospitalChart;
     private javax.swing.JButton btnHospitalChart2;
-    private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnInventoryFilter;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnNewInventoryReset;
     private javax.swing.JButton btnNewInventorySave;
     private javax.swing.JButton btnPPELineChart;
@@ -4294,16 +5133,12 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton btnPrintPPEDistributed;
     private javax.swing.JButton btnPrintPPEReceived;
     private javax.swing.JButton btnPrintSupplier;
-    private javax.swing.JButton btnReport;
     private javax.swing.JButton btnResetHospital;
     private javax.swing.JButton btnResetPPE;
     private javax.swing.JButton btnResetPPEDistributed;
     private javax.swing.JButton btnResetPPEReceived;
     private javax.swing.JButton btnResetSupplier;
-    private javax.swing.JButton btnSupplier;
     private javax.swing.JButton btnSupplierChart;
-    private javax.swing.JButton btnTransaction;
-    private javax.swing.JButton btnUser;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbEditUserId;
@@ -4321,6 +5156,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboSortPPEDistributed;
     private javax.swing.JComboBox<String> comboSortPPEReceived;
     private javax.swing.JComboBox<String> comboSortSupplier;
+    private javax.swing.JComboBox<String> comboSortUser;
     private com.toedter.calendar.JDateChooser dateChooserDistributedDate;
     private com.toedter.calendar.JDateChooser dateChooserDistributedFrom;
     private com.toedter.calendar.JDateChooser dateChooserDistributedTo;
@@ -4336,7 +5172,6 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JTable hospitalList;
     private javax.swing.JPopupMenu inventoryFilter;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -4349,7 +5184,11 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -4357,6 +5196,20 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -4370,6 +5223,7 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -4454,6 +5308,9 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lbNumber;
     private javax.swing.JLabel lbNumber1;
     private javax.swing.JLabel lbNumber2;
+    private javax.swing.JLabel lbPPEDistributed;
+    private javax.swing.JLabel lbPPEInStock;
+    private javax.swing.JLabel lbPPEReceived;
     private javax.swing.JLabel lbQuantityNumber;
     private javax.swing.JLabel lbReceivedDate;
     private javax.swing.JLabel lbReceivedEndDate;
@@ -4495,27 +5352,44 @@ public class AdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JPanel pAddUser;
     private javax.swing.JPanel pAdminDashboard;
     private javax.swing.JPanel pCurrentStockLevel;
+    private javax.swing.JPanel pDashboard;
     private javax.swing.JPanel pDashboard1;
     private javax.swing.JPanel pDashboard2;
-    private javax.swing.JPanel pDashboard3;
+    private javax.swing.JPanel pDashboard4;
     private javax.swing.JPanel pDistributedItem;
     private javax.swing.JPanel pEditHospital;
     private javax.swing.JPanel pEditInventory;
     private javax.swing.JPanel pEditSupplier;
     private javax.swing.JPanel pEditUser;
+    private javax.swing.JPanel pHospital;
+    private javax.swing.JPanel pHospital2;
     private javax.swing.JPanel pHospitalManagement;
     private javax.swing.JPanel pHospitalPieChart;
+    private javax.swing.JPanel pInventory;
+    private javax.swing.JPanel pInventory2;
     private javax.swing.JScrollPane pInventoryManagement;
     private javax.swing.JPanel pLogo;
+    private javax.swing.JPanel pLogo2;
+    private javax.swing.JPanel pLogout;
+    private javax.swing.JPanel pLogout2;
     private javax.swing.JPanel pMain;
     private javax.swing.JPanel pPPELineChart;
     private javax.swing.JPanel pReceivedItem;
     private javax.swing.JScrollPane pReport;
+    private javax.swing.JPanel pReportBtn;
+    private javax.swing.JPanel pReportBtn2;
     private javax.swing.JPanel pSideBar;
+    private javax.swing.JPanel pSideBarAdmin;
+    private javax.swing.JPanel pSideBarStaff;
+    private javax.swing.JPanel pSupplier;
+    private javax.swing.JPanel pSupplier2;
     private javax.swing.JPanel pSupplierManagement;
     private javax.swing.JPanel pSupplierPieChart;
     private javax.swing.JPanel pTopBar;
     private javax.swing.JScrollPane pTransaction;
+    private javax.swing.JPanel pTransactionBtn;
+    private javax.swing.JPanel pTransactionBtn2;
+    private javax.swing.JPanel pUser;
     private javax.swing.JPanel pUserManagement;
     private javax.swing.JMenuItem qty101to200;
     private javax.swing.JMenuItem qty25to100;

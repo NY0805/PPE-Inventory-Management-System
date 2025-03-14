@@ -185,7 +185,7 @@ public class ReportChart {
                 String hospitalId = "";
                 String itemName = "";
                 String distributedDate = "";
-                int quantity = 0;
+                int quantity;
                 boolean isDistributed = false;
 
                 Map<String, Set<String>> distributeItems = new HashMap<>();
@@ -229,7 +229,7 @@ public class ReportChart {
     }
 
     public void showPieChart(DefaultPieDataset dataset, JPanel pPieChart, boolean SupplierOrHospital) {
-        String title = "";
+        String title;
 
         if (SupplierOrHospital) {
             title = "Supplier PPE Received";
@@ -297,7 +297,6 @@ public class ReportChart {
         try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
             String line;
             String PPECode = "";
-            String itemName = "";
             String receivedDate = "";
             String transactionType = "";
             int quantity = 0;
