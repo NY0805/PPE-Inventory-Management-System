@@ -4,17 +4,19 @@
  */
 package PPE_Inventory_Management_System;
 
+import java.awt.CardLayout;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author User
  */
-public class LogInValidation {
+public class LogInValidation extends JFrame {
 //    private String userId;
 //    private String name;
 //    private String userType;
@@ -36,10 +38,11 @@ public class LogInValidation {
                 if (storedId.equals(id) && (storedPassword.equals(password))) {
                     userFound = true;
                     saveLoginDetails(id, storedName, password, storedContact, storedUserType);
-                    
+
                     loginFrame.dispose();
-                    AdminDashboard2 dashboard = new AdminDashboard2(id, storedName, password, storedContact, storedUserType);
+                    MainFrame dashboard = new MainFrame(id, storedName, password, storedContact, storedUserType);
                     dashboard.setVisible(true);
+                    dashboard.showSideBar(storedUserType);
                     break;
                 }
             }
@@ -47,7 +50,7 @@ public class LogInValidation {
             if (!userFound) {
                 JOptionPane.showMessageDialog(null, "Invalid User ID or Password!", "Login Failed", JOptionPane.ERROR_MESSAGE);
             }
-            
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Login failed, please try again.", "Login Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error reading user data: " + e.getMessage());
