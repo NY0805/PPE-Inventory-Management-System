@@ -8,9 +8,12 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -49,7 +52,7 @@ public class ReceivePPE {
         
     public static void updatePPE(JComboBox<String> itemID, JSpinner quantity,
             JDateChooser receivedDate, JSpinner receivedTime, JTable table,
-            JTable transactionTable, JLabel supplierCode) throws IOException {
+            JTable transactionTable, JLabel supplierCode, Date initialTime) throws IOException {
         
         
         FileHandling updatePPEFile = new FileHandling();
@@ -60,7 +63,23 @@ public class ReceivePPE {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String selectedDate = (receivedDate.getDate() != null) ? dateFormat.format(receivedDate.getDate()) : "";
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        String selectedTime = timeFormat.format((Date) receivedTime.getValue());
+
+        Object timeValue = receivedTime.getValue();
+        String selectedTime = "00:00:00";
+        if (timeValue instanceof Date) {
+            String formattedTime = timeFormat.format((Date) timeValue);
+            String formattedInitialTime = timeFormat.format(initialTime);
+            if (!formattedTime.equals(formattedInitialTime)) {
+                selectedTime = formattedTime;
+            }
+        } else if (timeValue instanceof String && !"00:00:00".equals(timeValue)) {
+            try {
+                selectedTime = timeFormat.format(timeFormat.parse((String) timeValue));
+            } catch (ParseException ex) {
+                Logger.getLogger(ReceivePPE.class.getName()).log(Level.SEVERE, null, ex);
+                selectedTime = "00:00:00";
+            }
+        }
     
         if (selectedItemID.equals("Please select") || selectedQuantity == 0 || 
                 selectedDate.isEmpty() || selectedTime.isEmpty()) {
@@ -72,10 +91,13 @@ public class ReceivePPE {
             JOptionPane.showMessageDialog(null, "Item " + selectedItemID + 
                     " doesn't have supplier. Please add a supplier for " + selectedItemID + "!", 
                     "Warning", JOptionPane.WARNING_MESSAGE);
+            itemID.setSelectedIndex(0);
+            quantity.setValue(0);
+            receivedDate.setDate(null);
+            ((JSpinner.DefaultEditor) receivedTime.getEditor()).getTextField().setText("00:00:00");
             return;
         }
-                
-   
+        
         ArrayList<String[]> ppeData = updatePPEFile.ReadDataFromFile("ppe.txt");
         
         for (String[] data: ppeData) {

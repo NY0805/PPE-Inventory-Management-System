@@ -37,6 +37,7 @@ public class LogIn extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setLocation(new java.awt.Point(380, 140));
         setPreferredSize(new java.awt.Dimension(750, 550));
         setSize(new java.awt.Dimension(950, 650));
 

@@ -35,7 +35,6 @@ public class SaveEditInventory {
         unitPrice = String.format("%.2f", price);
         
         String[] headers = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
-//        String[] data = {itemCode, itemName, supplierCode, quantity, unitPrice};
  
         ValidateEntity validate = new ValidateEntity();
         FileHandling ppeFile = new FileHandling();
@@ -47,7 +46,7 @@ public class SaveEditInventory {
             JOptionPane.showMessageDialog(null, "Please fill out all fields!", "Warning", JOptionPane.WARNING_MESSAGE);            
             return;
         }       
-        if (!validate.validateQuantity(quantity) || !validate.validatePrice(unitPrice)) {
+        if (!validate.validateName(itemName) || !validate.validatePrice(unitPrice)) {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -127,7 +126,7 @@ public class SaveEditInventory {
         tfItemName.setText(""); 
         selectedSupplierCode.setSelectedIndex(0);
         tfQuantity.setText("");
-        spinnerPrice.setValue(0);
+        spinnerPrice.setValue(0.0);
         
         DefaultTableModel model = (DefaultTableModel) inventoryList.getModel();
         model.setRowCount(0);

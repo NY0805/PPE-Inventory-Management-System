@@ -42,7 +42,7 @@ public class SortFunction {
         }
     }
     
-    public static void sort(JComboBox<String> comboboxSort, JTable table) {
+    public static void sort(JComboBox<String> comboboxSort, JTable table, int columnIndex) {
         String order = comboboxSort.getSelectedItem().toString();
         DefaultTableModel model = (DefaultTableModel)table.getModel();
         ArrayList<String[]> tableData = new ArrayList<>();
@@ -63,8 +63,8 @@ public class SortFunction {
         }
         
         tableData.sort((a, b) -> {
-            String data1 = (a[0] != null) ? a[0] : "";
-            String data2 = (b[0] != null) ? b[0] : "";
+            String data1 = (a[columnIndex] != null) ? a[columnIndex] : "";
+            String data2 = (b[columnIndex] != null) ? b[columnIndex] : "";
             
             if (order.equals("Ascending")) {
                 return data1.compareTo(data2);

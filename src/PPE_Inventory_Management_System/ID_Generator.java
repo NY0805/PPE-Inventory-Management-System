@@ -26,9 +26,6 @@ public class ID_Generator {
             case "staff": {
                 return String.format("ST%d", randomID);
             }
-            case "ppe": {
-                return String.format("PPE%d", randomID);
-            }
             case "transaction": {
                 return String.format("TR%d", randomID);
             }

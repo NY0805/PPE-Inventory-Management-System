@@ -26,6 +26,7 @@ public class DeleteSelectedInventory {
             JTextField tfQuantity, JSpinner spinnerPrice, JTable table) throws IOException {
         
         FileHandling inventoryFile = new FileHandling();
+        FileHandling supplierFile = new FileHandling();
         ArrayList<String[]> inventories = inventoryFile.ReadDataFromFile(filename);
         ArrayList<String[]> updatedInventory = new ArrayList<>();
         
@@ -39,7 +40,26 @@ public class DeleteSelectedInventory {
             
                 int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Item " + selectedItemCode.getSelectedItem() + "?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Supplier " + selectedItemCode.getSelectedItem() + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    ArrayList<String[]> supplierData = supplierFile.ReadDataFromFile("suppliers.txt");
+                    for (String[] supplier : supplierData) {
+                        if (supplier[5].contains(selectedItemCode.getSelectedItem().toString())) {
+                            String updatedSupplies = supplier[5].replace(", " + selectedItemCode.getSelectedItem().toString(), "")
+                                                        .replace(selectedItemCode.getSelectedItem().toString() + ", ", "")
+                                                        .replace(selectedItemCode.getSelectedItem().toString(), "NULL");
+                            supplier[5] = updatedSupplies.trim();
+                        }
+                    }               
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter("suppliers.txt"))) {
+                        for (String[] supplier : supplierData) {
+                            supplierFile.WriteDataToFile("suppliers.txt", new String[]{"Supplier ID",
+                                "Supplier Name", "Supplier Contact", "Supplier Email",
+                                "Supplier Address", "PPE Supplies"}, supplier);
+                        }
+                        writer.close();
+                    }
+                    
+                    JOptionPane.showMessageDialog(null, "Item " + selectedItemCode.getSelectedItem() + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }

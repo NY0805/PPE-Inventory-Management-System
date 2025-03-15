@@ -20,11 +20,6 @@ public class EditSelectedSupplier {
         DefaultTableModel supModel = (DefaultTableModel) supTable.getModel();
         combobox.removeAllItems();
         combobox.addItem("Please select");
-            
-//        ActionListener[] listeners = combobox.getActionListeners();
-//        for (ActionListener listener : listeners) {
-//            combobox.removeActionListener(listener);
-//        }
         
         for (int i = 0; i < supModel.getRowCount(); i++) {
             String supplierID = supModel.getValueAt(i, 0).toString();            

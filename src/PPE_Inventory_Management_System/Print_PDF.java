@@ -21,19 +21,19 @@ public class Print_PDF {
             PdfWriter.getInstance(document, new FileOutputStream(filepath));
             document.open();
 
-            // Title
             document.add(new Paragraph(titlename, FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, Font.BOLD)));
             document.add(new Paragraph(" "));
-            
-            // Table
+
             PdfPTable pdfTable = new PdfPTable(table.getColumnCount());
+            pdfTable.setWidthPercentage(100); // Ensure full width
+            pdfTable.setSpacingBefore(5);
             
-            // Add column headers
             for (int i = 0; i < table.getColumnCount(); i++) {
-                pdfTable.addCell(new PdfPCell(new Phrase(table.getColumnName(i), FontFactory.getFont(FontFactory.HELVETICA_BOLD))));
+                PdfPCell headerRow = new PdfPCell(new Phrase(table.getColumnName(i), FontFactory.getFont(FontFactory.HELVETICA_BOLD)));
+                headerRow.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                pdfTable.addCell(headerRow);
             }
             
-            // Add rows from JTable
             for (int row = 0; row < table.getRowCount(); row++) {
                 for (int col = 0; col < table.getColumnCount(); col++) {
                     pdfTable.addCell(table.getValueAt(row, col).toString());

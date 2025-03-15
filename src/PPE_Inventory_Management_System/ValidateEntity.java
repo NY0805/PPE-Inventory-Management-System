@@ -38,7 +38,7 @@ public class ValidateEntity {
     }
 
     public boolean validateName(String name) {
-        return name != null && !name.trim().isEmpty();
+        return name != null && !name.trim().isEmpty() && name.matches("^[a-zA-Z\\s]+$");
     }
 
     public boolean validateId(String id) {
@@ -76,6 +76,7 @@ public class ValidateEntity {
             int quantity = Integer.parseInt(quantityStr);
             return quantity > 0;
         } catch (NumberFormatException e) {
+            
             return false;
         }
     }
