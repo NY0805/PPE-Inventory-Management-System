@@ -78,13 +78,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "RM 5 - 10": {
+            case "Below RM 20": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double UnitPrice = Double.parseDouble(entry.getStringValue(4));
-                            return UnitPrice >= 5 && UnitPrice <= 10;
+                            return UnitPrice  < 20;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -92,13 +92,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "RM 11 - 15": {
+            case "RM 21 - 30": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double UnitPrice = Double.parseDouble(entry.getStringValue(4));
-                            return UnitPrice >= 11 && UnitPrice <= 15;
+                            return UnitPrice >= 21 && UnitPrice <= 30;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -106,13 +106,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "RM 16 - 20": {
+            case "RM 31 - 50": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double UnitPrice = Double.parseDouble(entry.getStringValue(4));
-                            return UnitPrice >= 16 && UnitPrice <= 20;
+                            return UnitPrice >= 31 && UnitPrice <= 50;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -120,13 +120,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "Above RM 20": {
+            case "Above RM 50": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double UnitPrice = Double.parseDouble(entry.getStringValue(4));
-                            return UnitPrice > 20;
+                            return UnitPrice > 50;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -137,13 +137,13 @@ public class FilterFunction {
             
     //      ===================================================================================================
             
-            case "Below 25": {
+            case "Below 50": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             int Qty = Integer.parseInt(entry.getStringValue(6));
-                            return Qty < 25;
+                            return Qty < 50;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -151,13 +151,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "25 - 100": {
+            case "50 - 100": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             int Qty = Integer.parseInt(entry.getStringValue(6));
-                            return Qty >= 25 && Qty <= 100;
+                            return Qty >= 50 && Qty <= 100;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -193,13 +193,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "Below RM 100": {
+            case "Below RM 500": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double transaction = Double.parseDouble(entry.getStringValue(7));
-                            return transaction < 100;
+                            return transaction < 500;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -207,13 +207,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "RM 100 - 200": {
+            case "RM 500 - 1000": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double transaction = Double.parseDouble(entry.getStringValue(7));
-                            return transaction >= 100 && transaction <= 200;
+                            return transaction >= 500 && transaction <= 1000;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -221,13 +221,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "RM 201 - 300": {
+            case "RM 1001 - 2000": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double transaction = Double.parseDouble(entry.getStringValue(7));
-                            return transaction >= 201 && transaction <= 300;
+                            return transaction >= 1001 && transaction <= 2000;
                         } catch (NumberFormatException e) {
                             return false;
                         }
@@ -235,13 +235,13 @@ public class FilterFunction {
                 };
                 break;
             }
-            case "Above RM 300": {
+            case "Above RM 2000": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             double transaction = Double.parseDouble(entry.getStringValue(7));
-                            return transaction > 300;
+                            return transaction > 2000;
                         } catch (NumberFormatException e) {
                             return false;
                         }

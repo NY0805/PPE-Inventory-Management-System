@@ -82,21 +82,21 @@ public class MainFrame extends javax.swing.JFrame {
         above25 = new javax.swing.JMenuItem();
         outOfStock = new javax.swing.JMenuItem();
         menuUnitPrice = new javax.swing.JMenu();
-        RM5to10 = new javax.swing.JMenuItem();
-        RM11to15 = new javax.swing.JMenuItem();
-        RM16to20 = new javax.swing.JMenuItem();
-        above20 = new javax.swing.JMenuItem();
+        below20 = new javax.swing.JMenuItem();
+        RM21to30 = new javax.swing.JMenuItem();
+        RM31to50 = new javax.swing.JMenuItem();
+        above50 = new javax.swing.JMenuItem();
         transactionPPEFilter = new javax.swing.JPopupMenu();
         transactionQuantity = new javax.swing.JMenu();
-        qtyBelow25 = new javax.swing.JMenuItem();
-        qty25to100 = new javax.swing.JMenuItem();
+        qtyBelow50 = new javax.swing.JMenuItem();
+        qty50to100 = new javax.swing.JMenuItem();
         qty101to200 = new javax.swing.JMenuItem();
         qtyAbove200 = new javax.swing.JMenuItem();
         receivedExpenses = new javax.swing.JMenu();
-        transactionBelow100 = new javax.swing.JMenuItem();
-        transaction100to200 = new javax.swing.JMenuItem();
-        transaction201to300 = new javax.swing.JMenuItem();
-        transactionAbove300 = new javax.swing.JMenuItem();
+        transactionBelow500 = new javax.swing.JMenuItem();
+        transaction500to1000 = new javax.swing.JMenuItem();
+        transaction1001to2000 = new javax.swing.JMenuItem();
+        transactionAbove2000 = new javax.swing.JMenuItem();
         pSideBar = new javax.swing.JPanel();
         pSideBarAdmin = new javax.swing.JPanel();
         pLogo = new javax.swing.JPanel();
@@ -463,27 +463,28 @@ public class MainFrame extends javax.swing.JFrame {
 
         menuUnitPrice.setText("Unit Price");
 
-        RM5to10.setText("RM 5 - 10");
-        menuUnitPrice.add(RM5to10);
+        below20.setText("Below RM 20");
+        menuUnitPrice.add(below20);
 
-        RM11to15.setText("RM 11 - 15");
-        menuUnitPrice.add(RM11to15);
+        RM21to30.setText("RM 21 - 30");
+        menuUnitPrice.add(RM21to30);
 
-        RM16to20.setText("RM 16 - 20");
-        menuUnitPrice.add(RM16to20);
+        RM31to50.setText("RM 31 - 50");
+        menuUnitPrice.add(RM31to50);
 
-        above20.setText("Above RM 20");
-        menuUnitPrice.add(above20);
+        above50.setText("Above RM 50");
+        menuUnitPrice.add(above50);
 
         inventoryFilter.add(menuUnitPrice);
 
         transactionQuantity.setText("Quantity");
 
-        qtyBelow25.setText("Below 25");
-        transactionQuantity.add(qtyBelow25);
+        qtyBelow50.setText("Below 50");
+        qtyBelow50.setActionCommand("Below 50");
+        transactionQuantity.add(qtyBelow50);
 
-        qty25to100.setText("25 - 100");
-        transactionQuantity.add(qty25to100);
+        qty50to100.setText("50 - 100");
+        transactionQuantity.add(qty50to100);
 
         qty101to200.setText("101 - 200");
         transactionQuantity.add(qty101to200);
@@ -495,17 +496,17 @@ public class MainFrame extends javax.swing.JFrame {
 
         receivedExpenses.setText("Expenses");
 
-        transactionBelow100.setText("Below RM 100");
-        receivedExpenses.add(transactionBelow100);
+        transactionBelow500.setText("Below RM 500");
+        receivedExpenses.add(transactionBelow500);
 
-        transaction100to200.setText("RM 100 - 200");
-        receivedExpenses.add(transaction100to200);
+        transaction500to1000.setText("RM 500 - 1000");
+        receivedExpenses.add(transaction500to1000);
 
-        transaction201to300.setText("RM 201 - 300");
-        receivedExpenses.add(transaction201to300);
+        transaction1001to2000.setText("RM 1001 - 2000");
+        receivedExpenses.add(transaction1001to2000);
 
-        transactionAbove300.setText("Above RM 300");
-        receivedExpenses.add(transactionAbove300);
+        transactionAbove2000.setText("Above RM 2000");
+        receivedExpenses.add(transactionAbove2000);
 
         transactionPPEFilter.add(receivedExpenses);
 
@@ -3072,7 +3073,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
                         .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
         );
@@ -3082,8 +3083,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(tpSupplierProfileEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pSupplierManagementLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3092,15 +3092,16 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(pSupplierManagementLayout.createSequentialGroup()
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addComponent(lbSupplierList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfSearchSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnResetSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPrintSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboSortSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbSupplierList)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pSupplierManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSearchSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnResetSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPrintSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSortSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -4190,7 +4191,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (reset != null) {
             reset.setRowFilter(null);
         }
-        tfSearchSupplier.setText("");
+        tfSearchSupplier.setText("Search");
         comboSortSupplier.setSelectedItem("Sorted by");
         SortFunction.sort(comboSortSupplier, supplierList, 0);
         LoadData loadTable = new LoadData();
@@ -4429,7 +4430,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (reset != null) {
             reset.setRowFilter(null);
         }
-        tfSearchHospital.setText("");
+        tfSearchHospital.setText("Search");
         comboSortHospital.setSelectedItem("Sorted by");
         SortFunction.sort(comboSortHospital, hospitalList, 0);
         LoadData loadTable = new LoadData();
@@ -4463,7 +4464,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (reset != null) {
             reset.setRowFilter(null);
         }
-        tfSearchPPE.setText("");
+        tfSearchPPE.setText("Search");
         comboSortPPE.setSelectedItem("Sorted by");
         btnInventoryFilter.setText("Filtered by");
         SortFunction.sort(comboSortPPE, InventoryList, 0);
@@ -4484,6 +4485,7 @@ public class MainFrame extends javax.swing.JFrame {
             ReceivePPE.updatePPE(comboReceivedItemCode, spinnerReceivedQuantity,
                     dateChooserReceivedDate, spinnerReceivedTime, InventoryList,
                     TransactionReceivedList, lbReceivedSupplierCodeInput, initialReceivedTime);
+            DataOverview.topSupplierOrHospital(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt", "Receive");
         } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4502,6 +4504,7 @@ public class MainFrame extends javax.swing.JFrame {
             DistributePPE.updatePPE(comboDistributedItemCode, comboDistributedHospitalCode,
                     spinnerDistributedQuantity, InventoryList, TransactionDistributedList,
                     dateChooserDistributedDate, spinnerDistributedTime, initialDistributedTime);
+            DataOverview.topSupplierOrHospital(lbTopDistributedHospital, lbTopDistributedItem, "transactions.txt", "Distribute");
         } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4547,7 +4550,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSortPPEActionPerformed
 
     private void btnInventoryFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryFilterActionPerformed
-        FilterFunction.filterBtnChange(btnInventoryFilter, InventoryList, below25, above25, outOfStock, RM5to10, RM11to15, RM16to20, above20);
+        FilterFunction.filterBtnChange(btnInventoryFilter, InventoryList, below25, above25, outOfStock, below20, RM21to30, RM31to50, above50);
         inventoryFilter.show(btnInventoryFilter, 0, btnInventoryFilter.getHeight());
     }//GEN-LAST:event_btnInventoryFilterActionPerformed
 
@@ -4585,8 +4588,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnFilterPPEReceivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterPPEReceivedActionPerformed
         FilterFunction.filterBtnChange(btnFilterPPEReceived, TransactionReceivedList,
-                qtyBelow25, qty25to100, qty101to200, qtyAbove200,
-                transactionBelow100, transaction100to200, transaction201to300, transactionAbove300);
+                qtyBelow50, qty50to100, qty101to200, qtyAbove200,
+                transactionBelow500, transaction500to1000, transaction1001to2000, transactionAbove2000);
         transactionPPEFilter.show(btnFilterPPEReceived, 0, btnFilterPPEReceived.getHeight());
     }//GEN-LAST:event_btnFilterPPEReceivedActionPerformed
 
@@ -4595,7 +4598,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (reset != null) {
             reset.setRowFilter(null);
         }
-        tfSearchPPEReceived.setText("");
+        tfSearchPPEReceived.setText("Search");
         comboSortPPEReceived.setSelectedItem("Sorted by");
         btnFilterPPEReceived.setText("Filtered by");
         SortFunction.sort(comboSortPPEReceived, TransactionReceivedList, 1);
@@ -4623,8 +4626,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnFilterPPEDistributedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterPPEDistributedActionPerformed
         FilterFunction.filterBtnChange(btnFilterPPEDistributed, TransactionDistributedList,
-                qtyBelow25, qty25to100, qty101to200, qtyAbove200,
-                transactionBelow100, transaction100to200, transaction201to300, transactionAbove300);
+                qtyBelow50, qty50to100, qty101to200, qtyAbove200,
+                transactionBelow500, transaction500to1000, transaction1001to2000, transactionAbove2000);
         transactionPPEFilter.show(btnFilterPPEDistributed, 0, btnFilterPPEDistributed.getHeight());
     }//GEN-LAST:event_btnFilterPPEDistributedActionPerformed
 
@@ -4633,7 +4636,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (reset != null) {
             reset.setRowFilter(null);
         }
-        tfSearchPPEDistributed.setText("");
+        tfSearchPPEDistributed.setText("Search");
         comboSortPPEDistributed.setSelectedItem("Sorted by");
         btnFilterPPEDistributed.setText("Filtered by");
         SortFunction.sort(comboSortPPEDistributed, TransactionDistributedList, 1);
@@ -4741,7 +4744,8 @@ public class MainFrame extends javax.swing.JFrame {
             LoadData updateSupplierTable = new LoadData();
             updateSupplierTable.loadDataToTable("suppliers.txt", supplierList);
             ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
-            DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);            
+            DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);    
+            DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4778,6 +4782,8 @@ public class MainFrame extends javax.swing.JFrame {
             updateSupplierTable.loadDataToTable("suppliers.txt", supplierList);
             ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
             DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);
+            DataOverview.totalData(lbTotalSupplier, "suppliers.txt", null, false, false);
+            DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -5347,13 +5353,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable InventoryList;
-    private javax.swing.JMenuItem RM11to15;
-    private javax.swing.JMenuItem RM16to20;
-    private javax.swing.JMenuItem RM5to10;
+    private javax.swing.JMenuItem RM21to30;
+    private javax.swing.JMenuItem RM31to50;
     private javax.swing.JTable TransactionDistributedList;
     private javax.swing.JTable TransactionReceivedList;
-    private javax.swing.JMenuItem above20;
     private javax.swing.JMenuItem above25;
+    private javax.swing.JMenuItem above50;
+    private javax.swing.JMenuItem below20;
     private javax.swing.JMenuItem below25;
     private javax.swing.JButton btnAddHospitalReset;
     private javax.swing.JButton btnAddHospitalSave;
@@ -5645,9 +5651,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pUser;
     private javax.swing.JPanel pUserManagement;
     private javax.swing.JMenuItem qty101to200;
-    private javax.swing.JMenuItem qty25to100;
+    private javax.swing.JMenuItem qty50to100;
     private javax.swing.JMenuItem qtyAbove200;
-    private javax.swing.JMenuItem qtyBelow25;
+    private javax.swing.JMenuItem qtyBelow50;
     private javax.swing.JRadioButton rbAddAdmin;
     private javax.swing.JRadioButton rbAddStaff;
     private javax.swing.JRadioButton rbEditAdmin;
@@ -5701,10 +5707,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tpInventoryEditor;
     private javax.swing.JTabbedPane tpSupplierProfileEditor;
     private javax.swing.JTabbedPane tpUserProfileEditor;
-    private javax.swing.JMenuItem transaction100to200;
-    private javax.swing.JMenuItem transaction201to300;
-    private javax.swing.JMenuItem transactionAbove300;
-    private javax.swing.JMenuItem transactionBelow100;
+    private javax.swing.JMenuItem transaction1001to2000;
+    private javax.swing.JMenuItem transaction500to1000;
+    private javax.swing.JMenuItem transactionAbove2000;
+    private javax.swing.JMenuItem transactionBelow500;
     private javax.swing.JPopupMenu transactionPPEFilter;
     private javax.swing.JMenu transactionQuantity;
     // End of variables declaration//GEN-END:variables

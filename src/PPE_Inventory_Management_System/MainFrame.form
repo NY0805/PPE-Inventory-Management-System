@@ -94,24 +94,24 @@
             <Property name="text" type="java.lang.String" value="Unit Price"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="RM5to10">
+            <MenuItem class="javax.swing.JMenuItem" name="below20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="RM 5 - 10"/>
+                <Property name="text" type="java.lang.String" value="Below RM 20"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="RM11to15">
+            <MenuItem class="javax.swing.JMenuItem" name="RM21to30">
               <Properties>
-                <Property name="text" type="java.lang.String" value="RM 11 - 15"/>
+                <Property name="text" type="java.lang.String" value="RM 21 - 30"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="RM16to20">
+            <MenuItem class="javax.swing.JMenuItem" name="RM31to50">
               <Properties>
-                <Property name="text" type="java.lang.String" value="RM 16 - 20"/>
+                <Property name="text" type="java.lang.String" value="RM 31 - 50"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="above20">
+            <MenuItem class="javax.swing.JMenuItem" name="above50">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Above RM 20"/>
+                <Property name="text" type="java.lang.String" value="Above RM 50"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -129,14 +129,15 @@
             <Property name="text" type="java.lang.String" value="Quantity"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="qtyBelow25">
+            <MenuItem class="javax.swing.JMenuItem" name="qtyBelow50">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Below 25"/>
+                <Property name="text" type="java.lang.String" value="Below 50"/>
+                <Property name="actionCommand" type="java.lang.String" value="Below 50"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="qty25to100">
+            <MenuItem class="javax.swing.JMenuItem" name="qty50to100">
               <Properties>
-                <Property name="text" type="java.lang.String" value="25 - 100"/>
+                <Property name="text" type="java.lang.String" value="50 - 100"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="qty101to200">
@@ -156,24 +157,24 @@
             <Property name="text" type="java.lang.String" value="Expenses"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="transactionBelow100">
+            <MenuItem class="javax.swing.JMenuItem" name="transactionBelow500">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Below RM 100"/>
+                <Property name="text" type="java.lang.String" value="Below RM 500"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="transaction100to200">
+            <MenuItem class="javax.swing.JMenuItem" name="transaction500to1000">
               <Properties>
-                <Property name="text" type="java.lang.String" value="RM 100 - 200"/>
+                <Property name="text" type="java.lang.String" value="RM 500 - 1000"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="transaction201to300">
+            <MenuItem class="javax.swing.JMenuItem" name="transaction1001to2000">
               <Properties>
-                <Property name="text" type="java.lang.String" value="RM 201 - 300"/>
+                <Property name="text" type="java.lang.String" value="RM 1001 - 2000"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="transactionAbove300">
+            <MenuItem class="javax.swing.JMenuItem" name="transactionAbove2000">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Above RM 300"/>
+                <Property name="text" type="java.lang.String" value="Above RM 2000"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -2905,6 +2906,11 @@
                       </Properties>
                     </Component>
                     <Component class="com.toedter.calendar.JDateChooser" name="dateChooserDistributedDate">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.ImageIcon" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="default"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="dateChooserDistributedDatePropertyChange"/>
                       </Events>
@@ -3501,7 +3507,7 @@
                                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                                   <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
+                              <EmptySpace pref="237" max="32767" attributes="0"/>
                               <Component id="tpSupplierProfileEditor" min="-2" pref="331" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -3516,7 +3522,6 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tpSupplierProfileEditor" min="-2" pref="382" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -3529,17 +3534,18 @@
                                       <Component id="jPanel18" min="-2" pref="162" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="50" max="32767" attributes="0"/>
-                              <Component id="lbSupplierList" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tfSearchSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="btnResetSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="btnPrintSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="comboSortSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lbSupplierList" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tfSearchSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="btnResetSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="btnPrintSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="comboSortSupplier" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
                       <Component id="jScrollPane5" min="-2" pref="186" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
