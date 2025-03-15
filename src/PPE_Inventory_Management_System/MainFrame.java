@@ -2892,7 +2892,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(173, 214, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(182, 259));
 
         lbTotal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -2930,7 +2930,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(214, 234, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(182, 259));
 
         lbMost1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -2961,7 +2961,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel5.setBackground(new java.awt.Color(234, 244, 255));
         jPanel5.setPreferredSize(new java.awt.Dimension(182, 0));
 
         lbMost.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -3014,7 +3014,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        jPanel18.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel18.setBackground(new java.awt.Color(248, 251, 255));
         jPanel18.setPreferredSize(new java.awt.Dimension(182, 259));
 
         lbInactiveSupplier.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
@@ -3101,7 +3101,6 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(btnResetSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPrintSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboSortSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -3394,7 +3393,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jPanel7.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(214, 234, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(182, 259));
 
         lbTotal1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -3433,7 +3432,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
         );
 
-        jPanel8.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel8.setBackground(new java.awt.Color(234, 244, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(182, 0));
 
         lbTop.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

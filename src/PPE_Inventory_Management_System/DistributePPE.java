@@ -39,7 +39,7 @@ public class DistributePPE {
         }        
 
         combobox.addActionListener((ActionEvent e) -> {
-            int selectedRow = combobox.getSelectedIndex() - 1; // make it same with the biginning of index (start from 0)
+            int selectedRow = combobox.getSelectedIndex() - 1;
             if (selectedRow >= 0 && stockLabel != null) {
                 stockLabel.setText(tranModel.getValueAt(selectedRow, 3).toString());
             } else if (stockLabel != null) {
@@ -64,7 +64,7 @@ public class DistributePPE {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");        
         String selectedDate = (distributedDate.getDate() != null) ? dateFormat.format(distributedDate.getDate()) : "";
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-//        String selectedTime = timeFormat.format(distributedTime.getValue());
+        
         Object timeValue = distributedTime.getValue();
         String selectedTime = "00:00:00";
         if (timeValue instanceof Date) {
@@ -89,10 +89,15 @@ public class DistributePPE {
         }
 
         for (int i = 0; i < model.getRowCount(); i++) {
-            if (selectedQuantity > Integer.parseInt(model.getValueAt(i, 3).toString())) {
-                JOptionPane.showMessageDialog(null, "Not enough stock, please select again.", "Warning", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
+            String tableItemID = model.getValueAt(i, 0).toString();
+            if (tableItemID.equals(selectedItemID)) {
+                int stock = Integer.parseInt(model.getValueAt(i, 3).toString());
+                if (selectedQuantity > stock) {
+                    JOptionPane.showMessageDialog(null, "Not enough stock, please select again.", "Warning", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                break;
+            }            
         }
                 
         ArrayList<String[]> ppeData = updatePPEFile.ReadDataFromFile("ppe.txt");
