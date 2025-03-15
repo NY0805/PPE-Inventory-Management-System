@@ -4818,6 +4818,7 @@ public class MainFrame extends javax.swing.JFrame {
         String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
         String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
         String itemCode = (String) comboPPECode.getSelectedItem();
+        comboPPECode.setSelectedItem(itemCode);
 
         ReportChart ppeLineChart = new ReportChart();
         String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
