@@ -40,7 +40,7 @@ public class LogInValidation extends JFrame {
                     saveLoginDetails(id, storedName, password, storedContact, storedUserType);
 
                     loginFrame.dispose();
-                    MainFrame dashboard = new MainFrame(id, storedName, password, storedContact, storedUserType);
+                    Main dashboard = new Main(id, storedName, password, storedContact, storedUserType);
                     dashboard.setVisible(true);
                     dashboard.showSideBar(storedUserType);
                     break;

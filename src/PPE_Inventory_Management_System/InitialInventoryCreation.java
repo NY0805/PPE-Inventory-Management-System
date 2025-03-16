@@ -315,7 +315,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         try {
             loadData.loadDataToTable("ppe.txt", tablePPE);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
 

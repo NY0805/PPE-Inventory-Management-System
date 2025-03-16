@@ -19,3 +19,10 @@ Supplier Email: priccila@gmail.com
 Supplier Address: 56, Jalan Caunaught, Taman Caunaught 78927 Damansara
 PPE Supplies: Mask
 --------------------------------------------------
+Supplier ID: SP4524
+Supplier Name: hh
+Supplier Contact: 012-3456789
+Supplier Email: dd@dd.com
+Supplier Address: fff
+PPE Supplies: PPE1792
+--------------------------------------------------

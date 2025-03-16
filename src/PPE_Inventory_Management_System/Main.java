@@ -29,7 +29,7 @@ import org.jfree.data.time.TimeSeriesCollection;
  *
  * @author User
  */
-public class MainFrame extends javax.swing.JFrame {
+public class Main extends javax.swing.JFrame {
 
     private String userId;
     private String userName;
@@ -44,7 +44,7 @@ public class MainFrame extends javax.swing.JFrame {
      *
      * @throws java.io.IOException
      */
-    public MainFrame(String id, String name, String password, String contact, String userType) throws IOException {
+    public Main(String id, String name, String password, String contact, String userType) throws IOException {
         initComponents();
 
         this.userId = id;
@@ -128,8 +128,8 @@ public class MainFrame extends javax.swing.JFrame {
         pLogo2 = new javax.swing.JPanel();
         pHospital2 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
-        pReportBtn2 = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
+        pReportBtn1 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
         pDashboard4 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         pTopBar = new javax.swing.JPanel();
@@ -389,17 +389,23 @@ public class MainFrame extends javax.swing.JFrame {
         btnHospitalChart = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
-        pPPELineChart = new javax.swing.JPanel();
+        pPPEBarChart = new javax.swing.JPanel();
         dcPPEFrom = new com.toedter.calendar.JDateChooser();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         dcPPETo = new com.toedter.calendar.JDateChooser();
-        btnPPELineChart = new javax.swing.JButton();
+        btnPPEBarChart = new javax.swing.JButton();
         comboPPECode = new javax.swing.JComboBox<>();
-        btnHospitalChart2 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
+        dcSupplierToBC = new com.toedter.calendar.JDateChooser();
+        btnSupplierBarChart = new javax.swing.JButton();
+        comboSupplierCode = new javax.swing.JComboBox<>();
+        jLabel34 = new javax.swing.JLabel();
+        pSupplierBarChart = new javax.swing.JPanel();
+        dcPPEFromBC = new com.toedter.calendar.JDateChooser();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         pTransaction = new javax.swing.JScrollPane();
@@ -480,7 +486,6 @@ public class MainFrame extends javax.swing.JFrame {
         transactionQuantity.setText("Quantity");
 
         qtyBelow50.setText("Below 50");
-        qtyBelow50.setActionCommand("Below 50");
         transactionQuantity.add(qtyBelow50);
 
         qty50to100.setText("50 - 100");
@@ -1035,37 +1040,37 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        pReportBtn2.setBackground(new java.awt.Color(53, 115, 180));
-        pReportBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+        pReportBtn1.setBackground(new java.awt.Color(53, 115, 180));
+        pReportBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pReportBtn2MouseClicked(evt);
+                pReportBtn1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pReportBtn2MouseEntered(evt);
+                pReportBtn1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pReportBtn2MouseExited(evt);
+                pReportBtn1MouseExited(evt);
             }
         });
 
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel45.setText("Report");
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Report");
 
-        javax.swing.GroupLayout pReportBtn2Layout = new javax.swing.GroupLayout(pReportBtn2);
-        pReportBtn2.setLayout(pReportBtn2Layout);
-        pReportBtn2Layout.setHorizontalGroup(
-            pReportBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pReportBtn2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pReportBtn1Layout = new javax.swing.GroupLayout(pReportBtn1);
+        pReportBtn1.setLayout(pReportBtn1Layout);
+        pReportBtn1Layout.setHorizontalGroup(
+            pReportBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pReportBtn1Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(jLabel45)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel33)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
-        pReportBtn2Layout.setVerticalGroup(
-            pReportBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pReportBtn2Layout.createSequentialGroup()
+        pReportBtn1Layout.setVerticalGroup(
+            pReportBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pReportBtn1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19))
         );
 
@@ -1111,12 +1116,13 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(pInventory2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pSupplier2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pHospital2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pReportBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pTransactionBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pLogout2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pLogo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pDashboard4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pReportBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pSideBarStaffLayout.setVerticalGroup(
             pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1127,9 +1133,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(pSupplier2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(pHospital2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pReportBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(59, 59, 59)
                 .addComponent(pTransactionBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
                 .addComponent(pLogout2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1140,6 +1144,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGap(56, 56, 56)
                     .addComponent(pDashboard4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(587, Short.MAX_VALUE)))
+            .addGroup(pSideBarStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pSideBarStaffLayout.createSequentialGroup()
+                    .addGap(354, 354, 354)
+                    .addComponent(pReportBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(355, Short.MAX_VALUE)))
         );
 
         pSideBar.add(pSideBarStaff, "pSideBarStaff");
@@ -1363,7 +1372,7 @@ public class MainFrame extends javax.swing.JFrame {
         pAdminDashboardLayout.setHorizontalGroup(
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAdminDashboardLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(29, 29, 29)
                 .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(pAdminDashboardLayout.createSequentialGroup()
@@ -1389,7 +1398,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(pDashboard2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         pAdminDashboardLayout.setVerticalGroup(
             pAdminDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3578,7 +3587,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
-        pPPELineChart.setLayout(new java.awt.BorderLayout());
+        pPPEBarChart.setLayout(new java.awt.BorderLayout());
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setText("From:");
@@ -3586,10 +3595,10 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel24.setText("To:");
 
-        btnPPELineChart.setText("Go");
-        btnPPELineChart.addActionListener(new java.awt.event.ActionListener() {
+        btnPPEBarChart.setText("Go");
+        btnPPEBarChart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPPELineChartActionPerformed(evt);
+                btnPPEBarChartActionPerformed(evt);
             }
         });
 
@@ -3600,13 +3609,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnHospitalChart2.setText("Reset");
-        btnHospitalChart2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHospitalChart2ActionPerformed(evt);
-            }
-        });
-
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setText("Item Code:");
 
@@ -3614,8 +3616,9 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pPPEBarChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(84, 84, 84)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboPPECode, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3628,11 +3631,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dcPPETo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(btnPPELineChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnHospitalChart2)
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addComponent(pPPELineChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
+                .addComponent(btnPPEBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3647,42 +3647,78 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(dcPPEFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(dcPPETo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel24))
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnPPELineChart)
-                        .addComponent(btnHospitalChart2)))
+                    .addComponent(btnPPEBarChart))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(pPPELineChart, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pPPEBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("PPE Item", jPanel10);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
+        btnSupplierBarChart.setText("Go");
+        btnSupplierBarChart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSupplierBarChartActionPerformed(evt);
+            }
+        });
+
+        comboSupplierCode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSupplierCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSupplierCodeActionPerformed(evt);
+            }
+        });
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel34.setText("Supplier Code:");
+
+        pSupplierBarChart.setLayout(new java.awt.BorderLayout());
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel35.setText("From:");
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel36.setText("To:");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pSupplierBarChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboSupplierCode, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dcPPEFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dcSupplierToBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnSupplierBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35)
+                            .addComponent(comboSupplierCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel34))
+                        .addComponent(dcPPEFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dcSupplierToBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel36))
+                    .addComponent(btnSupplierBarChart))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(pSupplierBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Supplier", jPanel11);
@@ -3711,7 +3747,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addContainerGap(135, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -3778,8 +3814,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(pSupplierPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pHospitalPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(932, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(894, Short.MAX_VALUE))
         );
 
         pReport.setViewportView(jPanel6);
@@ -4198,7 +4234,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             loadTable.loadDataToTable("suppliers.txt", supplierList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnResetSupplierActionPerformed
 
@@ -4320,7 +4356,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.totalData(lbPPEInStock, "ppe.txt", null, false, true);
 
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 //      =====================================================================================================
         ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
@@ -4376,7 +4412,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.totalData(lbTotalHospital, "hospitals.txt", null, false, false);
             DataOverview.topSupplierOrHospital(lbTopDistributedHospital, lbTopDistributedItem, "transactions.txt", "Distribute");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
 
@@ -4388,7 +4424,7 @@ public class MainFrame extends javax.swing.JFrame {
             SaveHospitalData.saveHospital(true, selectedID, tfEditHospitalName, tfEditHospitalContact,
                     tfEditHospitalEmail, taEditHospitalAddress, hospitalList, comboEditHospitalID);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditHospitalSaveActionPerformed
 
@@ -4437,7 +4473,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             loadTable.loadDataToTable("hospitals.txt", hospitalList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnResetHospitalActionPerformed
 
@@ -4472,7 +4508,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             loadTable.loadDataToTable("ppe.txt", InventoryList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnResetPPEActionPerformed
 
@@ -4487,7 +4523,7 @@ public class MainFrame extends javax.swing.JFrame {
                     TransactionReceivedList, lbReceivedSupplierCodeInput, initialReceivedTime);
             DataOverview.topSupplierOrHospital(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt", "Receive");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lbReceivedItemSaveActionPerformed
 
@@ -4506,7 +4542,7 @@ public class MainFrame extends javax.swing.JFrame {
                     dateChooserDistributedDate, spinnerDistributedTime, initialDistributedTime);
             DataOverview.topSupplierOrHospital(lbTopDistributedHospital, lbTopDistributedItem, "transactions.txt", "Distribute");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lbDistributedItemSaveActionPerformed
 
@@ -4608,7 +4644,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             loadTable.loadDataToTable("Transactions.txt", TransactionReceivedList, "Receive");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnResetPPEReceivedActionPerformed
 
@@ -4646,7 +4682,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             loadTable.loadDataToTable("Transactions.txt", TransactionDistributedList, "Distribute");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnResetPPEDistributedActionPerformed
 
@@ -4684,7 +4720,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.topSupplierOrHospital(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt", "Receive");
             DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_btnEditSupplierDeleteActionPerformed
@@ -4701,7 +4737,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             SaveSupplierData.saveSupplier(true, selectedID, tfEditSupplierName, tfEditSupplierContact, tfEditSupplierEmail, taEditSupplierAddress, tfEditSupplierPPE, supplierList, comboEditSupplierID);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditSupplierSaveActionPerformed
 
@@ -4718,7 +4754,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.topSupplierOrHospital(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt", "Receive");
             DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddSupplierSaveActionPerformed
 
@@ -4747,7 +4783,7 @@ public class MainFrame extends javax.swing.JFrame {
             DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);    
             DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNewInventorySaveActionPerformed
 
@@ -4761,7 +4797,7 @@ public class MainFrame extends javax.swing.JFrame {
             ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
             DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditInventorySaveActionPerformed
 
@@ -4785,7 +4821,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.totalData(lbTotalSupplier, "suppliers.txt", null, false, false);
             DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditInventoryDeleteActionPerformed
 
@@ -4815,30 +4851,26 @@ public class MainFrame extends javax.swing.JFrame {
         pieChart.showPieChart(dataset, pHospitalPieChart, false);
     }//GEN-LAST:event_btnHospitalChartActionPerformed
 
-    private void btnPPELineChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPPELineChartActionPerformed
+    private void btnPPEBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPPEBarChartActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date selectedFormDate = dcPPEFrom.getDate();
         Date selectedToDate = dcPPETo.getDate();
 
         String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
         String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
-        String itemCode = (String) comboPPECode.getSelectedItem();
-        comboPPECode.setSelectedItem(itemCode);
 
-        ReportChart ppeLineChart = new ReportChart();
-        String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
-        TimeSeriesCollection dataset = ppeLineChart.PPELineChart(comboPPECode,
-                itemCode == null ? firstItemCode : itemCode, fromDate, toDate);
-        ppeLineChart.showPPELineChart(comboPPECode, dataset, pPPELineChart);
-    }//GEN-LAST:event_btnPPELineChartActionPerformed
+         ReportChart ppeLineChart = new ReportChart();
+        String selectedCode = (String) comboPPECode.getSelectedItem();
+        String code = ppeLineChart.selectCode(selectedCode, comboPPECode, InventoryList);
+        DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                toDate, fromDate, true, false, false);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart);
+        
+    }//GEN-LAST:event_btnPPEBarChartActionPerformed
 
     private void comboPPECodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPPECodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboPPECodeActionPerformed
-
-    private void btnHospitalChart2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalChart2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnHospitalChart2ActionPerformed
 
     private void comboReceivedItemCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboReceivedItemCodeActionPerformed
         // TODO add your handling code here:
@@ -4876,7 +4908,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             TimeFrameSorter.timeFrame(dateChooserReceivedFrom, dateChooserReceivedTo, TransactionReceivedList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dateChooserReceivedToPropertyChange
 
@@ -4889,7 +4921,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             TimeFrameSorter.timeFrame(dateChooserDistributedFrom, dateChooserDistributedTo, TransactionDistributedList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dateChooserDistributedToPropertyChange
 
@@ -4980,58 +5012,6 @@ public class MainFrame extends javax.swing.JFrame {
         pHospital2.setBackground(new Color(0x3674B5));
     }//GEN-LAST:event_pHospital2MouseExited
 
-    private void pReportBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn2MouseClicked
-        CardLayout cardLayout = (CardLayout) pMain.getLayout();
-        cardLayout.show(pMain, "pReport");
-        titleLabel.setText("Report");
-
-        Calendar calendar = Calendar.getInstance();
-
-        Date today = calendar.getTime();
-
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        Date firstDay = calendar.getTime();
-
-        dcSupplierFrom.setDate(firstDay);
-        dcSupplierTo.setDate(today);
-        dcHospitalFrom.setDate(firstDay);
-        dcHospitalTo.setDate(today);
-        dcPPEFrom.setDate(firstDay);
-        dcPPETo.setDate(today);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date selectedFormDate = dcSupplierFrom.getDate();
-        Date selectedToDate = dcSupplierTo.getDate();
-
-        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
-        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
-
-        ReportChart pieChart = new ReportChart();
-        DefaultPieDataset supplierDataset = pieChart.readPPEData(fromDate, toDate, true);
-        pieChart.showPieChart(supplierDataset, pSupplierPieChart, true);
-
-        DefaultPieDataset hospitalDataset = pieChart.readPPEData(fromDate, toDate, false);
-        pieChart.showPieChart(hospitalDataset, pHospitalPieChart, false);
-
-        String itemCode = (String) comboPPECode.getSelectedItem();
-        System.out.println("hi");
-        System.out.println(itemCode);
-
-        ReportChart ppeLineChart = new ReportChart();
-        String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
-        TimeSeriesCollection PPELineChartDataset = ppeLineChart.PPELineChart(comboPPECode,
-                itemCode == "Item 1" ? firstItemCode : itemCode, fromDate, toDate);
-        System.out.println(itemCode);
-        ppeLineChart.showPPELineChart(comboPPECode, PPELineChartDataset, pPPELineChart);    }//GEN-LAST:event_pReportBtn2MouseClicked
-
-    private void pReportBtn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn2MouseEntered
-        pReportBtn2.setBackground(new Color(0x578FCA));
-    }//GEN-LAST:event_pReportBtn2MouseEntered
-
-    private void pReportBtn2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn2MouseExited
-        pReportBtn2.setBackground(new Color(0x3674B5));
-    }//GEN-LAST:event_pReportBtn2MouseExited
-
     private void pDashboard4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashboard4MouseClicked
         CardLayout cardLayout = (CardLayout) pMain.getLayout();
         cardLayout.show(pMain, "pAdminDashboard");
@@ -5042,7 +5022,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.totalData(lbPPEDistributed, "transactions.txt", "Distribute", true, false);
             DataOverview.totalData(lbPPEInStock, "ppe.txt", null, false, true);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ReportChart barChart = new ReportChart();
@@ -5142,11 +5122,12 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.println(itemCode);
 
         ReportChart ppeLineChart = new ReportChart();
-        String firstItemCode = ppeLineChart.selectCode(comboPPECode, InventoryList);
-        TimeSeriesCollection PPELineChartDataset = ppeLineChart.PPELineChart(comboPPECode,
-                itemCode == "Item 1" ? firstItemCode : itemCode, fromDate, toDate);
-        System.out.println(itemCode);
-        ppeLineChart.showPPELineChart(comboPPECode, PPELineChartDataset, pPPELineChart);
+        String selectedCode = (String) comboPPECode.getSelectedItem();
+        String code = ppeLineChart.selectCode(selectedCode, comboPPECode, InventoryList);
+        DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                toDate, fromDate, true, false, false);
+        System.out.println(selectedCode);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart);
     }//GEN-LAST:event_pReportBtnMouseClicked
 
     private void pHospitalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospitalMouseExited
@@ -5225,7 +5206,7 @@ public class MainFrame extends javax.swing.JFrame {
             DataOverview.totalData(lbPPEDistributed, "transactions.txt", "Distribute", true, false);
             DataOverview.totalData(lbPPEInStock, "ppe.txt", null, false, true);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ReportChart barChart = new ReportChart();
@@ -5240,7 +5221,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             inventoryTable.loadDataToTable("ppe.txt", InventoryList);
         } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_tpInventoryEditorStateChanged
 
@@ -5300,6 +5281,64 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dateChooserDistributedFromPropertyChange
 
+    private void pReportBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn1MouseClicked
+        CardLayout cardLayout = (CardLayout) pMain.getLayout();
+        cardLayout.show(pMain, "pReport");
+        titleLabel.setText("Report");
+
+        Calendar calendar = Calendar.getInstance();
+
+        Date today = calendar.getTime();
+
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        Date firstDay = calendar.getTime();
+
+        dcSupplierFrom.setDate(firstDay);
+        dcSupplierTo.setDate(today);
+        dcHospitalFrom.setDate(firstDay);
+        dcHospitalTo.setDate(today);
+        dcPPEFrom.setDate(firstDay);
+        dcPPETo.setDate(today);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcSupplierFrom.getDate();
+        Date selectedToDate = dcSupplierTo.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart pieChart = new ReportChart();
+        DefaultPieDataset supplierDataset = pieChart.readPPEData(fromDate, toDate, true);
+        pieChart.showPieChart(supplierDataset, pSupplierPieChart, true);
+
+        DefaultPieDataset hospitalDataset = pieChart.readPPEData(fromDate, toDate, false);
+        pieChart.showPieChart(hospitalDataset, pHospitalPieChart, false);
+
+        ReportChart ppeLineChart = new ReportChart();
+        String selectedCode = (String) comboPPECode.getSelectedItem();
+        String code = ppeLineChart.selectCode(selectedCode, comboPPECode, InventoryList);
+        DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                toDate, fromDate, true, false, false);
+        System.out.println("hi");
+        System.out.println(selectedCode);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart);
+    }//GEN-LAST:event_pReportBtn1MouseClicked
+
+    private void pReportBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn1MouseEntered
+        pReportBtn1.setBackground(new Color(0x578FCA));    }//GEN-LAST:event_pReportBtn1MouseEntered
+
+    private void pReportBtn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn1MouseExited
+        pReportBtn1.setBackground(new Color(0x3674B5));
+    }//GEN-LAST:event_pReportBtn1MouseExited
+
+    private void btnSupplierBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierBarChartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSupplierBarChartActionPerformed
+
+    private void comboSupplierCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSupplierCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboSupplierCodeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5317,14 +5356,16 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -5332,10 +5373,10 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new MainFrame("defaultID", "Guest", "", "", "Guest").setVisible(true);
+                    new Main("defaultID", "Guest", "", "", "Guest").setVisible(true);
 
                 } catch (IOException ex) {
-                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -5382,11 +5423,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFilterPPEDistributed;
     private javax.swing.JButton btnFilterPPEReceived;
     private javax.swing.JButton btnHospitalChart;
-    private javax.swing.JButton btnHospitalChart2;
     private javax.swing.JButton btnInventoryFilter;
     private javax.swing.JButton btnNewInventoryReset;
     private javax.swing.JButton btnNewInventorySave;
-    private javax.swing.JButton btnPPELineChart;
+    private javax.swing.JButton btnPPEBarChart;
     private javax.swing.JButton btnPrintHospital;
     private javax.swing.JButton btnPrintPPE;
     private javax.swing.JButton btnPrintPPEDistributed;
@@ -5397,6 +5437,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnResetPPEDistributed;
     private javax.swing.JButton btnResetPPEReceived;
     private javax.swing.JButton btnResetSupplier;
+    private javax.swing.JButton btnSupplierBarChart;
     private javax.swing.JButton btnSupplierChart;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -5416,6 +5457,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboSortPPEReceived;
     private javax.swing.JComboBox<String> comboSortSupplier;
     private javax.swing.JComboBox<String> comboSortUser;
+    private javax.swing.JComboBox<String> comboSupplierCode;
     private com.toedter.calendar.JDateChooser dateChooserDistributedDate;
     private com.toedter.calendar.JDateChooser dateChooserDistributedFrom;
     private com.toedter.calendar.JDateChooser dateChooserDistributedTo;
@@ -5425,9 +5467,11 @@ public class MainFrame extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dcHospitalFrom;
     private com.toedter.calendar.JDateChooser dcHospitalTo;
     private com.toedter.calendar.JDateChooser dcPPEFrom;
+    private com.toedter.calendar.JDateChooser dcPPEFromBC;
     private com.toedter.calendar.JDateChooser dcPPETo;
     private com.toedter.calendar.JDateChooser dcSupplierFrom;
     private com.toedter.calendar.JDateChooser dcSupplierTo;
+    private com.toedter.calendar.JDateChooser dcSupplierToBC;
     private javax.swing.JTable hospitalList;
     private javax.swing.JPopupMenu inventoryFilter;
     private javax.swing.JButton jButton1;
@@ -5459,13 +5503,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -5490,7 +5537,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -5632,16 +5678,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pLogout;
     private javax.swing.JPanel pLogout2;
     private javax.swing.JPanel pMain;
-    private javax.swing.JPanel pPPELineChart;
+    private javax.swing.JPanel pPPEBarChart;
     private javax.swing.JPanel pReceivedItem;
     private javax.swing.JScrollPane pReport;
     private javax.swing.JPanel pReportBtn;
-    private javax.swing.JPanel pReportBtn2;
+    private javax.swing.JPanel pReportBtn1;
     private javax.swing.JPanel pSideBar;
     private javax.swing.JPanel pSideBarAdmin;
     private javax.swing.JPanel pSideBarStaff;
     private javax.swing.JPanel pSupplier;
     private javax.swing.JPanel pSupplier2;
+    private javax.swing.JPanel pSupplierBarChart;
     private javax.swing.JPanel pSupplierManagement;
     private javax.swing.JPanel pSupplierPieChart;
     private javax.swing.JPanel pTopBar;

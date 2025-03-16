@@ -1,42 +1,36 @@
-User ID: ST001
-Name: lum
-Password: As#444444
+
+User ID: ST8415
+Name: LUM
+Password: Ajgh^7593
 Contact: 012-3456789
 User Type: Admin
-Login Time: Log In : 2025-03-08 11:40:48
+Login Time: Log In : 2025-03-14 23:17:40
 --------------------------------------------------
-User ID: ST8291
-Name: lum
-Password: hjdhS88&
-Contact: 012-8888888
+User ID: ST8415
+Name: LUM
+Password: Ajgh^7593
+Contact: 012-3456789
+User Type: Admin
+Login Time: Log Out : 2025-03-14 23:17:46
+--------------------------------------------------
+User ID: ST4952
+Name: cheflum
+Password: Asgd%665
+Contact: 012-3456789
 User Type: Staff
-Login Time: Log In : 2025-03-08 17:05:14
+Login Time: Log In : 2025-03-14 23:17:59
 --------------------------------------------------
-User ID: ST8291
-Name: lum
-Password: hjdhS88&
-Contact: 012-8888888
+User ID: ST4952
+Name: cheflum
+Password: Asgd%665
+Contact: 012-3456789
 User Type: Staff
-Login Time: Log In : 2025-03-08 17:05:59
+Login Time: Log Out : 2025-03-14 23:18:02
 --------------------------------------------------
-User ID: ST2402
-Name: nihao
-Password: AGfdh^775
-Contact: 012-3456789
-User Type: Admin
-Login Time: Log In : 2025-03-08 17:19:03
---------------------------------------------------
-User ID: ST2402
-Name: nihao
-Password: AGfdh^775
-Contact: 012-3456789
-User Type: Admin
-Login Time: Log Out : 2025-03-08 17:19:11
---------------------------------------------------
-User ID: ST6915
-Name: haha
-Password: Ghsdg&67
-Contact: 012-3456789
-User Type: Admin
-Login Time: Log In : 2025-03-08 17:19:32
+User ID: defaultID
+Name: Guest
+Password: 
+Contact: 
+User Type: Guest
+Login Time: Log Out : 2025-03-15 19:08:36
 --------------------------------------------------

@@ -1,28 +1,36 @@
-Supplier ID: HP8950
-Supplier Name: 1 Utama
-Supplier Contact: 014-7930289
-Supplier email: 1utama@gmail.com
-Supplier Address: 12, 1 Utama, Pusat Perniagaan Bersatu, 93032 Kota Permai
-PPE Supplies: Gloves, Gown
+Hospital ID: HP8950
+Hospital Name: 1 Utama
+Hospital Contact: 014-7930289
+Hospital email: 1utama@gmail.com
+Hospital Address: 12, 1 Utama, Pusat Perniagaan Bersatu, 93032 Kota Permai
 --------------------------------------------------
-Supplier ID: HP6580
-Supplier Name: Hospital Kuchai Lama
-Supplier Contact: 015-3790235
-Supplier email: hospitalkuchai@gmail.com
-Supplier Address: 33, Jalan Kuchai Lama, Taman Kuchai Lama, 75930 Kuala Lumpur
-PPE Supplies: Face Shield
+Hospital ID: HP6580
+Hospital Name: Hospital Kuchai Lama
+Hospital Contact: 015-3790235
+Hospital email: hospitalkuchai@gmail.com
+Hospital Address: 33, Jalan Kuchai Lama, Taman Kuchai Lama, 75930 Kuala Lumpur
 --------------------------------------------------
-Supplier ID: HP4138
-Supplier Name: Prince Court Medical Centre
-Supplier Contact: 012-4690289
-Supplier email: princecourt@gmail.com
-Supplier Address: 39, Jalan Kia Peng, 50450 Kuala Lumpur
-PPE Supplies: Head Cover, Mask
+Hospital ID: HP4138
+Hospital Name: Prince Court Medical Centre
+Hospital Contact: 012-4690289
+Hospital email: princecourt@gmail.com
+Hospital Address: 39, Jalan Kia Peng, 50450 Kuala Lumpur
 --------------------------------------------------
-Supplier ID: HP5772
-Supplier Name: Sunway Medical Centre Velocity
-Supplier Contact: 012-3469028
-Supplier email: sunwaymedic@gmail.com
-Supplier Address: Lingkaran SV, Sunway Velocity, 55100 Kuala Lumpur
-PPE Supplies: Shoe Covers
+Hospital ID: HP5772
+Hospital Name: Sunway Medical Centre Velocity
+Hospital Contact: 012-3469028
+Hospital email: sunwaymedic@gmail.com
+Hospital Address: Lingkaran SV, Sunway Velocity, 55100 Kuala Lumpur
+--------------------------------------------------
+Hospital ID: HP2333
+Hospital Name: ggg
+Hospital Contact: 012-3456789
+Hospital email: dd@dd.com
+Hospital Address: ff
+--------------------------------------------------
+Hospital ID: HP3738
+Hospital Name: hhh
+Hospital Contact: 012-3456789
+Hospital email: dd@dd.com
+Hospital Address: aaa
 --------------------------------------------------

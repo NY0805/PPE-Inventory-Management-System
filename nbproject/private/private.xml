@@ -3,20 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/EditEntity.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/ValidateEntity.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/EditSelectedSupplier.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/SearchFunction.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/InitialInventoryCreation.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/AddSupplier.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/LogInValidation.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/ppe.txt</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/AdminDashboard2.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/user.txt</file>
             <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/LogIn.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/AddInventory.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/EditUser.java</file>
-            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/AddUser.java</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/transactions.txt</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/FileHandling.java</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/InitialInventoryCreation.java</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/MainFrame.java</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/LogInValidation.java</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/src/PPE_Inventory_Management_System/ReportChart.java</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/login.txt</file>
+            <file>file:/C:/Users/User/PPE-Inventory-Management-System/user.txt</file>
         </group>
     </open-files>
 </project-private>

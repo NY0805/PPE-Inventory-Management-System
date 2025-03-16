@@ -13,11 +13,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -25,20 +26,15 @@ import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
 
 /**
  *
@@ -116,14 +112,14 @@ public class ReportChart {
             }
         }
     }
+    
+//    private void readSupplierAndHospitalData (boolean SupplierOrHospital, boolean )
 
     public DefaultPieDataset readPPEData(String fromDate, String toDate, boolean SupplierOrHospital) {
         DefaultPieDataset dataset = new DefaultPieDataset();
 
         LocalDate today = LocalDate.now();
         LocalDate firstDay = today.withDayOfMonth(1);
-        System.out.println(today);
-        System.out.println(firstDay);
 
         if (fromDate == null || fromDate.isEmpty()) {
             fromDate = firstDay.format(DateTimeFormatter.ISO_DATE);
@@ -253,10 +249,12 @@ public class ReportChart {
         pPieChart.validate();
     }
 
-    public String selectCode(JComboBox<String> combobox, JTable table) {
+    public String selectCode(String code, JComboBox<String> combobox, JTable table) {
+
+        String userSelectedCode = (String) combobox.getSelectedItem();
 
         combobox.removeAllItems();
-        String firstItemCode = "";
+        String firstItemCode = null;
 
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         int rowcount = model.getRowCount();
@@ -269,18 +267,27 @@ public class ReportChart {
             }
         }
 
-        if (!firstItemCode.isEmpty()) {
-            combobox.setSelectedItem(firstItemCode);
+        if (userSelectedCode != null && containsItem(combobox, userSelectedCode)) {
+            combobox.setSelectedItem(userSelectedCode);
+            return userSelectedCode;
         }
 
+        combobox.setSelectedItem(firstItemCode);
         return firstItemCode;
     }
 
-    public TimeSeriesCollection PPELineChart(JComboBox<String> itemID, String firstItemCode,
-            String fromDate, String toDate) {
-        TimeSeriesCollection dataset = new TimeSeriesCollection();
-        TimeSeries receiveSeries = new TimeSeries("Receive");
-        TimeSeries distributeSeries = new TimeSeries("Distribute");
+    private boolean containsItem(JComboBox<String> combobox, String item) {
+        for (int i = 0; i < combobox.getItemCount(); i++) {
+            if (combobox.getItemAt(i).equals(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public DefaultCategoryDataset readTransactionData(String code, String toDate,
+            String fromDate, boolean item, boolean supplier, boolean hospital) {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         LocalDate today = LocalDate.now();
@@ -294,87 +301,113 @@ public class ReportChart {
             toDate = today.format(DateTimeFormatter.ISO_DATE);
         }
 
+        Map<String, Integer> receivedData = new TreeMap<>();
+        Map<String, Integer> distributedData = new TreeMap<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
             String line;
-            String PPECode = "";
-            String receivedDate = "";
+            String itemCode = "";
+            String itemName = "";
+            String transactionDate = "";
             String transactionType = "";
             int quantity = 0;
 
             while ((line = br.readLine()) != null) {
-                line = line.trim();
+                if (item) {
+                    if (line.startsWith("Transaction Type:")) {
+                        transactionType = line.split(":")[1].trim();
+                    } else if (line.startsWith("Received Date:") || line.startsWith("Distributed Date:")) {
+                        transactionDate = line.split(":")[1].trim();
+                    } else if (line.startsWith("Item Code:")) {
+                        itemCode = line.split(":")[1].trim();
+                    } else if (line.startsWith("Quantity(boxes):")) {
+                        quantity = Integer.parseInt(line.split(":")[1].trim());
 
-                if (line.startsWith("Transaction Type:")) {
-                    transactionType = line.split(":")[1].trim();
-                } else if (line.startsWith("Received Date:")) {
-                    receivedDate = line.split(":")[1].trim();
-                } else if (line.startsWith("Item Code:")) {
-                    PPECode = line.split(":")[1].trim();
-                } else if (line.startsWith("Quantity(boxes):")) {
-                    quantity = Integer.parseInt(line.split(":")[1].trim());
+                        if (!itemCode.equals(code)) {
+                            continue;
+                        }
 
-                    if ((PPECode.equals(firstItemCode)) && receivedDate.compareTo(fromDate) >= 0 && receivedDate.compareTo(toDate) <= 0) {
-                        Date formattedDate = sdf.parse(receivedDate);
-                        Day date = new Day(formattedDate);
-                        System.out.println("Received Date: " + receivedDate + " -> Parsed Date: " + date);
-
-                        if (transactionType.equals("Receive")) {
-                            receiveSeries.addOrUpdate(date, quantity);
-                        } else if (transactionType.equals("Distribute")) {
-                            distributeSeries.addOrUpdate(date, quantity);
+                        if (transactionDate.compareTo(fromDate) >= 0 && transactionDate.compareTo(toDate) <= 0) {
+                            if (transactionType.equals("Receive")) {
+                                receivedData.put(transactionDate, receivedData.getOrDefault(transactionDate, 0) + quantity);
+                            } else if (transactionType.equals("Distribute")) {
+                                distributedData.put(transactionDate, distributedData.getOrDefault(transactionDate, 0) + quantity);
+                            }
                         }
                     }
                 }
             }
 
-            dataset.addSeries(receiveSeries);
-            dataset.addSeries(distributeSeries);
-            System.out.println("Receive Series Item Count: " + receiveSeries.getItemCount());
-            System.out.println("Distribute Series Item Count: " + distributeSeries.getItemCount());
-
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
+        Set<String> allDates = new TreeSet<>();
+        allDates.addAll(receivedData.keySet());
+        allDates.addAll(distributedData.keySet());
+
+        for (String date : allDates) {
+            int receivedQty = receivedData.getOrDefault(date, 0);
+            int distributedQty = distributedData.getOrDefault(date, 0);
+
+            dataset.addValue(receivedQty, "Received", date);
+            dataset.addValue(distributedQty, "Distributed", date);
+        }
+
+        for (int row = 0; row < dataset.getRowCount(); row++) {
+            for (int col = 0; col < dataset.getColumnCount(); col++) {
+                Comparable rowKey = dataset.getRowKey(row);  // "Received" or "Distributed"
+                Comparable colKey = dataset.getColumnKey(col); // Date (e.g., "2024-03-01")
+                Number value = dataset.getValue(row, col);  // Quantity (e.g., 10, 5, etc.)
+
+                System.out.println("Category: " + rowKey + ", Date: " + colKey + ", Value: " + value);
+            }
+        }
         return dataset;
     }
 
-    public void showPPELineChart(JComboBox<String> itemID,
-            TimeSeriesCollection dataset, JPanel pPPELineChart) {
-        String selectedPPE = (String) itemID.getSelectedItem();
-        String itemName = "";
+    public void showTransactionBarChart(String code, DefaultCategoryDataset dataset,
+            JPanel pTransactionLineChart) {
+        String name = "";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("transactions.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("ppe.txt"))) {
             String line;
             boolean found = false;
 
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-                if (line.startsWith("Item Code:")) {
-                    found = line.split(":")[1].trim().equals(selectedPPE);
+                if (line.startsWith("Item ID:")) {
+                    found = line.split(":")[1].trim().equals(code);
                 } else if (found && line.startsWith("Item Name:")) {
-                    itemName = line.split(":")[1].trim();
+                    name = line.split(":")[1].trim();
                     break;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(selectedPPE);
-        System.out.println(itemName);
-        JFreeChart timeSeriesChart = ChartFactory.createTimeSeriesChart(
-                "Transaction Trend - " + selectedPPE + "(" + itemName + ")",
-                "Date", "Quantity (boxes)", dataset, true, true, false);
+        System.out.println(code);
+        System.out.println(name);
+        JFreeChart barChart = ChartFactory.createBarChart(
+                "Transaction Trend - " + code + "(" + name + ")",
+                "Date", "Quantity (boxes)", dataset, PlotOrientation.VERTICAL,
+                true, true, false);
 
-        ChartPanel chartPanel = new ChartPanel(timeSeriesChart);
-        XYPlot plot = (XYPlot) timeSeriesChart.getPlot();
-        DateAxis axis = (DateAxis) plot.getDomainAxis();
-        axis.setDateFormatOverride(new SimpleDateFormat("yyyy-MM-dd")); // 只显示天和月份
+        CategoryPlot plot = barChart.getCategoryPlot();
+        BarRenderer renderer = (BarRenderer) plot.getRenderer();
+        renderer.setDefaultItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+        renderer.setDefaultItemLabelsVisible(true);
+        plot.setBackgroundPaint(Color.WHITE);
+        plot.setOutlineVisible(false);
+        plot.setDomainGridlinePaint(Color.GRAY);
+        plot.setRangeGridlinePaint(Color.GRAY);
+        plot.setRenderer(renderer);
 
-        pPPELineChart.removeAll();
-        pPPELineChart.add(chartPanel, BorderLayout.CENTER);
-        pPPELineChart.validate();
-        pPPELineChart.repaint();
+        ChartPanel chartPanel = new ChartPanel(barChart);
+        pTransactionLineChart.removeAll();
+        pTransactionLineChart.add(chartPanel, BorderLayout.CENTER);
+        pTransactionLineChart.validate();
+        pTransactionLineChart.repaint();
     }
 
 }
