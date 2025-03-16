@@ -387,8 +387,8 @@ public class Main extends javax.swing.JFrame {
         dcHospitalTo = new com.toedter.calendar.JDateChooser();
         btnSupplierChart = new javax.swing.JButton();
         btnHospitalChart = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel10 = new javax.swing.JPanel();
+        tpBarChart = new javax.swing.JTabbedPane();
+        pPPE = new javax.swing.JPanel();
         pPPEBarChart = new javax.swing.JPanel();
         dcPPEFrom = new com.toedter.calendar.JDateChooser();
         jLabel23 = new javax.swing.JLabel();
@@ -397,17 +397,24 @@ public class Main extends javax.swing.JFrame {
         btnPPEBarChart = new javax.swing.JButton();
         comboPPECode = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        pSupplierBC = new javax.swing.JPanel();
         dcSupplierToBC = new com.toedter.calendar.JDateChooser();
         btnSupplierBarChart = new javax.swing.JButton();
         comboSupplierCode = new javax.swing.JComboBox<>();
         jLabel34 = new javax.swing.JLabel();
         pSupplierBarChart = new javax.swing.JPanel();
-        dcPPEFromBC = new com.toedter.calendar.JDateChooser();
+        dcSupplierFromBC = new com.toedter.calendar.JDateChooser();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
+        btnHospitalBarChart = new javax.swing.JButton();
+        comboHospitalCode = new javax.swing.JComboBox<>();
+        jLabel37 = new javax.swing.JLabel();
+        pHospitalBarChart = new javax.swing.JPanel();
+        dcHospitalFromBC = new com.toedter.calendar.JDateChooser();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        dcHospitalToBC = new com.toedter.calendar.JDateChooser();
         pTransaction = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         lbTransactionReceive = new javax.swing.JLabel();
@@ -3585,7 +3592,18 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        tpBarChart.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tpBarChartStateChanged(evt);
+            }
+        });
+
+        pPPE.setBackground(new java.awt.Color(255, 255, 255));
+        pPPE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pPPEMouseClicked(evt);
+            }
+        });
 
         pPPEBarChart.setLayout(new java.awt.BorderLayout());
 
@@ -3612,12 +3630,12 @@ public class Main extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setText("Item Code:");
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pPPELayout = new javax.swing.GroupLayout(pPPE);
+        pPPE.setLayout(pPPELayout);
+        pPPELayout.setHorizontalGroup(
+            pPPELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pPPEBarChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+            .addGroup(pPPELayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3634,13 +3652,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btnPPEBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        pPPELayout.setVerticalGroup(
+            pPPELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPPELayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pPPELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pPPELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pPPELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
                             .addComponent(comboPPECode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel25))
@@ -3652,9 +3670,14 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(pPPEBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("PPE Item", jPanel10);
+        tpBarChart.addTab("PPE Item", pPPE);
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        pSupplierBC.setBackground(new java.awt.Color(255, 255, 255));
+        pSupplierBC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pSupplierBCMouseClicked(evt);
+            }
+        });
 
         btnSupplierBarChart.setText("Go");
         btnSupplierBarChart.addActionListener(new java.awt.event.ActionListener() {
@@ -3681,12 +3704,12 @@ public class Main extends javax.swing.JFrame {
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel36.setText("To:");
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pSupplierBCLayout = new javax.swing.GroupLayout(pSupplierBC);
+        pSupplierBC.setLayout(pSupplierBCLayout);
+        pSupplierBCLayout.setHorizontalGroup(
+            pSupplierBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pSupplierBarChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+            .addGroup(pSupplierBCLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jLabel34)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3694,7 +3717,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(dcPPEFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dcSupplierFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3703,17 +3726,17 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btnSupplierBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        pSupplierBCLayout.setVerticalGroup(
+            pSupplierBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSupplierBCLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pSupplierBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pSupplierBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pSupplierBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel35)
                             .addComponent(comboSupplierCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel34))
-                        .addComponent(dcPPEFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dcSupplierFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(dcSupplierToBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel36))
                     .addComponent(btnSupplierBarChart))
@@ -3721,38 +3744,76 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(pSupplierBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Supplier", jPanel11);
+        tpBarChart.addTab("Supplier", pSupplierBC);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
+        btnHospitalBarChart.setText("Go");
+        btnHospitalBarChart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHospitalBarChartActionPerformed(evt);
+            }
+        });
+
+        comboHospitalCode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboHospitalCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboHospitalCodeActionPerformed(evt);
+            }
+        });
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel37.setText("Hospital Code:");
+
+        pHospitalBarChart.setLayout(new java.awt.BorderLayout());
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel38.setText("From:");
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel39.setText("To:");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pHospitalBarChart, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dcHospitalFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dcHospitalToBC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnHospitalBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(comboHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel37))
+                        .addComponent(dcHospitalFromBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dcHospitalToBC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel39))
+                    .addComponent(btnHospitalBarChart))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(pHospitalBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Hospital", jPanel12);
+        tpBarChart.addTab("Hospital", jPanel12);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -3761,7 +3822,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tpBarChart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pSupplierPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3814,7 +3875,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(pSupplierPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pHospitalPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tpBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(894, Short.MAX_VALUE))
         );
 
@@ -4363,10 +4424,10 @@ public class Main extends javax.swing.JFrame {
         DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
         ((JSpinner.DefaultEditor) spinnerReceivedTime.getEditor()).getTextField().setText("00:00:00");
-        initialReceivedTime = (Date)spinnerReceivedTime.getValue();
+        initialReceivedTime = (Date) spinnerReceivedTime.getValue();
         ((JSpinner.DefaultEditor) spinnerDistributedTime.getEditor()).getTextField().setText("00:00:00");
-        initialDistributedTime= (Date)spinnerDistributedTime.getValue();
-        
+        initialDistributedTime = (Date) spinnerDistributedTime.getValue();
+
     }//GEN-LAST:event_formWindowOpened
 
     private void tableUserListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tableUserListComponentShown
@@ -4458,7 +4519,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditHospitalDeleteActionPerformed
 
     private void tpHospitalProfileEditorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpHospitalProfileEditorStateChanged
-        EditSelectedHospital.EditHospital(hospitalList, comboEditHospitalID, tfEditHospitalName, tfEditHospitalContact, tfEditHospitalEmail, taEditHospitalAddress);        
+        EditSelectedHospital.EditHospital(hospitalList, comboEditHospitalID, tfEditHospitalName, tfEditHospitalContact, tfEditHospitalEmail, taEditHospitalAddress);
     }//GEN-LAST:event_tpHospitalProfileEditorStateChanged
 
     private void btnResetHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetHospitalActionPerformed
@@ -4714,7 +4775,7 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error deleting supplier: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        
+
         try {
             DataOverview.totalData(lbTotalSupplier, "suppliers.txt", null, false, false);
             DataOverview.topSupplierOrHospital(lbMostFrequentSupplier, lbMostFrequentItem, "transactions.txt", "Receive");
@@ -4722,7 +4783,7 @@ public class Main extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnEditSupplierDeleteActionPerformed
 
     private void btnEditSupplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSupplierResetActionPerformed
@@ -4780,7 +4841,7 @@ public class Main extends javax.swing.JFrame {
             LoadData updateSupplierTable = new LoadData();
             updateSupplierTable.loadDataToTable("suppliers.txt", supplierList);
             ReceivePPE.ReceivePPE(comboReceivedItemCode, lbReceivedSupplierCodeInput, InventoryList);
-            DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);    
+            DistributePPE.DistributePPE(comboDistributedItemCode, lbQuantityNumber, InventoryList);
             DataOverview.activeInactive(lbActiveSupplier, lbInactiveSupplier, "suppliers.txt");
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -4859,13 +4920,13 @@ public class Main extends javax.swing.JFrame {
         String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
         String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
 
-         ReportChart ppeLineChart = new ReportChart();
+        ReportChart ppeLineChart = new ReportChart();
         String selectedCode = (String) comboPPECode.getSelectedItem();
         String code = ppeLineChart.selectCode(selectedCode, comboPPECode, InventoryList);
         DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
                 toDate, fromDate, true, false, false);
-        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart);
-        
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart, true, false, false);
+
     }//GEN-LAST:event_btnPPEBarChartActionPerformed
 
     private void comboPPECodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPPECodeActionPerformed
@@ -4951,7 +5012,7 @@ public class Main extends javax.swing.JFrame {
         cardLayout.show(pMain, "pInventoryManagement");
         titleLabel.setText("Inventory Management");
         pInventory2.setBackground(new Color(0x578FCA));
-        SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);        
+        SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
     }//GEN-LAST:event_pInventory2MouseClicked
 
@@ -5102,6 +5163,8 @@ public class Main extends javax.swing.JFrame {
         dcHospitalTo.setDate(today);
         dcPPEFrom.setDate(firstDay);
         dcPPETo.setDate(today);
+        dcSupplierFromBC.setDate(firstDay);
+        dcSupplierToBC.setDate(today);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date selectedFormDate = dcSupplierFrom.getDate();
@@ -5127,7 +5190,7 @@ public class Main extends javax.swing.JFrame {
         DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
                 toDate, fromDate, true, false, false);
         System.out.println(selectedCode);
-        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart, true, false, false);
     }//GEN-LAST:event_pReportBtnMouseClicked
 
     private void pHospitalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pHospitalMouseExited
@@ -5321,7 +5384,13 @@ public class Main extends javax.swing.JFrame {
                 toDate, fromDate, true, false, false);
         System.out.println("hi");
         System.out.println(selectedCode);
-        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart, true, false, false);
+
+        String selectedSupplierCode = (String) comboSupplierCode.getSelectedItem();
+        String supplierCode = ppeLineChart.selectCode(selectedSupplierCode, comboSupplierCode, supplierList);
+        DefaultCategoryDataset supplierBarChartDataset = ppeLineChart.readTransactionData(supplierCode,
+                toDate, fromDate, false, true, false);
+        ppeLineChart.showTransactionBarChart(supplierCode, PPEBarChartDataset, pSupplierBarChart, false, true, false);
     }//GEN-LAST:event_pReportBtn1MouseClicked
 
     private void pReportBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn1MouseEntered
@@ -5332,12 +5401,107 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_pReportBtn1MouseExited
 
     private void btnSupplierBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierBarChartActionPerformed
-        // TODO add your handling code here:
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcSupplierFrom.getDate();
+        Date selectedToDate = dcSupplierTo.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart ppeLineChart = new ReportChart();
+        String selectedCode = (String) comboSupplierCode.getSelectedItem();
+        String code = ppeLineChart.selectCode(selectedCode, comboSupplierCode, supplierList);
+        DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                toDate, fromDate, false, true, false);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pSupplierBarChart, false, true, false);
     }//GEN-LAST:event_btnSupplierBarChartActionPerformed
 
     private void comboSupplierCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSupplierCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSupplierCodeActionPerformed
+
+    private void pPPEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pPPEMouseClicked
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcPPEFrom.getDate();
+        Date selectedToDate = dcPPETo.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart ppeLineChart = new ReportChart();
+        String selectedCode = (String) comboPPECode.getSelectedItem();
+        String code = ppeLineChart.selectCode(selectedCode, comboPPECode, InventoryList);
+        DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                toDate, fromDate, true, false, false);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart, true, false, false);
+    }//GEN-LAST:event_pPPEMouseClicked
+
+    private void pSupplierBCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pSupplierBCMouseClicked
+
+    }//GEN-LAST:event_pSupplierBCMouseClicked
+
+    private void tpBarChartStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpBarChartStateChanged
+
+        int selectedIndex = tpBarChart.getSelectedIndex();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcPPEFrom.getDate();
+        Date selectedToDate = dcPPETo.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart ppeLineChart = new ReportChart();
+
+        switch (selectedIndex) {
+            case 0:
+                String selectedCode = (String) comboPPECode.getSelectedItem();
+                String code = ppeLineChart.selectCode(selectedCode, comboPPECode, InventoryList);
+                DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                        toDate, fromDate, true, false, false);
+                ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart, true, false, false);
+
+                break;
+            case 1:
+
+                String selectedSupplierCode = (String) comboSupplierCode.getSelectedItem();
+                String supplierCode = ppeLineChart.selectCode(selectedSupplierCode, comboSupplierCode, supplierList);
+                DefaultCategoryDataset supplierBarChartDataset = ppeLineChart.readTransactionData(supplierCode,
+                        toDate, fromDate, false, true, false);
+                ppeLineChart.showTransactionBarChart(supplierCode, supplierBarChartDataset, pSupplierBarChart, false, true, false);
+                break;
+            case 2:
+                String selectedHospitalCode = (String) comboHospitalCode.getSelectedItem();
+                String hospitalCode = ppeLineChart.selectCode(selectedHospitalCode, comboHospitalCode, hospitalList);
+                DefaultCategoryDataset hospitalBarChartDataset = ppeLineChart.readTransactionData(hospitalCode,
+                        toDate, fromDate, false, false, true);
+                ppeLineChart.showTransactionBarChart(hospitalCode, hospitalBarChartDataset, pHospitalBarChart, false, false, true);
+                break;
+            default:
+                System.out.println("Unknown tab selected");
+        }
+
+
+    }//GEN-LAST:event_tpBarChartStateChanged
+
+    private void btnHospitalBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalBarChartActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedFormDate = dcHospitalFromBC.getDate();
+        Date selectedToDate = dcHospitalToBC.getDate();
+
+        String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
+        String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
+
+        ReportChart ppeLineChart = new ReportChart();
+        String selectedCode = (String) comboHospitalCode.getSelectedItem();
+        String code = ppeLineChart.selectCode(selectedCode, comboHospitalCode, hospitalList);
+        DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
+                toDate, fromDate, false, false, true);
+        ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pHospitalBarChart, false, false, true);
+    }//GEN-LAST:event_btnHospitalBarChartActionPerformed
+
+    private void comboHospitalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHospitalCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboHospitalCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -5422,6 +5586,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEditUserSave;
     private javax.swing.JButton btnFilterPPEDistributed;
     private javax.swing.JButton btnFilterPPEReceived;
+    private javax.swing.JButton btnHospitalBarChart;
     private javax.swing.JButton btnHospitalChart;
     private javax.swing.JButton btnInventoryFilter;
     private javax.swing.JButton btnNewInventoryReset;
@@ -5448,6 +5613,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboEditInventoryItemCode;
     private javax.swing.JComboBox<String> comboEditInventorySupplierCode;
     private javax.swing.JComboBox<String> comboEditSupplierID;
+    private javax.swing.JComboBox<String> comboHospitalCode;
     private javax.swing.JComboBox<String> comboNewInventorySupplierCode;
     private javax.swing.JComboBox<String> comboPPECode;
     private javax.swing.JComboBox<String> comboReceivedItemCode;
@@ -5465,11 +5631,13 @@ public class Main extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dateChooserReceivedFrom;
     private com.toedter.calendar.JDateChooser dateChooserReceivedTo;
     private com.toedter.calendar.JDateChooser dcHospitalFrom;
+    private com.toedter.calendar.JDateChooser dcHospitalFromBC;
     private com.toedter.calendar.JDateChooser dcHospitalTo;
+    private com.toedter.calendar.JDateChooser dcHospitalToBC;
     private com.toedter.calendar.JDateChooser dcPPEFrom;
-    private com.toedter.calendar.JDateChooser dcPPEFromBC;
     private com.toedter.calendar.JDateChooser dcPPETo;
     private com.toedter.calendar.JDateChooser dcSupplierFrom;
+    private com.toedter.calendar.JDateChooser dcSupplierFromBC;
     private com.toedter.calendar.JDateChooser dcSupplierTo;
     private com.toedter.calendar.JDateChooser dcSupplierToBC;
     private javax.swing.JTable hospitalList;
@@ -5507,6 +5675,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -5520,11 +5691,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -5549,7 +5717,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbActiveSupplier;
     private javax.swing.JLabel lbAddContactNo;
@@ -5668,6 +5835,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel pEditUser;
     private javax.swing.JPanel pHospital;
     private javax.swing.JPanel pHospital2;
+    private javax.swing.JPanel pHospitalBarChart;
     private javax.swing.JPanel pHospitalManagement;
     private javax.swing.JPanel pHospitalPieChart;
     private javax.swing.JPanel pInventory;
@@ -5678,6 +5846,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel pLogout;
     private javax.swing.JPanel pLogout2;
     private javax.swing.JPanel pMain;
+    private javax.swing.JPanel pPPE;
     private javax.swing.JPanel pPPEBarChart;
     private javax.swing.JPanel pReceivedItem;
     private javax.swing.JScrollPane pReport;
@@ -5688,6 +5857,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel pSideBarStaff;
     private javax.swing.JPanel pSupplier;
     private javax.swing.JPanel pSupplier2;
+    private javax.swing.JPanel pSupplierBC;
     private javax.swing.JPanel pSupplierBarChart;
     private javax.swing.JPanel pSupplierManagement;
     private javax.swing.JPanel pSupplierPieChart;
@@ -5750,6 +5920,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tfSearchSupplier;
     private javax.swing.JTextField tfSearchUser;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JTabbedPane tpBarChart;
     private javax.swing.JTabbedPane tpHospitalProfileEditor;
     private javax.swing.JTabbedPane tpInventoryEditor;
     private javax.swing.JTabbedPane tpSupplierProfileEditor;

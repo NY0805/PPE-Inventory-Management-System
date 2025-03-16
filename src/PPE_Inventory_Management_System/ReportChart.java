@@ -112,8 +112,6 @@ public class ReportChart {
             }
         }
     }
-    
-//    private void readSupplierAndHospitalData (boolean SupplierOrHospital, boolean )
 
     public DefaultPieDataset readPPEData(String fromDate, String toDate, boolean SupplierOrHospital) {
         DefaultPieDataset dataset = new DefaultPieDataset();
@@ -310,6 +308,8 @@ public class ReportChart {
             String itemName = "";
             String transactionDate = "";
             String transactionType = "";
+            boolean isReceive = false;
+            boolean isDistribute = false;
             int quantity = 0;
 
             while ((line = br.readLine()) != null) {
@@ -335,6 +335,43 @@ public class ReportChart {
                             }
                         }
                     }
+                } else if (supplier) {
+                    if (line.startsWith("Transaction Type:")) {
+                        isReceive = line.split(":")[1].trim().equalsIgnoreCase("Receive");
+                    } else if (line.startsWith("Received Date:")) {
+                        transactionDate = line.split(":")[1].trim();
+                    } else if (line.startsWith("Supplier ID:")) {
+                        itemCode = line.split(":")[1].trim();
+                    } else if (line.startsWith("Quantity(boxes):")) {
+                        quantity = Integer.parseInt(line.split(":")[1].trim());
+
+                        if (!itemCode.equals(code)) {
+                            continue;
+                        }
+
+                        if (isReceive && transactionDate.compareTo(fromDate) >= 0 && transactionDate.compareTo(toDate) <= 0) {
+                            receivedData.put(transactionDate, receivedData.getOrDefault(transactionDate, 0) + quantity);
+                        }
+                    }
+                } else if (hospital) {
+                    System.out.println("hospital");
+                    if (line.startsWith("Transaction Type:")) {
+                        isDistribute = line.split(":")[1].trim().equalsIgnoreCase("Distribute");
+                    } else if (line.startsWith("Distributed Date:")) {
+                        transactionDate = line.split(":")[1].trim();
+                    } else if (line.startsWith("Hospital ID:")) {
+                        itemCode = line.split(":")[1].trim();
+                    } else if (line.startsWith("Quantity(boxes):")) {
+                        quantity = Integer.parseInt(line.split(":")[1].trim());
+
+                        if (!itemCode.equals(code)) {
+                            continue;
+                        }
+
+                        if (isDistribute && transactionDate.compareTo(fromDate) >= 0 && transactionDate.compareTo(toDate) <= 0) {
+                            distributedData.put(transactionDate, distributedData.getOrDefault(transactionDate, 0) + quantity);
+                        }
+                    }
                 }
             }
 
@@ -342,16 +379,32 @@ public class ReportChart {
             e.printStackTrace();
         }
 
-        Set<String> allDates = new TreeSet<>();
-        allDates.addAll(receivedData.keySet());
-        allDates.addAll(distributedData.keySet());
+        if (item) {
+            Set<String> allDates = new TreeSet<>();
+            allDates.addAll(receivedData.keySet());
+            allDates.addAll(distributedData.keySet());
 
-        for (String date : allDates) {
-            int receivedQty = receivedData.getOrDefault(date, 0);
-            int distributedQty = distributedData.getOrDefault(date, 0);
+            for (String date : allDates) {
+                int receivedQty = receivedData.getOrDefault(date, 0);
+                int distributedQty = distributedData.getOrDefault(date, 0);
 
-            dataset.addValue(receivedQty, "Received", date);
-            dataset.addValue(distributedQty, "Distributed", date);
+                dataset.addValue(receivedQty, "Received", date);
+                dataset.addValue(distributedQty, "Distributed", date);
+            }
+        } else if (supplier) {
+            for (Map.Entry<String, Integer> entry : receivedData.entrySet()) {
+                String date = entry.getKey();
+                int qty = entry.getValue();
+
+                dataset.addValue(qty, "Received", date);
+            }
+        } else if (hospital) {
+            for (Map.Entry<String, Integer> entry : distributedData.entrySet()) {
+                String date = entry.getKey();
+                int qty = entry.getValue();
+
+                dataset.addValue(qty, "Distributed", date);
+            }
         }
 
         for (int row = 0; row < dataset.getRowCount(); row++) {
@@ -367,18 +420,35 @@ public class ReportChart {
     }
 
     public void showTransactionBarChart(String code, DefaultCategoryDataset dataset,
-            JPanel pTransactionLineChart) {
+            JPanel pTransactionLineChart, boolean ppe, boolean supplier, boolean hospital) {
         String name = "";
+        String codeTitle = "";
+        String nameTitle = "";
+        String filename = "";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("ppe.txt"))) {
+        if (ppe) {
+            filename = "ppe.txt";
+            codeTitle = "Item Code";
+            nameTitle = "Item Name";
+        } else if (supplier) {
+            filename = "suppliers.txt";
+            codeTitle = "Supplier ID";
+            nameTitle = "Supplier Name";
+        } else if (hospital) {
+            filename = "hospitals.txt";
+            codeTitle = "Hospital ID";
+            nameTitle = "Hospital Name";
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             boolean found = false;
 
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-                if (line.startsWith("Item ID:")) {
+                if (line.startsWith(codeTitle)) {
                     found = line.split(":")[1].trim().equals(code);
-                } else if (found && line.startsWith("Item Name:")) {
+                } else if (found && line.startsWith(nameTitle)) {
                     name = line.split(":")[1].trim();
                     break;
                 }
