@@ -104,7 +104,7 @@ public class AddUser extends AddEntity {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Validate error");
+            JOptionPane.showMessageDialog(null, "Invalid input! Please enter valid data.");
         }
     }
 

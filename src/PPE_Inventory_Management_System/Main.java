@@ -275,6 +275,8 @@ public class Main extends javax.swing.JFrame {
         comboEditInventoryItemCode = new javax.swing.JComboBox<>();
         comboEditInventorySupplierCode = new javax.swing.JComboBox<>();
         lbInventoryList = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taNotification = new javax.swing.JTextArea();
         pSupplierManagement = new javax.swing.JPanel();
         tfSearchSupplier = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -545,7 +547,6 @@ public class Main extends javax.swing.JFrame {
         pLogo.setPreferredSize(new java.awt.Dimension(190, 66));
 
         jLabel45.setBackground(new java.awt.Color(53, 115, 180));
-        jLabel45.setIcon(new javax.swing.ImageIcon("C:\\OOP LAB\\PPE-Inventory-Management-System\\src\\PPE_Inventory_Management_System\\Picture8.png")); // NOI18N
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 11)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
@@ -2573,6 +2574,15 @@ public class Main extends javax.swing.JFrame {
         lbInventoryList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbInventoryList.setText("Inventory List");
 
+        taNotification.setEditable(false);
+        taNotification.setBackground(new java.awt.Color(204, 255, 204));
+        taNotification.setColumns(20);
+        taNotification.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        taNotification.setLineWrap(true);
+        taNotification.setRows(5);
+        taNotification.setText("PPE 1023 MASK IS OUT OF STOCK PLEASE RESTOCK ASAP");
+        jScrollPane1.setViewportView(taNotification);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -2597,19 +2607,22 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(pReceivedItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pDistributedItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(231, Short.MAX_VALUE))
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pReceivedItem, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-                    .addComponent(pDistributedItem, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE))
+                    .addComponent(pDistributedItem, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(tpInventoryEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(lbInventoryList)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -4427,7 +4440,7 @@ public class Main extends javax.swing.JFrame {
         LoadData loadData = new LoadData();
         try {
             ReportChart barChart = new ReportChart();
-            DefaultCategoryDataset dataset = barChart.readCurrentStockData();
+            DefaultCategoryDataset dataset = barChart.readCurrentStockData(false, null);
             barChart.createCurrentStockBarChart(dataset, pCurrentStockLevel);
             loadData.loadDataToTable("suppliers.txt", supplierList);
             loadData.loadDataToTable("hospitals.txt", hospitalList);
@@ -4615,6 +4628,9 @@ public class Main extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        ReportChart report = new ReportChart();
+        report.readCurrentStockData(true, taNotification);
     }//GEN-LAST:event_lbReceivedItemSaveActionPerformed
 
     private void lbReceivedItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbReceivedItemResetActionPerformed
@@ -4634,6 +4650,9 @@ public class Main extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        ReportChart report = new ReportChart();
+        report.readCurrentStockData(true, taNotification);
     }//GEN-LAST:event_lbDistributedItemSaveActionPerformed
 
     private void lbDistributedItemResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbDistributedItemResetActionPerformed
@@ -5020,7 +5039,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSortUserActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        Print_PDF.Print_PDF("User List", tableUserList, "user_List.pdf");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void pTransactionBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pTransactionBtn2MouseClicked
@@ -5040,9 +5059,10 @@ public class Main extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) pMain.getLayout();
         cardLayout.show(pMain, "pInventoryManagement");
         titleLabel.setText("Inventory Management");
-        pInventory2.setBackground(new Color(0x578FCA));
         SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
+        ReportChart report = new ReportChart();
+        report.readCurrentStockData(true, taNotification);
     }//GEN-LAST:event_pInventory2MouseClicked
 
     private void pInventory2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pInventory2MouseEntered
@@ -5116,7 +5136,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         ReportChart barChart = new ReportChart();
-        DefaultCategoryDataset dataset = barChart.readCurrentStockData();
+        DefaultCategoryDataset dataset = barChart.readCurrentStockData(false, null);
         barChart.createCurrentStockBarChart(dataset, pCurrentStockLevel);
     }//GEN-LAST:event_pDashboard4MouseClicked
 
@@ -5264,6 +5284,9 @@ public class Main extends javax.swing.JFrame {
         cardLayout.show(pMain, "pInventoryManagement");
         titleLabel.setText("Inventory Management");
         SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
+        DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
+        ReportChart report = new ReportChart();
+        report.readCurrentStockData(true, taNotification);
     }//GEN-LAST:event_pInventoryMouseClicked
 
     private void pUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pUserMouseExited
@@ -5302,7 +5325,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         ReportChart barChart = new ReportChart();
-        DefaultCategoryDataset dataset = barChart.readCurrentStockData();
+        DefaultCategoryDataset dataset = barChart.readCurrentStockData(false, null);
         barChart.createCurrentStockBarChart(dataset, pCurrentStockLevel);
     }//GEN-LAST:event_pDashboardMouseClicked
 
@@ -5737,6 +5760,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -5919,6 +5943,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextArea taAddSupplierAddress;
     private javax.swing.JTextArea taEditHospitalAddress;
     private javax.swing.JTextArea taEditSupplierAddress;
+    private javax.swing.JTextArea taNotification;
     private javax.swing.JTable tableUserList;
     private javax.swing.JTable tableUserLog;
     private javax.swing.JTextField tfAddContactNo;

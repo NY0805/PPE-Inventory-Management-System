@@ -6,6 +6,7 @@ package PPE_Inventory_Management_System;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.List;
 import java.awt.Paint;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -22,6 +24,7 @@ import java.util.TreeSet;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -42,25 +45,49 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public class ReportChart {
 
-    public DefaultCategoryDataset readCurrentStockData() {
+    public DefaultCategoryDataset readCurrentStockData(boolean lowStock, JTextArea noti) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        List<String> lowStockPPE = new ArrayList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader("ppe.txt"))) {
             String line;
             String itemName = "";
+            String itemCode = "";
             int quantity = 0;
 
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("Item Name:")) {
                     itemName = line.split(":")[1].trim();
+                } else if (line.startsWith("Item ID:")) {
+                    itemCode = line.split(":")[1].trim();
                 } else if (line.startsWith("Quantity(boxes):")) {
                     quantity = Integer.parseInt(line.split(":")[1].trim());
                     dataset.addValue(quantity, "Stock Level", itemName);
+
+                    if (quantity <= 25) {
+                        lowStockPPE.add(itemCode + " (" + itemName + ")");
+                    }
                 }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        if (lowStock) {
+            if (lowStockPPE.isEmpty()) {
+                noti.setBackground(new Color(0xCCFFCC));
+                noti.setText("All item are sufficiently stocked. No immediate restoking is needed.");
+            } else {
+                noti.setBackground(new Color(0xFFCCCC));
+                noti.setText("The following item is/are running critically low: "
+                        + String.join(" ,", lowStockPPE) + ". Please restock immediately!");
+            }
+        }
+
+        System.out.println("Dataset row count: " + dataset.getRowCount());
+System.out.println("Dataset column count: " + dataset.getColumnCount());
+
         return dataset;
     }
 

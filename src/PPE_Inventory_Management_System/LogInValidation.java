@@ -4,7 +4,11 @@
  */
 package PPE_Inventory_Management_System;
 
-import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,9 +21,17 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class LogInValidation extends JFrame {
-//    private String userId;
-//    private String name;
-//    private String userType;
+
+    private void openDashboard(String id, String name, String password, String contact, String userType) {
+        try {
+            Main dashboard = new Main(id, name, password, contact, userType);
+            dashboard.setVisible(true);
+            dashboard.showSideBar(userType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Unable to run dashboard page", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     public void Validate(String id, String password, LogIn loginFrame) {
         try {
@@ -38,11 +50,17 @@ public class LogInValidation extends JFrame {
                 if (storedId.equals(id) && (storedPassword.equals(password))) {
                     userFound = true;
                     saveLoginDetails(id, storedName, password, storedContact, storedUserType);
-
                     loginFrame.dispose();
-                    Main dashboard = new Main(id, storedName, password, storedContact, storedUserType);
-                    dashboard.setVisible(true);
-                    dashboard.showSideBar(storedUserType);
+
+                    if (isFirstTimeLaunch()) {
+                        InitialInventoryCreation ppeCreation = new InitialInventoryCreation(() -> {
+                            openDashboard(id, storedName, password, storedContact, storedUserType);
+                        });
+                        ppeCreation.setVisible(true);
+                    } else {
+                        openDashboard(id, storedName, password, storedContact, storedUserType);
+                    }
+
                     break;
                 }
             }
@@ -66,6 +84,44 @@ public class LogInValidation extends JFrame {
         String[] data = {id, name, password, contact, userType, loginTime};
 
         userFile.WriteDataToFile("login.txt", headers, data);
+    }
+
+    public static boolean isFirstTimeLaunch() {
+        File file = new File("config.txt");
+        String setup = "";
+        boolean firstTimeLaunch = false;
+
+        if (!file.exists()) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("config.txt"))) {
+                bw.write("Setup completed: true");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            return true;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("Setup completed:")) {
+                    setup = line.split(":")[1].trim();
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (setup.equals("false")) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("config.txt"))) {
+                bw.write("Setup completed: true");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+
+        return false;
     }
 
 }

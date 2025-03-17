@@ -62,7 +62,7 @@ public class AddInventory extends AddEntity {
     public void saveToFile(boolean isEdit, JTable table) throws IOException {
         if (validate()) {
             FileHandling ppeFile = new FileHandling();
-            String[] headers = {"Item Code", "Name", "Supplier Code", "Quantity", "Unit Price per box(RM)"};
+            String[] headers = {"Item Code", "Item Name", "Supplier Code", "Quantity(boxes)", "Price per box(RM)"};
             String[] data = {id, name, supplierCode, quantity, price};
 
             ArrayList<String[]> ppeData = ppeFile.ReadDataFromFile("ppe.txt");
