@@ -57,7 +57,7 @@ public class FilterFunction {
             case "Above 25 boxes": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
-                    // <?> is a wildcard, it can hold any types
+                    // <?> is a wildcard, it can hold any types of data
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             int quantity = Integer.parseInt(entry.getStringValue(3));
