@@ -23,7 +23,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.time.TimeSeriesCollection;
 
 /**
  *
@@ -100,6 +99,9 @@ public class Main extends javax.swing.JFrame {
         pSideBar = new javax.swing.JPanel();
         pSideBarAdmin = new javax.swing.JPanel();
         pLogo = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
         pDashboard = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         pUser = new javax.swing.JPanel();
@@ -537,17 +539,43 @@ public class Main extends javax.swing.JFrame {
 
         pSideBarAdmin.setBackground(new java.awt.Color(53, 115, 180));
 
-        pLogo.setBackground(new java.awt.Color(255, 204, 204));
+        pLogo.setBackground(new java.awt.Color(53, 115, 180));
+        pLogo.setMaximumSize(new java.awt.Dimension(190, 66));
+        pLogo.setMinimumSize(new java.awt.Dimension(190, 66));
+        pLogo.setPreferredSize(new java.awt.Dimension(190, 66));
+
+        jLabel45.setIcon(new javax.swing.ImageIcon("C:\\OOP LAB\\PPE-Inventory-Management-System\\src\\PPE_Inventory_Management_System\\Picture8.png")); // NOI18N
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 11)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("PPE Inventory");
+
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 3, 11)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setText("Management System");
 
         javax.swing.GroupLayout pLogoLayout = new javax.swing.GroupLayout(pLogo);
         pLogo.setLayout(pLogoLayout);
         pLogoLayout.setHorizontalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pLogoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel45)
+                .addGap(5, 5, 5)
+                .addGroup(pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel47)
+                    .addComponent(jLabel48))
+                .addGap(9, 9, 9))
         );
         pLogoLayout.setVerticalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 68, Short.MAX_VALUE)
+            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+            .addGroup(pLogoLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel48)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pDashboard.setBackground(new java.awt.Color(53, 115, 180));
@@ -827,7 +855,6 @@ public class Main extends javax.swing.JFrame {
         pSideBarAdmin.setLayout(pSideBarAdminLayout);
         pSideBarAdminLayout.setHorizontalGroup(
             pSideBarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -836,12 +863,13 @@ public class Main extends javax.swing.JFrame {
             .addComponent(pReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pTransactionBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pSideBarAdminLayout.setVerticalGroup(
             pSideBarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSideBarAdminLayout.createSequentialGroup()
                 .addComponent(pLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(35, 35, 35)
                 .addComponent(pDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(pUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -855,7 +883,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(pReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(pTransactionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(pLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -5684,7 +5712,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
