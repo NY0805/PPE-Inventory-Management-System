@@ -544,6 +544,7 @@ public class Main extends javax.swing.JFrame {
         pLogo.setMinimumSize(new java.awt.Dimension(190, 66));
         pLogo.setPreferredSize(new java.awt.Dimension(190, 66));
 
+        jLabel45.setBackground(new java.awt.Color(53, 115, 180));
         jLabel45.setIcon(new javax.swing.ImageIcon("C:\\OOP LAB\\PPE-Inventory-Management-System\\src\\PPE_Inventory_Management_System\\Picture8.png")); // NOI18N
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 11)); // NOI18N

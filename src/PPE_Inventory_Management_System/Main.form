@@ -339,6 +339,9 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel45">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="b4" green="73" red="35" type="rgb"/>
+                    </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="C:\OOP LAB\PPE-Inventory-Management-System\src\PPE_Inventory_Management_System\Picture8.png"/>
                     </Property>
