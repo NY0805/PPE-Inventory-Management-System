@@ -35,17 +35,16 @@ public class FilterFunction {
     }
     
     private static void filterRow(TableRowSorter<DefaultTableModel> sorter, String filterOption) {
-        // no filter applied initially
+        
         RowFilter<DefaultTableModel, Object> filter = null;
         
         switch (filterOption) {
             case "Below 25 boxes": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
                     @Override
-                    // entry object represent a row, used to decide a row is hidden or shown
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
-                            int quantity = Integer.parseInt(entry.getStringValue(3)); // get value from column 4
+                            int quantity = Integer.parseInt(entry.getStringValue(3));
                             return quantity < 25;
                         } catch (NumberFormatException e) {
                             return false;
@@ -56,8 +55,7 @@ public class FilterFunction {
             }
             case "Above 25 boxes": {
                 filter = new RowFilter<DefaultTableModel, Object>() {
-                    @Override
-                    // <?> is a wildcard, it can hold any types of data
+                    @Override                    
                     public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
                         try {
                             int quantity = Integer.parseInt(entry.getStringValue(3));

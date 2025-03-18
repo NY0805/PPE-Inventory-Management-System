@@ -4559,6 +4559,11 @@ public class Main extends javax.swing.JFrame {
             }
         }
         DistributePPE.DistributePPE(comboDistributedHospitalCode, null, hospitalList);
+        try {
+            DataOverview.totalData(lbTotalHospital, "hospitals.txt", null, false, false);
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEditHospitalDeleteActionPerformed
 
     private void tpHospitalProfileEditorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpHospitalProfileEditorStateChanged
