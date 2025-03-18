@@ -2372,6 +2372,9 @@ public class Main extends javax.swing.JFrame {
         lbNewInventoryQuantity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbNewInventoryQuantity.setText("Quantity:");
 
+        tfNewInventoryQuantity.setText("0");
+        tfNewInventoryQuantity.setEnabled(false);
+
         btnNewInventorySave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNewInventorySave.setText("Save");
         btnNewInventorySave.addActionListener(new java.awt.event.ActionListener() {
