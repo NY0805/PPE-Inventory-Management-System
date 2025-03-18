@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class TimeFrameSorter {
-    public static void timeFrame(JDateChooser startDate, JDateChooser endDate, JTable table) throws IOException {
+    public static void timeFrame(JDateChooser startDate, JDateChooser endDate, JTable table, String transactionType) throws IOException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String selectedStartDate = (startDate.getDate() != null) ? dateFormat.format(startDate.getDate()) : "";
         String selectedEndDate = (endDate.getDate() != null) ? dateFormat.format(endDate.getDate()) : "";
@@ -49,13 +49,17 @@ public class TimeFrameSorter {
 
                 if ((selectedStartDate.isEmpty() || transactionDate.compareTo(dateFormat.parse(selectedStartDate)) >= 0) &&
                     (selectedEndDate.isEmpty() || transactionDate.compareTo(dateFormat.parse(selectedEndDate)) <= 0)) {
-                    if (record.length == columnCount + 1 && (record[0].equals("Receive")) || record[0].equals("Distribute")) {
-                        model.addRow(Arrays.copyOfRange(record, 1, record.length));
+                    if (record.length == columnCount + 1) {
+                        if (transactionType.equals("Receive") && record[0].equals("Receive") ||
+                            transactionType.equals("Distribute") && record[0].equals("Distribute")) {
+                            model.addRow(Arrays.copyOfRange(record, 1, record.length));
+                        }
                     }
-                }
+                } 
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
+        
     }
 }

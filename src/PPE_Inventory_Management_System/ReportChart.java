@@ -6,7 +6,6 @@ package PPE_Inventory_Management_System;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.util.List;
 import java.awt.Paint;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -58,7 +58,7 @@ public class ReportChart {
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("Item Name:")) {
                     itemName = line.split(":")[1].trim();
-                } else if (line.startsWith("Item ID:")) {
+                } else if (line.startsWith("Item Code:")) {
                     itemCode = line.split(":")[1].trim();
                 } else if (line.startsWith("Quantity(boxes):")) {
                     quantity = Integer.parseInt(line.split(":")[1].trim());

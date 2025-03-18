@@ -4999,6 +4999,8 @@ public class Main extends javax.swing.JFrame {
         cardLayout.show(pMain, "pInventoryManagement");
         titleLabel.setText("Inventory Management");
         SaveInventory.supplierCodeDropdown(comboNewInventorySupplierCode, supplierList);
+        ReportChart report = new ReportChart();
+        report.readCurrentStockData(true, taNotification);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void dateChooserDistributedDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserDistributedDatePropertyChange
@@ -5024,7 +5026,8 @@ public class Main extends javax.swing.JFrame {
             dateChooserReceivedTo.setDate(null);
         }
         try {
-            TimeFrameSorter.timeFrame(dateChooserReceivedFrom, dateChooserReceivedTo, TransactionReceivedList);
+            TimeFrameSorter.timeFrame(dateChooserReceivedFrom, dateChooserReceivedTo, 
+                    TransactionReceivedList, "Receive");
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -5037,7 +5040,8 @@ public class Main extends javax.swing.JFrame {
             dateChooserDistributedTo.setDate(null);
         }
         try {
-            TimeFrameSorter.timeFrame(dateChooserDistributedFrom, dateChooserDistributedTo, TransactionDistributedList);
+            TimeFrameSorter.timeFrame(dateChooserDistributedFrom, dateChooserDistributedTo, 
+                    TransactionDistributedList, "Distribute");
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
