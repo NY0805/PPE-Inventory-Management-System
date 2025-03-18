@@ -60,7 +60,7 @@ public class SaveInventory {
         
         validate.validateID(itemCode, "ppe.txt");
 
-        if (!validate.validateName(itemName) || !validate.validateQuantity(quantity) || !validate.validatePrice(unitPrice)) {
+        if (!validate.validateName(itemName) || !validate.validatePrice(unitPrice)) {
             JOptionPane.showMessageDialog(null, "Please enter valid information!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
