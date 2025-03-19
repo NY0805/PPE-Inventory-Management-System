@@ -4711,7 +4711,7 @@ public class Main extends javax.swing.JFrame {
     private void btnNewInventoryResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventoryResetActionPerformed
         tfNewInventoryItemCode.setText("");
         tfNewInventoryItemName.setText("");
-        tfNewInventoryQuantity.setText("");
+        tfNewInventoryQuantity.setText("0");
         spinnerNewInventoryUnitPrice.setValue(0);
         comboNewInventorySupplierCode.setSelectedIndex(0);
     }//GEN-LAST:event_btnNewInventoryResetActionPerformed

@@ -100,7 +100,7 @@ public class SaveInventory {
         tfItemCode.setText("");
         tfItemName.setText("");
         selectedSupplierCode.setSelectedIndex(0);
-        tfQuantity.setText("");
+        tfQuantity.setText("0");
         spinnerPrice.setValue(0.00);
 
         DefaultTableModel model = (DefaultTableModel) inventoryList.getModel();
