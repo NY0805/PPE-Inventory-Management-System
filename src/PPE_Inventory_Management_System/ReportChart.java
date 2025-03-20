@@ -85,9 +85,6 @@ public class ReportChart {
             }
         }
 
-        System.out.println("Dataset row count: " + dataset.getRowCount());
-System.out.println("Dataset column count: " + dataset.getColumnCount());
-
         return dataset;
     }
 
@@ -436,11 +433,9 @@ System.out.println("Dataset column count: " + dataset.getColumnCount());
 
         for (int row = 0; row < dataset.getRowCount(); row++) {
             for (int col = 0; col < dataset.getColumnCount(); col++) {
-                Comparable rowKey = dataset.getRowKey(row);  // "Received" or "Distributed"
-                Comparable colKey = dataset.getColumnKey(col); // Date (e.g., "2024-03-01")
-                Number value = dataset.getValue(row, col);  // Quantity (e.g., 10, 5, etc.)
-
-                System.out.println("Category: " + rowKey + ", Date: " + colKey + ", Value: " + value);
+                Comparable rowKey = dataset.getRowKey(row);
+                Comparable colKey = dataset.getColumnKey(col);
+                Number value = dataset.getValue(row, col);
             }
         }
         return dataset;

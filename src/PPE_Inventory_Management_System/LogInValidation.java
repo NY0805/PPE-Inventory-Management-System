@@ -36,7 +36,7 @@ public class LogInValidation extends JFrame {
     public void Validate(String id, String password, LogIn loginFrame) {
         try {
             FileHandling userFile = new FileHandling();
-            ArrayList<String[]> userData = userFile.ReadDataFromFile("user.txt");
+            ArrayList<String[]> userData = userFile.ReadDataFromFile("users.txt");
 
             boolean userFound = false;
 

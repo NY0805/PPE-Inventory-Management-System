@@ -65,11 +65,11 @@ public class AddUser extends AddEntity {
     public void saveToFile(boolean isEdit, JTable table) throws IOException {
         if (validate()) {
             FileHandling userFile = new FileHandling();
-            String filename = "user.txt";
+            String filename = "users.txt";
             String[] headers = {"User ID", "Name", "Password", "Contact", "User Type"};
             String[] data = {id, name, password, contact, userType};
 
-            ArrayList<String[]> userData = userFile.ReadDataFromFile("user.txt");
+            ArrayList<String[]> userData = userFile.ReadDataFromFile("users.txt");
             System.out.println("read data");
             if (isEdit) {
                 for (int i = 0; i < userData.size(); i++) {
@@ -82,10 +82,10 @@ public class AddUser extends AddEntity {
                 userData.add(data);
             }
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt"));
             writer.close();
             for (String[] user : userData) {
-                userFile.WriteDataToFile("user.txt", headers, user);
+                userFile.WriteDataToFile("users.txt", headers, user);
             }
             System.out.println("write data");
 
