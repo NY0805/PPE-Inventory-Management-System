@@ -480,7 +480,7 @@ public class ReportChart {
         System.out.println(code);
         System.out.println(name);
         JFreeChart barChart = ChartFactory.createBarChart(
-                "Transaction Trend - " + code + "(" + name + ")",
+                "Transaction Trend - " + code + " (" + name + ")",
                 "Date", "Quantity (boxes)", dataset, PlotOrientation.VERTICAL,
                 true, true, false);
 
