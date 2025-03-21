@@ -62,6 +62,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Initial Inventory Creation");
         setLocation(new java.awt.Point(160, 10));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -139,6 +140,7 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablePPE.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(tablePPE);
         if (tablePPE.getColumnModel().getColumnCount() > 0) {
             tablePPE.getColumnModel().getColumn(0).setResizable(false);
@@ -188,6 +190,8 @@ public class InitialInventoryCreation extends javax.swing.JFrame {
         tfPPEQuantity.setEditable(false);
         tfPPEQuantity.setText("100");
         tfPPEQuantity.setEnabled(false);
+
+        spinnerPrice.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 0.01d));
 
         tfPPESupplierCode.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         tfPPESupplierCode.setText("NULL");

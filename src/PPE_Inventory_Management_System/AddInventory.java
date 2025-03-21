@@ -39,9 +39,9 @@ public class AddInventory extends AddEntity {
 
         super(id, name);
         this.supplierCode = tfPPESupplierCode.getText();
-        Object value = spinnerPrice.getValue();
-        double number = ((Number) value).doubleValue();
-        this.price = new DecimalFormat("0.00").format(number);
+        Number value = (Number) spinnerPrice.getValue();
+        double price = value.doubleValue();
+        this.price = String.format("%.2f", price);
         this.quantity = tfPPEQuantity.getText();
         this.tfPPECode = tfPPECode;
         this.tfPPEName = tfPPEName;
@@ -53,9 +53,7 @@ public class AddInventory extends AddEntity {
     public boolean validate() {
         return validator.validateID(id, "ppe.txt")
                 && validator.validateName(tfPPEName.getText())
-                && validator.validateName(supplierCode)
-                && validator.validatePrice(price)
-                && validator.validateQuantity(quantity);
+                && validator.validatePrice(price);
     }
 
     @Override
@@ -100,7 +98,7 @@ public class AddInventory extends AddEntity {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Validate error");
+            JOptionPane.showMessageDialog(null, "Please enter valid PPE item details!");
         }
     }
 
@@ -108,8 +106,7 @@ public class AddInventory extends AddEntity {
     public void returnToDefault() {
         tfPPECode.setText("");
         tfPPEName.setText("");
-//        tfPPEQuantity.setText("");
-        spinnerPrice.setModel(new SpinnerNumberModel(1, 1, 100, 1));
+        spinnerPrice.setValue(0);
     }
 
 }
