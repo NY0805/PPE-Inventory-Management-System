@@ -250,9 +250,9 @@ public class ReportChart {
         String title;
 
         if (SupplierOrHospital) {
-            title = "Supplier PPE Received";
+            title = "PPE Received from Supplier";
         } else {
-            title = "Hospital PPE Distributed";
+            title = "PPE Distributed to Hospital";
         }
 
         JFreeChart pieChart = ChartFactory.createPieChart(title,
@@ -378,7 +378,6 @@ public class ReportChart {
                         }
                     }
                 } else if (hospital) {
-                    System.out.println("hospital");
                     if (line.startsWith("Transaction Type:")) {
                         isDistribute = line.split(":")[1].trim().equalsIgnoreCase("Distribute");
                     } else if (line.startsWith("Distributed Date:")) {

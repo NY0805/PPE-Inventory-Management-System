@@ -3638,19 +3638,27 @@ public class Main extends javax.swing.JFrame {
 
         pSupplierPieChart.setLayout(new java.awt.BorderLayout());
 
+        dcSupplierFrom.setMaxSelectableDate(new Date());
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("From:");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("To:");
 
+        dcSupplierTo.setMaxSelectableDate(new Date());
+
         pHospitalPieChart.setLayout(new java.awt.BorderLayout());
+
+        dcHospitalFrom.setMaxSelectableDate(new Date());
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setText("From:");
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel18.setText("To:");
+
+        dcHospitalTo.setMaxSelectableDate(new Date());
 
         btnSupplierChart.setText("Go");
         btnSupplierChart.addActionListener(new java.awt.event.ActionListener() {
@@ -3681,11 +3689,15 @@ public class Main extends javax.swing.JFrame {
 
         pPPEBarChart.setLayout(new java.awt.BorderLayout());
 
+        dcPPEFrom.setMaxSelectableDate(new Date());
+
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setText("From:");
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel24.setText("To:");
+
+        dcPPETo.setMaxSelectableDate(new Date());
 
         btnPPEBarChart.setText("Go");
         btnPPEBarChart.addActionListener(new java.awt.event.ActionListener() {
@@ -3753,6 +3765,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        dcSupplierToBC.setMaxSelectableDate(new Date());
+
         btnSupplierBarChart.setText("Go");
         btnSupplierBarChart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3771,6 +3785,8 @@ public class Main extends javax.swing.JFrame {
         jLabel34.setText("Supplier Code:");
 
         pSupplierBarChart.setLayout(new java.awt.BorderLayout());
+
+        dcSupplierFromBC.setMaxSelectableDate(new Date());
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel35.setText("From:");
@@ -3841,11 +3857,15 @@ public class Main extends javax.swing.JFrame {
 
         pHospitalBarChart.setLayout(new java.awt.BorderLayout());
 
+        dcHospitalFromBC.setMaxSelectableDate(new Date());
+
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel38.setText("From:");
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setText("To:");
+
+        dcHospitalToBC.setMaxSelectableDate(new Date());
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -5255,6 +5275,8 @@ public class Main extends javax.swing.JFrame {
         dcPPETo.setDate(today);
         dcSupplierFromBC.setDate(firstDay);
         dcSupplierToBC.setDate(today);
+        dcHospitalFromBC.setDate(firstDay);
+        dcHospitalToBC.setDate(today);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date selectedFormDate = dcSupplierFrom.getDate();
@@ -5495,8 +5517,8 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSupplierBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierBarChartActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date selectedFormDate = dcSupplierFrom.getDate();
-        Date selectedToDate = dcSupplierTo.getDate();
+        Date selectedFormDate = dcSupplierFromBC.getDate();
+        Date selectedToDate = dcSupplierToBC.getDate();
 
         String fromDate = (selectedFormDate != null) ? sdf.format(selectedFormDate) : null;
         String toDate = (selectedToDate != null) ? sdf.format(selectedToDate) : null;
@@ -5552,10 +5574,8 @@ public class Main extends javax.swing.JFrame {
                 DefaultCategoryDataset PPEBarChartDataset = ppeLineChart.readTransactionData(code,
                         toDate, fromDate, true, false, false);
                 ppeLineChart.showTransactionBarChart(code, PPEBarChartDataset, pPPEBarChart, true, false, false);
-
                 break;
             case 1:
-
                 String selectedSupplierCode = (String) comboSupplierCode.getSelectedItem();
                 String supplierCode = ppeLineChart.selectCode(selectedSupplierCode, comboSupplierCode, supplierList);
                 DefaultCategoryDataset supplierBarChartDataset = ppeLineChart.readTransactionData(supplierCode,
