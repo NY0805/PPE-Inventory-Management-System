@@ -2104,11 +2104,8 @@ public class Main extends javax.swing.JFrame {
         spinnerReceivedTime.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.SECOND));
         spinnerReceivedTime.setEditor(new javax.swing.JSpinner.DateEditor(spinnerReceivedTime, "HH:mm:ss"));
 
-        dateChooserReceivedDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dateChooserReceivedDatePropertyChange(evt);
-            }
-        });
+        dateChooserReceivedDate.setMaxSelectableDate(new Date());
+        dateChooserReceivedDate.setMinSelectableDate(new java.util.Date(-62135794704000L));
 
         javax.swing.GroupLayout pReceivedItemLayout = new javax.swing.GroupLayout(pReceivedItem);
         pReceivedItem.setLayout(pReceivedItemLayout);
@@ -2218,11 +2215,7 @@ public class Main extends javax.swing.JFrame {
         lbDistributedTime.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbDistributedTime.setText("Distributed Time:");
 
-        dateChooserDistributedDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dateChooserDistributedDatePropertyChange(evt);
-            }
-        });
+        dateChooserDistributedDate.setMaxSelectableDate(new Date());
 
         spinnerDistributedTime.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.SECOND));
         spinnerDistributedTime.setEditor(new javax.swing.JSpinner.DateEditor(spinnerDistributedTime, "HH:mm:ss"));
@@ -4111,17 +4104,9 @@ public class Main extends javax.swing.JFrame {
         lbReceivedEndDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbReceivedEndDate.setText("To:");
 
-        dateChooserReceivedFrom.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dateChooserReceivedFromPropertyChange(evt);
-            }
-        });
+        dateChooserReceivedFrom.setMaxSelectableDate(new Date());
 
-        dateChooserReceivedTo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dateChooserReceivedToPropertyChange(evt);
-            }
-        });
+        dateChooserReceivedTo.setMaxSelectableDate(new Date());
 
         tfSearchPPEDistributed.setText("Search");
         tfSearchPPEDistributed.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -4141,20 +4126,12 @@ public class Main extends javax.swing.JFrame {
         lbDistributedStartDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDistributedStartDate.setText("From:");
 
-        dateChooserDistributedFrom.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dateChooserDistributedFromPropertyChange(evt);
-            }
-        });
+        dateChooserDistributedFrom.setMaxSelectableDate(new Date());
 
         lbDistributedEndDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDistributedEndDate.setText("To:");
 
-        dateChooserDistributedTo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dateChooserDistributedToPropertyChange(evt);
-            }
-        });
+        dateChooserDistributedTo.setMaxSelectableDate(new Date());
 
         comboSortPPEDistributed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sorted by", "Ascending", "Descending" }));
         comboSortPPEDistributed.addActionListener(new java.awt.event.ActionListener() {
@@ -5051,50 +5028,6 @@ public class Main extends javax.swing.JFrame {
         report.readCurrentStockData(true, taNotification);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void dateChooserDistributedDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserDistributedDatePropertyChange
-        Date selectedDate = dateChooserDistributedDate.getDate();
-        if (selectedDate != null && selectedDate.after(new Date())) {
-            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
-            dateChooserDistributedDate.setDate(null);
-        }
-    }//GEN-LAST:event_dateChooserDistributedDatePropertyChange
-
-    private void dateChooserReceivedDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserReceivedDatePropertyChange
-        Date selectedDate = dateChooserReceivedDate.getDate();
-        if (selectedDate != null && selectedDate.after(new Date())) {
-            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
-            dateChooserReceivedDate.setDate(null);
-        }
-    }//GEN-LAST:event_dateChooserReceivedDatePropertyChange
-
-    private void dateChooserReceivedToPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserReceivedToPropertyChange
-        Date selectedDate = dateChooserReceivedTo.getDate();
-        if (selectedDate != null && selectedDate.after(new Date())) {
-            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
-            dateChooserReceivedTo.setDate(null);
-        }
-        try {
-            TimeFrameSorter.timeFrame(dateChooserReceivedFrom, dateChooserReceivedTo, 
-                    TransactionReceivedList, "Receive");
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_dateChooserReceivedToPropertyChange
-
-    private void dateChooserDistributedToPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserDistributedToPropertyChange
-        Date selectedDate = dateChooserDistributedTo.getDate();
-        if (selectedDate != null && selectedDate.after(new Date())) {
-            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
-            dateChooserDistributedTo.setDate(null);
-        }
-        try {
-            TimeFrameSorter.timeFrame(dateChooserDistributedFrom, dateChooserDistributedTo, 
-                    TransactionDistributedList, "Distribute");
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_dateChooserDistributedToPropertyChange
-
     private void comboSortUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSortUserActionPerformed
         SortFunction.sort(comboSortUser, tableUserList, 0);
     }//GEN-LAST:event_comboSortUserActionPerformed
@@ -5442,22 +5375,6 @@ public class Main extends javax.swing.JFrame {
     private void tfSearchPPEDistributedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSearchPPEDistributedFocusLost
         tfSearchPPEDistributed.setText("Search");
     }//GEN-LAST:event_tfSearchPPEDistributedFocusLost
-
-    private void dateChooserReceivedFromPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserReceivedFromPropertyChange
-        Date selectedDate = dateChooserReceivedFrom.getDate();
-        if (selectedDate != null && selectedDate.after(new Date())) {
-            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
-            dateChooserReceivedFrom.setDate(null);
-        }
-    }//GEN-LAST:event_dateChooserReceivedFromPropertyChange
-
-    private void dateChooserDistributedFromPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserDistributedFromPropertyChange
-        Date selectedDate = dateChooserDistributedFrom.getDate();
-        if (selectedDate != null && selectedDate.after(new Date())) {
-            JOptionPane.showMessageDialog(null, "You cannot select a future date!", "Invalid Date", JOptionPane.WARNING_MESSAGE);
-            dateChooserDistributedFrom.setDate(null);
-        }
-    }//GEN-LAST:event_dateChooserDistributedFromPropertyChange
 
     private void pReportBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pReportBtn1MouseClicked
         CardLayout cardLayout = (CardLayout) pMain.getLayout();
