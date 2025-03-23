@@ -1,0 +1,24 @@
+User ID: ST5722
+Name: Caleb Harrison
+Password: Ahfgt%648
+Contact: 012-5763849
+User Type: Admin
+--------------------------------------------------
+User ID: ST8168
+Name: Damian Brooks
+Password: HG7^84fj
+Contact: 018-4285925
+User Type: Staff
+--------------------------------------------------
+User ID: ST4357
+Name: Evelyn Carter
+Password: HFghf%^483h
+Contact: 014-8563749
+User Type: Staff
+--------------------------------------------------
+User ID: ST9678
+Name: Lillian Hayes
+Password: BDgt%74h4
+Contact: 013-5736839
+User Type: Staff
+--------------------------------------------------

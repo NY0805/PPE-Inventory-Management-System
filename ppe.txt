@@ -1,48 +1,37 @@
-Item ID: PPE0123
-Item Name: Mask
-Supplier ID: SP5981
-Quantity(boxes): 205
-Unit Price(RM): 2.00
---------------------------------------------------
-Item ID: PPE1829
-Item Name: Face Shield
-Supplier ID: SP6599
-Quantity(boxes): 47
-Unit Price(RM): 4.00
---------------------------------------------------
-Item ID: PPE1792
-Item Name: Gown
-Supplier ID: SP4524
-Quantity(boxes): 98
-Unit Price(RM): 10.00
---------------------------------------------------
-Item ID: PPE4020
-Item Name: Gloves
-Supplier ID: SP3565
-Quantity(boxes): 90
-Unit Price(RM): 2.00
---------------------------------------------------
-Item ID: PPE3790
-Item Name: Shoe Covers
-Supplier ID: SP7879
-Quantity(boxes): 89
-Unit Price(RM): 20.00
---------------------------------------------------
-Item ID: PPE1380
+Item Code: HC
 Item Name: Head Cover
-Supplier ID: SP6599
-Quantity(boxes): 10
-Unit Price(RM): 2.00
+Supplier Code: SP2029
+Quantity(boxes): 190
+Price per box(RM): 20.00
 --------------------------------------------------
-Item ID: PPE4567
-Item Name: Safety Glasses
-Supplier ID: SP3565
-Quantity(boxes): 50
-Unit Price(RM): 30.00
+Item Code: FS
+Item Name: Face Shield
+Supplier Code: SP7463
+Quantity(boxes): 100
+Price per box(RM): 25.00
 --------------------------------------------------
-Item ID: PPE6743
-Item Name: Hard Gloves
-Supplier ID: SP4524
-Quantity(boxes): 40
-Unit Price(RM): 50.00
+Item Code: MS
+Item Name: Mask
+Supplier Code: SP2029
+Quantity(boxes): 102
+Price per box(RM): 10.00
 --------------------------------------------------
+Item Code: GL
+Item Name: Gloves
+Supplier Code: SP2029
+Quantity(boxes): 150
+Price per box(RM): 18.30
+--------------------------------------------------
+Item Code: GW
+Item Name: Gown
+Supplier Code: SP7463
+Quantity(boxes): 120
+Price per box(RM): 35.00
+--------------------------------------------------
+Item Code: SC
+Item Name: Shoe Covers
+Supplier Code: SP7996
+Quantity(boxes): 110
+Price per box(RM): 20.00
+--------------------------------------------------
+

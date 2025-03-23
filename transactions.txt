@@ -1,221 +1,180 @@
-
 Transaction Type: Receive
-Transaction ID: TR9938
-Received Date: 2025-03-05
-Received Time: 23:59:59
-Item Code: PPE0123
-Item Name: Mask
-Supplier ID: SP5981
-Quantity(boxes): 30
-Expenses(RM): 60.00
+Transaction ID: TR2075
+Received Date: 2025-03-13
+Received Time: 23:00:00
+Item Code: HC
+Item Name: Head Cover
+Supplier ID: SP2029
+Quantity(boxes): 100
+Expenses(RM): 2000.00
 --------------------------------------------------
 Transaction Type: Receive
-Transaction ID: TR2484
-Received Date: 2025-03-14
-Received Time: 23:59:59
-Item Code: PPE3790
+Transaction ID: TR4448
+Received Date: 2025-03-18
+Received Time: 23:00:00
+Item Code: FS
+Item Name: Face Shield
+Supplier ID: SP7463
+Quantity(boxes): 50
+Expenses(RM): 1250.00
+--------------------------------------------------
+Transaction Type: Receive
+Transaction ID: TR9152
+Received Date: 2025-03-17
+Received Time: 23:00:00
+Item Code: MS
+Item Name: Mask
+Supplier ID: SP7996
+Quantity(boxes): 50
+Expenses(RM): 500.00
+--------------------------------------------------
+Transaction Type: Receive
+Transaction ID: TR5261
+Received Date: 2025-03-18
+Received Time: 00:00:00
+Item Code: GL
+Item Name: Gloves
+Supplier ID: SP2029
+Quantity(boxes): 100
+Expenses(RM): 1800.00
+--------------------------------------------------
+Transaction Type: Receive
+Transaction ID: TR8775
+Received Date: 2025-03-17
+Received Time: 14:30:00
+Item Code: GW
+Item Name: Gown
+Supplier ID: SP7463
+Quantity(boxes): 50
+Expenses(RM): 1750.00
+--------------------------------------------------
+Transaction Type: Receive
+Transaction ID: TR9516
+Received Date: 2025-03-16
+Received Time: 14:30:00
+Item Code: SC
 Item Name: Shoe Covers
-Supplier ID: SP7879
+Supplier ID: SP7996
 Quantity(boxes): 10
 Expenses(RM): 200.00
 --------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR8826
-Received Date: 2025-03-11
-Received Time: 23:59:59
-Item Code: PPE1829
+Transaction Type: Distribute
+Transaction ID: TR2240
+Distributed Date: 2025-03-18
+Distributed Time: 00:00:00
+Item Code: HC
+Item Name: Head Cover
+Hospital ID: HP6580
+Quantity(boxes): 100
+Income: 2000.00
+--------------------------------------------------
+Transaction Type: Distribute
+Transaction ID: TR7881
+Distributed Date: 2025-03-14
+Distributed Time: 12:00:00
+Item Code: FS
 Item Name: Face Shield
-Supplier ID: SP6599
-Quantity(boxes): 10
-Expenses(RM): 40.00
+Hospital ID: HP4138
+Quantity(boxes): 50
+Income: 1250.00
+--------------------------------------------------
+Transaction Type: Distribute
+Transaction ID: TR1641
+Distributed Date: 2025-03-18
+Distributed Time: 12:00:00
+Item Code: MS
+Item Name: Mask
+Hospital ID: HP4138
+Quantity(boxes): 100
+Income: 1000.00
+--------------------------------------------------
+Transaction Type: Distribute
+Transaction ID: TR4987
+Distributed Date: 2025-03-14
+Distributed Time: 05:23:00
+Item Code: GL
+Item Name: Gloves
+Hospital ID: HP5772
+Quantity(boxes): 50
+Income: 900.00
 --------------------------------------------------
 Transaction Type: Receive
-Transaction ID: TR8390
-Received Date: 2025-03-10
-Received Time: 23:59:59
-Item Code: PPE3790
-Item Name: Shoe Covers
-Supplier ID: SP7879
+Transaction ID: TR1124
+Received Date: 2025-03-12
+Received Time: 23:11:00
+Item Code: HC
+Item Name: Head Cover
+Supplier ID: SP2029
+Quantity(boxes): 70
+Expenses(RM): 1400.00
+--------------------------------------------------
+Transaction Type: Receive
+Transaction ID: TR9276
+Received Date: 2025-03-14
+Received Time: 12:00:00
+Item Code: HC
+Item Name: Head Cover
+Supplier ID: SP2029
 Quantity(boxes): 20
 Expenses(RM): 400.00
 --------------------------------------------------
+Transaction Type: Distribute
+Transaction ID: TR7344
+Distributed Date: 2025-03-14
+Distributed Time: 22:34:00
+Item Code: GW
+Item Name: Gown
+Hospital ID: HP4138
+Quantity(boxes): 10
+Income: 350.00
+--------------------------------------------------
 Transaction Type: Receive
-Transaction ID: TR4283
-Received Date: 2025-03-11
-Received Time: 23:59:59
-Item Code: PPE3790
-Item Name: Shoe Covers
-Supplier ID: SP7879
+Transaction ID: TR9126
+Received Date: 2025-03-18
+Received Time: 14:55:33
+Item Code: MS
+Item Name: Mask
+Supplier ID: SP2029
+Quantity(boxes): 102
+Expenses(RM): 1020.00
+--------------------------------------------------
+Transaction Type: Distribute
+Transaction ID: TR4748
+Distributed Date: 2025-03-19
+Distributed Time: 13:47:00
+Item Code: MS
+Item Name: Mask
+Hospital ID: HP6580
 Quantity(boxes): 50
-Expenses(RM): 1000.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR6481
-Received Date: 2025-03-10
-Received Time: 23:59:59
-Item Code: PPE4020
-Item Name: Gloves
-Supplier ID: SP3565
-Quantity(boxes): 30
-Expenses(RM): 60.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR3293
-Received Date: 2025-03-09
-Received Time: 23:59:59
-Item Code: PPE1792
-Item Name: Gown
-Supplier ID: SP4524
-Quantity(boxes): 3
-Expenses(RM): 30.00
+Income: 500.00
 --------------------------------------------------
 Transaction Type: Distribute
-Transaction ID: TR1187
-Distributed Date: 2025-03-04
-Distributed Time: 16:22:01
-Item Code: PPE1829
-Item Name: Face Shield
-Hospital ID: HP6580
-Quantity(boxes): 10
-Income: 40.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR4098
-Distributed Date: 2025-03-06
-Distributed Time: 16:22:01
-Item Code: PPE4020
-Item Name: Gloves
-Hospital ID: HP4138
-Quantity(boxes): 10
-Income: 20.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR5796
-Received Date: 2025-03-04
-Received Time: 23:59:59
-Item Code: PPE0123
-Item Name: Mask
-Supplier ID: SP5981
-Quantity(boxes): 10
-Expenses(RM): 20.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR7047
-Received Date: 2025-03-07
-Received Time: 23:59:59
-Item Code: PPE0123
-Item Name: Mask
-Supplier ID: SP5981
-Quantity(boxes): 30
-Expenses(RM): 60.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR8946
-Received Date: 2025-03-09
-Received Time: 23:59:59
-Item Code: PPE0123
-Item Name: Mask
-Supplier ID: SP5981
-Quantity(boxes): 20
-Expenses(RM): 40.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR3716
-Distributed Date: 2025-03-02
-Distributed Time: 22:56:51
-Item Code: PPE0123
-Item Name: Mask
-Hospital ID: HP8950
-Quantity(boxes): 10
-Income: 20.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR4493
-Distributed Date: 2025-03-14
-Distributed Time: 22:56:51
-Item Code: PPE0123
-Item Name: Mask
-Hospital ID: HP4138
-Quantity(boxes): 20
-Income: 20.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR3828
+Transaction ID: TR8803
 Distributed Date: 2025-03-10
-Distributed Time: 22:56:51
-Item Code: PPE0123
-Item Name: Mask
-Hospital ID: HP6580
-Quantity(boxes): 30
-Income: 20.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR3494
-Received Date: 2025-03-14
-Received Time: 23:59:59
-Item Code: PPE1829
-Item Name: Face Shield
-Supplier ID: SP6599
-Quantity(boxes): 10
-Expenses(RM): 40.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR4259
-Distributed Date: 2025-03-14
-Distributed Time: 15:51:46
-Item Code: PPE1792
+Distributed Time: 06:23:00
+Item Code: GW
 Item Name: Gown
 Hospital ID: HP6580
-Quantity(boxes): 10
-Income: 100.00
+Quantity(boxes): 120
+Income: 4200.00
 --------------------------------------------------
 Transaction Type: Receive
-Transaction ID: TR2254
+Transaction ID: TR3051
 Received Date: 2025-03-14
-Received Time: 23:59:59
-Item Code: PPE4020
-Item Name: Gloves
-Supplier ID: SP3565
-Quantity(boxes): 20
-Expenses(RM): 40.00
+Received Time: 13:00:00
+Item Code: SG
+Item Name: Safety Goggles
+Supplier ID: SP7996
+Quantity(boxes): 100
+Expenses(RM): 2520.00
 --------------------------------------------------
 Transaction Type: Receive
-Transaction ID: TR4446
-Received Date: 2025-03-14
-Received Time: 23:59:59
-Item Code: PPE1792
+Transaction ID: TR9538
+Received Date: 2025-03-15
+Received Time: 12:00:00
+Item Code: GW
 Item Name: Gown
-Supplier ID: SP4524
-Quantity(boxes): 20
-Expenses(RM): 200.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR1563
-Distributed Date: 2025-03-14
-Distributed Time: 23:59:59
-Item Code: PPE4020
-Item Name: Gloves
-Hospital ID: HP6580
-Quantity(boxes): 10
-Income: 20.00
---------------------------------------------------
-Transaction Type: Receive
-Transaction ID: TR9531
-Received Date: 2025-03-14
-Received Time: 23:59:59
-Item Code: PPE6743
-Item Name: Hard Gloves
-Supplier ID: SP4524
-Quantity(boxes): 20
-Expenses(RM): 1000.00
---------------------------------------------------
-Transaction Type: Distribute
-Transaction ID: TR8166
-Distributed Date: 2025-03-15
-Distributed Time: 23:59:59
-Item Code: PPE4020
-Item Name: Gloves
-Hospital ID: HP8950
-Quantity(boxes): 10
-Income: 20.00
+Supplier ID: SP7463
+Quantity(boxes): 100
+Expenses(RM): 3500.00
 --------------------------------------------------
