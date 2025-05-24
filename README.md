@@ -1,5 +1,5 @@
 # PPE Inventory Management System
-This is a java-based program developed to help the Department of Health in Kuala Lumpur manage the personal protective equipment supplies mroe systematically and efficiently.  
+This is a java-based program developed to help the Department of Health in Kuala Lumpur manage the personal protective equipment supplies more systematically and efficiently.  
 The system can track and manage PPE items, oversee stock levels, order PPE from suppliers, distribute PPE to hospitals, and generate 
 report.
 
